@@ -66,11 +66,16 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 4. **Banner'lar da aynı mantıkla varsayılan pasif.**
 5. **Rota planlayıcı** — bütçe + gün girip destinasyon önerisi alan özellik, `route_recommendations` koleksiyonundan JS ile eşleştiriliyor (aralık sorgusu Firestore'da index gerektirmesin diye tüm aktif kayıtlar çekilip client-side filtreleniyor).
 
+## Deploy durumu
+
+- **GitHub:** https://github.com/depofiti-design/gezicorn-site (main branch)
+- **Vercel:** proje adı `gezicorn`, takım `depofiti-1840s-projects`, GitHub reposuna bağlı — her `git push` otomatik yeni deploy tetikler
+- **Canlı URL:** https://gezicorn-depofiti-1840s-projects.vercel.app
+- Yerelde `.vercel/` klasörü var (proje linki), `.gitignore`'a eklendi.
+
 ## Kalan işler (henüz yapılmadı)
 
-- [ ] GitHub'da `depofiti-design/gezicorn` reposu oluşturulacak
-- [ ] Vercel'e bağlanacak (deploy)
-- [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak
+- [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak, Vercel'e bağlanacak
 - [ ] Travelpayouts hesabı açılıp widget embed edilecek
 - [ ] İç sayfalar: tekil blog yazısı sayfası, vize detay sayfası, öneriler/affiliate mağaza sayfası (şu an sadece ana sayfa var)
 - [ ] Kullanıcı kendi içeriklerini (gerçek blog yazıları, gerçek fırsatlar) admin panelden ekleyecek
