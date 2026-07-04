@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Gezicorn — Veri Yükle (tek seferlik)</title>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<style>
+body{font-family:Arial,sans-serif;max-width:520px;margin:80px auto;text-align:center;}
+button{padding:14px 26px;background:#141F38;color:#F6F1E4;border:none;border-radius:8px;font-size:15px;cursor:pointer;margin-top:20px;}
+#log{margin-top:24px;font-size:13px;color:#555;text-align:left;white-space:pre-wrap;}
+</style>
+</head>
+<body>
+
+<h2>Gezicorn — Başlangıç verisi</h2>
+<p>Bu sayfayı sadece <b>bir kere</b> çalıştır. Firebase config'i doğru girdiysen aşağıdaki butona basınca ülkeler, rota önerileri ve boş banner/sosyal medya dokümanları oluşur.</p>
+<button onclick="seed()">Başlangıç verisini yükle</button>
+<div id="log"></div>
+
+<script>
+// TODO: kendi firebaseConfig objenle değiştir (index.html ve admin.html ile aynı olmalı)
+const firebaseConfig = {
+  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
+  authDomain: "gezicorn.firebaseapp.com",
+  projectId: "gezicorn",
+  storageBucket: "gezicorn.firebasestorage.app",
+  messagingSenderId: "542127745680",
+  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const log = (msg) => document.getElementById('log').textContent += msg + '\n';
+
+async function seed(){
+  log('Başlıyor...');
+
+  const countries = [
+    {name:'Kırgızistan', visited:true, visa_status:'ikamet ülkesi', duration_days:null, pin_x:200, pin_y:90},
+    {name:'Kazakistan', visited:true, visa_status:'vizesiz', duration_days:30, pin_x:260, pin_y:110},
+    {name:'Özbekistan', visited:true, visa_status:'vizesiz', duration_days:30, pin_x:150, pin_y:125},
+    {name:'Rusya', visited:true, visa_status:'e-vize', duration_days:16, pin_x:232, pin_y:62},
+    {name:'Tayland', visited:true, visa_status:'vize muafiyeti', duration_days:30, pin_x:278, pin_y:228},
+    {name:'Malezya', visited:true, visa_status:'vize muafiyeti', duration_days:90, pin_x:296, pin_y:278},
+    {name:'Hong Kong', visited:true, visa_status:'vizesiz', duration_days:30, pin_x:318, pin_y:188},
+    {name:'Kamboçya', visited:true, visa_status:'e-vize', duration_days:30, pin_x:288, pin_y:310}
+  ];
+  for(const c of countries){ await db.collection('countries').add(c); }
+  log('✅ 8 ülke eklendi');
+
+  const recs = [
+    {budget_min:0, budget_max:4000, destination:'Özbekistan', note:'vizesiz, uygun bütçeli, kısa uçuş', estimated_price:3400, active:true},
+    {budget_min:4000, budget_max:7000, destination:'Tayland', note:'vize muafiyeti, kuru sezon, dengeli bütçe', estimated_price:4350, active:true},
+    {budget_min:7000, budget_max:10000, destination:'Malezya', note:'vize muafiyeti, uzun rota için ideal', estimated_price:5900, active:true},
+    {budget_min:10000, budget_max:999999, destination:'Hong Kong', note:'premium rota, kısa vizesiz kalış', estimated_price:6200, active:true}
+  ];
+  for(const r of recs){ await db.collection('route_recommendations').add(r); }
+  log('✅ 4 rota önerisi eklendi');
+
+  await db.collection('banners').doc('banner_1').set({active:false, image_url:'', link_url:'', alt_text:''});
+  await db.collection('banners').doc('banner_2').set({active:false, image_url:'', link_url:'', alt_text:''});
+  log('✅ 2 banner slotu oluşturuldu (pasif)');
+
+  for(const p of ['telegram','instagram','youtube','kick']){
+    await db.collection('social_links').doc(p).set({active:false, url:'', follower_label:''});
+  }
+  log('✅ 4 sosyal medya dokümanı oluşturuldu (pasif)');
+
+  log('\nTamamlandı! Artık admin.html üzerinden yazı/fırsat eklemeye başlayabilirsin.\nBu sayfayı bir daha çalıştırma — tekrar basarsan ülkeler ve öneriler ikinci kez eklenir.');
+}
+</script>
+</body>
+</html>
