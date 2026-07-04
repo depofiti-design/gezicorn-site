@@ -95,7 +95,8 @@ h1 em{font-style:italic;color:var(--gold);}
 .planner-result p{font-size:13.5px;color:#C8C4B6;}
 
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.post-card{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;}
+.post-card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;transition:border-color .15s;}
+.post-card:hover{border-color:var(--gold);}
 .post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
 .post-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;line-height:1.3;}
 .post-card p{font-size:13.5px;color:var(--muted);}
@@ -306,11 +307,11 @@ async function loadPosts(){
     const el = document.getElementById('postsGrid');
     const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber'};
     el.innerHTML = data.map(p=>`
-      <div class="post-card">
+      <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <span class="post-tag">${labels[p.category]||p.category}</span>
         <h3>${p.title}</h3>
         <p>${p.excerpt||''}</p>
-      </div>`).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz yazı eklenmedi — admin panelden ekleyebilirsin.</p>';
+      </a>`).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz yazı eklenmedi — admin panelden ekleyebilirsin.</p>';
   }catch(e){}
 }
 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Gezicorn — Yazı</title>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --navy:#141F38; --navy-deep:#0B1326; --cream:#F6F1E4; --paper:#FCFAF4;
+  --gold:#E0A526; --coral:#E3512E; --teal:#2F8C74; --ink:#181611; --muted:#6E6A5D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
+.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
+.back-link:hover{color:var(--gold);}
+
+.article{max-width:720px;margin:0 auto;padding:64px 24px 96px;}
+.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:18px;}
+.article h1{font-family:'Fraunces',serif;font-weight:800;font-size:36px;line-height:1.2;color:var(--navy);margin-bottom:20px;}
+.article .excerpt{font-size:16px;color:var(--muted);margin-bottom:32px;padding-bottom:32px;border-bottom:1px dashed rgba(20,31,56,0.2);}
+.article .body p{font-size:15.5px;margin-bottom:18px;}
+.article .body strong{color:var(--navy);}
+.not-found{max-width:520px;margin:120px auto;text-align:center;}
+.not-found h1{font-family:'Fraunces',serif;font-size:26px;color:var(--navy);margin-bottom:12px;}
+.not-found p{color:var(--muted);margin-bottom:20px;}
+.not-found a{display:inline-block;background:var(--navy);color:var(--cream);padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;}
+
+footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a class="brand" href="index.html"><span class="mark">G</span>GEZICORN</a>
+  <a class="back-link" href="index.html">← ana sayfaya dön</a>
+</div>
+
+<div id="content"></div>
+
+<footer>© Gezicorn</footer>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
+  authDomain: "gezicorn.firebaseapp.com",
+  projectId: "gezicorn",
+  storageBucket: "gezicorn.firebasestorage.app",
+  messagingSenderId: "542127745680",
+  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber'};
+
+function escapeHtml(str){
+  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function renderInline(str){
+  return escapeHtml(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+function renderNotFound(){
+  document.getElementById('content').innerHTML = `
+    <div class="not-found">
+      <h1>Yazı bulunamadı</h1>
+      <p>Aradığın yazı kaldırılmış olabilir ya da link hatalı.</p>
+      <a href="index.html">Ana sayfaya dön</a>
+    </div>`;
+}
+
+async function loadPost(){
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  if(!slug){ renderNotFound(); return; }
+  try{
+    const snap = await db.collection('posts').where('published','==',true).where('slug','==',slug).limit(1).get();
+    if(snap.empty){ renderNotFound(); return; }
+    const p = snap.docs[0].data();
+    document.title = `${p.title} — Gezicorn`;
+    const paragraphs = (p.content||'').split(/\n+/).filter(Boolean).map(par => `<p>${renderInline(par)}</p>`).join('');
+    document.getElementById('content').innerHTML = `
+      <div class="article">
+        <span class="post-tag">${labels[p.category]||p.category}</span>
+        <h1>${p.title}</h1>
+        ${p.excerpt ? `<div class="excerpt">${p.excerpt}</div>` : ''}
+        <div class="body">${paragraphs}</div>
+      </div>`;
+  }catch(e){ renderNotFound(); }
+}
+
+loadPost();
+</script>
+</body>
+</html>
