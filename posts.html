@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Gezicorn — Yazılar</title>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --navy:#141F38; --navy-deep:#0B1326; --cream:#F6F1E4; --paper:#FCFAF4;
+  --gold:#E0A526; --coral:#E3512E; --teal:#2F8C74; --ink:#181611; --muted:#6E6A5D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
+.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
+.back-link:hover{color:var(--gold);}
+
+.header{padding:56px 52px 24px;max-width:1220px;margin:0 auto;}
+.header h1{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--navy);margin-bottom:10px;}
+.header p{color:var(--muted);font-size:14.5px;max-width:36em;}
+
+.filters{display:flex;gap:10px;padding:0 52px 36px;max-width:1220px;margin:0 auto;flex-wrap:wrap;}
+.filter-btn{padding:9px 18px;border-radius:20px;border:1.5px solid rgba(20,31,56,0.2);background:var(--paper);font-size:13px;font-weight:500;color:var(--ink);}
+.filter-btn.active{background:var(--navy);color:var(--cream);border-color:var(--navy);}
+.filter-btn:hover:not(.active){border-color:var(--gold);}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 52px 80px;max-width:1220px;margin:0 auto;}
+@media(max-width:900px){.grid{grid-template-columns:1fr;}}
+.post-card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;overflow:hidden;transition:border-color .15s;}
+.post-card:hover{border-color:var(--gold);}
+.post-card img{width:100%;height:150px;object-fit:cover;display:block;background:var(--navy);}
+.post-card .body{padding:20px 22px;}
+.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
+.post-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.post-card p{font-size:13.5px;color:var(--muted);}
+.empty{color:var(--muted);font-size:14px;padding:20px 0;}
+
+footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a class="brand" href="index.html"><span class="mark">G</span>GEZICORN</a>
+  <a class="back-link" href="index.html">← ana sayfaya dön</a>
+</div>
+
+<div class="header">
+  <h1>Yazılar</h1>
+  <p>Vize kuralları, gönüllü fırsatları ve gezi rehberleri — Kırgızistan'dan Kamboçya'ya kendi rotamızdan ve Türk pasaportuna göre.</p>
+</div>
+
+<div class="filters" id="filters">
+  <a class="filter-btn" data-cat="all" href="posts.html">Tümü</a>
+  <a class="filter-btn" data-cat="vize" href="posts.html?category=vize">Vize &amp; ülkeler</a>
+  <a class="filter-btn" data-cat="firsat" href="posts.html?category=firsat">Gönüllü &amp; fırsatlar</a>
+  <a class="filter-btn" data-cat="rehber" href="posts.html?category=rehber">Gezi rehberleri</a>
+</div>
+
+<div class="grid" id="postsGrid"></div>
+
+<footer>© Gezicorn</footer>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
+  authDomain: "gezicorn.firebaseapp.com",
+  projectId: "gezicorn",
+  storageBucket: "gezicorn.firebasestorage.app",
+  messagingSenderId: "542127745680",
+  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber'};
+function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
+
+const params = new URLSearchParams(window.location.search);
+const activeCat = params.get('category') || 'all';
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  if(btn.dataset.cat === activeCat) btn.classList.add('active');
+});
+
+async function loadPosts(){
+  try{
+    const snap = await db.collection('posts').where('published','==',true).get();
+    let data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a));
+    if(activeCat !== 'all'){
+      data = data.filter(p => p.category === activeCat);
+    }
+    const el = document.getElementById('postsGrid');
+    el.innerHTML = data.map(p=>`
+      <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
+        ${p.cover_image ? `<img src="${p.cover_image}" alt="${p.title}">` : ''}
+        <div class="body">
+          <span class="post-tag">${labels[p.category]||p.category}</span>
+          <h3>${p.title}</h3>
+          <p>${p.excerpt||''}</p>
+        </div>
+      </a>`).join('') || '<p class="empty">Bu kategoride henüz yazı yok.</p>';
+  }catch(e){
+    document.getElementById('postsGrid').innerHTML = '<p class="empty">Yazılar yüklenemedi.</p>';
+  }
+}
+loadPosts();
+</script>
+</body>
+</html>
