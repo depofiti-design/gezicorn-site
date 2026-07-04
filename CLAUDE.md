@@ -60,7 +60,7 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 
 ## Önemli mimari kararlar (neden böyle yapıldı)
 
-1. **Uçak bileti fiyatları canlı olmalı** — kullanıcı "fiyatların güncel olması lazım" dedi. Karar: Travelpayouts widget'ı embed edilecek (henüz hesap açılmadı), bu yüzden `index.html`'de `#flightWidget` diye bir placeholder div var, içinde `// TODO: Travelpayouts hesabı açılınca embed kodu buraya` notu var. Gerçek fiyatlar bu widget üzerinden otomatik gelecek, Firestore'a elle girilmeyecek.
+1. **Uçak bileti fiyatları canlı olmalı** — kullanıcı "fiyatların güncel olması lazım" dedi. Çözüldü: `index.html`'deki `#flightWidget` div'inde artık **Aviasales "Flights Search Form" widget'ı** (Travelpayouts ortaklık ağı üzerinden, `tpwdgt.com` script'i) çalışıyor — kalkış İstanbul (IST) önceden dolu, para birimi USD, buton rengi site temasına (gold/navy) özelleştirildi, `promo_id=3414&campaign_id=111`. Fiyatlar tamamen canlı/otomatik, Firestore'a elle girilmiyor. Not: Travelpayouts'un "Drive" adlı otomatik monetizasyon aracı denendi ama CORS hatası nedeniyle çalışmadığı için kaldırıldı — bunun yerine klasik widget kullanıldı.
 2. **Kamp/gezi ürünü fırsatları manuel** — bunlar sık değişmiyor, admin panelden elle girilip güncelleniyor (`deals` koleksiyonu, type=gear).
 3. **Sosyal medya ikonları varsayılan gizli** — kullanıcı "panelde dursun ama sitede görünmesin, ben aktif ettiğimde görünsün" dedi. Bu yüzden `social_links` hepsi `active: false` ile başlıyor.
 4. **Banner'lar da aynı mantıkla varsayılan pasif.**
@@ -72,13 +72,15 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 - **Vercel:** proje adı `gezicorn`, takım `depofiti-1840s-projects`, GitHub reposuna bağlı — her `git push` otomatik yeni deploy tetikler
 - **Canlı URL:** https://gezicorn-depofiti-1840s-projects.vercel.app
 - Yerelde `.vercel/` klasörü var (proje linki), `.gitignore`'a eklendi.
+- **Önemli:** Vercel projesinde varsayılan olarak "SSO/Vercel Authentication" koruması açıktı (`.vercel.app` adresleri özel domain bağlanana kadar sadece Vercel hesabı olanlara görünüyordu, gerçek ziyaretçiler giriş ekranıyla karşılaşıyordu). Bu kapatıldı (`vercel project protection disable gezicorn --sso`), site artık tamamen herkese açık.
 
 ## Kalan işler (henüz yapılmadı)
 
 - [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak, Vercel'e bağlanacak
-- [ ] Travelpayouts hesabı açılıp widget embed edilecek
-- [ ] İç sayfalar: tekil blog yazısı sayfası, vize detay sayfası, öneriler/affiliate mağaza sayfası (şu an sadece ana sayfa var)
-- [ ] Kullanıcı kendi içeriklerini (gerçek blog yazıları, gerçek fırsatlar) admin panelden ekleyecek
+- [ ] "Tümünü gör" — tüm yazıları listeleyen bir blog index sayfası yok, şu an ana sayfada sadece son 3 yazı gösteriliyor
+- [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar (tekil blog yazısı sayfası `post.html` olarak yapıldı)
+- [ ] `deals` koleksiyonu hâlâ boş — kullanıcı admin panelden gerçek fırsatlar (kamp/gezi ürünleri) ekleyecek
+- [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site artık herkese açık olduğu için ileride sıkılaştırmak gerekebilir
 
 ## Kullanıcı hakkında (ton/yaklaşım için)
 
