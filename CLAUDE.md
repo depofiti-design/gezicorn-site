@@ -42,6 +42,8 @@ const firebaseConfig = {
 
 Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda" (herkes okuyup yazabiliyor) — admin panel şifreyle korunuyor ama veritabanı seviyesinde ekstra kilit yok. Bu, kullanıcının diğer sitelerindeki (TikoBey, BonusRota) risk toleransıyla aynı seviyede, bilinçli bir tercih.
 
+**Önemli olay (05 Temmuz 2026):** Firebase konsolundan başlangıçta seçilen "test modu" kuralları otomatik bir son kullanma tarihiyle geliyor — o tarih geçince Firestore tüm okuma/yazmayı sessizce 403'e düşürüyor. Bu yüzden site bir süre canlıda veri göstermedi (posts, deals, countries, route_recommendations, banners, social_links hepsi etkilendi). `firestore.rules` + `firebase.json` + `.firebaserc` eklendi, kurallar artık `allow read, write: if true` (son kullanma tarihi yok) ve `firebase deploy --only firestore:rules --project gezicorn` ile deploy edildi. **Bu durum periyodik olarak kontrol edilmeli** — Firebase konsolunda kuralları elle değiştirirsen yine son kullanma tarihi ekleyebilir, dikkat et.
+
 ## Dosyalar ve ne işe yaradıkları
 
 - **`index.html`** — canlı site. Firestore'dan posts/deals/countries/route_recommendations/banners/social_links okuyor.
