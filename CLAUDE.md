@@ -50,15 +50,16 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 - **`admin.html`** — şifreli yönetim paneli (şifre: `gezicorn2025`, kullanıcı isterse değiştirir). Yazı ekleme, fırsat ekleme, 2 banner slotu (aktif/pasif), 4 sosyal medya linki (Telegram/Instagram/YouTube/Kick — hepsi varsayılan **pasif**, sitede görünmesi için kullanıcı admin'den aktif etmeli).
 - **`seed.html`** — TEK SEFERLİK çalıştırıldı, başlangıç verisini (8 ülke, 4 rota önerisi, boş banner/sosyal doküman) yükledi. **Bir daha çalıştırılmamalı** (tekrar basılırsa ülkeler/öneriler ikinci kez eklenir, kopya veri oluşur). Repoya dahil etmeye gerek yok, arşiv olarak tutulabilir.
 - **`firestore-yapisi.md`** — Firestore koleksiyon şeması dokümantasyonu.
-- **`posts.html`** — kategoriye göre filtrelenebilen (`?category=vize|firsat|rehber`) tüm yazılar listeleme sayfası. Ana sayfadaki nav ("Vize & ülkeler", "Gönüllü & fırsatlar", "Gezi rehberleri") ve "tümünü gör" linki buraya bağlı. "Sıcak fırsatlar" sekmesi ise ana sayfadaki `#gearDeals`'a kaydırıyor.
+- **`posts.html`** — kategoriye göre filtrelenebilen (`?category=vize|firsat|rehber|haber`) tüm yazılar listeleme sayfası. Ana sayfadaki nav ("Vize & ülkeler", "Gönüllü & fırsatlar", "Gezi rehberleri", "Haberler") ve "tümünü gör" linki buraya bağlı. "Sıcak fırsatlar" sekmesi ise ana sayfadaki `#gearDeals`'a kaydırıyor.
+- **`robots.txt`** / **`sitemap.xml`** — admin.html ve seed.html'i arama motorlarından gizliyor. `sitemap.xml` Firestore'daki yayında olan yazılardan **statik olarak** üretildi (05 Ağustos 2026) — yeni yazı eklendiğinde otomatik güncellenmiyor, elle yeniden üretilmesi gerekiyor (bkz. "Kalan işler").
 
 ## İçerik durumu
 
-Firestore `posts` koleksiyonunda 34 yazı var: 26 vize, 5 rehber, 3 fırsat. 30'u toplu olarak eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). Kalanı görselsiz, kısa/öz metin ağırlıklı.
+Firestore `posts` koleksiyonunda 40 yazı var: 26 vize, 5 rehber, 3 fırsat, 6 haber. İlk 30'u toplu eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). **`haber` kategorisi** sonradan eklendi — sitenin kendi gelişim geçmişini (yeni özellik/içerik duyuruları) samimi biçimde anlatan 6 yazı; bilinçli olarak dış dünyadan (örn. "vize kuralı değişti" gibi) doğrulayamayacağımız iddialar içermiyor, sadece gerçekten yaptığımız işleri duyuruyor.
 
 ## Firestore koleksiyonları
 
-- `posts` — title, slug, category (vize/firsat/rehber), excerpt, content, cover_image, published, created_at
+- `posts` — title, slug, category (vize/firsat/rehber/haber), excerpt, content, cover_image, published, created_at
 - `deals` — type (gear/flight), title, route_from, route_to, old_price, new_price, discount_label, affiliate_url, active, created_at
 - `banners` — sabit 2 doküman: `banner_1`, `banner_2` (image_url, link_url, alt_text, active)
 - `social_links` — sabit 4 doküman: `telegram`, `instagram`, `youtube`, `kick` (url, follower_label, active)
@@ -83,11 +84,12 @@ Firestore `posts` koleksiyonunda 34 yazı var: 26 vize, 5 rehber, 3 fırsat. 30'
 
 ## Kalan işler (henüz yapılmadı)
 
-- [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak, Vercel'e bağlanacak
-- [ ] "Tümünü gör" — tüm yazıları listeleyen bir blog index sayfası yok, şu an ana sayfada sadece son 3 yazı gösteriliyor
+- [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak, Vercel'e bağlanacak (bağlanınca `sitemap.xml`, `robots.txt` ve tüm `og:image`/`og:url` referanslarındaki `gezicorn-depofiti-1840s-projects.vercel.app` adresi gerçek domain ile değiştirilmeli)
+- [x] "Tümünü gör" — artık `posts.html` var, kategori filtreli (vize/fırsat/rehber/haber)
 - [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar (tekil blog yazısı sayfası `post.html` olarak yapıldı)
 - [ ] `deals` koleksiyonu hâlâ boş — kullanıcı admin panelden gerçek fırsatlar (kamp/gezi ürünleri) ekleyecek
 - [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site artık herkese açık olduğu için ileride sıkılaştırmak gerekebilir
+- [ ] `sitemap.xml` statik/elle üretildi (05 Ağustos 2026) — yeni yazı eklendikçe güncel değil, periyodik olarak yeniden üretilmeli (script: Firestore `posts` koleksiyonunu okuyup URL listesi yazan basit bir python betiği, önceki oturumda kullanıldı)
 
 ## Kullanıcı hakkında (ton/yaklaşım için)
 
