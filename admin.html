@@ -2,7 +2,10 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Gezicorn — Admin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23141F38' stroke='%23E0A526' stroke-width='6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='58' fill='%23E0A526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
@@ -57,7 +60,7 @@ form.add button{padding:10px;background:var(--gold);border:none;border-radius:6p
     <form class="add" onsubmit="return addPost(event)">
       <input id="p_title" placeholder="Başlık" required>
       <input id="p_slug" placeholder="slug (örn: schengen-vizesi-neden-reddedilir)" required>
-      <select id="p_category"><option value="vize">Vize</option><option value="firsat">Fırsat</option><option value="rehber">Rehber</option></select>
+      <select id="p_category"><option value="vize">Vize</option><option value="firsat">Fırsat</option><option value="rehber">Rehber</option><option value="haber">Haber</option></select>
       <textarea id="p_excerpt" placeholder="Kısa özet (kart üzerinde görünür)" rows="2"></textarea>
       <textarea id="p_content" placeholder="Yazı içeriği" rows="5"></textarea>
       <input id="p_cover" placeholder="Kapak görsel URL (opsiyonel)">

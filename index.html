@@ -2,7 +2,15 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gezicorn — Pasaportunla nereye gidebilirsin?</title>
+<meta name="description" content="Kırgızistan merkezli gezi ve vize blogu — Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları, gönüllülük fırsatları ve gerçek rota rehberleri.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gezicorn — Pasaportunla nereye gidebilirsin?">
+<meta property="og:description" content="Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları ve gerçek rota rehberleri.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23141F38' stroke='%23E0A526' stroke-width='6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='58' fill='%23E0A526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
@@ -130,6 +138,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
     <li><a href="posts.html?category=vize">Vize &amp; ülkeler</a></li>
     <li><a href="posts.html?category=firsat">Gönüllü &amp; fırsatlar</a></li>
     <li><a href="posts.html?category=rehber">Gezi rehberleri</a></li>
+    <li><a href="posts.html?category=haber">Haberler</a></li>
     <li><a href="#gearDeals">Sıcak fırsatlar</a></li>
   </ul>
   <div id="navSocial"></div>
@@ -318,7 +327,7 @@ async function loadPosts(){
     const snap = await db.collection('posts').where('published','==',true).get();
     const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,3);
     const el = document.getElementById('postsGrid');
-    const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber'};
+    const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
     el.innerHTML = data.map(p=>`
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <span class="post-tag">${labels[p.category]||p.category}</span>

@@ -2,7 +2,15 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gezicorn — Yazı</title>
+<meta name="description" id="metaDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
+<meta property="og:type" content="article">
+<meta property="og:title" id="ogTitle" content="Gezicorn — Yazı">
+<meta property="og:description" id="ogDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
+<meta property="og:image" id="ogImage" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23141F38' stroke='%23E0A526' stroke-width='6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='58' fill='%23E0A526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
@@ -60,7 +68,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber'};
+const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
 
 function escapeHtml(str){
   return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -86,6 +94,14 @@ async function loadPost(){
     if(snap.empty){ renderNotFound(); return; }
     const p = snap.docs[0].data();
     document.title = `${p.title} — Gezicorn`;
+    if(p.excerpt){
+      document.getElementById('metaDescription').setAttribute('content', p.excerpt);
+      document.getElementById('ogDescription').setAttribute('content', p.excerpt);
+    }
+    document.getElementById('ogTitle').setAttribute('content', `${p.title} — Gezicorn`);
+    if(p.cover_image){
+      document.getElementById('ogImage').setAttribute('content', p.cover_image);
+    }
     const paragraphs = (p.content||'').split(/\n+/).filter(Boolean).map(par => `<p>${renderInline(par)}</p>`).join('');
     document.getElementById('content').innerHTML = `
       ${p.cover_image ? `<img class="cover" src="${p.cover_image}" alt="${p.title}">` : ''}
