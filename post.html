@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn — Yazı</title>
+<title>Gezicorn: Yazı</title>
 <meta name="description" id="metaDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
 <meta property="og:type" content="article">
-<meta property="og:title" id="ogTitle" content="Gezicorn — Yazı">
+<meta property="og:title" id="ogTitle" content="Gezicorn: Yazı">
 <meta property="og:description" id="ogDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
 <meta property="og:image" id="ogImage" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -94,12 +94,12 @@ async function loadPost(){
     const snap = await db.collection('posts').where('published','==',true).where('slug','==',slug).limit(1).get();
     if(snap.empty){ renderNotFound(); return; }
     const p = snap.docs[0].data();
-    document.title = `${p.title} — Gezicorn`;
+    document.title = `${p.title} · Gezicorn`;
     if(p.excerpt){
       document.getElementById('metaDescription').setAttribute('content', p.excerpt);
       document.getElementById('ogDescription').setAttribute('content', p.excerpt);
     }
-    document.getElementById('ogTitle').setAttribute('content', `${p.title} — Gezicorn`);
+    document.getElementById('ogTitle').setAttribute('content', `${p.title} · Gezicorn`);
     if(p.cover_image){
       document.getElementById('ogImage').setAttribute('content', p.cover_image);
     }

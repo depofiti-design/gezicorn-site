@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn — Seyahat Danışmanlığı | GEZİCORN TRAVEL LTD</title>
-<meta name="description" content="GEZİCORN TRAVEL LTD — Kamboçya merkezli resmi seyahat danışmanlığı şirketimiz. Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir destek.">
+<title>Gezicorn: Seyahat Danışmanlığı | GEZİCORN TRAVEL LTD</title>
+<meta name="description" content="GEZİCORN TRAVEL LTD, Kamboçya merkezli resmi seyahat danışmanlığı şirketimiz. Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir destek.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Gezicorn Seyahat Danışmanlığı — GEZİCORN TRAVEL LTD">
+<meta property="og:title" content="Gezicorn Seyahat Danışmanlığı: GEZİCORN TRAVEL LTD">
 <meta property="og:description" content="Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir danışmanlık desteği.">
 <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -104,7 +104,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
     <div class="service-card">
       <div class="icon">🧭</div>
       <h3>Rota Planlama</h3>
-      <p>Hiç fikrin yoksa ya da kararsızsan sorun değil — bütçene ve süren göre kişiye özel bir
+      <p>Hiç fikrin yoksa ya da kararsızsan sorun değil, bütçene ve süren göre kişiye özel bir
          rota birlikte kurarız.</p>
     </div>
   </div>
@@ -114,7 +114,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
     <p>Bu tavsiyeleri internetten toplama bir listeden değil, gerçekten kendi gittiğimiz rotalardan
        (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam) çıkardık.</p>
     <p>Vize sürecini, bilet arama mantığını ya da rota kurmayı hiç bilmeyenlere; sıfırdan, anlaşılır
-       ve dürüst şekilde anlatıyoruz — abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
+       ve dürüst şekilde anlatıyoruz. Abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
   </div>
 
   <div class="cta">
@@ -158,7 +158,7 @@ async function loadContact(){
     if(c.whatsapp_url) btns.push(`<a class="cta-btn" href="${c.whatsapp_url}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>`);
     if(c.telegram_url) btns.push(`<a class="cta-btn secondary" href="${c.telegram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Telegram</a>`);
     if(c.email) btns.push(`<a class="cta-btn secondary" href="mailto:${c.email}"><i class="fa-solid fa-envelope"></i> E-posta</a>`);
-    ctaEl.innerHTML = btns.length ? btns.join('') : `<span class="cta-soon">İletişim kanallarımız çok yakında burada — hazırlıyoruz.</span>`;
+    ctaEl.innerHTML = btns.length ? btns.join('') : `<span class="cta-soon">İletişim kanallarımız çok yakında burada, hazırlıyoruz.</span>`;
 
     const socials = [];
     if(c.instagram_url) socials.push(`<a class="social-btn" href="${c.instagram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>`);
@@ -166,7 +166,7 @@ async function loadContact(){
     if(c.x_url) socials.push(`<a class="social-btn" href="${c.x_url}" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>`);
     socialEl.innerHTML = socials.length ? socials.join('') : `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
   }catch(e){
-    ctaEl.innerHTML = `<span class="cta-soon">İletişim kanallarımız çok yakında burada — hazırlıyoruz.</span>`;
+    ctaEl.innerHTML = `<span class="cta-soon">İletişim kanallarımız çok yakında burada, hazırlıyoruz.</span>`;
     socialEl.innerHTML = `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
   }
 }

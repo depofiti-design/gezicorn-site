@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn — Pasaportunla nereye gidebilirsin?</title>
-<meta name="description" content="Kırgızistan merkezli gezi ve vize blogu — Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları, gönüllülük fırsatları ve gerçek rota rehberleri.">
+<title>Gezicorn: Pasaportunla nereye gidebilirsin?</title>
+<meta name="description" content="Kırgızistan merkezli gezi ve vize blogu. Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları, gönüllülük fırsatları ve gerçek rota rehberleri.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Gezicorn — Pasaportunla nereye gidebilirsin?">
+<meta property="og:title" content="Gezicorn: Pasaportunla nereye gidebilirsin?">
 <meta property="og:description" content="Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları ve gerçek rota rehberleri.">
 <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -140,6 +140,21 @@ h1 em{font-style:italic;color:var(--gold);}
 .ic-kick{background:rgba(83,252,24,0.18);color:#53FC18;font-weight:700;font-size:13px;}
 
 footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+
+@media(max-width:900px){
+  .nav{padding:16px 20px;flex-wrap:wrap;gap:10px;}
+  .nav-links{flex-wrap:wrap;gap:14px 18px;}
+  .hero{padding:48px 20px 40px;}
+  .hero-grid{grid-template-columns:1fr;gap:32px;}
+  .globe-svg{width:100%;max-width:340px;height:auto;}
+  .section{padding:44px 20px;}
+  h1{font-size:32px;}
+  .planner{grid-template-columns:1fr;padding:24px;}
+  .posts{grid-template-columns:1fr;}
+  .social-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-row{flex-wrap:wrap;gap:20px;}
+  .community-head{flex-direction:column;align-items:flex-start;}
+}
 </style>
 </head>
 <body>
@@ -164,7 +179,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
     <div>
       <button class="hot-pill" onclick="scrollToFlightSearch()"><span class="dot"></span>ŞU AN: İstanbul → Bangkok fırsatı canlı widget'ta</button>
       <h1>Pasaportunla <em>nereye</em> gidebilirsin?</h1>
-      <p>9 ülke, tek pasaport. Vize kuralları, gönüllü fırsatlarını ve gerçek rota notlarını topluyoruz — üstüne dünyayı döndür, sıcak bileti yakala.</p>
+      <p>9 ülke, tek pasaport. Vize kuralları, gönüllü fırsatlarını ve gerçek rota notlarını topluyoruz, üstüne dünyayı döndür, sıcak bileti yakala.</p>
       <div class="season-note">Şu an için ideal: Kamboçya, Tayland (kuru sezon)</div>
       <div class="stats-row">
         <div class="stat"><div class="n" id="countryCount">8</div><div class="l">gidilen ülke</div></div>
@@ -347,7 +362,7 @@ async function loadGearDeals(){
         <h3>${tag}</h3>
         ${priceArea}
       </button>`;
-    }).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz fırsat eklenmedi — admin panelden ekleyebilirsin.</p>';
+    }).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz fırsat eklenmedi. Admin panelden ekleyebilirsin.</p>';
   }catch(e){}
 }
 
@@ -371,7 +386,7 @@ async function loadPosts(){
         <span class="post-tag">${labels[p.category]||p.category}</span>
         <h3>${p.title}</h3>
         <p>${p.excerpt||''}</p>
-      </a>`).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz yazı eklenmedi — admin panelden ekleyebilirsin.</p>';
+      </a>`).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz yazı eklenmedi. Admin panelden ekleyebilirsin.</p>';
   }catch(e){}
 }
 
