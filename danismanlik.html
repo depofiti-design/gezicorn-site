@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gezicorn — Seyahat Danışmanlığı | GEZİCORN TRAVEL LTD</title>
+<meta name="description" content="GEZİCORN TRAVEL LTD — Kamboçya merkezli resmi seyahat danışmanlığı şirketimiz. Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir destek.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gezicorn Seyahat Danışmanlığı — GEZİCORN TRAVEL LTD">
+<meta property="og:description" content="Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir danışmanlık desteği.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23141F38' stroke='%23E0A526' stroke-width='6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='58' fill='%23E0A526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --navy:#141F38; --navy-deep:#0B1326; --cream:#F6F1E4; --paper:#FCFAF4;
+  --gold:#E0A526; --coral:#E3512E; --teal:#2F8C74; --ink:#181611; --muted:#6E6A5D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
+.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
+.back-link:hover{color:var(--gold);}
+
+.hero{background:var(--navy);color:var(--cream);padding:64px 52px 56px;text-align:center;}
+.hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(224,165,38,0.15);border:1px solid var(--gold);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 14px;border-radius:20px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.03em;}
+.hero h1{font-family:'Fraunces',serif;font-weight:800;font-size:38px;line-height:1.15;max-width:16em;margin:0 auto 16px;}
+.hero p{color:#C8C4B6;max-width:34em;margin:0 auto;font-size:15.5px;}
+
+.wrap{max-width:900px;margin:0 auto;padding:56px 24px 96px;}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px;}
+@media(max-width:800px){.services{grid-template-columns:1fr;}}
+.service-card{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:24px;}
+.service-card .icon{width:42px;height:42px;border-radius:50%;background:rgba(224,165,38,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);margin-bottom:16px;}
+.service-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;}
+.service-card p{font-size:13.5px;color:var(--muted);}
+
+.why{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:16px;padding:36px;margin-bottom:56px;}
+.why h2{font-family:'Fraunces',serif;font-size:24px;color:var(--navy);margin-bottom:16px;}
+.why p{font-size:14.5px;color:var(--ink);margin-bottom:12px;}
+.why p:last-child{margin-bottom:0;}
+
+.cta{background:var(--navy);color:var(--cream);border-radius:16px;padding:44px;text-align:center;}
+.cta .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;letter-spacing:.04em;}
+.cta h2{font-family:'Fraunces',serif;font-size:26px;margin-bottom:12px;}
+.cta p{color:#C8C4B6;font-size:14.5px;margin-bottom:24px;max-width:32em;margin-left:auto;margin-right:auto;}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:15px;padding:14px 30px;border-radius:8px;}
+.cta-btn:hover{opacity:.92;}
+.cta-soon{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#A6A290;}
+
+.legal{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);text-align:center;margin-top:28px;}
+
+footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a class="brand" href="index.html"><span class="mark">G</span>GEZICORN</a>
+  <a class="back-link" href="index.html">← ana sayfaya dön</a>
+</div>
+
+<div class="hero">
+  <div class="badge">GEZİCORN TRAVEL LTD</div>
+  <h1>Rotanı tek başına çözmek zorunda değilsin</h1>
+  <p>Kamboçya merkezli resmi seyahat danışmanlığı şirketimizle, vize sürecinden bilet alımına kadar
+     gerçek deneyimden gelen birebir destek veriyoruz.</p>
+</div>
+
+<div class="wrap">
+  <div class="services">
+    <div class="service-card">
+      <div class="icon">📄</div>
+      <h3>Vize Danışmanlığı</h3>
+      <p>Hangi ülkeye hangi vize türüyle gidebileceğinden (örneğin Tayland vize seçenekleri) evrak
+         hazırlığına kadar adım adım yönlendirme.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">✈️</div>
+      <h3>Uçak Bileti Desteği</h3>
+      <p>Doğru rotayı, doğru zamanda ve gerçek bütçene uygun şekilde bulman için bilet arama ve
+         alım sürecinde yanındayız.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🧭</div>
+      <h3>Rota Planlama</h3>
+      <p>Hiç fikrin yoksa ya da kararsızsan sorun değil — bütçene ve süren göre kişiye özel bir
+         rota birlikte kurarız.</p>
+    </div>
+  </div>
+
+  <div class="why">
+    <h2>Neden Gezicorn Travel?</h2>
+    <p>Bu tavsiyeleri internetten toplama bir listeden değil, gerçekten kendi gittiğimiz rotalardan
+       (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya) çıkardık.</p>
+    <p>Vize sürecini, bilet arama mantığını ya da rota kurmayı hiç bilmeyenlere; sıfırdan, anlaşılır
+       ve dürüst şekilde anlatıyoruz — abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
+  </div>
+
+  <div class="cta">
+    <div class="tag">hiç fikrin yok mu, kararsız mısın?</div>
+    <h2>Bizimle iletişime geç</h2>
+    <p>Nereye gideceğine karar veremedin, vize süreci kafanı karıştırdı ya da bilet ararken
+       kayboldun mu? Anlat, birlikte netleştirelim.</p>
+    <div id="ctaArea"></div>
+  </div>
+
+  <div class="legal">GEZİCORN TRAVEL LTD · Kamboçya merkezli resmi seyahat danışmanlığı şirketi</div>
+</div>
+
+<footer>© Gezicorn</footer>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
+  authDomain: "gezicorn.firebaseapp.com",
+  projectId: "gezicorn",
+  storageBucket: "gezicorn.firebasestorage.app",
+  messagingSenderId: "542127745680",
+  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+async function loadContact(){
+  const el = document.getElementById('ctaArea');
+  try{
+    const doc = await db.collection('settings').doc('consultancy').get();
+    const c = doc.exists ? doc.data() : null;
+    if(c && c.active && c.contact_url){
+      el.innerHTML = `<a class="cta-btn" href="${c.contact_url}" target="_blank" rel="noopener">Bize Ulaş →</a>`;
+    } else {
+      el.innerHTML = `<span class="cta-soon">İletişim kanalımız çok yakında burada — hazırlıyoruz.</span>`;
+    }
+  }catch(e){
+    el.innerHTML = `<span class="cta-soon">İletişim kanalımız çok yakında burada — hazırlıyoruz.</span>`;
+  }
+}
+loadContact();
+</script>
+</body>
+</html>

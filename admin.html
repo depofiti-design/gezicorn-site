@@ -52,6 +52,7 @@ form.add button{padding:10px;background:var(--gold);border:none;border-radius:6p
     <button class="tab-btn" data-tab="deals">Fırsatlar</button>
     <button class="tab-btn" data-tab="banners">Banner'lar</button>
     <button class="tab-btn" data-tab="social">Sosyal Medya</button>
+    <button class="tab-btn" data-tab="consultancy">Danışmanlık</button>
   </div>
 
   <!-- POSTS -->
@@ -96,6 +97,12 @@ form.add button{padding:10px;background:var(--gold);border:none;border-radius:6p
     <p class="note">Sosyal medya ikonları sitede <b>varsayılan olarak görünmez</b>. İstediğin platformu aktif edersen o an sitede belirir.</p>
     <div id="socialList"></div>
   </div>
+
+  <!-- CONSULTANCY -->
+  <div class="panel" id="panel-consultancy">
+    <p class="note">GEZİCORN TRAVEL LTD danışmanlık sayfasındaki "Bize Ulaş" butonunun gittiği link. WhatsApp (<code>https://wa.me/90...</code>), Telegram (<code>https://t.me/...</code>) ya da <code>mailto:</code> linki olabilir. Boşken ya da pasifken sitede buton yerine "çok yakında" yazısı görünür.</p>
+    <div id="consultancyForm"></div>
+  </div>
 </div>
 
 <script>
@@ -131,7 +138,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 });
 
 async function loadAll(){
-  loadPosts(); loadDeals(); loadBanners(); loadSocial();
+  loadPosts(); loadDeals(); loadBanners(); loadSocial(); loadConsultancy();
 }
 
 function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
@@ -216,6 +223,22 @@ async function loadSocial(){
 }
 async function toggleSocial(platform, val){ await db.collection('social_links').doc(platform).set({active:val}, {merge:true}); loadSocial(); }
 async function updateSocial(platform, field, val){ await db.collection('social_links').doc(platform).set({[field]:val}, {merge:true}); }
+
+// ---- CONSULTANCY ----
+async function loadConsultancy(){
+  const doc = await db.collection('settings').doc('consultancy').get();
+  const c = doc.exists ? doc.data() : {contact_url:'', active:false};
+  document.getElementById('consultancyForm').innerHTML = `
+    <div class="item" style="flex-direction:column;align-items:stretch;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <b>İletişim linki</b>
+        <button class="toggle ${c.active?'on':''}" onclick="toggleConsultancy(${!c.active})"><span class="dot"></span></button>
+      </div>
+      <input placeholder="https://wa.me/90... , https://t.me/... veya mailto:..." value="${c.contact_url||''}" onchange="updateConsultancy(this.value)" style="margin-top:8px;padding:8px;border:1px solid #ccc;border-radius:6px;">
+    </div>`;
+}
+async function toggleConsultancy(val){ await db.collection('settings').doc('consultancy').set({active:val}, {merge:true}); loadConsultancy(); }
+async function updateConsultancy(val){ await db.collection('settings').doc('consultancy').set({contact_url:val}, {merge:true}); }
 </script>
 </body>
 </html>
