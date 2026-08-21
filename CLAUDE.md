@@ -6,7 +6,7 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 
 **İçerik odağı:** Vize kuralları (hangi pasaportla nereye vizesiz gidilir, Avrupa vizesi red sebepleri vb.), genç gönüllü projeleri/fırsatlar, gezi rehberleri (özellikle Orta Asya + Güneydoğu Asya rotası). Affiliate olarak uçak bileti ve kamp/gezi ürünleri satışı da hedefleniyor.
 
-**Barbaros'un gerçekten gittiği 8 ülke** (site içeriğinde ve globe pin'lerinde bunlar kullanılıyor): Kırgızistan (ikamet), Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya.
+**Barbaros'un gerçekten gittiği 9 ülke** (site içeriğinde ve globe pin'lerinde bunlar kullanılıyor): Kırgızistan (ikamet), Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam (21 Ağustos 2026'da eklendi). Ülke sayısı `index.html`'deki hero istatistiğinde artık Firestore'dan dinamik okunuyor (`#countryCount`), yeni ülke eklenince elle güncellemeye gerek yok — ama hero paragrafındaki "9 ülke, tek pasaport" cümlesi hâlâ statik metin, yeni ülke eklenince onu elle güncellemek gerekiyor.
 
 ## Tasarım dili — DEĞİŞTİRİLMEMELİ
 
@@ -24,8 +24,8 @@ Bu tasarım claude.ai'de (farklı bir sohbette) kullanıcıyla adım adım onayl
 
 - **Frontend:** Düz HTML/CSS/JS (framework yok, build adımı yok)
 - **Veritabanı:** Firebase Firestore (Supabase'den geçildi — kullanıcı Supabase free plan proje limitine takıldı, bütçe kısıtı nedeniyle ücretsiz kalması gerekiyordu)
-- **Hosting:** Vercel (henüz bağlanmadı — bir sonraki adım)
-- **GitHub:** `depofiti-design` organizasyonu altında (henüz repo oluşturulmadı — bir sonraki adım)
+- **Hosting:** Vercel, proje `gezicorn`, takım `depofiti-1840s-projects` — bağlı ve çalışıyor (bkz. "Deploy durumu")
+- **GitHub:** `depofiti-design/gezicorn-site` — public repo, bağlı ve çalışıyor
 
 ## Firebase config (gerçek, aktif proje)
 
@@ -52,11 +52,11 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 - **`firestore-yapisi.md`** — Firestore koleksiyon şeması dokümantasyonu.
 - **`posts.html`** — kategoriye göre filtrelenebilen (`?category=vize|firsat|rehber|haber`) tüm yazılar listeleme sayfası. Ana sayfadaki nav ("Vize & ülkeler", "Gönüllü & fırsatlar", "Gezi rehberleri", "Haberler") ve "tümünü gör" linki buraya bağlı. "Sıcak fırsatlar" sekmesi ise ana sayfadaki `#gearDeals`'a kaydırıyor.
 - **`robots.txt`** / **`sitemap.xml`** — admin.html ve seed.html'i arama motorlarından gizliyor. `sitemap.xml` Firestore'daki yayında olan yazılardan **statik olarak** üretildi (05 Ağustos 2026, 46 yazı) — yeni yazı eklendiğinde otomatik güncellenmiyor, elle yeniden üretilmesi gerekiyor (bkz. "Kalan işler").
-- **`danismanlik.html`** — GEZİCORN TRAVEL LTD (Kamboçya merkezli resmi şirket) için profesyonel danışmanlık/hizmet tanıtım sayfası: vize danışmanlığı, uçak bileti desteği, rota planlama. "Bize Ulaş" butonu `settings/consultancy` dokümanındaki `contact_url`'e gidiyor; boş/pasifken buton yerine "çok yakında" mesajı gösteriyor. Ana sayfa nav'ında altın renkli, ayrı bir link olarak duruyor; rota planlayıcı bölümünde de "hiç fikrin yok mu, kararsız mısın?" CTA'sı bu sayfaya bağlı.
+- **`danismanlik.html`** — GEZİCORN TRAVEL LTD (Kamboçya merkezli resmi şirket) için profesyonel danışmanlık/hizmet tanıtım sayfası: vize danışmanlığı, uçak bileti desteği, rota planlama. İletişim kısmında **3 ayrı buton** (WhatsApp/Telegram/E-posta) + ayrı bir **"Sosyal medya hesaplarımız"** bölümü (Instagram/TikTok/X) var, hepsi `settings/consultancy` dokümanından okunuyor — her alan tek tek boş/dolu, dolduruldukça o buton/ikon otomatik görünür (aktif/pasif anahtarına gerek yok). Ana sayfa nav'ında altın renkli, ayrı bir link olarak duruyor; rota planlayıcı bölümünde de "hiç fikrin yok mu, kararsız mısın?" CTA'sı bu sayfaya bağlı.
 
 ## İçerik durumu
 
-Firestore `posts` koleksiyonunda 46 yazı var: 28 vize, 8 rehber, 3 fırsat, 7 haber. İlk 30'u toplu eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). **`haber` kategorisi** sonradan eklendi — önce sitenin kendi gelişim geçmişini anlatan 6 yazı, sonra pasaport/vize dünyasındaki genel gelişmeleri (AB dijital Schengen vizesi planı, vize ücretleri, dijital nomad vizesi, pasaport yenileme, konsolosluk randevu sistemleri, danışmanlık seçimi) anlatan 6 yazı daha eklendi. **Önemli editoryal kural:** bu kategoriye doğrulayamayacağımız spesifik/tarihli iddialar ("X ülke Y tarihinde vize kuralını değiştirdi" gibi) yazılmıyor — sadece uzun süredir var olduğunu bildiğimiz yapısal gelişmeler, hep "güncel durumu resmi kaynaktan teyit et" uyarısıyla birlikte.
+Firestore `posts` koleksiyonunda **50 yazı** var: 29 vize, 9 rehber, 3 fırsat, 9 haber. İlk 30'u toplu eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). **`haber` kategorisi** sonradan eklendi — sitenin kendi gelişim geçmişini anlatan yazılar (canlı widget, 30 rehber, kategori sayfaları, Vietnam eklenmesi, danışmanlık hizmeti duyurusu) + pasaport/vize dünyasındaki genel gelişmeler (AB dijital Schengen vizesi planı, vize ücretleri, dijital nomad vizesi, pasaport yenileme, konsolosluk randevu sistemleri, danışmanlık seçimi, seyahat sigortası, Vietnam e-vize rehberi). **Önemli editoryal kural:** bu kategoriye doğrulayamayacağımız spesifik/tarihli iddialar ("X ülke Y tarihinde vize kuralını değiştirdi" gibi) yazılmıyor — sadece uzun süredir var olduğunu bildiğimiz yapısal gelişmeler, hep "güncel durumu resmi kaynaktan teyit et" uyarısıyla birlikte.
 
 ## Firestore koleksiyonları
 
@@ -66,12 +66,13 @@ Firestore `posts` koleksiyonunda 46 yazı var: 28 vize, 8 rehber, 3 fırsat, 7 h
 - `social_links` — sabit 4 doküman: `telegram`, `instagram`, `youtube`, `kick` (url, follower_label, active)
 - `countries` — name, visited, visa_status, duration_days, pin_x, pin_y (globe koordinatları)
 - `route_recommendations` — budget_min, budget_max, destination, note, estimated_price, active. **Bütçe "uçak bileti hariç"** — konaklama/yeme-içme/aktivite toplamı anlamında (17 Ağustos 2026'da netleşti, planlayıcının label'ına "(uçak bileti hariç)" notu eklendi). Güncel bantlar: Özbekistan ~32.000₺, Tayland ~44.000₺, Malezya ~56.000₺, Hong Kong ~68.000₺; slider 25.000-70.000₺ aralığında. (Not: 05 Ağustos'ta önce 10.000-40.000₺'ye çekilmişti, hâlâ gerçek dışı bulunup 17 Ağustos'ta tekrar yükseltildi — bu rakamlar tahmini, gerçek fiyat garantisi yok, kullanıcı geri bildirimine göre ayarlandı.)
-- `settings/consultancy` — tek doküman, GEZİCORN TRAVEL LTD danışmanlık sayfasının iletişim linki: `contact_url` (string), `active` (boolean). Admin panelden "Danışmanlık" sekmesinden yönetiliyor, henüz **boş/pasif** — kullanıcı kendi WhatsApp/Telegram/mailto linkini girecek.
+- `settings/consultancy` — tek doküman, GEZİCORN TRAVEL LTD danışmanlık sayfasının iletişim + sosyal medya alanları: `whatsapp_url`, `telegram_url`, `email`, `instagram_url`, `tiktok_url`, `x_url` (hepsi string, hepsi boş = gizli). Admin panelden "Danışmanlık" sekmesinden yönetiliyor, henüz **hepsi boş** — kullanıcı dolduracak. (Eski `contact_url`/`active` alanları da dokümanda duruyor ama artık kullanılmıyor, silinebilir.)
+- `settings/branding` — tek doküman, `logo_url` (string, boşsa mevcut "G" rozeti kullanılır). Admin panelde "Site Ayarları" sekmesinden yönetiliyor, henüz **boş**. index.html/post.html/posts.html/danismanlik.html hepsi bu alanı okuyor.
 
 ## Önemli mimari kararlar (neden böyle yapıldı)
 
 1. **Uçak bileti fiyatları canlı olmalı** — kullanıcı "fiyatların güncel olması lazım" dedi. Çözüldü: `index.html`'deki `#flightWidget` div'inde artık **Aviasales "Flights Search Form" widget'ı** (Travelpayouts ortaklık ağı üzerinden, `tpwdgt.com` script'i) çalışıyor — kalkış İstanbul (IST) önceden dolu, para birimi USD, buton rengi site temasına (gold/navy) özelleştirildi, `promo_id=3414&campaign_id=111`. Fiyatlar tamamen canlı/otomatik, Firestore'a elle girilmiyor. Not: Travelpayouts'un "Drive" adlı otomatik monetizasyon aracı denendi ama CORS hatası nedeniyle çalışmadığı için kaldırıldı — bunun yerine klasik widget kullanıldı.
-2. **Kamp/gezi ürünü fırsatları manuel** — bunlar sık değişmiyor, admin panelden elle girilip güncelleniyor (`deals` koleksiyonu, type=gear). **"Bugünün sıcak fırsatları" bölümü artık type=flight ile dolduruldu** (17 Ağustos 2026) — İstanbul çıkışlı 4 rota kartı (Roma, Almatı, Bangkok, Kuala Lumpur), fiyat uydurmak yerine "canlı fiyata bak" CTA'sı gösteriyor; karta tıklayınca sayfa yukarıdaki Aviasales widget'ına kayıp altın çerçeveyle vurgulanıyor + "rotanı gir, Ara'ya bas" ipucu çıkıyor. **Teknik sınır:** widget cross-origin iframe olduğu için nokta/tarihi otomatik dolduramıyoruz, sadece scroll+vurgula+ipucu ile yönlendiriyoruz — kullanıcı "kiwi ref'e yönlendir" istemişti ama güvenilmeyen bir deep-link formatı uydurmak yerine bu garanti çalışan yöntemi seçtik.
+2. **Kamp/gezi ürünü fırsatları manuel** — bunlar sık değişmiyor, admin panelden elle girilip güncelleniyor (`deals` koleksiyonu, type=gear). **"Bugünün sıcak fırsatları" bölümü artık type=flight ile dolduruldu** (17 Ağustos 2026) — İstanbul çıkışlı 4 rota kartı (Roma, Almatı, Bangkok, Kuala Lumpur), fiyat uydurmak yerine "canlı fiyata bak" CTA'sı gösteriyor; karta tıklayınca sayfa yukarıdaki Aviasales widget'ına kayıp altın çerçeveyle vurgulanıyor + "rotanı gir, Ara'ya bas" ipucu çıkıyor. **Teknik sınır:** widget cross-origin iframe olduğu için nokta/tarihi otomatik dolduramıyoruz, sadece scroll+vurgula+ipucu ile yönlendiriyoruz — kullanıcı "kiwi ref'e yönlendir" istemişti ama güvenilmeyen bir deep-link formatı uydurmak yerine bu garanti çalışan yöntemi seçtik. `scrollToFlightSearch()` fonksiyonu (21 Ağustos 2026'dan itibaren) hero'daki "ŞU AN: İstanbul → Bangkok" pill'inden ve "bas döndür" sonrası çıkan mesajdan da tetikleniyor — önceden ikisi de tıklanamayan, sadece dekoratif metindi ve "yukarıdaki widget'a bak" diyordu (widget aslında aşağıda), kullanıcı bunu "çalışmayan buton" olarak fark edip düzelttirdi.
 3. **Sosyal medya ikonları varsayılan gizli** — kullanıcı "panelde dursun ama sitede görünmesin, ben aktif ettiğimde görünsün" dedi. Bu yüzden `social_links` hepsi `active: false` ile başlıyor.
 4. **Banner'lar da aynı mantıkla varsayılan pasif.**
 5. **Rota planlayıcı** — bütçe + gün girip destinasyon önerisi alan özellik, `route_recommendations` koleksiyonundan JS ile eşleştiriliyor (aralık sorgusu Firestore'da index gerektirmesin diye tüm aktif kayıtlar çekilip client-side filtreleniyor).
@@ -86,13 +87,15 @@ Firestore `posts` koleksiyonunda 46 yazı var: 28 vize, 8 rehber, 3 fırsat, 7 h
 
 ## Kalan işler (henüz yapılmadı)
 
-- [ ] Domain (gezicorn.com veya .com.tr) — kullanıcı sonra alacak, Vercel'e bağlanacak (bağlanınca `sitemap.xml`, `robots.txt` ve tüm `og:image`/`og:url` referanslarındaki `gezicorn-depofiti-1840s-projects.vercel.app` adresi gerçek domain ile değiştirilmeli)
-- [x] "Tümünü gör" — artık `posts.html` var, kategori filtreli (vize/fırsat/rehber/haber)
-- [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar (tekil blog yazısı sayfası `post.html` olarak yapıldı)
-- [ ] `deals` koleksiyonu hâlâ boş — kullanıcı admin panelden gerçek fırsatlar (kamp/gezi ürünleri) ekleyecek
-- [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site artık herkese açık olduğu için ileride sıkılaştırmak gerekebilir
-- [ ] `sitemap.xml` statik/elle üretildi (05 Ağustos 2026) — yeni yazı eklendikçe güncel değil, periyodik olarak yeniden üretilmeli (script: Firestore `posts` koleksiyonunu okuyup URL listesi yazan basit bir python betiği, önceki oturumda kullanıldı)
-- [ ] **Danışmanlık iletişim linki boş** — `danismanlik.html`'deki "Bize Ulaş" butonu şu an "çok yakında" yazıyor çünkü kullanıcı WhatsApp/Telegram/mailto linkini henüz admin panelden girmedi (`settings/consultancy` → `contact_url` + `active`)
+Kullanıcı 21 Ağustos 2026'da "sadece domain almak kalsın, buna göre ayarla" dedi — o hedefe göre geriye kalanlar, hepsi **kullanıcının kendi dolduracağı gerçek bilgi** gerektiriyor, kod/tasarım eksiği değil:
+
+- [ ] **Domain** — kullanıcı alacak (gezicorn.com veya .com.tr), Vercel'e bağlanacak. Bağlanınca şunlar güncellenmeli: `sitemap.xml`, `robots.txt` ve tüm `og:image`/`og:url`/deploy referanslarındaki `gezicorn-depofiti-1840s-projects.vercel.app` → gerçek domain.
+- [ ] **Danışmanlık iletişim/sosyal bilgileri boş** — `settings/consultancy` dokümanındaki 6 alan (whatsapp_url, telegram_url, email, instagram_url, tiktok_url, x_url) admin panelin "Danışmanlık" sekmesinden doldurulacak. Sahte/uydurma link koymadık, bilerek boş bıraktık.
+- [ ] **Logo boş** — `settings/branding` → `logo_url`, admin panelin "Site Ayarları" sekmesinden bir görsel URL girilirse "G" rozetinin yerine geçer.
+- [ ] **`deals` koleksiyonunda gear (kamp/gezi ürünü) tipi hâlâ boş** — type=flight kartları dolduruldu (rota önerileri), ama gerçek ürün/affiliate linki gerektiren type=gear hiç eklenmedi; kullanıcı admin panelden gerçek ürün bilgisiyle ekleyecek.
+- [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site herkese açık olduğu için ileride sıkılaştırılabilir, ama bilinçli bir tercih olarak şimdilik böyle bırakıldı.
+- [ ] `sitemap.xml` statik/elle üretildi (son güncelleme 21 Ağustos 2026, 50 yazı) — yeni yazı eklendikçe otomatik güncellenmiyor, periyodik olarak yeniden üretilmeli (script: Firestore `posts`'u okuyup URL listesi yazan basit python betiği, önceki oturumlarda kullanıldı, tekrar kullanılabilir).
+- [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar hâlâ yok (tekil blog yazısı sayfası `post.html` olarak yapıldı, kategori sayfası `posts.html` olarak yapıldı — bunlar yeterli görülüyorsa bu madde kapatılabilir).
 
 ## Kullanıcı hakkında (ton/yaklaşım için)
 
