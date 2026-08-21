@@ -53,6 +53,7 @@ form.add button{padding:10px;background:var(--gold);border:none;border-radius:6p
     <button class="tab-btn" data-tab="banners">Banner'lar</button>
     <button class="tab-btn" data-tab="social">Sosyal Medya</button>
     <button class="tab-btn" data-tab="consultancy">Danışmanlık</button>
+    <button class="tab-btn" data-tab="site">Site Ayarları</button>
   </div>
 
   <!-- POSTS -->
@@ -100,8 +101,14 @@ form.add button{padding:10px;background:var(--gold);border:none;border-radius:6p
 
   <!-- CONSULTANCY -->
   <div class="panel" id="panel-consultancy">
-    <p class="note">GEZİCORN TRAVEL LTD danışmanlık sayfasındaki "Bize Ulaş" butonunun gittiği link. WhatsApp (<code>https://wa.me/90...</code>), Telegram (<code>https://t.me/...</code>) ya da <code>mailto:</code> linki olabilir. Boşken ya da pasifken sitede buton yerine "çok yakında" yazısı görünür.</p>
+    <p class="note"><b>danismanlik.html</b> sayfasındaki iletişim butonları ve sosyal medya ikonları. Her alan <b>boş bırakılırsa o buton/ikon sitede görünmez</b> — doldurduğun anda otomatik belirir, ayrıca bir "aktif et" tuşuna basmana gerek yok.</p>
     <div id="consultancyForm"></div>
+  </div>
+
+  <!-- SITE SETTINGS -->
+  <div class="panel" id="panel-site">
+    <p class="note">Site geneli ayarlar. <b>Logo görsel URL'i</b> boşsa, her yerde şu anki altın çerçeveli "G" harfi rozeti kullanılmaya devam eder — bir URL girersen o görsel logonun yerine geçer (nav'da, admin panelde vs.).</p>
+    <div id="siteForm"></div>
   </div>
 </div>
 
@@ -138,7 +145,7 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 });
 
 async function loadAll(){
-  loadPosts(); loadDeals(); loadBanners(); loadSocial(); loadConsultancy();
+  loadPosts(); loadDeals(); loadBanners(); loadSocial(); loadConsultancy(); loadSiteSettings();
 }
 
 function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
@@ -225,20 +232,36 @@ async function toggleSocial(platform, val){ await db.collection('social_links').
 async function updateSocial(platform, field, val){ await db.collection('social_links').doc(platform).set({[field]:val}, {merge:true}); }
 
 // ---- CONSULTANCY ----
+const CONSULTANCY_FIELDS = [
+  {key:'whatsapp_url', label:'WhatsApp linki', placeholder:'https://wa.me/905xxxxxxxxx'},
+  {key:'telegram_url', label:'Telegram linki', placeholder:'https://t.me/kullaniciadi'},
+  {key:'email', label:'E-posta adresi', placeholder:'info@gezicorn.com'},
+  {key:'instagram_url', label:'Instagram linki', placeholder:'https://instagram.com/...'},
+  {key:'tiktok_url', label:'TikTok linki', placeholder:'https://tiktok.com/@...'},
+  {key:'x_url', label:'X (Twitter) linki', placeholder:'https://x.com/...'},
+];
 async function loadConsultancy(){
   const doc = await db.collection('settings').doc('consultancy').get();
-  const c = doc.exists ? doc.data() : {contact_url:'', active:false};
-  document.getElementById('consultancyForm').innerHTML = `
+  const c = doc.exists ? doc.data() : {};
+  document.getElementById('consultancyForm').innerHTML = CONSULTANCY_FIELDS.map(f => `
     <div class="item" style="flex-direction:column;align-items:stretch;">
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <b>İletişim linki</b>
-        <button class="toggle ${c.active?'on':''}" onclick="toggleConsultancy(${!c.active})"><span class="dot"></span></button>
-      </div>
-      <input placeholder="https://wa.me/90... , https://t.me/... veya mailto:..." value="${c.contact_url||''}" onchange="updateConsultancy(this.value)" style="margin-top:8px;padding:8px;border:1px solid #ccc;border-radius:6px;">
+      <b>${f.label}</b>
+      <input placeholder="${f.placeholder}" value="${c[f.key]||''}" onchange="updateConsultancy('${f.key}',this.value)" style="margin-top:8px;padding:8px;border:1px solid #ccc;border-radius:6px;">
+    </div>`).join('');
+}
+async function updateConsultancy(field, val){ await db.collection('settings').doc('consultancy').set({[field]:val}, {merge:true}); }
+
+// ---- SITE SETTINGS ----
+async function loadSiteSettings(){
+  const doc = await db.collection('settings').doc('branding').get();
+  const s = doc.exists ? doc.data() : {};
+  document.getElementById('siteForm').innerHTML = `
+    <div class="item" style="flex-direction:column;align-items:stretch;">
+      <b>Logo görsel URL'i</b>
+      <input placeholder="https://... (kare, tercihen şeffaf arka planlı png/svg)" value="${s.logo_url||''}" onchange="updateSiteSetting('logo_url',this.value)" style="margin-top:8px;padding:8px;border:1px solid #ccc;border-radius:6px;">
     </div>`;
 }
-async function toggleConsultancy(val){ await db.collection('settings').doc('consultancy').set({active:val}, {merge:true}); loadConsultancy(); }
-async function updateConsultancy(val){ await db.collection('settings').doc('consultancy').set({contact_url:val}, {merge:true}); }
+async function updateSiteSetting(field, val){ await db.collection('settings').doc('branding').set({[field]:val}, {merge:true}); }
 </script>
 </body>
 </html>

@@ -26,7 +26,8 @@ a{color:inherit;text-decoration:none;}
 
 .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
 .brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
+.brand .mark img{width:100%;height:100%;object-fit:cover;}
 .back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
 .back-link:hover{color:var(--gold);}
 
@@ -48,7 +49,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <body>
 
 <div class="nav">
-  <a class="brand" href="index.html"><span class="mark">G</span>GEZICORN</a>
+  <a class="brand" href="index.html"><span class="mark" id="brandMark">G</span>GEZICORN</a>
   <a class="back-link" href="index.html">← ana sayfaya dön</a>
 </div>
 
@@ -114,7 +115,18 @@ async function loadPost(){
   }catch(e){ renderNotFound(); }
 }
 
+async function loadBranding(){
+  try{
+    const doc = await db.collection('settings').doc('branding').get();
+    const logoUrl = doc.exists ? doc.data().logo_url : '';
+    if(logoUrl){
+      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
+    }
+  }catch(e){}
+}
+
 loadPost();
+loadBranding();
 </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
 <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23141F38' stroke='%23E0A526' stroke-width='6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-weight='700' font-size='58' fill='%23E0A526' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
@@ -26,7 +27,8 @@ a{color:inherit;text-decoration:none;}
 
 .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
 .brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
+.brand .mark img{width:100%;height:100%;object-fit:cover;}
 .back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
 .back-link:hover{color:var(--gold);}
 
@@ -52,9 +54,19 @@ a{color:inherit;text-decoration:none;}
 .cta .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;letter-spacing:.04em;}
 .cta h2{font-family:'Fraunces',serif;font-size:26px;margin-bottom:12px;}
 .cta p{color:#C8C4B6;font-size:14.5px;margin-bottom:24px;max-width:32em;margin-left:auto;margin-right:auto;}
-.cta-btn{display:inline-block;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:15px;padding:14px 30px;border-radius:8px;}
+.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:14.5px;padding:13px 26px;border-radius:8px;}
 .cta-btn:hover{opacity:.92;}
+.cta-btn.secondary{background:rgba(246,241,228,0.08);color:var(--cream);border:1px solid rgba(246,241,228,0.3);}
+.cta-btn.secondary:hover{border-color:var(--gold);opacity:1;}
 .cta-soon{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#A6A290;}
+
+.social-section{margin-top:56px;text-align:center;}
+.social-section h2{font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:18px;}
+.social-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.social-btn{width:50px;height:50px;border-radius:50%;background:var(--paper);border:1px solid rgba(20,31,56,0.12);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--navy);transition:border-color .15s,transform .15s;}
+.social-btn:hover{border-color:var(--gold);transform:translateY(-2px);}
+.social-soon{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);}
 
 .legal{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);text-align:center;margin-top:28px;}
 
@@ -64,7 +76,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <body>
 
 <div class="nav">
-  <a class="brand" href="index.html"><span class="mark">G</span>GEZICORN</a>
+  <a class="brand" href="index.html"><span class="mark" id="brandMark">G</span>GEZICORN</a>
   <a class="back-link" href="index.html">← ana sayfaya dön</a>
 </div>
 
@@ -100,7 +112,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
   <div class="why">
     <h2>Neden Gezicorn Travel?</h2>
     <p>Bu tavsiyeleri internetten toplama bir listeden değil, gerçekten kendi gittiğimiz rotalardan
-       (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya) çıkardık.</p>
+       (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam) çıkardık.</p>
     <p>Vize sürecini, bilet arama mantığını ya da rota kurmayı hiç bilmeyenlere; sıfırdan, anlaşılır
        ve dürüst şekilde anlatıyoruz — abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
   </div>
@@ -110,7 +122,12 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
     <h2>Bizimle iletişime geç</h2>
     <p>Nereye gideceğine karar veremedin, vize süreci kafanı karıştırdı ya da bilet ararken
        kayboldun mu? Anlat, birlikte netleştirelim.</p>
-    <div id="ctaArea"></div>
+    <div id="ctaArea" class="contact-btns"></div>
+  </div>
+
+  <div class="social-section">
+    <h2>Sosyal medya hesaplarımız</h2>
+    <div id="socialArea" class="social-row"></div>
   </div>
 
   <div class="legal">GEZİCORN TRAVEL LTD · Kamboçya merkezli resmi seyahat danışmanlığı şirketi</div>
@@ -131,20 +148,40 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 async function loadContact(){
-  const el = document.getElementById('ctaArea');
+  const ctaEl = document.getElementById('ctaArea');
+  const socialEl = document.getElementById('socialArea');
   try{
     const doc = await db.collection('settings').doc('consultancy').get();
-    const c = doc.exists ? doc.data() : null;
-    if(c && c.active && c.contact_url){
-      el.innerHTML = `<a class="cta-btn" href="${c.contact_url}" target="_blank" rel="noopener">Bize Ulaş →</a>`;
-    } else {
-      el.innerHTML = `<span class="cta-soon">İletişim kanalımız çok yakında burada — hazırlıyoruz.</span>`;
-    }
+    const c = doc.exists ? doc.data() : {};
+
+    const btns = [];
+    if(c.whatsapp_url) btns.push(`<a class="cta-btn" href="${c.whatsapp_url}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>`);
+    if(c.telegram_url) btns.push(`<a class="cta-btn secondary" href="${c.telegram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Telegram</a>`);
+    if(c.email) btns.push(`<a class="cta-btn secondary" href="mailto:${c.email}"><i class="fa-solid fa-envelope"></i> E-posta</a>`);
+    ctaEl.innerHTML = btns.length ? btns.join('') : `<span class="cta-soon">İletişim kanallarımız çok yakında burada — hazırlıyoruz.</span>`;
+
+    const socials = [];
+    if(c.instagram_url) socials.push(`<a class="social-btn" href="${c.instagram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>`);
+    if(c.tiktok_url) socials.push(`<a class="social-btn" href="${c.tiktok_url}" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>`);
+    if(c.x_url) socials.push(`<a class="social-btn" href="${c.x_url}" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>`);
+    socialEl.innerHTML = socials.length ? socials.join('') : `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
   }catch(e){
-    el.innerHTML = `<span class="cta-soon">İletişim kanalımız çok yakında burada — hazırlıyoruz.</span>`;
+    ctaEl.innerHTML = `<span class="cta-soon">İletişim kanallarımız çok yakında burada — hazırlıyoruz.</span>`;
+    socialEl.innerHTML = `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
   }
 }
+async function loadBranding(){
+  try{
+    const doc = await db.collection('settings').doc('branding').get();
+    const logoUrl = doc.exists ? doc.data().logo_url : '';
+    if(logoUrl){
+      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
+    }
+  }catch(e){}
+}
+
 loadContact();
+loadBranding();
 </script>
 </body>
 </html>

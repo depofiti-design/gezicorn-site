@@ -28,7 +28,8 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;}
 
 .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
 .brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;}
+.brand .mark{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
+.brand .mark img{width:100%;height:100%;object-fit:cover;}
 .nav-links{list-style:none;display:flex;gap:28px;font-size:13px;font-weight:500;}
 .nav-links a:hover{color:var(--gold);}
 #navSocial{display:flex;gap:12px;}
@@ -67,6 +68,10 @@ h1 em{font-style:italic;color:var(--gold);}
 .spin-btn.spinning .arrow{transform:rotate(360deg);}
 .reveal{margin-top:16px;min-height:52px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C8C4B6;text-align:center;}
 .reveal b{font-family:'Fraunces',serif;font-size:17px;font-weight:800;color:var(--gold);}
+.reveal-cta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C8C4B6;background:none;border:none;border-bottom:1px dashed var(--gold);cursor:pointer;padding:0;}
+.reveal-cta:hover{color:var(--gold);}
+.hot-pill{cursor:pointer;border:1px solid var(--coral);background:rgba(227,81,46,0.15);}
+.hot-pill:hover{background:rgba(227,81,46,0.25);}
 
 .stats-row{display:flex;gap:30px;margin-top:34px;}
 .stat .n{font-family:'Fraunces',serif;font-size:28px;font-weight:800;color:var(--gold);}
@@ -140,7 +145,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <body>
 
 <div class="nav">
-  <div class="brand"><span class="mark">G</span>GEZICORN</div>
+  <div class="brand"><span class="mark" id="brandMark">G</span>GEZICORN</div>
   <ul class="nav-links">
     <li><a href="posts.html?category=vize">Vize &amp; ülkeler</a></li>
     <li><a href="posts.html?category=firsat">Gönüllü &amp; fırsatlar</a></li>
@@ -157,12 +162,12 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <div class="hero">
   <div class="hero-grid">
     <div>
-      <div class="hot-pill"><span class="dot"></span>ŞU AN: İstanbul → Bangkok fırsatı canlı widget'ta</div>
+      <button class="hot-pill" onclick="scrollToFlightSearch()"><span class="dot"></span>ŞU AN: İstanbul → Bangkok fırsatı canlı widget'ta</button>
       <h1>Pasaportunla <em>nereye</em> gidebilirsin?</h1>
-      <p>8 ülke, tek pasaport. Vize kuralları, gönüllü fırsatlarını ve gerçek rota notlarını topluyoruz — üstüne dünyayı döndür, sıcak bileti yakala.</p>
+      <p>9 ülke, tek pasaport. Vize kuralları, gönüllü fırsatlarını ve gerçek rota notlarını topluyoruz — üstüne dünyayı döndür, sıcak bileti yakala.</p>
       <div class="season-note">Şu an için ideal: Kamboçya, Tayland (kuru sezon)</div>
       <div class="stats-row">
-        <div class="stat"><div class="n">8</div><div class="l">gidilen ülke</div></div>
+        <div class="stat"><div class="n" id="countryCount">8</div><div class="l">gidilen ülke</div></div>
         <div class="stat"><div class="n" id="volunteerCount">12</div><div class="l">açık gönüllü projesi</div></div>
         <div class="stat"><div class="n">canlı</div><div class="l">güncel bilet fiyatları</div></div>
       </div>
@@ -316,6 +321,8 @@ async function loadCountries(){
       const c = doc.data();
       g.innerHTML += `<g class="pin"><circle class="ring" cx="${c.pin_x}" cy="${c.pin_y}" r="9"/><circle cx="${c.pin_x}" cy="${c.pin_y}" r="3.5"/><text x="${c.pin_x-24}" y="${c.pin_y-14}">${c.name.toUpperCase()}</text></g>`;
     });
+    const countStat = document.getElementById('countryCount');
+    if(countStat) countStat.textContent = snap.size;
   }catch(e){}
 }
 
@@ -406,13 +413,23 @@ spinBtn.addEventListener('click', function(){
     ticks++;
     if(ticks > 6){
       clearInterval(interval);
-      revealBox.innerHTML = 'canlı fiyatlar için yukarıdaki widget\'a bak — <b>otomatik güncel</b>';
+      revealBox.innerHTML = '<button class="reveal-cta" onclick="scrollToFlightSearch()">canlı fiyatlara bak → <b>otomatik güncel</b></button>';
     }
   }, 110);
   setTimeout(function(){ globeLines.classList.remove('boost'); spinBtn.classList.remove('spinning'); spinning = false; }, 1100);
 });
 
-loadBanners(); loadSocial(); loadCountries(); loadGearDeals(); loadPosts(); loadRouteRecs();
+async function loadBranding(){
+  try{
+    const doc = await db.collection('settings').doc('branding').get();
+    const logoUrl = doc.exists ? doc.data().logo_url : '';
+    if(logoUrl){
+      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
+    }
+  }catch(e){}
+}
+
+loadBanners(); loadSocial(); loadCountries(); loadGearDeals(); loadPosts(); loadRouteRecs(); loadBranding();
 </script>
 
 </body>
