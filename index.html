@@ -80,15 +80,22 @@ h1 em{font-style:italic;color:var(--gold);}
 /* LIVE FLIGHT WIDGET SLOT */
 #flightWidget{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;margin-bottom:24px;min-height:90px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);}
 
-.deals{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.deal-card{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;position:relative;overflow:hidden;}
-.deal-badge{position:absolute;top:0;right:0;background:var(--coral);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 14px;border-radius:0 0 0 10px;}
+.deals{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+@media(max-width:900px){.deals{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.deals{grid-template-columns:1fr;}}
+.deal-card{display:block;width:100%;text-align:left;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;font-family:inherit;}
+.deal-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 24px rgba(20,31,56,0.1);}
+.deal-badge{position:absolute;top:0;right:0;background:var(--coral);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 14px;border-radius:0 0 0 10px;}
 .deal-route{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);margin-bottom:14px;}
 .deal-route i{color:var(--gold);font-size:12px;}
-.deal-card h3{font-family:'Fraunces',serif;font-size:20px;color:var(--navy);margin-bottom:12px;}
+.deal-card h3{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);margin-bottom:12px;}
 .deal-price{display:flex;align-items:baseline;gap:8px;}
 .deal-price .old{font-size:14px;color:var(--muted);text-decoration:line-through;}
 .deal-price .new{font-family:'Fraunces',serif;font-size:26px;font-weight:800;color:var(--coral);}
+.deal-cta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--coral);border-bottom:1px dashed var(--coral);display:inline-block;}
+#flightWidget.highlight{box-shadow:0 0 0 3px var(--gold);}
+#searchHint{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--coral);margin:-14px 0 20px;opacity:0;transition:opacity .25s;}
+#searchHint.show{opacity:1;}
 .deal-meta{font-size:12px;color:var(--muted);margin-top:10px;}
 
 .planner{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:16px;padding:34px 38px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
@@ -193,11 +200,12 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 </div>
 
 <div class="section">
-  <div class="section-head"><h2>Bugünün sıcak fırsatları</h2><span>uçuşlar canlı · ürünler admin panelden</span></div>
+  <div class="section-head"><h2>Bugünün sıcak fırsatları</h2><span>uçuşlar canlı · rota kartına tıkla, yukarıda ara</span></div>
 
   <div id="flightWidget">
     <script async src="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=9&plain=true&color_button=%23E0A526&color_button_text=%230B1326&promo_id=3414&campaign_id=111" charset="utf-8"></script>
   </div>
+  <p id="searchHint">👆 rotanı yukarıdaki kutuya gir ve "Ara"ya bas</p>
 
   <div class="deals" id="gearDeals"></div>
 </div>
@@ -314,16 +322,35 @@ async function loadCountries(){
 async function loadGearDeals(){
   try{
     const snap = await db.collection('deals').where('active','==',true).get();
-    const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,3);
+    const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,4);
     const el = document.getElementById('gearDeals');
-    el.innerHTML = data.map(d=>`
-      <div class="deal-card">
+    el.innerHTML = data.map(d=>{
+      const isFlight = d.type === 'flight';
+      const icon = isFlight ? 'fa-plane' : 'fa-tent';
+      const route = isFlight ? (d.route_from+' → '+d.route_to) : 'ürün';
+      const priceArea = isFlight
+        ? `<span class="deal-cta">canlı fiyata bak →</span>`
+        : `<div class="deal-price">${d.old_price?`<span class="old">${d.old_price}₺</span>`:''}<span class="new">${d.new_price}₺</span></div>`;
+      const click = isFlight ? `onclick="scrollToFlightSearch()"` : (d.affiliate_url ? `onclick="window.open('${d.affiliate_url}','_blank')"` : '');
+      const tag = isFlight ? (d.title || 'rota önerisi') : '';
+      return `
+      <button class="deal-card" ${click}>
         <div class="deal-badge">${d.discount_label || 'fırsat'}</div>
-        <div class="deal-route"><i class="fa-solid fa-tent"></i>${d.type==='flight' ? (d.route_from+' → '+d.route_to) : 'ürün'}</div>
-        <h3>${d.title}</h3>
-        <div class="deal-price">${d.old_price?`<span class="old">${d.old_price}₺</span>`:''}<span class="new">${d.new_price}₺</span></div>
-      </div>`).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz ürün fırsatı eklenmedi — admin panelden ekleyebilirsin.</p>';
+        <div class="deal-route"><i class="fa-solid ${icon}"></i>${route}</div>
+        <h3>${tag}</h3>
+        ${priceArea}
+      </button>`;
+    }).join('') || '<p style="color:var(--muted);font-size:13px;">Henüz fırsat eklenmedi — admin panelden ekleyebilirsin.</p>';
   }catch(e){}
+}
+
+function scrollToFlightSearch(){
+  const widget = document.getElementById('flightWidget');
+  widget.scrollIntoView({behavior:'smooth', block:'center'});
+  widget.classList.add('highlight');
+  const hint = document.getElementById('searchHint');
+  hint.classList.add('show');
+  setTimeout(()=>{ widget.classList.remove('highlight'); hint.classList.remove('show'); }, 3500);
 }
 
 async function loadPosts(){
