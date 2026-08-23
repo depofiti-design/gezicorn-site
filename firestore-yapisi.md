@@ -1,11 +1,11 @@
-# Gezicorn — Firestore Koleksiyon Şeması
+# Gezicorn: Firestore Koleksiyon Şeması
 
 ## `posts`
 | Alan | Tip | Açıklama |
 |---|---|---|
 | title | string | Yazı başlığı |
 | slug | string | URL slug'ı |
-| category | string | `vize` \| `firsat` \| `rehber` |
+| category | string | `vize` \| `firsat` \| `rehber` \| `haber` |
 | excerpt | string | Kart üzerinde görünen kısa özet |
 | content | string | Yazı içeriği |
 | cover_image | string\|null | Kapak görsel URL |
@@ -60,4 +60,14 @@
 | estimated_price | number | Tahmini bilet fiyatı |
 | active | boolean | Öneri havuzunda mı |
 
-Rota planlayıcı client-side çalışır: tüm `active:true` kayıtlar çekilip bütçe aralığına göre JS ile filtrelenir (Firestore aralık sorgusu / composite index gerektirmemesi için).
+Rota planlayıcı client-side çalışır: tüm `active:true` kayıtlar çekilip bütçe aralığına göre JS ile filtrelenir (Firestore aralık sorgusu / composite index gerektirmemesi için). Bütçe "uçak bileti hariç" anlamındadır.
+
+## `settings/consultancy` (tek doküman)
+| Alan | Tip | Açıklama |
+|---|---|---|
+| whatsapp_url, telegram_url, email, instagram_url, tiktok_url, x_url | string | Hepsi boşsa ilgili buton/ikon sitede gizli, admin panelin "Danışmanlık" sekmesinden yönetilir |
+
+## `settings/branding` (tek doküman)
+| Alan | Tip | Açıklama |
+|---|---|---|
+| logo_url | string | Boşsa "G" rozeti kullanılır, admin panelin "Site Ayarları" sekmesinden yönetilir |

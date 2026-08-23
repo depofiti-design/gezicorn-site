@@ -8,7 +8,7 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 
 **Barbaros'un gerçekten gittiği 9 ülke** (site içeriğinde ve globe pin'lerinde bunlar kullanılıyor): Kırgızistan (ikamet), Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam (21 Ağustos 2026'da eklendi). Ülke sayısı `index.html`'deki hero istatistiğinde artık Firestore'dan dinamik okunuyor (`#countryCount`), yeni ülke eklenince elle güncellemeye gerek yok — ama hero paragrafındaki "9 ülke, tek pasaport" cümlesi hâlâ statik metin, yeni ülke eklenince onu elle güncellemek gerekiyor.
 
-## Tasarım dili — DEĞİŞTİRİLMEMELİ
+## Tasarım dili: DEĞİŞTİRİLMEMELİ
 
 Uzun bir mockup sürecinden sonra netleşen, onaylanmış tasarım:
 
@@ -76,6 +76,8 @@ Firestore `posts` koleksiyonunda **50 yazı** var: 29 vize, 9 rehber, 3 fırsat,
 3. **Sosyal medya ikonları varsayılan gizli** — kullanıcı "panelde dursun ama sitede görünmesin, ben aktif ettiğimde görünsün" dedi. Bu yüzden `social_links` hepsi `active: false` ile başlıyor.
 4. **Banner'lar da aynı mantıkla varsayılan pasif.**
 5. **Rota planlayıcı** — bütçe + gün girip destinasyon önerisi alan özellik, `route_recommendations` koleksiyonundan JS ile eşleştiriliyor (aralık sorgusu Firestore'da index gerektirmesin diye tüm aktif kayıtlar çekilip client-side filtreleniyor).
+6. **Yazı dilinde tire (—) kesinlikle kullanılmıyor** (23 Ağustos 2026'dan itibaren). Kullanıcı "yapay zeka gibi değil, gerçek ve samimi olmalı" dedi, tüm 50 yazı ve public sayfalardaki statik metinler nokta/virgül/iki nokta üst üste ile temizlendi. Yeni içerik yazarken de kullanma, gerekirse cümleyi böl.
+7. **Mobil responsive** (23 Ağustos 2026) — `index.html`'de `@media(max-width:900px)` bloğu eklendi (nav wrap, hero-grid ve planner tek sütun, globe küçülüyor). Diğer sayfalarda (posts/post/danismanlik) zaten vardı. Yeni bir grid/çok sütunlu bölüm eklersen mobilde mutlaka test et, bu site hiç build adımı olmadan çalıştığı için tarayıcıda görmeden fark edilmiyor.
 
 ## Deploy durumu
 
@@ -95,7 +97,9 @@ Kullanıcı 21 Ağustos 2026'da "sadece domain almak kalsın, buna göre ayarla"
 - [ ] **`deals` koleksiyonunda gear (kamp/gezi ürünü) tipi hâlâ boş** — type=flight kartları dolduruldu (rota önerileri), ama gerçek ürün/affiliate linki gerektiren type=gear hiç eklenmedi; kullanıcı admin panelden gerçek ürün bilgisiyle ekleyecek.
 - [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site herkese açık olduğu için ileride sıkılaştırılabilir, ama bilinçli bir tercih olarak şimdilik böyle bırakıldı.
 - [ ] `sitemap.xml` statik/elle üretildi (son güncelleme 21 Ağustos 2026, 50 yazı) — yeni yazı eklendikçe otomatik güncellenmiyor, periyodik olarak yeniden üretilmeli (script: Firestore `posts`'u okuyup URL listesi yazan basit python betiği, önceki oturumlarda kullanıldı, tekrar kullanılabilir).
-- [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar hâlâ yok (tekil blog yazısı sayfası `post.html` olarak yapıldı, kategori sayfası `posts.html` olarak yapıldı — bunlar yeterli görülüyorsa bu madde kapatılabilir).
+- [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar hâlâ yok (tekil blog yazısı sayfası `post.html` olarak yapıldı, kategori sayfası `posts.html` olarak yapıldı, bunlar yeterli görülüyorsa bu madde kapatılabilir).
+- [ ] Kullanıcı "admin panelde yeni sayfa ekle" gibi genel bir sayfa oluşturucu istedi ama ne tür bir sayfa net değildi, inşa edilmedi. Somut bir sayfa fikri gelirse konuşulup yapılabilir.
+- [x] Tire (—) temizliği ve mobil taşma sorunu (23 Ağustos 2026'da giderildi, madde 6-7'ye bak).
 
 ## Kullanıcı hakkında (ton/yaklaşım için)
 
