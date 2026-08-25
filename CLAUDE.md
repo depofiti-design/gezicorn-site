@@ -56,7 +56,7 @@ Bu zaten `index.html` ve `admin.html` içinde tanımlı. Firestore "test modunda
 
 ## İçerik durumu
 
-Firestore `posts` koleksiyonunda **50 yazı** var: 29 vize, 9 rehber, 3 fırsat, 9 haber. İlk 30'u toplu eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). **`haber` kategorisi** sonradan eklendi — sitenin kendi gelişim geçmişini anlatan yazılar (canlı widget, 30 rehber, kategori sayfaları, Vietnam eklenmesi, danışmanlık hizmeti duyurusu) + pasaport/vize dünyasındaki genel gelişmeler (AB dijital Schengen vizesi planı, vize ücretleri, dijital nomad vizesi, pasaport yenileme, konsolosluk randevu sistemleri, danışmanlık seçimi, seyahat sigortası, Vietnam e-vize rehberi). **Önemli editoryal kural:** bu kategoriye doğrulayamayacağımız spesifik/tarihli iddialar ("X ülke Y tarihinde vize kuralını değiştirdi" gibi) yazılmıyor — sadece uzun süredir var olduğunu bildiğimiz yapısal gelişmeler, hep "güncel durumu resmi kaynaktan teyit et" uyarısıyla birlikte.
+Firestore `posts` koleksiyonunda **51+ yazı** var (25 Ağustos 2026'dan itibaren her gün +1, bkz. "Günlük içerik otomasyonu"): başlangıçta 29 vize, 9 rehber, 3 fırsat, 9 haber. İlk 30'u toplu eklendi (pasaport türleri — bordo/yeşil-hususi/gri-hizmet/siyah-diplomatik ayrımı dahil —, Avrupa/Schengen, Orta Asya, Uzak Doğu/Güneydoğu Asya, Rusya/BDT, "en zor vizeler", gönüllülük fırsatları, genel rehber). 8 tanesinde Higgsfield (`soul_location` modeli) ile üretilmiş kapak görseli var (`cover_image` alanı, harici CloudFront URL'i — Firebase Storage'a taşınmadı, doğrudan kullanılıyor). **`haber` kategorisi** sonradan eklendi — sitenin kendi gelişim geçmişini anlatan yazılar (canlı widget, 30 rehber, kategori sayfaları, Vietnam eklenmesi, danışmanlık hizmeti duyurusu) + pasaport/vize dünyasındaki genel gelişmeler (AB dijital Schengen vizesi planı, vize ücretleri, dijital nomad vizesi, pasaport yenileme, konsolosluk randevu sistemleri, danışmanlık seçimi, seyahat sigortası, Vietnam e-vize rehberi). **Önemli editoryal kural:** bu kategoriye doğrulayamayacağımız spesifik/tarihli iddialar ("X ülke Y tarihinde vize kuralını değiştirdi" gibi) yazılmıyor — sadece uzun süredir var olduğunu bildiğimiz yapısal gelişmeler, hep "güncel durumu resmi kaynaktan teyit et" uyarısıyla birlikte.
 
 ## Firestore koleksiyonları
 
@@ -79,6 +79,19 @@ Firestore `posts` koleksiyonunda **50 yazı** var: 29 vize, 9 rehber, 3 fırsat,
 6. **Yazı dilinde tire (—) kesinlikle kullanılmıyor** (23 Ağustos 2026'dan itibaren). Kullanıcı "yapay zeka gibi değil, gerçek ve samimi olmalı" dedi, tüm 50 yazı ve public sayfalardaki statik metinler nokta/virgül/iki nokta üst üste ile temizlendi. Yeni içerik yazarken de kullanma, gerekirse cümleyi böl.
 7. **Mobil responsive** (23 Ağustos 2026) — `index.html`'de `@media(max-width:900px)` bloğu eklendi (nav wrap, hero-grid ve planner tek sütun, globe küçülüyor). Diğer sayfalarda (posts/post/danismanlik) zaten vardı. Yeni bir grid/çok sütunlu bölüm eklersen mobilde mutlaka test et, bu site hiç build adımı olmadan çalıştığı için tarayıcıda görmeden fark edilmiyor.
 
+## Günlük içerik otomasyonu (25 Ağustos 2026'dan itibaren)
+
+Kullanıcı "her gün yeni haberler/fırsatlar eklensin, site güncel kalsın" dedi. Bunun için `scripts/` klasörü eklendi ve Claude Code'un zamanlanmış cloud agent özelliğiyle her gün otomatik çalışan bir rutin kuruldu.
+
+- **`scripts/DAILY_CONTENT.md`** — otomasyonun tam talimatı (kategori rotasyonu haber→vize→rehber, editoryal kurallar, slug/tekrar kontrolü, haftada 1 flight deal kartı, neyin YAPILMAYACAĞI). Zamanlanmış ajan her çalıştığında bu dosyayı okuyup uyguluyor.
+- **`scripts/add-post.js`** — JSON dosyasından `posts` koleksiyonuna tek yazı ekliyor. Slug çakışması ve tire (—) karakteri varsa hata verip durduruyor.
+- **`scripts/add-deal.js`** — JSON dosyasından `deals` koleksiyonuna tek fırsat ekliyor. type=gear için gerçek `affiliate_url` şart, uydurma link geçmiyor.
+- **`scripts/generate-sitemap.js`** — Firestore'daki yayında olan tüm yazılardan `sitemap.xml`'i yeniden üretiyor. **Domain bağlanınca bu dosyanın içindeki `BASE_URL` sabiti güncellenmeli.**
+- **`scripts/list-posts.js`** — son N yazıyı listeler, ajan yeni konu seçmeden önce tekrarı görmek için kullanıyor.
+- Bağımlılıklar `scripts/package.json` içinde (`firebase` JS SDK, admin credential gerekmiyor çünkü Firestore kuralları zaten `allow read, write: if true`). `scripts/node_modules` ve `scripts/tmp-*.json` gitignore'da.
+- **Kapsam dışı bırakılan:** `firsat` kategorisine otomatik yazı, `deals`'a type=gear (gerçek ürün/link gerektirir), var olan kayıtları silme/düzenleme. Bunlar hâlâ kullanıcının admin panelden elle yapacağı işler.
+- İlk canlı test 25 Ağustos 2026'da yapıldı: `pasaport-gecerlilik-suresi-neden-6-ay-sart` slug'ıyla bir haber yazısı eklendi ve sitemap yeniden üretildi, akış uçtan uca çalıştığı doğrulandı.
+
 ## Deploy durumu
 
 - **GitHub:** https://github.com/depofiti-design/gezicorn-site (main branch)
@@ -96,7 +109,7 @@ Kullanıcı 21 Ağustos 2026'da "sadece domain almak kalsın, buna göre ayarla"
 - [ ] **Logo boş** — `settings/branding` → `logo_url`, admin panelin "Site Ayarları" sekmesinden bir görsel URL girilirse "G" rozetinin yerine geçer.
 - [ ] **`deals` koleksiyonunda gear (kamp/gezi ürünü) tipi hâlâ boş** — type=flight kartları dolduruldu (rota önerileri), ama gerçek ürün/affiliate linki gerektiren type=gear hiç eklenmedi; kullanıcı admin panelden gerçek ürün bilgisiyle ekleyecek.
 - [ ] Firestore güvenlik kuralları hâlâ "test modu" (herkes okuyup yazabiliyor) — site herkese açık olduğu için ileride sıkılaştırılabilir, ama bilinçli bir tercih olarak şimdilik böyle bırakıldı.
-- [ ] `sitemap.xml` statik/elle üretildi (son güncelleme 21 Ağustos 2026, 50 yazı) — yeni yazı eklendikçe otomatik güncellenmiyor, periyodik olarak yeniden üretilmeli (script: Firestore `posts`'u okuyup URL listesi yazan basit python betiği, önceki oturumlarda kullanıldı, tekrar kullanılabilir).
+- [x] `sitemap.xml` artık günlük otomasyonun bir parçası olarak `scripts/generate-sitemap.js` ile her gün yeniden üretiliyor (25 Ağustos 2026'dan itibaren, bkz. "Günlük içerik otomasyonu"). Elle çalıştırma gerekmiyor.
 - [ ] Vize detay sayfası, öneriler/affiliate mağaza sayfası gibi ek iç sayfalar hâlâ yok (tekil blog yazısı sayfası `post.html` olarak yapıldı, kategori sayfası `posts.html` olarak yapıldı, bunlar yeterli görülüyorsa bu madde kapatılabilir).
 - [ ] Kullanıcı "admin panelde yeni sayfa ekle" gibi genel bir sayfa oluşturucu istedi ama ne tür bir sayfa net değildi, inşa edilmedi. Somut bir sayfa fikri gelirse konuşulup yapılabilir.
 - [x] Tire (—) temizliği ve mobil taşma sorunu (23 Ağustos 2026'da giderildi, madde 6-7'ye bak).
