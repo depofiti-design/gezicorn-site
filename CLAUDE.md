@@ -8,17 +8,18 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 
 **Barbaros'un gerçekten gittiği 9 ülke** (site içeriğinde ve globe pin'lerinde bunlar kullanılıyor): Kırgızistan (ikamet), Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam (21 Ağustos 2026'da eklendi). Ülke sayısı `index.html`'deki hero istatistiğinde artık Firestore'dan dinamik okunuyor (`#countryCount`), yeni ülke eklenince elle güncellemeye gerek yok — ama hero paragrafındaki "9 ülke, tek pasaport" cümlesi hâlâ statik metin, yeni ülke eklenince onu elle güncellemek gerekiyor.
 
-## Tasarım dili: DEĞİŞTİRİLMEMELİ
+## Tasarım dili (29 Ağustos 2026'da profesyonelleştirildi)
 
-Uzun bir mockup sürecinden sonra netleşen, onaylanmış tasarım:
+Orijinal tasarım claude.ai'de adım adım onaylanmıştı ("harika olmuş, buna uygun yapalım"), ama kullanıcı sonradan "fontları, renkleri profesyonelleştirelim, yapay zeka slot görseller yerine gerçekçi şeyler, yer yer 3D, telefonu kasmayacak şeyler ekle" dedi. Palet ve hero yenilendi, mimari/yapı aynı kaldı:
 
-- **Tema:** "Pasaport & sıcak fırsat vitrini" — lacivert (`#141F38`/`#0B1326`) + krem (`#F6F1E4`/`#FCFAF4`) + altın (`#E0A526`) + mercan/coral (`#E3512E`) + çamur yeşili (`#2F8C74`)
-- **Tipografi:** Fraunces (serif, başlıklar) + IBM Plex Sans (gövde) + IBM Plex Mono (rakamlar, etiketler, rota kodları)
-- **İmza görsel öğe:** Hero'da dönen bir "globe" — SVG meridyen çizgileri yavaşça dönüyor, gidilen 8 ülke sabit pin olarak duruyor. "Bas döndür" butonu globe'u hızlandırıp yanındaki kutuda rastgele bir sıcak bilet fırsatı gösteriyor (slot machine efekti)
-- Damga/pasaport motifleri (dashed circle "ONAYLI ROTA" damgası), rozet tarzı kategori etiketleri
-- **Kaçınılması gereken:** Mor-mavi gradient, ortalanmış generic hero, "AI yaptı" hissi veren şablon görünüm
-
-Bu tasarım claude.ai'de (farklı bir sohbette) kullanıcıyla adım adım onaylandı — kullanıcı "harika olmuş, buna uygun yapalım" dedi. Tasarımı sorgulamadan bu temel üzerine inşa et.
+- **Tema:** hâlâ "Pasaport & sıcak fırsat vitrini" ama daha az doygun/daha kurumsal tonlarla — koyu lacivert-ink (`#101B30`/`#070C18`) + parşömen krem (`#F1ECDD`/`#FAF7EF`) + pirinç/bronz (`#B08D57`, eski parlak altın `#E0A526` yerine) + gümrük damgası kırmızısı (`#9C3B2C`, eski canlı mercan `#E3512E` yerine) + koyu çam yeşili (`#33604F`). CSS değişken isimleri aynı kaldı (`--navy`,`--gold`,`--coral`,`--teal` vb.), sadece hex değerleri değişti, bu yüzden tüm sayfalarda (index/post/posts/danismanlik/admin) tek seferde tutarlı güncellendi.
+- **Tipografi:** Fraunces (serif, başlıklar) + IBM Plex Sans (gövde) + IBM Plex Mono (rakamlar, etiketler, rota kodları) — aynı kaldı, Türkçe karakter desteği canlıda kanıtlı olduğu için font ailesi değiştirilmedi, sadece h1/brand'de letter-spacing ile daha "kazınmış/resmi" bir his eklendi.
+- **İmza görsel öğe (yenilendi):** Hero'daki düz SVG globe yerine artık **three.js ile gerçek 3D dönen globe** var (`index.html`, r128 UMD build, cdnjs). Mobilde performans için: pixel ratio 1.5 ile sınırlı, IntersectionObserver ile ekran dışındayken render durduruyor, `prefers-reduced-motion` saygı görüyor (tek kare render edip duruyor), doku/texture yok (sadece renkli sphere + wireframe meridyen + glow), ağır kütüphane/OrbitControls yok.
+- **Slot-machine efekti kaldırıldı:** Eski "bas döndür → rastgele metin çıkar" mekaniği, gerçek bir havalimanı **split-flap rota tahtası** ile değiştirildi (`#depBoard`, CSS `rotateX` flip animasyonu, gerçek `deals` koleksiyonundaki flight kayıtları arasında dönüyor, 5.5sn'de bir otomatik + "globe'u döndür" butonuyla manuel ilerliyor).
+- **Yeni yapısal öğe: MRZ şeridi** — hero altında, gerçek pasaport machine-readable-zone formatını taklit eden, gerçek ülke kodlarını (KGZ/KAZ/UZB/RUS/THA/MYS/HKG/KHM/VNM) encode eden dekoratif ama anlamlı bir monospace şerit (`.mrz-strip`).
+- Damga/pasaport motifleri, rozet tarzı kategori etiketleri korundu.
+- **Kaçınılması gereken (hâlâ geçerli):** Mor-mavi gradient, ortalanmış generic hero, "AI yaptı" hissi veren şablon görünüm.
+- **Henüz yapılmadı / sıradaki:** Yazı kapak görselleri (8 tanesi Higgsfield `soul_location` ile üretilmişti) hâlâ eski/daha "parlak AI" stilinde — kullanıcı bunların da daha gerçekçi/fotografik tarzda yenilenmesini istedi ama bu ayrı bir iş turu, henüz yapılmadı.
 
 ## Tech stack
 
