@@ -24,6 +24,9 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
      pasaport kategorileri, genel süreç anlatımı). Spesifik ücret/süre rakamı verme, rakamlar
      çabuk eskir; "güncel bilgi için resmi kaynağa bak" notu ekle.
    - Ton: samimi, gerçek, yapay zeka şablonu gibi değil. Kısa cümleler.
+   - **Anlatım çeşitliliği:** her yazı FAQ/bilgi listesi tarzında olmasın. Yaklaşık her 4 yazıdan
+     birini birinci ağızdan, "bir gün şöyle oldu" tarzı kısa bir hikaye/anı olarak yaz (yine gerçek,
+     doğrulanabilir bir çerçevede, uydurma detay olmadan), geri kalanı normal bilgilendirici tarzda kalsın.
    - İçerik alanı (`content`) düz metin, paragraflar arasında boş satır, **kalın** için çift yıldız
      kullanılabilir (post.html bunu render ediyor).
    - `excerpt`: kart üzerinde görünen 1-2 cümlelik özet.
@@ -66,3 +69,9 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
 - `posts`/`deals` koleksiyonlarından hiçbir kaydı SİLME veya var olanı DÜZENLEME, sadece ekle.
 - seed.html'i tekrar çalıştırma.
 - Günde 1'den fazla post ekleme (spam görünümü + kalite düşüşü riski).
+- **Instagram/Facebook'a otomatik gönderi atma.** Sosyal medya paylaşımı (`scripts/post-social.js`,
+  `scripts/lib-social.js`) bu günlük rutinin parçası DEĞİL, kasıtlı olarak ayrı tutuluyor. 17 Eylül
+  2026'da bozuk Türkçe karakter ve yanlış cinsiyette görsel içeren gönderiler otomatik/incelemesiz
+  gittiği için kullanıcı önce önizleme (Artifact ile "sanki paylaşılmış gibi" mockup) isteyip onaylama
+  akışına geçti. Sosyal medyaya HER gönderi önce kullanıcıya önizleme olarak gösterilip onay alınmadan
+  atılmamalı, bu günlük ajan tarafından tetiklenmemeli.

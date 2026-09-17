@@ -339,7 +339,7 @@ async function loadCountries(){
       const c = doc.data();
       const coord = COUNTRY_COORDS[c.name];
       if(coord && typeof addGlobePin === 'function') addGlobePin(coord.lat, coord.lng);
-      chips += `<span>${c.name}</span>`;
+      chips += `<a href="posts.html?country=${encodeURIComponent(c.name)}"><span>${c.name}</span></a>`;
     });
     const legend = document.getElementById('globeLegend');
     if(legend) legend.innerHTML = chips;

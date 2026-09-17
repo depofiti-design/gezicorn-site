@@ -40,6 +40,11 @@ a{color:inherit;text-decoration:none;}
 .filter-btn.active{background:var(--navy);color:var(--cream);border-color:var(--navy);}
 .filter-btn:hover:not(.active){border-color:var(--gold);}
 
+.country-filters{padding-top:0;margin-top:-20px;}
+.filter-label{width:100%;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
+.filter-btn.country{border-style:dashed;font-size:12.5px;padding:7px 14px;}
+.filter-btn.country.active{background:var(--teal);border-color:var(--teal);}
+
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 52px 80px;max-width:1220px;margin:0 auto;}
 @media(max-width:900px){.grid{grid-template-columns:1fr;}}
 .post-card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;overflow:hidden;transition:border-color .15s;}
@@ -62,8 +67,8 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 </div>
 
 <div class="header">
-  <h1>Yazılar</h1>
-  <p>Vize kuralları, gönüllü fırsatları ve gezi rehberleri, Kırgızistan'dan Kamboçya'ya kendi rotamızdan ve Türk pasaportuna göre.</p>
+  <h1 id="pageTitle">Yazılar</h1>
+  <p id="pageDesc">Vize kuralları, gönüllü fırsatları ve gezi rehberleri, Kırgızistan'dan Kamboçya'ya kendi rotamızdan ve Türk pasaportuna göre.</p>
 </div>
 
 <div class="filters" id="filters">
@@ -72,6 +77,10 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
   <a class="filter-btn" data-cat="firsat" href="posts.html?category=firsat">Gönüllü &amp; fırsatlar</a>
   <a class="filter-btn" data-cat="rehber" href="posts.html?category=rehber">Gezi rehberleri</a>
   <a class="filter-btn" data-cat="haber" href="posts.html?category=haber">Haberler &amp; gelişmeler</a>
+</div>
+
+<div class="filters country-filters" id="countryFilters">
+  <span class="filter-label">Ülkeye göre:</span>
 </div>
 
 <div class="grid" id="postsGrid"></div>
@@ -95,10 +104,37 @@ function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.secon
 
 const params = new URLSearchParams(window.location.search);
 const activeCat = params.get('category') || 'all';
+const activeCountry = params.get('country') || '';
 
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   if(btn.dataset.cat === activeCat) btn.classList.add('active');
 });
+
+if(activeCountry){
+  document.getElementById('pageTitle').textContent = activeCountry;
+  document.getElementById('pageDesc').textContent = `${activeCountry} hakkında yazdığımız tüm yazılar.`;
+}
+
+function mentionsCountry(post, country){
+  const hay = (post.title + ' ' + (post.excerpt||'')).toLocaleLowerCase('tr');
+  return hay.includes(country.toLocaleLowerCase('tr'));
+}
+
+async function loadCountries(){
+  try{
+    const snap = await db.collection('countries').where('visited','==',true).get();
+    const names = snap.docs.map(d=>d.data().name).sort();
+    const el = document.getElementById('countryFilters');
+    const allHref = activeCat === 'all' ? 'posts.html' : `posts.html?category=${activeCat}`;
+    el.innerHTML = `<span class="filter-label">Ülkeye göre:</span>
+      <a class="filter-btn country${!activeCountry?' active':''}" href="${allHref}">Tümü</a>` +
+      names.map(name => {
+        const href = `posts.html?country=${encodeURIComponent(name)}${activeCat!=='all' ? '&category='+activeCat : ''}`;
+        const isActive = activeCountry.toLocaleLowerCase('tr') === name.toLocaleLowerCase('tr');
+        return `<a class="filter-btn country${isActive?' active':''}" href="${href}">${name}</a>`;
+      }).join('');
+  }catch(e){}
+}
 
 async function loadPosts(){
   try{
@@ -106,6 +142,9 @@ async function loadPosts(){
     let data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a));
     if(activeCat !== 'all'){
       data = data.filter(p => p.category === activeCat);
+    }
+    if(activeCountry){
+      data = data.filter(p => mentionsCountry(p, activeCountry));
     }
     const el = document.getElementById('postsGrid');
     el.innerHTML = data.map(p=>`
@@ -116,7 +155,7 @@ async function loadPosts(){
           <h3>${p.title}</h3>
           <p>${p.excerpt||''}</p>
         </div>
-      </a>`).join('') || '<p class="empty">Bu kategoride henüz yazı yok.</p>';
+      </a>`).join('') || '<p class="empty">Bu filtrede henüz yazı yok.</p>';
   }catch(e){
     document.getElementById('postsGrid').innerHTML = '<p class="empty">Yazılar yüklenemedi.</p>';
   }
@@ -133,6 +172,7 @@ async function loadBranding(){
 
 loadPosts();
 loadBranding();
+loadCountries();
 </script>
 </body>
 </html>

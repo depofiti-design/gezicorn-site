@@ -56,6 +56,20 @@ export async function postInstagram({ image_url, caption }) {
   return published.id;
 }
 
+export async function postInstagramStory({ image_url }) {
+  const container = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
+    arguments: { ig_user_id: IG_USER_ID, image_url, media_type: 'STORIES', graph_api_version: 'v21.0' },
+    account: IG_ACCOUNT
+  }]);
+  const published = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH',
+    arguments: { ig_user_id: IG_USER_ID, creation_id: container.id, max_wait_seconds: 60 },
+    account: IG_ACCOUNT
+  }]);
+  return published.id;
+}
+
 export async function postFacebook({ image_url, caption_facebook, caption }) {
   const result = await multiExecute([{
     tool_slug: 'FACEBOOK_CREATE_PHOTO_POST',
