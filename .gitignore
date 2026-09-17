@@ -5,3 +5,6 @@
 scripts/node_modules/
 scripts/package-lock.json
 scripts/tmp-*.json
+social-content/
+scripts/composio-key.local.txt
+photo_2026-09-17_06-59-49.jpg
