@@ -97,7 +97,7 @@ Kullanıcı "her gün yeni haberler/fırsatlar eklensin, site güncel kalsın" d
 
 - **GitHub:** https://github.com/depofiti-design/gezicorn-site (main branch)
 - **Vercel:** proje adı `gezicorn`, takım `depofiti-1840s-projects`, GitHub reposuna bağlı — her `git push` otomatik yeni deploy tetikler
-- **Canlı URL:** https://gezicorn-depofiti-1840s-projects.vercel.app
+- **Canlı URL:** https://www.gezicorn.com (Spaceship'ten alındı, 19 Eylül 2026'da Vercel'e bağlandı; apex `gezicorn.com` 308 ile www'ye yönleniyor; DNS: `@` A 76.76.21.21, `www` CNAME cname.vercel-dns.com). Eski `gezicorn-depofiti-1840s-projects.vercel.app` ve `aaaa-eta-gray.vercel.app` hâlâ çalışıyor.
 - Yerelde `.vercel/` klasörü var (proje linki), `.gitignore`'a eklendi.
 - **Önemli:** Vercel projesinde varsayılan olarak "SSO/Vercel Authentication" koruması açıktı (`.vercel.app` adresleri özel domain bağlanana kadar sadece Vercel hesabı olanlara görünüyordu, gerçek ziyaretçiler giriş ekranıyla karşılaşıyordu). Bu kapatıldı (`vercel project protection disable gezicorn --sso`), site artık tamamen herkese açık.
 
@@ -105,7 +105,7 @@ Kullanıcı "her gün yeni haberler/fırsatlar eklensin, site güncel kalsın" d
 
 Kullanıcı 21 Ağustos 2026'da "sadece domain almak kalsın, buna göre ayarla" dedi — o hedefe göre geriye kalanlar, hepsi **kullanıcının kendi dolduracağı gerçek bilgi** gerektiriyor, kod/tasarım eksiği değil:
 
-- [ ] **Domain** — kullanıcı alacak (gezicorn.com veya .com.tr), Vercel'e bağlanacak. Bağlanınca şunlar güncellenmeli: `sitemap.xml`, `robots.txt` ve tüm `og:image`/`og:url`/deploy referanslarındaki `gezicorn-depofiti-1840s-projects.vercel.app` → gerçek domain.
+- [x] **Domain** — gezicorn.com alındı ve bağlandı (19 Eylül 2026), sitemap/robots/generate-sitemap.js `https://www.gezicorn.com`'a çevrildi. Sosyal medyada "site linki koyma" kuralı, kullanıcı linkleri eklemeye başlayalım diyene kadar geçerli (kullanıcı: "domain alacam, sonra ekleriz linkleri"); link eklenecekse adres `https://www.gezicorn.com`.
 - [ ] **Danışmanlık iletişim/sosyal bilgileri boş** — `settings/consultancy` dokümanındaki 6 alan (whatsapp_url, telegram_url, email, instagram_url, tiktok_url, x_url) admin panelin "Danışmanlık" sekmesinden doldurulacak. Sahte/uydurma link koymadık, bilerek boş bıraktık.
 - [ ] **Logo boş** — `settings/branding` → `logo_url`, admin panelin "Site Ayarları" sekmesinden bir görsel URL girilirse "G" rozetinin yerine geçer.
 - [ ] **`deals` koleksiyonunda gear (kamp/gezi ürünü) tipi hâlâ boş** — type=flight kartları dolduruldu (rota önerileri), ama gerçek ürün/affiliate linki gerektiren type=gear hiç eklenmedi; kullanıcı admin panelden gerçek ürün bilgisiyle ekleyecek.

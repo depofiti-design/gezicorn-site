@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /seed.html
 
-Sitemap: https://gezicorn-depofiti-1840s-projects.vercel.app/sitemap.xml
+Sitemap: https://www.gezicorn.com/sitemap.xml

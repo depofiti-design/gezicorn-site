@@ -7,7 +7,7 @@ import path from 'path';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase-client.js';
 
-const BASE_URL = 'https://gezicorn-depofiti-1840s-projects.vercel.app';
+const BASE_URL = 'https://www.gezicorn.com';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '..', 'sitemap.xml');
