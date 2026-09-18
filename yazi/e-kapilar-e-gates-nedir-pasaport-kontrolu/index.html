@@ -62,6 +62,12 @@ img{max-width:100%;height:auto;}
 .body strong{color:var(--navy);}
 .body a{color:var(--coral);border-bottom:1px solid rgba(156,59,44,.35);}
 .callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
+.yt{margin:6px 0 26px;}
+.yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
+.yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:rgba(7,12,24,.25);cursor:pointer;border:0;}
+.yt-play span{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;}
+.yt-cap{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
 .author{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid rgba(20,31,56,.1);border-radius:12px;padding:18px 20px;margin-top:40px;}
 .author img{width:48px;height:48px;border-radius:50%;flex:none;border:1.5px solid var(--gold);}
 .author p{font-size:14px;color:var(--muted);line-height:1.6;}
@@ -110,6 +116,7 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 <div class="meta"><span>Yazan: Barbaros</span><span>Güncelleme: <time datetime="2026-09-18">19 Eylül 2026</time></span><span>1 dk okuma</span></div>
 <p class="excerpt">Havalimanlarında memur yerine makineyle pasaport kontrolü yapan e kapı sistemi giderek yaygınlaşıyor. Nasıl çalıştığını ve kimlerin kullanabildiğini anlatıyoruz.</p>
 <nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol><li><a href="#kimler-kullanabiliyor">Kimler kullanabiliyor</a></li><li><a href="#neden-yayginlasiyor">Neden yaygınlaşıyor</a></li><li><a href="#nelere-dikkat-etmelisin">Nelere dikkat etmelisin</a></li></ol></nav>
+
 <div class="body">
 <p>Son yıllarda birçok büyük havalimanında pasaport kontrol kuyruğunun yanında bir de otomatik kapılar sırası görüyorsun. Bunlara e kapı ya da e gate deniyor ve klasik gişedeki memur yerine bir makine seni kontrol ediyor.</p>
 <p>Sistem temelde şöyle işliyor. Biyometrik pasaportunu (çip içeren pasaport) kapının okuyucusuna okutuyorsun, sonra kamera yüzünü çekip pasaporttaki fotoğrafla eşleştiriyor. Eşleşme tutarsa kapı açılıyor ve geçiyorsun. Bazı ülkelerde buna parmak izi doğrulaması da ekleniyor.</p>
@@ -132,5 +139,6 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 </main>
 <footer><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a>
 <p style="margin-top:12px;">© Gezicorn · Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p></footer>
+
 </body>
 </html>

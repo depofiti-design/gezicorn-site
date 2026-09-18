@@ -124,6 +124,8 @@ function related(post, all) {
   }).sort((a, b) => b.score - a.score || b.o.ts - a.o.ts).slice(0, 4).map(x => x.o);
 }
 
+const YT_SCRIPT = `<script>document.querySelectorAll('.yt-frame').forEach(function(f){f.querySelector('.yt-play').addEventListener('click',function(){var i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1&rel=0';i.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title='YouTube video';f.innerHTML='';f.appendChild(i);});});</script>`;
+
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">`;
 
@@ -161,6 +163,12 @@ img{max-width:100%;height:auto;}
 .body strong{color:var(--navy);}
 .body a{color:var(--coral);border-bottom:1px solid rgba(156,59,44,.35);}
 .callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
+.yt{margin:6px 0 26px;}
+.yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
+.yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:rgba(7,12,24,.25);cursor:pointer;border:0;}
+.yt-play span{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;}
+.yt-cap{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
 .author{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid rgba(20,31,56,.1);border-radius:12px;padding:18px 20px;margin-top:40px;}
 .author img{width:48px;height:48px;border-radius:50%;flex:none;border:1.5px solid var(--gold);}
 .author p{font-size:14px;color:var(--muted);line-height:1.6;}
@@ -266,6 +274,7 @@ function renderPost(p, all) {
 
   const tocHtml = toc.length >= 3
     ? `<nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol>${toc.map(t => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : '';
+  const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.</figcaption></figure>` : '';
   const relHtml = rel.length ? `<section class="related" aria-label="İlgili yazılar"><h2>Bunlar da işine yarayabilir</h2><div class="grid">${rel.map(cardHtml).join('')}</div></section>` : '';
 
   return `<!DOCTYPE html>
@@ -287,6 +296,7 @@ ${p.cover_image ? `<img class="cover" src="${image}" alt="${esc(p.cover_alt || p
 <div class="meta"><span>Yazan: Barbaros</span><span>Güncelleme: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time></span><span>${mins} dk okuma</span></div>
 ${p.excerpt && blocks[0]?.t !== 'quote' ? `<p class="excerpt">${inline(p.excerpt)}</p>` : ''}
 ${tocHtml}
+${ytHtml}
 <div class="body">
 ${html}
 </div>
@@ -296,6 +306,7 @@ ${html}
 ${relHtml}
 </main>
 ${FOOTER}
+${p.youtube_id ? YT_SCRIPT : ''}
 </body>
 </html>
 `;

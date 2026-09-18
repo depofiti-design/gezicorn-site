@@ -24,6 +24,9 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
      pasaport kategorileri, genel süreç anlatımı). Spesifik ücret/süre rakamı verme, rakamlar
      çabuk eskir; "güncel bilgi için resmi kaynağa bak" notu ekle.
    - Ton: samimi, gerçek, yapay zeka şablonu gibi değil. Kısa cümleler.
+     YouTube kanalı (@gezikorn) analizi: en çok izlenen içerikler pratik "gitmeden bil" konuları (e-vize başvurusu,
+     ülkeye gidiş süreci, kalacak yer, banka/ödeme, işe yarayan uygulamalar, market fiyatları, güvenli mi?).
+     Konuları bu ihtiyaçlara yakın seç, birinci ağızdan ama uydurma anı olmadan yaz.
    - **Anlatım çeşitliliği:** her yazı FAQ/bilgi listesi tarzında olmasın. Yaklaşık her 4 yazıdan
      birini birinci ağızdan, "bir gün şöyle oldu" tarzı kısa bir hikaye/anı olarak yaz (yine gerçek,
      doğrulanabilir bir çerçevede, uydurma detay olmadan), geri kalanı normal bilgilendirici tarzda kalsın.
