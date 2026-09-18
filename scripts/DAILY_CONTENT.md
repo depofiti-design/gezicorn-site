@@ -27,12 +27,21 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
    - **Anlatım çeşitliliği:** her yazı FAQ/bilgi listesi tarzında olmasın. Yaklaşık her 4 yazıdan
      birini birinci ağızdan, "bir gün şöyle oldu" tarzı kısa bir hikaye/anı olarak yaz (yine gerçek,
      doğrulanabilir bir çerçevede, uydurma detay olmadan), geri kalanı normal bilgilendirici tarzda kalsın.
-   - İçerik alanı (`content`) düz metin, paragraflar arasında boş satır, **kalın** için çift yıldız
-     kullanılabilir (post.html bunu render ediyor).
-   - `excerpt`: kart üzerinde görünen 1-2 cümlelik özet.
+   - **SEO yapısı (zorunlu, kullanıcı 19 Eylül 2026'da "Google, Yandex ve AI asistanlarında çıkacak düzeyde" istedi):**
+     - `title`: 60 karakteri geçmesin, aranan ifadeyi başa koy ("Kırgızistan Vizesi 2026: ..." gibi), tırnak/tire yok.
+     - `excerpt`: 140 ile 160 karakter, aranan ifadeyi ve net cevabı içeren tek cümle (meta description olarak kullanılır).
+     - `content` hafif markdown, sitede statik HTML'e çevrilir (`scripts/build-static.js`):
+       - İlk satır `> **Kısaca:** ...` ile başlayan 1 ile 2 cümlelik doğrudan cevap (AI asistanları ve öne çıkan snippet buradan alır).
+       - Sonra 3 ile 6 arası `## Başlık` bölümü (H2), gerekirse `### Alt başlık`. Madde işareti için `- `, sıralı adım için `1. `.
+       - Sondan bir önceki bölüm `## Sık sorulan sorular`, altında 2 ile 4 adet `### Soru?` + 1 ile 2 cümlelik cevap paragrafı (FAQPage schema'ya dönüşür).
+       - En az 2 iç link: `[bağlantı metni](/yazi/baska-yazinin-slugi/)`. Sadece mevcut slug'lara link ver (`node list-posts.js 80` ile bak).
+       - Tek dış link: `[T.C. Dışişleri Bakanlığı](https://www.mfa.gov.tr)` resmi kaynak notu.
+       - En az 350 kelime, tekrarlayan kalıp cümlelerden kaçın. **kalın** için çift yıldız.
+     - Ülke/vize bilgisi yazacaksan rakamı ancak WebSearch/WebFetch ile doğruladıysan ve "Eylül 2026 itibarıyla" gibi tarihle yaz; doğrulayamıyorsan rakam verme. Hatalı vize bilgisi güveni bitirir (19 Eylül 2026'da Japonya, Güney Kore, Hong Kong ve Kırgızistan yazılarındaki yanlışlar bu yüzden düzeltildi).
    - `slug`: küçük harf, Türkçe karaktersiz, tire ile ayrılmış kebab-case (örn: `vize-ucretleri-neden-artiyor`).
      Mevcut sluglarla çakışmasın (script zaten kontrol ediyor, ama önceden bakmak iyi olur).
-   - `cover_image`: yok, `null` bırak (görsel üretimi bu akışın kapsamında değil).
+   - `cover_image`: bu akışta görsel üretilmez, `null` bırak. Kullanıcı kapak görselini Higgsfield ile sonradan üretir
+     (`process-cover.py` + `update-post.js`). Kapak yoksa sayfa yine de varsayılan `og-default.png` ile paylaşılır.
 
 3. Yazıyı bir JSON dosyasına yaz (örn. `scripts/tmp-post.json`), sonra:
    ```
@@ -50,23 +59,26 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
    ```
    type=gear EKLEME, o gerçek ürün/affiliate linki gerektirir ve bu otomasyonun kapsamı dışında.
 
-5. `node scripts/generate-sitemap.js` çalıştır, sitemap.xml'i güncelle.
+5. **Statik sayfaları üret** (yeni yazı `yazi/<slug>/index.html` olarak yayınlanır, sitemap ve ana sayfa "Son yazılar" da güncellenir):
+   ```
+   node scripts/build-static.js
+   ```
+   "N yazı sayfası ... üretildi" satırını gör. Hata varsa commit'leme.
 
 6. Değişiklikleri commit'le ve push'la:
    ```
-   git add sitemap.xml
+   git add yazi sitemap.xml index.html img
    git commit -m "Günlük içerik: <bugünün başlığı>"
    git push
    ```
-   (Post/deal zaten Firestore'a yazıldığı için index.html/posts.html anında günceldir, git'e sadece
-   sitemap.xml gider. Vercel bu push'ta yeniden deploy tetikleyecek ama içerik zaten Firestore'dan
-   canlı okunduğu için deploy beklemeden de görünür.)
+   Vercel push'ta deploy eder, yazı deploy bitince `https://www.gezicorn.com/yazi/<slug>/` adresinde yayına girer
+   (Firestore'a yazılan içerik tek başına yetmez, sayfa statik üretilip push'lanmalı, aksi halde Google göremez).
 
 ## Sınırlar / yapma
 
 - `firsat` kategorisine otomatik yazı ekleme.
 - `deals` koleksiyonuna type=gear ekleme (gerçek ürün/link gerektirir, kullanıcı elle ekleyecek).
-- `posts`/`deals` koleksiyonlarından hiçbir kaydı SİLME veya var olanı DÜZENLEME, sadece ekle.
+- `posts`/`deals` koleksiyonlarından hiçbir kaydı SİLME veya var olanı DÜZENLEME, sadece ekle. (Mevcut yazıları güncellemek kullanıcı ile yapılan ayrı bir iştir: `update-post.js`.)
 - seed.html'i tekrar çalıştırma.
 - Günde 1'den fazla post ekleme (spam görünümü + kalite düşüşü riski).
 - **Instagram/Facebook'a otomatik gönderi atma.** Sosyal medya paylaşımı (`scripts/post-social.js`,

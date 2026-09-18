@@ -3,22 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn: Pasaportunla nereye gidebilirsin?</title>
-<meta name="description" content="Kırgızistan merkezli gezi ve vize blogu. Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları, gönüllülük fırsatları ve gerçek rota rehberleri.">
+<title>Gezicorn: Türk Pasaportuyla Vize ve Gezi Rehberi</title>
+<meta name="description" content="Türk pasaportuyla vizesiz ve e-vizeyle gidilen ülkeler, vize başvuru rehberleri, canlı uçak bileti fiyatları. Kırgızistan'dan Kamboçya'ya 9 ülke gezen Barbaros'tan gerçek rota notları.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://www.gezicorn.com/">
+<meta property="og:site_name" content="Gezicorn">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Gezicorn: Pasaportunla nereye gidebilirsin?">
-<meta property="og:description" content="Türk pasaportuyla vizesiz gidilecek ülkeler, canlı uçak bileti fiyatları ve gerçek rota rehberleri.">
-<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
+<meta property="og:url" content="https://www.gezicorn.com/">
+<meta property="og:title" content="Gezicorn: Türk Pasaportuyla Vize ve Gezi Rehberi">
+<meta property="og:description" content="Türk pasaportuyla vizesiz ve e-vizeyle gidilen ülkeler, vize rehberleri ve canlı uçak bileti fiyatları.">
+<meta property="og:image" content="https://www.gezicorn.com/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="logo-256.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="twitter:image" content="https://www.gezicorn.com/og-default.png">
+<meta name="theme-color" content="#101B30">
+<link rel="icon" type="image/png" href="/logo-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.gezicorn.com/#website","url":"https://www.gezicorn.com/","name":"Gezicorn","inLanguage":"tr-TR","description":"Türk pasaportuyla vize ve gezi rehberi","publisher":{"@id":"https://www.gezicorn.com/#org"}},{"@type":"Organization","@id":"https://www.gezicorn.com/#org","name":"Gezicorn","url":"https://www.gezicorn.com/","logo":{"@type":"ImageObject","url":"https://www.gezicorn.com/logo-256.png"},"sameAs":["https://www.youtube.com/@gezikorn"]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root{
   --navy:#101B30; --navy-deep:#070C18; --cream:#F1ECDD; --paper:#FAF7EF;
   --gold:#B08D57; --coral:#9C3B2C; --teal:#33604F; --ink:#181611; --muted:#6E6A5D;
@@ -33,6 +41,9 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;}
 .brand .mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
 .brand .mark img{width:100%;height:100%;object-fit:cover;}
 .nav-links{list-style:none;display:flex;gap:28px;font-size:13px;font-weight:500;}
+.country-links{display:flex;flex-wrap:wrap;gap:10px;}
+.country-links a{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid rgba(20,31,56,0.12);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:500;color:var(--navy);}
+.country-links a:hover{border-color:var(--gold);}
 .nav-links a:hover{color:var(--gold);}
 #navSocial{display:flex;gap:12px;}
 .soc-btn{width:30px;height:30px;border-radius:50%;border:1px solid rgba(246,241,228,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--cream);}
@@ -146,8 +157,13 @@ h1 em{font-style:italic;color:var(--gold);}
 footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
 
 @media(max-width:900px){
-  .nav{padding:16px 20px;flex-wrap:wrap;gap:10px;}
-  .nav-links{flex-wrap:wrap;gap:14px 18px;}
+  .nav{padding:14px 20px;flex-wrap:wrap;gap:8px;}
+  .nav-links{flex-wrap:nowrap;gap:18px;overflow-x:auto;white-space:nowrap;width:100%;padding-bottom:4px;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .section-head span{display:none;}
+  .section-head h2{font-size:23px;}
+  .hot-pill{font-size:11.5px;padding:6px 12px;}
+  .stat .n{font-size:24px;}
   .hero{padding:48px 20px 40px;}
   .hero-grid{grid-template-columns:1fr;gap:32px;}
   .globe-canvas-wrap{width:100%;max-width:300px;height:auto;}
@@ -164,13 +180,13 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <body>
 
 <div class="nav">
-  <div class="brand"><span class="mark" id="brandMark">G</span>GEZICORN</div>
-  <ul class="nav-links">
-    <li><a href="posts.html?category=vize">Vize &amp; ülkeler</a></li>
-    <li><a href="posts.html?category=firsat">Gönüllü &amp; fırsatlar</a></li>
-    <li><a href="posts.html?category=rehber">Gezi rehberleri</a></li>
-    <li><a href="posts.html?category=haber">Haberler</a></li>
-    <li><a href="#gearDeals">Sıcak fırsatlar</a></li>
+  <a class="brand" href="/"><span class="mark" id="brandMark"><img src="/logo-128.png" alt="Gezicorn logo" width="40" height="40"></span>GEZICORN</a>
+  <ul class="nav-links" aria-label="Ana menü">
+    <li><a href="/yazi/#vize">Vize &amp; ülkeler</a></li>
+    <li><a href="/yazi/#firsat">Gönüllü &amp; fırsatlar</a></li>
+    <li><a href="/yazi/#rehber">Gezi rehberleri</a></li>
+    <li><a href="/yazi/#haber">Haberler</a></li>
+    <li><a href="#flightWidget">Bilet ara</a></li>
     <li><a href="danismanlik.html" style="color:var(--gold);">Danışmanlık</a></li>
   </ul>
   <div id="navSocial"></div>
@@ -181,14 +197,14 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 <div class="hero">
   <div class="hero-grid">
     <div>
-      <button class="hot-pill" onclick="scrollToFlightSearch()"><span class="dot"></span>ŞU AN: İstanbul → Bangkok fırsatı canlı widget'ta</button>
+      <button class="hot-pill" onclick="scrollToFlightSearch()"><span class="dot"></span>Canlı uçak bileti ara</button>
       <h1>Pasaportunla <em>nereye</em> gidebilirsin?</h1>
-      <p>9 ülke, tek pasaport. Vize kuralları, gönüllü fırsatlarını ve gerçek rota notlarını topluyoruz, üstüne dünyayı döndür, sıcak bileti yakala.</p>
+      <p>Türk pasaportuyla hangi ülkelere vizesiz ya da e-vizeyle gidilir? Kırgızistan'dan Kamboçya'ya 9 ülke gezen Barbaros'tan vize rehberleri, gerçek rota notları ve canlı uçak bileti fiyatları.</p>
       <div class="season-note">Şu an için ideal: Kamboçya, Tayland (kuru sezon)</div>
       <div class="stats-row">
         <div class="stat"><div class="n" id="countryCount">9</div><div class="l">gidilen ülke</div></div>
-        <div class="stat"><div class="n" id="volunteerCount">12</div><div class="l">açık gönüllü projesi</div></div>
-        <div class="stat"><div class="n">canlı</div><div class="l">güncel bilet fiyatları</div></div>
+        <div class="stat"><div class="n" id="postCount">70</div><div class="l">vize ve gezi rehberi</div></div>
+        <div class="stat"><div class="n">canlı</div><div class="l">uçak bileti arama</div></div>
       </div>
     </div>
 
@@ -216,7 +232,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 </div>
 
 <div class="section">
-  <div class="section-head"><h2>Bugünün sıcak fırsatları</h2><span>uçuşlar canlı · rota kartına tıkla, yukarıda ara</span></div>
+  <div class="section-head"><h2>Uçak bileti ara, rotanı seç</h2><span>fiyatlar canlı</span></div>
 
   <div id="flightWidget">
     <script async src="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=9&plain=true&color_button=%23B08D57&color_button_text=%23070C18&promo_id=3414&campaign_id=111" charset="utf-8"></script>
@@ -256,8 +272,13 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 </div>
 
 <div class="section" style="padding-top:0;">
-  <div class="section-head"><h2>Son yazılar</h2><a href="posts.html" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">tümünü gör →</a></div>
-  <div class="posts" id="postsGrid"></div>
+  <div class="section-head"><h2>Son yazılar</h2><a href="/yazi/" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">tümünü gör →</a></div>
+  <div class="posts" id="postsGrid"><!--LATEST_START--><a class="post-card" href="/yazi/ikamet-izni-ile-vize-arasindaki-fark/"><span class="post-tag">vize</span><h3>Oturma İzni (İkamet) ile Vize Arasındaki Fark Nedir?</h3><p>Vize ve ikamet izni çoğu zaman birbirine karıştırılıyor. Aslında ikisi tamamen farklı amaçlara hizmet eden belgeler, işte aradaki temel fark.</p></a><a class="post-card" href="/yazi/konsoloslukta-randevu-beklerken-ogrendiklerim/"><span class="post-tag">haber</span><h3>Konsolosluk Randevusu Beklerken Öğrendiklerim</h3><p>Randevu sistemine her gün girip çıktığım günlerden aklımda kalanlar ve konsolosluk randevu sistemlerinin genel işleyişi.</p></a><a class="post-card" href="/yazi/havalimaninda-pasaport-gumruk-kontrolu-nelere-dikkat/"><span class="post-tag">rehber</span><h3>Havalimanında Pasaport ve Gümrük Kontrolünde Nelere Dikkat Edilmeli?</h3><p>Pasaport kontrolü ve gümrükten sorunsuz geçmek için bilmen gereken temel kurallar ve sık yapılan hatalar.</p></a><a class="post-card" href="/yazi/transit-vizesi-nedir-hangi-durumlarda-gerekir/"><span class="post-tag">vize</span><h3>Transit Vizesi Nedir, Hangi Durumlarda Gerekir?</h3><p>Bir ülkeye gitmiyorsun, sadece oradan geçiyorsun. Ama havaalanında bazen yine de bir vizeye ihtiyacın olabilir. Transit vizesinin ne zaman gerektiğini anlatıyoruz.</p></a><a class="post-card" href="/yazi/elektronik-seyahat-izni-eta-sistemleri-nedir/"><span class="post-tag">haber</span><h3>Elektronik Seyahat İzni (ETA) Sistemleri Nedir, Vizeden Farkı Ne?</h3><p>ESTA, ETIAS, eTA gibi sistemler vize değil ama vizesiz girişte araya giren yeni bir kontrol katmanı. Ne işe yaradıklarını ve vizeden farkını anlatıyoruz.</p></a><a class="post-card" href="/yazi/yurt-disina-cikis-yasagi-nasil-sorgulanir/"><span class="post-tag">rehber</span><h3>Yurt Dışına Çıkış Yasağı Nasıl Sorgulanır?</h3><p>Bilet almadan önce çıkış yasağın olup olmadığını nasıl öğrenirsin, en sık karşılaşılan sebepler ve yasak çıkarsa izlenecek yol.</p></a><!--LATEST_END--></div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="section-head"><h2>Ülke ülke vize rehberleri</h2><a href="/yazi/#vize" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">tüm vize yazıları →</a></div>
+  <div class="country-links"><!--COUNTRIES_START--><a href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/">Kırgızistan</a><a href="/yazi/kazakistana-vizesiz-girmek-mumkun-mu/">Kazakistan</a><a href="/yazi/ozbekistan-vize-kurallari-kalis-suresi/">Özbekistan</a><a href="/yazi/rusya-e-vize-basvurusu-nasil-yapilir/">Rusya</a><a href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/">Tayland</a><a href="/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/">Malezya</a><a href="/yazi/hong-konga-giriste-vize-gerekiyor-mu/">Hong Kong</a><a href="/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/">Kamboçya</a><a href="/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/">Vietnam</a><a href="/yazi/japonya-vizesi-turkler-icin-zor-mu/">Japonya</a><a href="/yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/">Güney Kore</a><a href="/yazi/avustralya-vizesi-turkler-icin-ne-kadar-zor/">Avustralya</a><a href="/yazi/kanada-vizesi-basvuru-sureci-red-sebepleri/">Kanada</a><a href="/yazi/abd-vizesi-neden-bu-kadar-zor/">ABD</a><a href="/yazi/ingiltere-vizesi-schengenden-farkli-mi/">İngiltere</a><a href="/yazi/almanya-vizesi-nasil-alinir/">Almanya</a><a href="/yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/">Schengen</a><!--COUNTRIES_END--></div>
 </div>
 
 <div id="communitySection">
@@ -268,7 +289,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
   <div class="social-grid" id="socialGrid"></div>
 </div>
 
-<footer>© Gezicorn</footer>
+<footer><a href="/yazi/">Tüm yazılar</a> · <a href="/danismanlik.html">Danışmanlık</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><br><span style="display:inline-block;margin-top:8px;">© Gezicorn · Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</span></footer>
 
 <script>
 // TODO: kendi firebaseConfig objenle değiştir (admin.html ve seed.html ile aynı olmalı)
@@ -369,7 +390,7 @@ async function loadGearDeals(){
       const tag = isFlight ? (d.title || 'rota önerisi') : '';
       return `
       <button class="deal-card" ${click}>
-        <div class="deal-badge">${d.discount_label || 'fırsat'}</div>
+        ${d.discount_label ? `<div class="deal-badge">${d.discount_label}</div>` : ''}
         <div class="deal-route"><i class="fa-solid ${icon}"></i>${route}</div>
         <h3>${tag}</h3>
         ${priceArea}
@@ -390,11 +411,12 @@ function scrollToFlightSearch(){
 async function loadPosts(){
   try{
     const snap = await db.collection('posts').where('published','==',true).get();
-    const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,3);
+    const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,6);
+    const pc = document.getElementById('postCount'); if(pc) pc.textContent = snap.size;
     const el = document.getElementById('postsGrid');
     const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
     el.innerHTML = data.map(p=>`
-      <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
+      <a class="post-card" href="/yazi/${encodeURIComponent(p.slug)}/">
         <span class="post-tag">${labels[p.category]||p.category}</span>
         <h3>${p.title}</h3>
         <p>${p.excerpt||''}</p>
@@ -421,7 +443,7 @@ document.getElementById('planBtn').addEventListener('click', function(){
   if(pick){
     el.innerHTML = `<div class="tag">${days} günlük rota önerisi</div><h3>${pick.destination}</h3><p>${pick.note}</p><a class="planner-live-link" href="#flightWidget">canlı bilet fiyatına bak →</a>`;
   } else {
-    el.innerHTML = `<div class="tag">veri yok</div><h3>Öneri bulunamadı</h3><p>Supabase bağlantısını kontrol et.</p>`;
+    el.innerHTML = `<div class="tag">veri yok</div><h3>Öneri bulunamadı</h3><p>Şu an bu bütçeye uygun bir rota yok, biraz sonra tekrar dene.</p>`;
   }
 });
 
@@ -494,12 +516,18 @@ function initGlobe(){
     );
     globeGroup.add(core);
 
-    const wireGeo = new THREE.SphereGeometry(1.508, 20, 14);
-    const wire = new THREE.LineSegments(
-      new THREE.WireframeGeometry(wireGeo),
-      new THREE.LineBasicMaterial({color:0xB08D57, transparent:true, opacity:0.35})
-    );
-    globeGroup.add(wire);
+    const gridMat = new THREE.LineBasicMaterial({color:0xB08D57, transparent:true, opacity:0.32});
+    const R = 1.508;
+    for(let lat=-60; lat<=60; lat+=30){
+      const pts=[]; const r=R*Math.cos(lat*Math.PI/180), y=R*Math.sin(lat*Math.PI/180);
+      for(let a=0;a<=64;a++){ const t=a/64*Math.PI*2; pts.push(new THREE.Vector3(r*Math.cos(t), y, r*Math.sin(t))); }
+      globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridMat));
+    }
+    for(let lng=0; lng<180; lng+=30){
+      const pts=[]; const th=lng*Math.PI/180;
+      for(let a=0;a<=64;a++){ const t=a/64*Math.PI*2; pts.push(new THREE.Vector3(R*Math.cos(t)*Math.cos(th), R*Math.sin(t), R*Math.cos(t)*Math.sin(th))); }
+      globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridMat));
+    }
 
     const glow = new THREE.Mesh(
       new THREE.SphereGeometry(1.62, 32, 32),

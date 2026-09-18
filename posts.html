@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn: Yazılar</title>
+<title>Yazıları Filtrele | Gezicorn</title>
 <meta name="description" content="Vize kuralları, gönüllü fırsatları, gezi rehberleri ve site haberleri. Kırgızistan'dan Kamboçya'ya kendi rotamızdan ve Türk pasaportuna göre.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gezicorn: Yazılar">
 <meta property="og:description" content="Vize kuralları, gönüllü fırsatları ve gezi rehberleri, Türk pasaportuna göre.">
 <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="logo-256.png">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://www.gezicorn.com/yazi/">
+<link rel="icon" type="image/png" href="/logo-256.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
@@ -149,7 +151,7 @@ async function loadPosts(){
     }
     const el = document.getElementById('postsGrid');
     el.innerHTML = data.map(p=>`
-      <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
+      <a class="post-card" href="/yazi/${encodeURIComponent(p.slug)}/">
         ${p.cover_image ? `<img src="${p.cover_image}" alt="${p.title}">` : ''}
         <div class="body">
           <span class="post-tag">${labels[p.category]||p.category}</span>

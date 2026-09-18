@@ -3,131 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gezicorn: Yazı</title>
-<meta name="description" id="metaDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
-<meta property="og:type" content="article">
-<meta property="og:title" id="ogTitle" content="Gezicorn: Yazı">
-<meta property="og:description" id="ogDescription" content="Gezicorn'dan vize, gönüllülük ve gezi rehberi yazıları.">
-<meta property="og:image" id="ogImage" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="logo-256.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-:root{
-  --navy:#101B30; --navy-deep:#070C18; --cream:#F1ECDD; --paper:#FAF7EF;
-  --gold:#B08D57; --coral:#9C3B2C; --teal:#33604F; --ink:#181611; --muted:#6E6A5D;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
-.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
-.brand .mark img{width:100%;height:100%;object-fit:cover;}
-.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
-.back-link:hover{color:var(--gold);}
-
-.cover{width:100%;max-height:380px;object-fit:cover;display:block;}
-.article{max-width:720px;margin:0 auto;padding:64px 24px 96px;}
-.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:18px;}
-.article h1{font-family:'Fraunces',serif;font-weight:800;font-size:36px;line-height:1.2;color:var(--navy);margin-bottom:20px;}
-.article .excerpt{font-size:16px;color:var(--muted);margin-bottom:32px;padding-bottom:32px;border-bottom:1px dashed rgba(20,31,56,0.2);}
-.article .body p{font-size:15.5px;margin-bottom:18px;}
-.article .body strong{color:var(--navy);}
-.not-found{max-width:520px;margin:120px auto;text-align:center;}
-.not-found h1{font-family:'Fraunces',serif;font-size:26px;color:var(--navy);margin-bottom:12px;}
-.not-found p{color:var(--muted);margin-bottom:20px;}
-.not-found a{display:inline-block;background:var(--navy);color:var(--cream);padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;}
-
-footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
-</style>
-</head>
-<body>
-
-<div class="nav">
-  <a class="brand" href="index.html"><span class="mark" id="brandMark">G</span>GEZICORN</a>
-  <a class="back-link" href="index.html">← ana sayfaya dön</a>
-</div>
-
-<div id="content"></div>
-
-<footer>© Gezicorn</footer>
-
+<title>Yazı taşındı | Gezicorn</title>
+<meta name="robots" content="noindex,follow">
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
-  authDomain: "gezicorn.firebaseapp.com",
-  projectId: "gezicorn",
-  storageBucket: "gezicorn.firebasestorage.app",
-  messagingSenderId: "542127745680",
-  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
-
-function escapeHtml(str){
-  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-function renderInline(str){
-  return escapeHtml(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-}
-
-function renderNotFound(){
-  document.getElementById('content').innerHTML = `
-    <div class="not-found">
-      <h1>Yazı bulunamadı</h1>
-      <p>Aradığın yazı kaldırılmış olabilir ya da link hatalı.</p>
-      <a href="index.html">Ana sayfaya dön</a>
-    </div>`;
-}
-
-async function loadPost(){
-  const slug = new URLSearchParams(window.location.search).get('slug');
-  if(!slug){ renderNotFound(); return; }
-  try{
-    const snap = await db.collection('posts').where('published','==',true).where('slug','==',slug).limit(1).get();
-    if(snap.empty){ renderNotFound(); return; }
-    const p = snap.docs[0].data();
-    document.title = `${p.title} · Gezicorn`;
-    if(p.excerpt){
-      document.getElementById('metaDescription').setAttribute('content', p.excerpt);
-      document.getElementById('ogDescription').setAttribute('content', p.excerpt);
-    }
-    document.getElementById('ogTitle').setAttribute('content', `${p.title} · Gezicorn`);
-    if(p.cover_image){
-      document.getElementById('ogImage').setAttribute('content', p.cover_image);
-    }
-    const paragraphs = (p.content||'').split(/\n+/).filter(Boolean).map(par => `<p>${renderInline(par)}</p>`).join('');
-    document.getElementById('content').innerHTML = `
-      ${p.cover_image ? `<img class="cover" src="${p.cover_image}" alt="${p.title}">` : ''}
-      <div class="article">
-        <span class="post-tag">${labels[p.category]||p.category}</span>
-        <h1>${p.title}</h1>
-        ${p.excerpt ? `<div class="excerpt">${p.excerpt}</div>` : ''}
-        <div class="body">${paragraphs}</div>
-      </div>`;
-  }catch(e){ renderNotFound(); }
-}
-
-async function loadBranding(){
-  try{
-    const doc = await db.collection('settings').doc('branding').get();
-    const logoUrl = doc.exists ? doc.data().logo_url : '';
-    if(logoUrl){
-      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
-    }
-  }catch(e){}
-}
-
-loadPost();
-loadBranding();
+(function(){
+  var slug = new URLSearchParams(location.search).get('slug');
+  location.replace(slug ? '/yazi/' + encodeURIComponent(slug) + '/' : '/yazi/');
+})();
 </script>
-</body>
+<noscript><meta http-equiv="refresh" content="0;url=/yazi/"></noscript>
+</head>
+<body><p>Yazılar <a href="/yazi/">buraya taşındı</a>.</p></body>
 </html>

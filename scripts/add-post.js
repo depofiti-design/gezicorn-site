@@ -30,6 +30,21 @@ if (post.content.includes('—') || post.title.includes('—') || post.excerpt.i
   process.exit(1);
 }
 
+// SEO yapı kontrolleri (bkz. DAILY_CONTENT.md "SEO yapısı")
+const wordCount = post.content.split(/\s+/).filter(Boolean).length;
+const seoErrors = [];
+if (wordCount < 300) seoErrors.push(`content ${wordCount} kelime, en az 300 olmalı`);
+if (!/^>\s*\*\*Kısaca:?\*\*/m.test(post.content)) seoErrors.push('content "> **Kısaca:** ..." özet satırıyla başlamalı');
+if ((post.content.match(/^##\s+/gm) || []).length < 3) seoErrors.push('en az 3 adet "## Başlık" bölümü gerekli');
+if (!/^##\s+Sık sorulan sorular/m.test(post.content)) seoErrors.push('"## Sık sorulan sorular" bölümü gerekli');
+if (!/\]\(\/yazi\/[a-z0-9-]+\/\)/.test(post.content)) seoErrors.push('en az 1 iç link gerekli: [metin](/yazi/slug/)');
+if (post.excerpt.length > 165) seoErrors.push(`excerpt ${post.excerpt.length} karakter, en fazla 165 olmalı (meta description)`);
+if (post.title.length > 65) seoErrors.push(`title ${post.title.length} karakter, en fazla 65 olmalı`);
+if (seoErrors.length) {
+  console.error('SEO kontrolü başarısız:\n- ' + seoErrors.join('\n- '));
+  process.exit(1);
+}
+
 const existing = await getDocs(collection(db, 'posts'));
 const slugTaken = existing.docs.some(d => d.data().slug === post.slug);
 if (slugTaken) {
@@ -44,6 +59,8 @@ const docRef = await addDoc(collection(db, 'posts'), {
   excerpt: post.excerpt,
   content: post.content,
   cover_image: post.cover_image || null,
+  cover_alt: post.cover_alt || null,
+  seo_description: post.seo_description || null,
   published: true,
   created_at: serverTimestamp()
 });
