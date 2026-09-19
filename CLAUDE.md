@@ -112,7 +112,11 @@ Kullanıcı "Google/Yandex aramasında, Google AI asistanında çıkacak düzeyd
 
 ## Sosyal medya (Composio)
 
-Instagram (`instagram_warmus-musery`) ve Facebook sayfası (Yol Var Nizam Var) Composio MCP ile `scripts/post-social.js` üzerinden paylaşım yapılıyor (`composio-key.local.txt` gitignore'da). Görseller `social-content/` klasöründe, sıra ve altyazılar `social-content/captions.md` + `preview.html`. Kurallar: her gönderi önce kullanıcıya önizleme + onay, gönderi metninde site linki YOK (kullanıcı Instagram bio'suna linki kendisi ekledi, gönderilerde link istenirse kullanıcı söylemeli), tire yok, sadece erkek figür. Paylaşılanlar: Kırgızistan (16 Eylül), Vietnam (19 Eylül). Sırada: Tayland, Malezya, Hong Kong. Instagram'da silme aracı yok (Composio), yanlış gönderi kullanıcı tarafından uygulamadan silinir.
+Instagram (`instagram_warmus-musery`) ve Facebook sayfası (Yol Var Nizam Var) Composio MCP ile `scripts/post-social.js` üzerinden paylaşım yapılıyor (`composio-key.local.txt` gitignore'da). Görseller `social-content/` klasöründe, sıra ve altyazılar `social-content/captions.md` + `preview.html`. Kurallar: her gönderi önce kullanıcıya önizleme + onay, gönderi metninde site linki YOK. 19 Eylül 2026'da kullanıcı Instagram altyazılarına "Detaylar profildeki linkte." cümlesinin eklenmesini onayladı (bio'ya linki kendisi ekledi), Facebook altyazılarına bu cümle ve link eklenmez (`caption_facebook` ile ayrı metin), tire yok, sadece erkek figür. Paylaşılanlar: Kırgızistan (16 Eylül), Vietnam ve Tayland (19 Eylül). Sırada: Malezya, Hong Kong (ayrıca `social-content/captions.md` içinde Kazakistan, Özbekistan, Rusya, Kamboçya). Tayland altyazısındaki "kuru sezon başladı" yanlıştı (kuru sezon kasımda başlar), "yaklaşıyor" olarak düzeltildi; altyazılardaki mevsim/vize iddialarını atmadan önce kontrol et. Instagram'da silme aracı yok (Composio), yanlış gönderi kullanıcı tarafından uygulamadan silinir.
+
+## Yönetim paneli bilgisi
+
+Panel giriş bilgileri `admin/PANEL-GIRIS.txt` dosyasında (klasör `.gitignore`'da, GitHub'a çıkmaz). Panel: `https://www.gezicorn.com/admin.html`, sadece şifre. Instagram, YouTube ve Facebook sosyal butonları `social_links` koleksiyonunda aktif (Telegram ve Kick kapalı).
 
 ## Deploy durumu
 
