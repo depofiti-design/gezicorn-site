@@ -254,7 +254,7 @@ function renderPost(p, all) {
       datePublished: p.created.toISOString(), dateModified: p.updated.toISOString(),
       wordCount: words, articleSection: cat.label,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: { '@type': 'Person', name: 'Barbaros', url: 'https://www.youtube.com/@gezikorn' },
+      author: { '@type': 'Person', name: 'Barbaros', url: 'https://www.youtube.com/@gezikorn', sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/'] },
       publisher: { '@type': 'Organization', name: SITE, url: `${BASE}/`, logo: { '@type': 'ImageObject', url: `${BASE}/logo-256.png` } },
     },
     {
