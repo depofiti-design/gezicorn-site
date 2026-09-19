@@ -124,6 +124,14 @@ Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka g
 - **Reels önerisi:** Arada kullanıcıya yazılarla bağlantılı kısa reels/video fikri öner (`social-content/reels-fikirleri.md`).
 - **Tarayıcı otomasyonu:** Playwright MCP (Microsoft resmi, `@playwright/mcp@0.0.82`, headless + isolated) kullanıcı düzeyinde eklendi, yeni oturumda araçlar görünür. Google hesabı gerektiren işler (Search Console vb.) kullanıcıya bırakılır.
 
+## Marka adı ve reklam alanları (19 Eylül 2026)
+
+- **Marka adı her yerde "Gezicorn".** Kullanıcı sitedeki "Yazan: Barbaros", MRZ şeridindeki BARBAROS ve benzeri kişisel ad kullanımlarından rahatsız oldu ("gezicorn ismini kullan her yerde"). Yazar bilgisi Organization "Gezicorn" (JSON-LD), yazar kutusu "Gezicorn", MRZ şeridi `P<TURGEZICORN<<SOLO<TRAVEL`. Yeni içerikte kişisel ad yazma, "biz/Gezicorn" de. Facebook sayfasının adı hâlâ "Yol Var Nizam Var" (kullanıcı Facebook'tan Gezicorn olarak değiştirmeli).
+- **Reklam alanları:** yazı sayfalarında `banners` koleksiyonundaki `banner_left`, `banner_right` (180px, sadece ≥1300px geniş ekran) ve `banner_inline` (yazı başında yatay, mobilde de görünür); ana sayfada `banner_1/2` şeridi. Hepsi admin panelde Banner sekmesinden görsel/link/alt metinle açılır, "Reklam" etiketi ve `rel="sponsored"` otomatik. Yazı sayfaları Firestore REST ile okuyor, kapalı olan slot boş yer bırakmaz.
+- **Kapaksız kart:** listelerde kapağı olmayan yazı `img/covers/_default.jpg` ile aynı boyda görünür (grid bozulmasın).
+- **Ekipman yazıları:** ilk kez yurt dışına çıkanlar için çanta, çadır, Decathlon alternatifleri ve bavul listesi yazıları eklendi; ileride affiliate (Amazon, Trendyol, Klook vb.) linkleri buralara konur.
+- **YouTube kanal bannerı:** `brand/youtube-banner-2560x1440.jpg` (Higgsfield `gpt_image_2_5` ile kullanıcının video kapaklarından referansla üretilen sahne + `scratchpad/yt/compose.py` ile yazı). Eski banner krem tuval içinde küçük bir şerit olduğu için TV ve mobilde kötü görünüyordu. Güvenli alan 1546x423 (ortada), yazılar bunun içinde.
+
 ## Yönetim paneli bilgisi
 
 Panel giriş bilgileri `admin/PANEL-GIRIS.txt` dosyasında (klasör `.gitignore`'da, GitHub'a çıkmaz). Panel: `https://www.gezicorn.com/admin.html`, sadece şifre. Instagram, YouTube ve Facebook sosyal butonları `social_links` koleksiyonunda aktif (Telegram ve Kick kapalı).
