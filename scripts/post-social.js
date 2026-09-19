@@ -1,5 +1,6 @@
 // Usage: node post-social.js post.json
 // post.json: { "image_url": "https://...png", "caption": "...", "caption_facebook"?: "...", "platforms"?: ["instagram","facebook"] }
+// Ek modlar: "carousel_images": [url,...] (kaydırmalı) ya da "video_url": url (reel); bu modlarda sadece Instagram'a gider.
 // caption_facebook overrides caption for the Facebook post (e.g. drop hashtags, add a link).
 // Posts via Composio MCP (https://connect.composio.dev/mcp) using the API key in composio-key.local.txt
 // (gitignored, never commit it). Instagram account: instagram_warmus-musery (ig_user_id 28470759025941073).
@@ -23,8 +24,9 @@ if (!jsonPath) {
   process.exit(1);
 }
 const post = JSON.parse(readFileSync(jsonPath, 'utf-8'));
-if (!post.image_url || !post.caption) {
-  console.error('post.json needs at least image_url and caption');
+const mode = post.carousel_images ? 'carousel' : post.video_url ? 'reel' : 'photo';
+if (!post.caption || (mode === 'photo' && !post.image_url)) {
+  console.error('post.json needs caption and image_url (or carousel_images: [jpg urls] for a swipe post, or video_url for a reel)');
   process.exit(1);
 }
 const platforms = post.platforms || ['instagram', 'facebook'];
@@ -74,6 +76,36 @@ async function postInstagram() {
   console.log('Instagram published:', published.id);
 }
 
+// Kaydırmalı gönderi: post.carousel_images = 2-10 adet herkese açık JPEG URL (4:5 ile 1.91:1)
+async function postInstagramCarousel() {
+  const container = await multiExecute([{
+    tool_slug: 'INSTAGRAM_CREATE_CAROUSEL_CONTAINER',
+    arguments: { ig_user_id: IG_USER_ID, child_image_urls: post.carousel_images, caption: post.caption, graph_api_version: 'v21.0' },
+    account: IG_ACCOUNT
+  }]);
+  const published = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH',
+    arguments: { ig_user_id: IG_USER_ID, creation_id: container.id, max_wait_seconds: 120 },
+    account: IG_ACCOUNT
+  }]);
+  console.log('Instagram carousel published:', published.id);
+}
+
+// Reel: post.video_url = herkese açık MP4 (9:16). Müzik videonun içinde olmalı.
+async function postInstagramReel() {
+  const container = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
+    arguments: { ig_user_id: IG_USER_ID, video_url: post.video_url, media_type: 'REELS', caption: post.caption, share_to_feed: true, graph_api_version: 'v21.0' },
+    account: IG_ACCOUNT
+  }]);
+  const published = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH',
+    arguments: { ig_user_id: IG_USER_ID, creation_id: container.id, max_wait_seconds: 240 },
+    account: IG_ACCOUNT
+  }]);
+  console.log('Instagram reel published:', published.id);
+}
+
 async function postFacebook() {
   const result = await multiExecute([{
     tool_slug: 'FACEBOOK_CREATE_PHOTO_POST',
@@ -83,6 +115,6 @@ async function postFacebook() {
   console.log('Facebook published:', result.post_id || result.id);
 }
 
-if (platforms.includes('instagram')) await postInstagram();
-if (platforms.includes('facebook')) await postFacebook();
+if (platforms.includes('instagram')) await (mode === 'carousel' ? postInstagramCarousel() : mode === 'reel' ? postInstagramReel() : postInstagram());
+if (platforms.includes('facebook') && mode === 'photo') await postFacebook();
 process.exit(0);
