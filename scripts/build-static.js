@@ -13,6 +13,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase-client.js';
 
 const BASE = 'https://www.gezicorn.com';
+const AFF = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'affiliates.json'), 'utf-8'));
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_OG = `${BASE}/og-default.png`;
 const SITE = 'Gezicorn';
@@ -175,6 +176,12 @@ img{max-width:100%;height:auto;}
 .ad-left{left:calc(50% - 380px - 200px);}
 .ad-right{left:calc(50% + 380px + 20px);}
 @media(max-width:1299px){.ad-left.on,.ad-right.on{display:none;}}
+.aff{display:flex;gap:16px;align-items:center;justify-content:space-between;background:var(--paper);border:1.5px solid var(--gold);border-radius:14px;padding:18px 22px;margin:34px 0 8px;}
+.aff b{display:block;font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:4px;}
+.aff p{font-size:14.5px;color:#3d3a30;margin:0;line-height:1.55;}
+.aff a.btn{flex:none;background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;border:0;}
+.aff-note{font-size:12px;color:var(--muted);margin-top:6px;}
+@media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{text-align:center;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
@@ -287,6 +294,8 @@ function renderPost(p, all) {
   const tocHtml = toc.length >= 3
     ? `<nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol>${toc.map(t => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : '';
   const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. ${esc(p.youtube_note || 'Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.')}</figcaption></figure>` : '';
+  const aff = p.affiliate && AFF[p.affiliate] && AFF[p.affiliate].active ? AFF[p.affiliate] : null;
+  const affHtml = aff ? `<div class="aff"><div><b>${esc(aff.title)}</b><p>${esc(p.affiliate_text || aff.blurb)}</p></div><a class="btn" href="${aff.url}" rel="sponsored nofollow noopener" target="_blank">${esc(aff.cta)} →</a></div><p class="aff-note">Bu kutudaki bağlantı bir ortaklık (affiliate) bağlantısıdır. Senin ödediğin fiyat değişmez, satın alırsan Gezicorn küçük bir komisyon kazanabilir.</p>` : '';
   const relHtml = rel.length ? `<section class="related" aria-label="İlgili yazılar"><h2>Bunlar da işine yarayabilir</h2><div class="grid">${rel.map(cardHtml).join('')}</div></section>` : '';
 
   return `<!DOCTYPE html>
@@ -314,6 +323,7 @@ ${ytHtml}
 <div class="body">
 ${html}
 </div>
+${affHtml}
 <aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya solo seyahat rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener" style="border-bottom:1px dashed rgba(20,31,56,.3);">YouTube kanalında</a> paylaşan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara dayanır.</p></aside>
 <p class="disclaimer">Bu yazı genel bilgi amaçlıdır. Vize, ücret ve giriş kuralları ülkeye ve döneme göre değişir. Başvurudan önce ilgili ülkenin konsolosluğunun veya resmi e-vize sitesinin güncel duyurularını kontrol et.</p>
 </article>
@@ -409,6 +419,17 @@ if (idx.includes('<!--LATEST_START-->')) {
       return hit ? `<a href="/yazi/${hit.slug}/">${esc(c)}</a>` : '';
     }).filter(Boolean).join('');
     cur = cur.replace(/<!--COUNTRIES_START-->[\s\S]*?<!--COUNTRIES_END-->/, `<!--COUNTRIES_START-->${chips}<!--COUNTRIES_END-->`);
+    writeFileSync(idxPath, cur, 'utf-8');
+  }
+}
+
+// ana sayfa: Önerdiklerimiz (affiliates.json içinde active olanlar)
+{
+  let cur = readFileSync(idxPath, 'utf-8');
+  const cards = Object.values(AFF).filter(a => a.active).map(a =>
+    `<a class="partner-card" href="${a.url}" rel="sponsored nofollow noopener" target="_blank"><b>${esc(a.title)}</b><p>${esc(a.blurb)}</p><span>${esc(a.cta)} →</span></a>`).join('');
+  if (cur.includes('<!--PARTNERS_START-->')) {
+    cur = cur.replace(/<!--PARTNERS_START-->[\s\S]*?<!--PARTNERS_END-->/, `<!--PARTNERS_START-->${cards}<!--PARTNERS_END-->`);
     writeFileSync(idxPath, cur, 'utf-8');
   }
 }

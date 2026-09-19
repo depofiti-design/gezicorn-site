@@ -132,6 +132,13 @@ Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka g
 - **Ekipman yazıları:** ilk kez yurt dışına çıkanlar için çanta, çadır, Decathlon alternatifleri ve bavul listesi yazıları eklendi; ileride affiliate (Amazon, Trendyol, Klook vb.) linkleri buralara konur.
 - **YouTube kanal bannerı:** `brand/youtube-banner-2560x1440.jpg` (Higgsfield `gpt_image_2_5` ile kullanıcının video kapaklarından referansla üretilen sahne + `scratchpad/yt/compose.py` ile yazı). Eski banner krem tuval içinde küçük bir şerit olduğu için TV ve mobilde kötü görünüyordu. Güvenli alan 1546x423 (ortada), yazılar bunun içinde.
 
+## Affiliate sistemi (19 Eylül 2026)
+
+- Ortaklık programları `scripts/affiliates.json` içinde (`active: true` olanlar sitede görünür). Şu an: **Klook** (Travelpayouts kısa linki `https://klook.tpk.lv/E7wCjYCm`, kullanıcının hesabı onaylı). Yeni program onaylanınca buraya ekle (name, url, title, blurb, cta, active).
+- Yazıya kutu koymak için Firestore'da `affiliate: 'klook'` (+ isteğe bağlı `affiliate_text`) alanını `update-post.js` ile yaz; kutu yazar kutusundan önce çıkar, "ortaklık bağlantısıdır" notu otomatik, linkler `rel="sponsored nofollow noopener"`. Klook kutusu Kamboçya, Tayland, Malezya, Hong Kong, Vietnam, Japonya, Güney Kore ve eSIM yazılarında. Ana sayfada "Önerdiklerimiz" bölümü aynı dosyadan dolar.
+- Kullanıcı Travelpayouts Chrome eklentisini kurdu; derin linkleri (örn. Klook Angkor Wat sayfası) eklentiyle üretip gönderirse kutu linkini sayfaya özel yap.
+- Bekleyen başvurular: SafetyWing (safetywing.com/ambassador, Community menüsünden), Airalo (partners.airalo.com), Surfshark, NordVPN. Onay gelince `affiliates.json`'a ekle, ilgili yazılara (sigorta, eSIM, VPN) `affiliate` alanı ver. SafetyWing'in Schengen vizesi için kabul edildiğini doğrulamadan yazma.
+
 ## Yönetim paneli bilgisi
 
 Panel giriş bilgileri `admin/PANEL-GIRIS.txt` dosyasında (klasör `.gitignore`'da, GitHub'a çıkmaz). Panel: `https://www.gezicorn.com/admin.html`, sadece şifre. Instagram, YouTube ve Facebook sosyal butonları `social_links` koleksiyonunda aktif (Telegram ve Kick kapalı).

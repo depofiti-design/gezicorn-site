@@ -72,6 +72,12 @@ img{max-width:100%;height:auto;}
 .ad-left{left:calc(50% - 380px - 200px);}
 .ad-right{left:calc(50% + 380px + 20px);}
 @media(max-width:1299px){.ad-left.on,.ad-right.on{display:none;}}
+.aff{display:flex;gap:16px;align-items:center;justify-content:space-between;background:var(--paper);border:1.5px solid var(--gold);border-radius:14px;padding:18px 22px;margin:34px 0 8px;}
+.aff b{display:block;font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:4px;}
+.aff p{font-size:14.5px;color:#3d3a30;margin:0;line-height:1.55;}
+.aff a.btn{flex:none;background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;border:0;}
+.aff-note{font-size:12px;color:var(--muted);margin-top:6px;}
+@media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{text-align:center;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
@@ -147,6 +153,7 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 <p>Merkeze göre değişir, randevu alırken sor.</p>
 <p>Kurallar zamanla değişir. Güncel şartları ilgili ülkenin konsolosluğundan ya da Dünya Sağlık Örgütü&#39;nün seyahat sağlığı sayfasından teyit et. <a href="https://www.mfa.gov.tr" rel="noopener">T.C. Dışişleri Bakanlığı</a> da faydalı bir kaynak.</p>
 </div>
+
 <aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya solo seyahat rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener" style="border-bottom:1px dashed rgba(20,31,56,.3);">YouTube kanalında</a> paylaşan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara dayanır.</p></aside>
 <p class="disclaimer">Bu yazı genel bilgi amaçlıdır. Vize, ücret ve giriş kuralları ülkeye ve döneme göre değişir. Başvurudan önce ilgili ülkenin konsolosluğunun veya resmi e-vize sitesinin güncel duyurularını kontrol et.</p>
 </article>
