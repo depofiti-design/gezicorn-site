@@ -254,7 +254,7 @@ function renderPost(p, all) {
       datePublished: p.created.toISOString(), dateModified: p.updated.toISOString(),
       wordCount: words, articleSection: cat.label,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: { '@type': 'Person', name: 'Barbaros', url: 'https://www.youtube.com/@gezikorn', sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/', 'https://www.facebook.com/profile.php?id=144062395450039'] },
+      author: { '@type': 'Organization', name: 'Gezicorn', url: `${BASE}/`, sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/', 'https://www.facebook.com/profile.php?id=144062395450039'] },
       publisher: { '@type': 'Organization', name: SITE, url: `${BASE}/`, logo: { '@type': 'ImageObject', url: `${BASE}/logo-256.png` } },
     },
     {
@@ -281,7 +281,7 @@ function renderPost(p, all) {
 <html lang="tr">
 <head>
 ${headCommon({ title: pageTitle(p.title), desc, canonical: url, image, type: 'article', robots: p.noindex ? 'noindex,follow' : undefined,
-  extra: `\n<meta property="article:published_time" content="${p.created.toISOString()}">\n<meta property="article:modified_time" content="${p.updated.toISOString()}">\n<meta property="article:section" content="${esc(cat.label)}">\n<meta property="article:author" content="Barbaros">` })}
+  extra: `\n<meta property="article:published_time" content="${p.created.toISOString()}">\n<meta property="article:modified_time" content="${p.updated.toISOString()}">\n<meta property="article:section" content="${esc(cat.label)}">\n<meta property="article:author" content="Gezicorn">` })}
 <script type="application/ld+json">${jsonLd(ld)}</script>
 <style>${CSS}</style>
 </head>
@@ -293,14 +293,14 @@ ${p.cover_image ? `<img class="cover" src="${image}" alt="${esc(p.cover_alt || p
 <article class="article">
 <span class="post-tag">${esc(CAT[p.category]?.short || p.category)}</span>
 <h1>${esc(p.title)}</h1>
-<div class="meta"><span>Yazan: Barbaros</span><span>Güncelleme: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time></span><span>${mins} dk okuma</span></div>
+<div class="meta"><span>Yazan: Gezicorn</span><span>Güncelleme: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time></span><span>${mins} dk okuma</span></div>
 ${p.excerpt && blocks[0]?.t !== 'quote' ? `<p class="excerpt">${inline(p.excerpt)}</p>` : ''}
 ${tocHtml}
 ${ytHtml}
 <div class="body">
 ${html}
 </div>
-<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Barbaros, Gezicorn</b>Kırgızistan'da yaşadı, şimdi Kamboçya'da yaşıyor ve Orta Asya'dan Güneydoğu Asya'ya rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener" style="border-bottom:1px dashed rgba(20,31,56,.3);">YouTube kanalında</a> paylaşıyor. Yazılar kendi deneyimine ve resmi kaynaklara dayanır.</p></aside>
+<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya solo seyahat rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener" style="border-bottom:1px dashed rgba(20,31,56,.3);">YouTube kanalında</a> paylaşan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara dayanır.</p></aside>
 <p class="disclaimer">Bu yazı genel bilgi amaçlıdır. Vize, ücret ve giriş kuralları ülkeye ve döneme göre değişir. Başvurudan önce ilgili ülkenin konsolosluğunun veya resmi e-vize sitesinin güncel duyurularını kontrol et.</p>
 </article>
 ${relHtml}
@@ -313,8 +313,8 @@ ${p.youtube_id ? YT_SCRIPT : ''}
 }
 
 function cardHtml(p) {
-  const img = absImg(p.cover_image);
-  return `<a class="card" href="/yazi/${p.slug}/">${img ? `<img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675">` : ''}<div class="in"><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></div></a>`;
+  const img = absImg(p.cover_image) || `${BASE}/img/covers/_default.jpg`;   // kapaksız yazı da aynı boyda kart olsun
+  return `<a class="card" href="/yazi/${p.slug}/"><img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675"><div class="in"><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></div></a>`;
 }
 
 function renderList(posts) {
