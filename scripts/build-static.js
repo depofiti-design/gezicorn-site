@@ -124,6 +124,8 @@ function related(post, all) {
   }).sort((a, b) => b.score - a.score || b.o.ts - a.o.ts).slice(0, 4).map(x => x.o);
 }
 
+const AD_SCRIPT = `<script>(function(){var B='https://firestore.googleapis.com/v1/projects/gezicorn/databases/(default)/documents/banners/';document.querySelectorAll('.ad[data-slot]').forEach(function(el){fetch(B+el.dataset.slot).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.fields)return;var f=d.fields,on=f.active&&f.active.booleanValue,img=f.image_url&&f.image_url.stringValue;if(!on||!img)return;var a=document.createElement('a');a.href=(f.link_url&&f.link_url.stringValue)||'#';a.rel='sponsored noopener';a.target='_blank';var i=document.createElement('img');i.src=img;i.alt=(f.alt_text&&f.alt_text.stringValue)||'Reklam';i.loading='lazy';a.appendChild(i);var s=document.createElement('small');s.textContent='Reklam';el.appendChild(a);el.appendChild(s);el.classList.add('on');}).catch(function(){});});})();</script>`;
+
 const YT_SCRIPT = `<script>document.querySelectorAll('.yt-frame').forEach(function(f){f.querySelector('.yt-play').addEventListener('click',function(){var i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1&rel=0';i.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title='YouTube video';f.innerHTML='';f.appendChild(i);});});</script>`;
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,7 +146,7 @@ img{max-width:100%;height:auto;}
 .crumbs{max-width:760px;margin:0 auto;padding:22px 24px 0;font-size:12.5px;color:var(--muted);}
 .crumbs a{border-bottom:1px dashed rgba(20,31,56,.3);}
 .crumbs span{margin:0 6px;}
-.cover{width:100%;max-width:1000px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border-radius:12px;background:var(--navy);}
+.cover{width:100%;max-width:760px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border-radius:12px;background:var(--navy);}
 .article{max-width:760px;margin:0 auto;padding:28px 24px 72px;}
 .post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:16px;}
 .article h1{font-family:'Fraunces',serif;font-weight:800;font-size:38px;line-height:1.18;color:var(--navy);margin-bottom:14px;}
@@ -163,6 +165,16 @@ img{max-width:100%;height:auto;}
 .body strong{color:var(--navy);}
 .body a{color:var(--coral);border-bottom:1px solid rgba(14,116,144,.35);}
 .callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
+.ad{display:none;font-size:11px;color:var(--muted);text-align:center;}
+.ad.on{display:block;}
+.ad img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid rgba(20,31,56,.1);}
+.ad small{display:block;margin-top:4px;letter-spacing:.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
+.ad-inline{margin:0 0 26px;}
+.ad-inline img{max-height:180px;object-fit:cover;}
+.ad-left,.ad-right{position:fixed;top:110px;width:180px;}
+.ad-left{left:calc(50% - 380px - 200px);}
+.ad-right{left:calc(50% + 380px + 20px);}
+@media(max-width:1299px){.ad-left.on,.ad-right.on{display:none;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
@@ -287,6 +299,7 @@ ${headCommon({ title: pageTitle(p.title), desc, canonical: url, image, type: 'ar
 </head>
 <body>
 ${NAV}
+<aside class="ad ad-left" data-slot="banner_left" aria-label="Reklam"></aside><aside class="ad ad-right" data-slot="banner_right" aria-label="Reklam"></aside>
 <main>
 <nav class="crumbs" aria-label="Sayfa yolu"><a href="/">Ana sayfa</a><span>›</span><a href="/yazi/">Yazılar</a><span>›</span><a href="/yazi/#${p.category}">${esc(cat.label)}</a></nav>
 ${p.cover_image ? `<img class="cover" src="${image}" alt="${esc(p.cover_alt || p.title)}" width="1200" height="675" fetchpriority="high">` : ''}
@@ -296,6 +309,7 @@ ${p.cover_image ? `<img class="cover" src="${image}" alt="${esc(p.cover_alt || p
 <div class="meta"><span>Yazan: Gezicorn</span><span>Güncelleme: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time></span><span>${mins} dk okuma</span></div>
 ${p.excerpt && blocks[0]?.t !== 'quote' ? `<p class="excerpt">${inline(p.excerpt)}</p>` : ''}
 ${tocHtml}
+<aside class="ad ad-inline" data-slot="banner_inline" aria-label="Reklam"></aside>
 ${ytHtml}
 <div class="body">
 ${html}
@@ -306,7 +320,7 @@ ${html}
 ${relHtml}
 </main>
 ${FOOTER}
-${p.youtube_id ? YT_SCRIPT : ''}
+${AD_SCRIPT}${p.youtube_id ? YT_SCRIPT : ''}
 </body>
 </html>
 `;

@@ -43,7 +43,7 @@ img{max-width:100%;height:auto;}
 .crumbs{max-width:760px;margin:0 auto;padding:22px 24px 0;font-size:12.5px;color:var(--muted);}
 .crumbs a{border-bottom:1px dashed rgba(20,31,56,.3);}
 .crumbs span{margin:0 6px;}
-.cover{width:100%;max-width:1000px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border-radius:12px;background:var(--navy);}
+.cover{width:100%;max-width:760px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border-radius:12px;background:var(--navy);}
 .article{max-width:760px;margin:0 auto;padding:28px 24px 72px;}
 .post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:16px;}
 .article h1{font-family:'Fraunces',serif;font-weight:800;font-size:38px;line-height:1.18;color:var(--navy);margin-bottom:14px;}
@@ -62,6 +62,16 @@ img{max-width:100%;height:auto;}
 .body strong{color:var(--navy);}
 .body a{color:var(--coral);border-bottom:1px solid rgba(14,116,144,.35);}
 .callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
+.ad{display:none;font-size:11px;color:var(--muted);text-align:center;}
+.ad.on{display:block;}
+.ad img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid rgba(20,31,56,.1);}
+.ad small{display:block;margin-top:4px;letter-spacing:.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
+.ad-inline{margin:0 0 26px;}
+.ad-inline img{max-height:180px;object-fit:cover;}
+.ad-left,.ad-right{position:fixed;top:110px;width:180px;}
+.ad-left{left:calc(50% - 380px - 200px);}
+.ad-right{left:calc(50% + 380px + 20px);}
+@media(max-width:1299px){.ad-left.on,.ad-right.on{display:none;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
@@ -107,6 +117,7 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 <body>
 <header class="nav"><a class="brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="40" height="40">GEZICORN</a>
 <nav aria-label="Ana menü"><ul class="nav-links"><li><a href="/yazi/">Yazılar</a></li><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehber</a></li><li><a href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>
+<aside class="ad ad-left" data-slot="banner_left" aria-label="Reklam"></aside><aside class="ad ad-right" data-slot="banner_right" aria-label="Reklam"></aside>
 <main>
 <nav class="crumbs" aria-label="Sayfa yolu"><a href="/">Ana sayfa</a><span>›</span><a href="/yazi/">Yazılar</a><span>›</span><a href="/yazi/#rehber">Gezi rehberleri</a></nav>
 <img class="cover" src="https://www.gezicorn.com/img/covers/seyahat-sigortasi-neden-sart-nasil-secilir.jpg" alt="Otel yatağında seyahat malzemeleri ve ilk yardım çantası" width="1200" height="675" fetchpriority="high">
@@ -116,6 +127,7 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 <div class="meta"><span>Yazan: Gezicorn</span><span>Güncelleme: <time datetime="2026-09-18">19 Eylül 2026</time></span><span>1 dk okuma</span></div>
 
 <nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol><li><a href="#neden-gerekli">Neden gerekli?</a></li><li><a href="#secerken-nelere-bakmali">Seçerken nelere bakmalı?</a></li><li><a href="#ucuz-police-tuzagi">Ucuz poliçe tuzağı</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li></ol></nav>
+<aside class="ad ad-inline" data-slot="banner_inline" aria-label="Reklam"></aside>
 
 <div class="body">
 <p class="callout"><strong>Kısaca:</strong> Seyahat sigortası Schengen gibi rotalarda vize başvurusunun zorunlu parçası, diğer rotalarda ise akıllıca bir güvence. Schengen için en az 30.000 euro sağlık teminatı ve tüm bölgeyi kapsama şartı var.</p>
@@ -142,6 +154,6 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 </main>
 <footer><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a>
 <p style="margin-top:12px;">© Gezicorn · Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p></footer>
-
+<script>(function(){var B='https://firestore.googleapis.com/v1/projects/gezicorn/databases/(default)/documents/banners/';document.querySelectorAll('.ad[data-slot]').forEach(function(el){fetch(B+el.dataset.slot).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.fields)return;var f=d.fields,on=f.active&&f.active.booleanValue,img=f.image_url&&f.image_url.stringValue;if(!on||!img)return;var a=document.createElement('a');a.href=(f.link_url&&f.link_url.stringValue)||'#';a.rel='sponsored noopener';a.target='_blank';var i=document.createElement('img');i.src=img;i.alt=(f.alt_text&&f.alt_text.stringValue)||'Reklam';i.loading='lazy';a.appendChild(i);var s=document.createElement('small');s.textContent='Reklam';el.appendChild(a);el.appendChild(s);el.classList.add('on');}).catch(function(){});});})();</script>
 </body>
 </html>

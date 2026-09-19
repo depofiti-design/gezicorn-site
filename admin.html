@@ -204,11 +204,12 @@ async function loadBanners(){
   el.innerHTML = data.map(b=>`
     <div class="item" style="flex-direction:column;align-items:stretch;">
       <div style="display:flex;justify-content:space-between;align-items:center;">
-        <b>${b.slot === 'banner_1' ? 'Banner 1' : 'Banner 2'}</b>
+        <b>${({banner_1:'Ana sayfa üst şerit 1 (yatay)',banner_2:'Ana sayfa üst şerit 2 (yatay)',banner_left:'Yazı sayfası SOL reklam (180px genişlik, dikey, sadece geniş ekran)',banner_right:'Yazı sayfası SAĞ reklam (180px genişlik, dikey, sadece geniş ekran)',banner_inline:'Yazı içi reklam (yatay, yazının başında, mobilde de görünür)'})[b.slot] || b.slot}</b>
         <button class="toggle ${b.active?'on':''}" onclick="toggleBanner('${b.slot}', ${!b.active})"><span class="dot"></span></button>
       </div>
       <input placeholder="Görsel URL" value="${b.image_url||''}" onchange="updateBanner('${b.slot}','image_url',this.value)" style="margin-top:8px;padding:8px;border:1px solid #ccc;border-radius:6px;">
       <input placeholder="Link URL" value="${b.link_url||''}" onchange="updateBanner('${b.slot}','link_url',this.value)" style="margin-top:6px;padding:8px;border:1px solid #ccc;border-radius:6px;">
+      <input placeholder="Alt metin (reklam veren adı)" value="${b.alt_text||''}" onchange="updateBanner('${b.slot}','alt_text',this.value)" style="margin-top:6px;padding:8px;border:1px solid #ccc;border-radius:6px;">
     </div>`).join('');
 }
 async function toggleBanner(slot, val){ await db.collection('banners').doc(slot).set({active:val}, {merge:true}); loadBanners(); }
