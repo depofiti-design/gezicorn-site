@@ -207,7 +207,7 @@ footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
 
 const NAV = `<header class="nav"><a class="brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="40" height="40">GEZICORN</a>
 <nav aria-label="Ana menü"><ul class="nav-links"><li><a href="/yazi/">Yazılar</a></li><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehber</a></li><li><a href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
-const FOOTER = `<footer><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a>
+const FOOTER = `<footer><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a>
 <p style="margin-top:12px;">© Gezicorn · Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p></footer>`;
 
 const headCommon = ({ title, desc, canonical, image, type = 'website', extra = '', robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' }) => `<meta charset="UTF-8">
@@ -254,7 +254,7 @@ function renderPost(p, all) {
       datePublished: p.created.toISOString(), dateModified: p.updated.toISOString(),
       wordCount: words, articleSection: cat.label,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: { '@type': 'Person', name: 'Barbaros', url: 'https://www.youtube.com/@gezikorn', sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/'] },
+      author: { '@type': 'Person', name: 'Barbaros', url: 'https://www.youtube.com/@gezikorn', sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/', 'https://www.facebook.com/profile.php?id=144062395450039'] },
       publisher: { '@type': 'Organization', name: SITE, url: `${BASE}/`, logo: { '@type': 'ImageObject', url: `${BASE}/logo-256.png` } },
     },
     {

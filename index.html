@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#101B30">
 <link rel="icon" type="image/png" href="/logo-256.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.gezicorn.com/#website","url":"https://www.gezicorn.com/","name":"Gezicorn","inLanguage":"tr-TR","description":"Türk pasaportuyla vize ve gezi rehberi","publisher":{"@id":"https://www.gezicorn.com/#org"}},{"@type":"Organization","@id":"https://www.gezicorn.com/#org","name":"Gezicorn","url":"https://www.gezicorn.com/","logo":{"@type":"ImageObject","url":"https://www.gezicorn.com/logo-256.png"},"sameAs":["https://www.youtube.com/@gezikorn","https://www.instagram.com/gezicorn/"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.gezicorn.com/#website","url":"https://www.gezicorn.com/","name":"Gezicorn","inLanguage":"tr-TR","description":"Türk pasaportuyla vize ve gezi rehberi","publisher":{"@id":"https://www.gezicorn.com/#org"}},{"@type":"Organization","@id":"https://www.gezicorn.com/#org","name":"Gezicorn","url":"https://www.gezicorn.com/","logo":{"@type":"ImageObject","url":"https://www.gezicorn.com/logo-256.png"},"sameAs":["https://www.youtube.com/@gezikorn","https://www.instagram.com/gezicorn/","https://www.facebook.com/profile.php?id=144062395450039"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -152,6 +152,7 @@ h1 em{font-style:italic;color:var(--gold);}
 .ic-telegram{background:rgba(41,169,229,0.18);color:#29A9E5;}
 .ic-instagram{background:rgba(228,64,95,0.18);color:#E4405F;}
 .ic-youtube{background:rgba(255,0,0,0.18);color:#FF3B3B;}
+.ic-facebook{background:rgba(24,119,242,0.18);color:#4C8DF6;}
 .ic-kick{background:rgba(83,252,24,0.18);color:#53FC18;font-weight:700;font-size:13px;}
 
 footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
@@ -289,7 +290,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
   <div class="social-grid" id="socialGrid"></div>
 </div>
 
-<footer><a href="/yazi/">Tüm yazılar</a> · <a href="/danismanlik.html">Danışmanlık</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><br><span style="display:inline-block;margin-top:8px;">© Gezicorn · Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</span></footer>
+<footer><a href="/yazi/">Tüm yazılar</a> · <a href="/danismanlik.html">Danışmanlık</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a><br><span style="display:inline-block;margin-top:8px;">© Gezicorn · Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</span></footer>
 
 <script>
 // TODO: kendi firebaseConfig objenle değiştir (admin.html ve seed.html ile aynı olmalı)
@@ -308,7 +309,8 @@ const ICONS = {
   telegram: {cls:'ic-telegram', html:'<i class="fa-brands fa-telegram"></i>'},
   instagram: {cls:'ic-instagram', html:'<i class="fa-brands fa-instagram"></i>'},
   youtube: {cls:'ic-youtube', html:'<i class="fa-brands fa-youtube"></i>'},
-  kick: {cls:'ic-kick', html:'KICK'}
+  kick: {cls:'ic-kick', html:'KICK'},
+  facebook: {cls:'ic-facebook', html:'<i class="fa-brands fa-facebook"></i>'}
 };
 
 function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
@@ -333,10 +335,10 @@ async function loadSocial(){
     const navSocial = document.getElementById('navSocial');
     const grid = document.getElementById('socialGrid');
     if(data.length){
-      navSocial.innerHTML = data.map(s=>`<a class="soc-btn" href="${s.url||'#'}" target="_blank">${ICONS[s.platform].html}</a>`).join('');
+      navSocial.innerHTML = data.map(s=>`<a class="soc-btn" href="${s.url||'#'}" target="_blank">${(ICONS[s.platform]||{html:''}).html}</a>`).join('');
       grid.innerHTML = data.map(s=>`
         <a class="social-card" href="${s.url||'#'}" target="_blank">
-          <div class="social-icon ${ICONS[s.platform].cls}">${ICONS[s.platform].html}</div>
+          <div class="social-icon ${(ICONS[s.platform]||{}).cls||''}">${(ICONS[s.platform]||{html:''}).html}</div>
           <div class="n">${s.follower_label||''}</div>
           <div class="l">${s.platform} </div>
         </a>`).join('');
