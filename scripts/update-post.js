@@ -1,12 +1,12 @@
 // Usage: node update-post.js updates.json
 // updates.json: bir nesne ya da nesne dizisi. Her nesne { slug, ...alanlar }.
-// Güncellenebilir alanlar: title, excerpt, content, category, cover_image, cover_alt, seo_description, noindex, published, youtube_id, youtube_title
+// Güncellenebilir alanlar: title, excerpt, content, category, cover_image, cover_alt, seo_description, noindex, published, youtube_id, youtube_title, youtube_note
 // Her güncellemede updated_at otomatik yenilenir (yazı sayfasında "Güncelleme" tarihi ve sitemap lastmod olur).
 import { readFileSync } from 'fs';
 import { collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase-client.js';
 
-const ALLOWED = ['title', 'excerpt', 'content', 'category', 'cover_image', 'cover_alt', 'seo_description', 'noindex', 'published', 'youtube_id', 'youtube_title'];
+const ALLOWED = ['title', 'excerpt', 'content', 'category', 'cover_image', 'cover_alt', 'seo_description', 'noindex', 'published', 'youtube_id', 'youtube_title', 'youtube_note'];
 const VALID_CATEGORIES = ['vize', 'firsat', 'rehber', 'haber'];
 
 const jsonPath = process.argv[2];

@@ -43,6 +43,7 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
      - Ülke/vize bilgisi yazacaksan rakamı ancak WebSearch/WebFetch ile doğruladıysan ve "Eylül 2026 itibarıyla" gibi tarihle yaz; doğrulayamıyorsan rakam verme. Hatalı vize bilgisi güveni bitirir (19 Eylül 2026'da Japonya, Güney Kore, Hong Kong ve Kırgızistan yazılarındaki yanlışlar bu yüzden düzeltildi).
    - `slug`: küçük harf, Türkçe karaktersiz, tire ile ayrılmış kebab-case (örn: `vize-ucretleri-neden-artiyor`).
      Mevcut sluglarla çakışmasın (script zaten kontrol ediyor, ama önceden bakmak iyi olur).
+   - **YouTube videosu:** yazının konusu kanalda anlatılmışsa (Rusya, Tayland, Kırgızistan, Bangkok, market fiyatları, banka/döviz, kalacak yer) ve kullanıcı videonun ID'sini vermişse `youtube_id` alanını kullanıcı ekler, ajan uydurma ID yazmaz.
    - `cover_image`: bu akışta görsel üretilmez, `null` bırak. Kullanıcı kapak görselini Higgsfield ile sonradan üretir
      (`process-cover.py` + `update-post.js`). Kapak yoksa sayfa yine de varsayılan `og-default.png` ile paylaşılır.
 

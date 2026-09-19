@@ -114,6 +114,16 @@ Kullanıcı "Google/Yandex aramasında, Google AI asistanında çıkacak düzeyd
 
 Instagram (`instagram_warmus-musery`) ve Facebook sayfası (Yol Var Nizam Var) Composio MCP ile `scripts/post-social.js` üzerinden paylaşım yapılıyor (`composio-key.local.txt` gitignore'da). Görseller `social-content/` klasöründe, sıra ve altyazılar `social-content/captions.md` + `preview.html`. Kurallar: her gönderi önce kullanıcıya önizleme + onay, gönderi metninde site linki YOK. 19 Eylül 2026'da kullanıcı Instagram altyazılarına "Detaylar profildeki linkte." cümlesinin eklenmesini onayladı (bio'ya linki kendisi ekledi), Facebook altyazılarına bu cümle ve link eklenmez (`caption_facebook` ile ayrı metin), tire yok, sadece erkek figür. Paylaşılanlar: Kırgızistan (16 Eylül), Vietnam ve Tayland (19 Eylül). Sırada: Malezya, Hong Kong (ayrıca `social-content/captions.md` içinde Kazakistan, Özbekistan, Rusya, Kamboçya). Tayland altyazısındaki "kuru sezon başladı" yanlıştı (kuru sezon kasımda başlar), "yaklaşıyor" olarak düzeltildi; altyazılardaki mevsim/vize iddialarını atmadan önce kontrol et. Instagram'da silme aracı yok (Composio), yanlış gönderi kullanıcı tarafından uygulamadan silinir.
 
+## Tasarım güncellemesi: NomadKit uyarlaması (19 Eylül 2026)
+
+Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka gibi durmasın diye sitemiz, uyarlayabiliriz"). `design/nomadkit-DESIGN.md` içinde. Renk değişkenleri güncellendi (`--cream #FFFDF7`, `--paper #FFFFFF`, `--gold #D4A373` Sand, `--coral #0E7490` Ocean, `--teal #166534` Forest, lacivert korundu), tüm sayfalarda ve `scripts/build-static.js` CSS'inde. Aviasales widget düğmesi de sand. Yeni bileşen eklerken bu paleti kullan, mor/mavi gradient ve jenerik ortalanmış hero yok. Gerçek fotoğraf kapaklar, gerçek logo ve YouTube video embed'leri "yapay zeka görünümünü" azaltan öğeler, bunları koru.
+
+## Kalıcı içerik kuralları (kullanıcı 19 Eylül 2026)
+
+- **YouTube videosu:** Bir yazının konusuyla eşleşen video kanalda varsa `youtube_id` + `youtube_title` (+ gerekirse `youtube_note`) ile yazıya göm. Videosu olan konuda Instagram altyazısında "Videosu YouTube kanalımızda da var" de. Kanaldaki eski video güncel kuralla çelişiyorsa `youtube_note` ile açıkça belirt (Tayland videosu 60 gün diyor, güncel süre 30).
+- **Reels önerisi:** Arada kullanıcıya yazılarla bağlantılı kısa reels/video fikri öner (`social-content/reels-fikirleri.md`).
+- **Tarayıcı otomasyonu:** Playwright MCP (Microsoft resmi, `@playwright/mcp@0.0.82`, headless + isolated) kullanıcı düzeyinde eklendi, yeni oturumda araçlar görünür. Google hesabı gerektiren işler (Search Console vb.) kullanıcıya bırakılır.
+
 ## Yönetim paneli bilgisi
 
 Panel giriş bilgileri `admin/PANEL-GIRIS.txt` dosyasında (klasör `.gitignore`'da, GitHub'a çıkmaz). Panel: `https://www.gezicorn.com/admin.html`, sadece şifre. Instagram, YouTube ve Facebook sosyal butonları `social_links` koleksiyonunda aktif (Telegram ve Kick kapalı).

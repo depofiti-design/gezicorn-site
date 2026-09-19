@@ -130,7 +130,7 @@ const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">`;
 
 const CSS = `
-:root{--navy:#101B30;--navy-deep:#070C18;--cream:#F1ECDD;--paper:#FAF7EF;--gold:#B08D57;--coral:#9C3B2C;--teal:#33604F;--ink:#181611;--muted:#6E6A5D;}
+:root{--navy:#101B30;--navy-deep:#070C18;--cream:#FFFDF7;--paper:#FFFFFF;--gold:#D4A373;--coral:#0E7490;--teal:#166534;--ink:#181611;--muted:#6E6A5D;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-text-size-adjust:100%;}
 body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;}
@@ -161,7 +161,7 @@ img{max-width:100%;height:auto;}
 .body ul,.body ol{margin:0 0 18px 22px;font-size:17px;line-height:1.7;}
 .body li{margin-bottom:6px;}
 .body strong{color:var(--navy);}
-.body a{color:var(--coral);border-bottom:1px solid rgba(156,59,44,.35);}
+.body a{color:var(--coral);border-bottom:1px solid rgba(14,116,144,.35);}
 .callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
@@ -274,7 +274,7 @@ function renderPost(p, all) {
 
   const tocHtml = toc.length >= 3
     ? `<nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol>${toc.map(t => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : '';
-  const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.</figcaption></figure>` : '';
+  const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. ${esc(p.youtube_note || 'Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.')}</figcaption></figure>` : '';
   const relHtml = rel.length ? `<section class="related" aria-label="İlgili yazılar"><h2>Bunlar da işine yarayabilir</h2><div class="grid">${rel.map(cardHtml).join('')}</div></section>` : '';
 
   return `<!DOCTYPE html>
