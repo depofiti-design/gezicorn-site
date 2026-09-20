@@ -16,290 +16,239 @@
 <meta property="og:image" content="https://www.gezicorn.com/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.gezicorn.com/og-default.png">
-<meta name="theme-color" content="#101B30">
+<meta name="theme-color" content="#0F766E">
 <link rel="icon" type="image/png" href="/logo-256.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.gezicorn.com/#website","url":"https://www.gezicorn.com/","name":"Gezicorn","inLanguage":"tr-TR","description":"Türk pasaportuyla vize ve gezi rehberi","publisher":{"@id":"https://www.gezicorn.com/#org"}},{"@type":"Organization","@id":"https://www.gezicorn.com/#org","name":"Gezicorn","url":"https://www.gezicorn.com/","logo":{"@type":"ImageObject","url":"https://www.gezicorn.com/logo-256.png"},"sameAs":["https://www.youtube.com/@gezikorn","https://www.instagram.com/gezicorn/","https://www.facebook.com/profile.php?id=144062395450039"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/assets/gz.css?v=20260920b">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
-:root{
-  --navy:#101B30; --navy-deep:#070C18; --cream:#FFFDF7; --paper:#FFFFFF;
-  --gold:#D4A373; --coral:#0E7490; --teal:#166534; --ink:#181611; --muted:#6E6A5D;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.5;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-button{font-family:inherit;cursor:pointer;background:none;border:none;}
+#bannerStrip{display:none;background:var(--paper);border-bottom:3px solid var(--ink)}
+.banner-item{display:block;padding:8px 20px;text-align:center}
+.banner-item img{max-height:60px;margin:0 auto;border-radius:8px}
 
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
-.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;letter-spacing:.05em;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
-.brand .mark img{width:100%;height:100%;object-fit:cover;}
-.nav-links{list-style:none;display:flex;gap:28px;font-size:13px;font-weight:500;}
-.partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-.partner-card{display:block;background:var(--paper);border:1.5px solid rgba(212,163,115,.55);border-radius:14px;padding:20px 22px;transition:border-color .15s,transform .15s;}
-.partner-card:hover{border-color:var(--gold);transform:translateY(-2px);}
-.partner-card b{display:block;font-family:'Fraunces',serif;font-size:19px;color:var(--navy);margin-bottom:6px;}
-.partner-card p{font-size:14px;color:var(--muted);margin-bottom:12px;}
-.partner-card span{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--coral);border-bottom:1px dashed var(--coral);}
-.partner-note{font-size:12px;color:var(--muted);margin-top:12px;}
-.country-links{display:flex;flex-wrap:wrap;gap:10px;}
-.country-links a{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid rgba(20,31,56,0.12);border-radius:10px;padding:10px 16px;font-size:14px;font-weight:500;color:var(--navy);}
-.country-links a:hover{border-color:var(--gold);}
-.nav-links a:hover{color:var(--gold);}
-#navSocial{display:flex;gap:12px;}
-.soc-btn{width:30px;height:30px;border-radius:50%;border:1px solid rgba(246,241,228,0.25);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--cream);}
-.soc-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy-deep);}
+/* hero */
+.hero{margin:22px clamp(12px,3vw,32px) 0;background:var(--teal);color:#fff;border:3px solid var(--ink);border-radius:34px;box-shadow:8px 8px 0 var(--ink);display:grid;grid-template-columns:1.1fr 1fr;align-items:center;padding:clamp(28px,5vw,64px);gap:18px;position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;right:-110px;top:-110px;width:380px;height:380px;border-radius:50%;background:rgba(14,165,233,.28);z-index:-1}
+.hero::after{content:"";position:absolute;left:-70px;bottom:-90px;width:250px;height:250px;border-radius:50%;background:rgba(250,204,21,.22);z-index:-1}
+.hero .eyebrow{display:inline-block;font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:var(--yl);color:var(--ink);padding:5px 12px;border:2px solid var(--ink);border-radius:99px;margin-bottom:18px}
+.hero h1{font:800 clamp(42px,6.2vw,84px)/.96 var(--f-display);letter-spacing:-.035em;margin-bottom:18px;text-wrap:balance}
+.hero h1 mark{background:var(--or);color:var(--ink);padding:0 .12em;border-radius:10px}
+.hero .lead{font-size:18px;max-width:44ch;color:#D9FBF5;margin-bottom:24px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:10px}
+.hero .facts span{font:800 14px var(--f-body);background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.55);border-radius:99px;padding:7px 14px}
+.hero .facts b{font-family:var(--f-display);font-size:18px}
+.stage{position:relative;height:clamp(300px,40vw,460px);perspective:1000px}
+.stage .fb,.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.stage .fb{object-fit:contain;filter:drop-shadow(0 26px 22px rgba(0,0,0,.35));animation:bob 5s ease-in-out infinite}
+.stage canvas{display:block}
+@keyframes bob{50%{translate:0 -12px}}
+.stage .stamp{position:absolute;--s:120px;background:rgba(255,255,255,.92);z-index:2;box-shadow:3px 3px 0 var(--ink)}
+.stage .s1{left:-2%;top:6%;--r:-8deg}.stage .s2{right:0;bottom:4%;--r:7deg;--s:130px}
+.orbit{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transform:rotateX(70deg);animation:spin 16s linear infinite;pointer-events:none}
+.orbit img{position:absolute;width:74px;left:-46%;top:-30px;transform:rotateX(-70deg)}
+.orbit-ring{position:absolute;left:50%;top:50%;width:92%;height:92%;border:2.5px dashed rgba(255,255,255,.55);border-radius:50%;transform:translate(-50%,-50%) rotateX(70deg);pointer-events:none}
+@keyframes spin{to{transform:rotateX(70deg) rotateZ(360deg)}}
+.orbit img{left:calc(min(38vw,240px) * -1);max-width:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr;border-radius:26px}.stage{height:300px}.orbit img{left:-30vw}}
 
-/* BANNER STRIP */
-#bannerStrip{display:none;}
-.banner-item{display:block;padding:10px 52px;background:var(--paper);border-bottom:1px solid rgba(20,31,56,0.08);text-align:center;}
-.banner-item img{max-height:60px;margin:0 auto;}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:172px;gap:16px}
+.tile{position:relative;overflow:hidden;background:var(--paper);border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:16px 18px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .15s,box-shadow .15s;isolation:isolate}
+.tile:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.tile h3{font:800 20px/1.1 var(--f-display);letter-spacing:-.02em}
+.tile p{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4}
+.tile img.o{position:absolute;right:6px;top:6px;width:48%;max-width:132px;object-fit:contain;filter:drop-shadow(0 10px 8px rgba(0,0,0,.22));transition:transform .25s}
+.tile:hover img.o{transform:rotate(-6deg) scale(1.06)}
+.tile.big{grid-column:span 2;grid-row:span 2;color:#fff;background:var(--teal-d) center/cover;padding:22px}
+.tile.big::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(6,40,38,.88));z-index:-1}
+.tile.big h3{font-size:36px}.tile.big p{color:#D9FBF5;font-size:15px}
+.tile .badge{position:absolute;left:16px;top:16px;background:var(--or);color:var(--ink);font:800 13px var(--f-display);padding:6px 13px;border:2px solid var(--ink);border-radius:99px}
+.t-a{background:var(--sand)}.t-b{background:#E0F2FE}.t-c{background:var(--peach)}.t-d{background:var(--mint)}.t-e{background:#FCE7F3}.t-f{background:#ECFCCB}
+@media(max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.tile.big{grid-column:span 2}}
 
-.hero{position:relative;background:var(--navy);color:var(--cream);padding:80px 52px 64px;overflow:hidden;}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;}
-.hot-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(14,116,144,0.15);border:1px solid var(--coral);color:#F0D3AE;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 14px;border-radius:20px;margin-bottom:20px;}
-.hot-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 1.4s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
-h1{font-family:'Fraunces',serif;font-weight:800;font-size:48px;line-height:1.06;letter-spacing:-0.01em;max-width:10.5em;}
-h1 em{font-style:italic;color:var(--gold);}
-.hero-grid p{margin-top:18px;max-width:29em;color:#C8C4B6;font-size:15.5px;}
-.season-note{margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--gold);}
+/* uçak bileti */
+#flightWidget{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:var(--sh);padding:20px;margin-bottom:26px;min-height:90px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+#flightWidget.highlight{box-shadow:0 0 0 5px var(--or),var(--sh)}
+#searchHint{text-align:center;font:600 13px var(--f-mono);color:var(--or-d);margin:-14px 0 20px;opacity:0;transition:opacity .25s}
+#searchHint.show{opacity:1}
+.deals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.deal-card{display:block;width:100%;text-align:left;background:var(--paper);border:3px solid var(--ink);border-radius:20px;box-shadow:var(--sh-s);padding:18px;position:relative;overflow:hidden;cursor:pointer;transition:transform .15s;font-family:inherit}
+.deal-card:hover{transform:translate(-2px,-2px)}
+.deal-badge{position:absolute;top:0;right:0;background:var(--yl);color:var(--ink);font:600 11px var(--f-mono);padding:6px 12px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);border-radius:0 0 0 14px}
+.deal-route{display:flex;align-items:center;gap:8px;font:600 13px var(--f-mono);color:var(--muted);margin-bottom:12px}
+.deal-route i{color:var(--or-d)}
+.deal-card h3{font:800 19px/1.15 var(--f-display);margin-bottom:12px;letter-spacing:-.01em}
+.deal-cta{font:600 13px var(--f-mono);color:var(--teal-d);border-bottom:2px dashed currentColor}
+.deal-price .new{font:800 24px var(--f-display);color:var(--or-d)}.deal-price .old{text-decoration:line-through;color:var(--muted);margin-right:8px}
 
-.globe-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:2;}
-.globe-canvas-wrap{width:340px;height:340px;aspect-ratio:1;position:relative;}
-.globe-canvas-wrap canvas{width:100%!important;height:100%!important;display:block;}
-.globe-legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:320px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:#B7AF98;}
-.globe-legend span{border:1px solid rgba(212,163,115,0.35);border-radius:4px;padding:2px 7px;}
+/* rota planlayıcı */
+.planner{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;background:var(--paper);border:3px solid var(--ink);border-radius:26px;box-shadow:var(--sh);padding:clamp(20px,3vw,36px)}
+.planner label{display:block;font:600 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.planner .row{margin-bottom:20px}
+.planner input[type=range]{width:100%;accent-color:var(--or)}
+.budget-val{font:800 26px var(--f-display);margin-top:2px}
+.planner select{width:100%;padding:11px 12px;border:2.5px solid var(--ink);border-radius:12px;font:600 14px var(--f-body);background:var(--paper)}
+.planner .note{margin-top:14px;font-size:13px;color:var(--muted)}
+.planner .note a{color:var(--teal-d);border-bottom:2px dashed currentColor;font-weight:700}
+.plan-result{background:var(--teal);color:#fff;border:3px solid var(--ink);border-radius:20px;padding:24px;min-height:190px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.plan-result .tag{font:600 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--yl);margin-bottom:8px}
+.plan-result h3{font:800 28px var(--f-display);letter-spacing:-.02em;margin-bottom:6px}
+.plan-result p{font-size:14px;color:#D9FBF5}
+.plan-result a{display:inline-block;margin-top:14px;font:700 13px var(--f-mono);color:var(--yl);border-bottom:2px dashed currentColor}
+@media(max-width:860px){.planner{grid-template-columns:1fr}}
 
-.board-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;}
-.board{background:rgba(6,10,20,0.55);border:1px solid rgba(212,163,115,0.3);border-radius:10px;padding:14px 22px;min-width:250px;text-align:center;}
-.board-row{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.05em;color:var(--cream);perspective:400px;}
-.board-flip{display:inline-block;transition:transform .3s ease,opacity .3s ease;}
-.board-flip.flipping{transform:rotateX(90deg);opacity:0;}
-.board-arrow{color:var(--gold);}
-.board-sub{margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#B7AF98;}
+/* rota şeridi */
+.route{background:var(--paper);border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:22px 22px 26px}
+.route h3{font:800 24px var(--f-display);letter-spacing:-.02em}
+.route p.s{margin:2px 0 16px;color:var(--muted);font-size:14px}
+.stops{display:flex;overflow-x:auto;padding:6px 2px 8px}
+.stop{flex:1 0 132px;position:relative;text-align:center;padding-top:26px}
+.stop::before{content:"";position:absolute;left:0;right:0;top:9px;border-top:3px dashed var(--or)}
+.stop:first-child::before{left:50%}.stop:last-child::before{right:50%}
+.stop::after{content:"";position:absolute;left:50%;top:0;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--yl);border:3px solid var(--ink)}
+.stop b{display:block;font:800 15px var(--f-body)}.stop small{color:var(--muted);font-size:12px}
 
-.spin-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:13.5px;padding:11px 20px;border-radius:8px;}
-.spin-btn .arrow{display:inline-block;transition:transform .8s ease;}
-.spin-btn.spinning .arrow{transform:rotate(360deg);}
-.hot-pill{cursor:pointer;border:1px solid var(--coral);background:rgba(14,116,144,0.18);}
-.hot-pill:hover{background:rgba(14,116,144,0.28);}
-
-.mrz-strip{background:var(--navy-deep);border-top:1px solid rgba(212,163,115,0.25);border-bottom:1px solid rgba(212,163,115,0.25);padding:10px 52px;overflow:hidden;white-space:nowrap;}
-.mrz-strip div{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:rgba(212,163,115,0.55);}
-@media(max-width:900px){.mrz-strip{padding:8px 20px;}.mrz-strip div{font-size:9px;}}
-
-.stats-row{display:flex;gap:30px;margin-top:34px;}
-.stat .n{font-family:'Fraunces',serif;font-size:28px;font-weight:800;color:var(--gold);}
-.stat .l{font-size:11.5px;color:#A6A290;margin-top:2px;}
-
-.section{padding:64px 52px;max-width:1220px;margin:0 auto;}
-.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px;}
-.section-head h2{font-family:'Fraunces',serif;font-size:27px;color:var(--navy);}
-.section-head span{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
-
-/* LIVE FLIGHT WIDGET SLOT */
-#flightWidget{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;margin-bottom:24px;min-height:90px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);}
-
-.deals{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-@media(max-width:900px){.deals{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:520px){.deals{grid-template-columns:1fr;}}
-.deal-card{display:block;width:100%;text-align:left;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;font-family:inherit;}
-.deal-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 24px rgba(20,31,56,0.1);}
-.deal-badge{position:absolute;top:0;right:0;background:var(--coral);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 14px;border-radius:0 0 0 10px;}
-.deal-route{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);margin-bottom:14px;}
-.deal-route i{color:var(--gold);font-size:12px;}
-.deal-card h3{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);margin-bottom:12px;}
-.deal-price{display:flex;align-items:baseline;gap:8px;}
-.deal-price .old{font-size:14px;color:var(--muted);text-decoration:line-through;}
-.deal-price .new{font-family:'Fraunces',serif;font-size:26px;font-weight:800;color:var(--coral);}
-.deal-cta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--coral);border-bottom:1px dashed var(--coral);display:inline-block;}
-#flightWidget.highlight{box-shadow:0 0 0 3px var(--gold);}
-#searchHint{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--coral);margin:-14px 0 20px;opacity:0;transition:opacity .25s;}
-#searchHint.show{opacity:1;}
-.deal-meta{font-size:12px;color:var(--muted);margin-top:10px;}
-
-.planner{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:16px;padding:34px 38px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
-.planner-controls label{display:block;font-size:12.5px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-bottom:8px;text-transform:uppercase;}
-.planner-controls .row{margin-bottom:22px;}
-.planner-controls input[type=range]{width:100%;accent-color:var(--coral);}
-.budget-val{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--navy);margin-top:4px;}
-.planner-controls select{width:100%;padding:10px 12px;border:1px solid rgba(20,31,56,0.2);border-radius:8px;font-size:14px;background:var(--paper);}
-.planner-btn{background:var(--navy);color:var(--cream);font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;margin-top:6px;}
-.planner-result{background:var(--navy);color:var(--cream);border-radius:12px;padding:26px;min-height:180px;display:flex;flex-direction:column;justify-content:center;}
-.planner-result .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
-.planner-result h3{font-family:'Fraunces',serif;font-size:24px;margin-bottom:8px;}
-.planner-result p{font-size:13.5px;color:#C8C4B6;}
-.planner-live-link{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--gold);border-bottom:1px dashed var(--gold);}
-.planner-live-link:hover{color:var(--cream);border-color:var(--cream);}
-
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.post-card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:22px;transition:border-color .15s;}
-.post-card:hover{border-color:var(--gold);}
-.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
-.post-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;line-height:1.3;}
-.post-card p{font-size:13.5px;color:var(--muted);}
-
-#communitySection{display:none;background:var(--navy-deep);color:var(--cream);padding:54px 52px;}
-.community-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px;}
-.community-head h2{font-family:'Fraunces',serif;font-size:26px;max-width:14em;}
-.community-head p{color:#A6A290;font-size:14px;max-width:26em;}
-.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.social-card{background:rgba(246,241,228,0.05);border:1px solid rgba(246,241,228,0.12);border-radius:12px;padding:22px 18px;text-align:center;}
-.social-card:hover{border-color:var(--gold);}
-.social-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:18px;}
-.social-card .n{font-family:'Fraunces',serif;font-size:19px;font-weight:800;}
-.social-card .l{font-size:12px;color:#A6A290;margin-top:2px;}
-.ic-telegram{background:rgba(41,169,229,0.18);color:#29A9E5;}
-.ic-instagram{background:rgba(228,64,95,0.18);color:#E4405F;}
-.ic-youtube{background:rgba(255,0,0,0.18);color:#FF3B3B;}
-.ic-facebook{background:rgba(24,119,242,0.18);color:#4C8DF6;}
-.ic-kick{background:rgba(83,252,24,0.18);color:#53FC18;font-weight:700;font-size:13px;}
-
-footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
-
-@media(max-width:900px){
-  .nav{padding:14px 20px;flex-wrap:wrap;gap:8px;}
-  .nav-links{flex-wrap:nowrap;gap:18px;overflow-x:auto;white-space:nowrap;width:100%;padding-bottom:4px;scrollbar-width:none;}
-  .nav-links::-webkit-scrollbar{display:none;}
-  .section-head span{display:none;}
-  .section-head h2{font-size:23px;}
-  .hot-pill{font-size:11.5px;padding:6px 12px;}
-  .stat .n{font-size:24px;}
-  .hero{padding:48px 20px 40px;}
-  .hero-grid{grid-template-columns:1fr;gap:32px;}
-  .globe-canvas-wrap{width:100%;max-width:300px;height:auto;}
-  .section{padding:44px 20px;}
-  h1{font-size:32px;}
-  .planner{grid-template-columns:1fr;padding:24px;}
-  .posts{grid-template-columns:1fr;}
-  .social-grid{grid-template-columns:repeat(2,1fr);}
-  .stats-row{flex-wrap:wrap;gap:20px;}
-  .community-head{flex-direction:column;align-items:flex-start;}
-}
+/* ortaklar, ülkeler, topluluk */
+.partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.partner-card{display:flex;gap:16px;align-items:center;background:var(--sand);border:3px solid var(--ink);border-radius:22px;box-shadow:var(--sh);padding:18px 20px}
+.partner-card img{width:78px;flex:none}
+.partner-card b{display:block;font:800 19px var(--f-display)}
+.partner-card p{font-size:13.5px;color:var(--muted);margin:3px 0 8px}
+.partner-card span{font:700 13px var(--f-mono);color:var(--teal-d);border-bottom:2px dashed currentColor}
+.partner-note{font-size:12.5px;color:var(--muted);margin-top:12px}
+.country-links{display:flex;flex-wrap:wrap;gap:10px}
+.country-links a{font:800 14px var(--f-body);background:var(--paper);border:2.5px solid var(--ink);border-radius:99px;padding:8px 16px;box-shadow:2px 2px 0 var(--ink)}
+.country-links a:hover{background:var(--yl)}
+#communitySection{display:none;background:var(--ink);color:#fff;padding:54px clamp(16px,4vw,44px)}
+#communitySection .in{max-width:1220px;margin:0 auto}
+.community-head h2{font:800 clamp(26px,3.6vw,40px)/1.05 var(--f-display);letter-spacing:-.03em;margin-bottom:8px}
+.community-head p{color:#B9D3CE;margin-bottom:28px}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.social-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:2.5px solid rgba(255,255,255,.4);border-radius:18px;padding:16px 18px}
+.social-card:hover{border-color:var(--yl)}
+.social-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:var(--yl);color:var(--ink);flex:none}
+.social-card .n{font:800 17px var(--f-display)}.social-card .l{font-size:12.5px;color:#B9D3CE;text-transform:capitalize}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a class="brand" href="/"><span class="mark" id="brandMark"><img src="/logo-128.png" alt="Gezicorn logo" width="40" height="40"></span>GEZICORN</a>
-  <ul class="nav-links" aria-label="Ana menü">
-    <li><a href="/yazi/#vize">Vize &amp; ülkeler</a></li>
-    <li><a href="/yazi/#firsat">Gönüllü &amp; fırsatlar</a></li>
-    <li><a href="/yazi/#rehber">Gezi rehberleri</a></li>
-    <li><a href="/yazi/#haber">Haberler</a></li>
-    <li><a href="#flightWidget">Bilet ara</a></li>
-    <li><a href="danismanlik.html" style="color:var(--gold);">Danışmanlık</a></li>
-  </ul>
-  <div id="navSocial"></div>
-</div>
-
 <div id="bannerStrip"></div>
 
-<div class="hero">
-  <div class="hero-grid">
-    <div>
-      <button class="hot-pill" onclick="scrollToFlightSearch()"><span class="dot"></span>Canlı uçak bileti ara</button>
-      <h1>Pasaportunla <em>nereye</em> gidebilirsin?</h1>
-      <p>Türk pasaportuyla hangi ülkelere vizesiz ya da e-vizeyle gidilir? Kırgızistan'dan Kamboçya'ya 9 ülke gezerek yazdığımız vize rehberleri, gerçek rota notları ve canlı uçak bileti fiyatları.</p>
-      <div class="stats-row">
-        <div class="stat"><div class="n" id="countryCount">9</div><div class="l">gidilen ülke</div></div>
-        <div class="stat"><div class="n" id="postCount">70</div><div class="l">vize ve gezi rehberi</div></div>
-      </div>
-    </div>
+<header class="gz-nav">
+  <a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
+  <ul class="gz-links" aria-label="Ana menü">
+    <li><a href="/yazi/#vize">Vize</a></li>
+    <li><a href="/yazi/#rehber">Rehberler</a></li>
+    <li><a href="/yazi/#haber">Haberler</a></li>
+    <li><a href="#bilet">Bilet ara</a></li>
+    <li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li>
+  </ul>
+  <div class="gz-soc" id="navSocial"></div>
+</header>
 
-    <div class="globe-wrap">
-      <div class="globe-canvas-wrap" id="globeCanvasWrap"></div>
-      <div class="globe-legend" id="globeLegend"></div>
-      <div class="board-wrap">
-        <div class="board" id="depBoard">
-          <div class="board-row">
-            <span class="board-flip" id="boardFrom">İSTANBUL</span>
-            <span class="board-arrow">→</span>
-            <span class="board-flip" id="boardTo">BANGKOK</span>
-          </div>
-          <div class="board-sub">önerdiğimiz rotalar</div>
-        </div>
-        <button class="spin-btn" id="spinBtn"><span class="arrow">↻</span> globe'u döndür, rota değiştir</button>
-      </div>
-    </div>
+<main>
+<section class="hero">
+  <div>
+    <span class="eyebrow">Türk pasaportuna göre</span>
+    <h1>Pasaportunla <mark>nereye</mark> gidebilirsin?</h1>
+    <p class="lead">Vizesiz ve e-vizeyle gidilen ülkeler, vize rehberleri ve canlı uçak bileti fiyatları. Kırgızistan'dan Kamboçya'ya 9 ülke gezerek yazdık.</p>
+    <div class="cta"><a class="btn yl" href="/yazi/#vize">Vize rehberlerine bak</a><a class="btn alt" href="#bilet">Uçak bileti ara</a></div>
+    <div class="facts"><span><b id="countryCount">9</b> gezilen ülke</span><span><b id="postCount">70</b> rehber</span></div>
   </div>
-</div>
+  <div class="stage" id="stage">
+    <div class="orbit-ring"></div>
+    <img class="fb" src="/assets/3d/suitcase.webp" alt="3D seyahat bavulu" width="520" height="520">
+    <canvas hidden></canvas>
+    <div class="orbit"><img src="/assets/3d/plane.webp" alt="" width="74" height="74"></div>
+    <a class="stamp s1" href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/"><div><b>Tayland</b><small>30 gün vizesiz</small></div></a>
+    <a class="stamp s2" href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/"><div><b>Kırgızistan</b><small>90 gün vizesiz</small></div></a>
+  </div>
+</section>
 
-<div class="section">
-  <div class="section-head"><h2>Uçak bileti ara, rotanı seç</h2><span>fiyatlar canlı</span></div>
+<section class="sec">
+  <div class="sec-head"><h2>Vize <mark>damgaları</mark></h2><span>Eylül 2026 itibarıyla, başvurudan önce resmi kaynağı kontrol et</span></div>
+  <div class="stamps"><!--STAMPS_START--><a class="stamp" style="--r:-4deg" href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/"><div><b>Kırgızistan</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:3deg" href="/yazi/kazakistana-vizesiz-girmek-mumkun-mu/"><div><b>Kazakistan</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:-2deg" href="/yazi/ozbekistan-vize-kurallari-kalis-suresi/"><div><b>Özbekistan</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:5deg" href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/"><div><b>Tayland</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:-5deg" href="/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/"><div><b>Malezya</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:2deg" href="/yazi/hong-konga-giriste-vize-gerekiyor-mu/"><div><b>Hong Kong</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:-3deg" href="/yazi/japonya-vizesi-turkler-icin-zor-mu/"><div><b>Japonya</b><small>90 gün vizesiz</small></div></a><a class="stamp e" style="--r:4deg" href="/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/"><div><b>Vietnam</b><small>e-vize</small></div></a><a class="stamp e" style="--r:-1deg" href="/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/"><div><b>Kamboçya</b><small>e-vize</small></div></a><a class="stamp e" style="--r:2deg" href="/yazi/rusya-e-vize-basvurusu-nasil-yapilir/"><div><b>Rusya</b><small>e-vize</small></div></a><!--STAMPS_END--></div>
+</section>
 
+<section class="sec" style="padding-top:8px">
+  <div class="sec-head"><h2>Neye ihtiyacın var?</h2></div>
+  <div class="bento">
+    <a class="tile big" href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/" style="background-image:url('/img/covers/tayland-vize-muafiyeti-kuru-sezon-rehberi.jpg')"><span class="badge">30 gün vizesiz</span><h3>Tayland</h3><p>TDAC formunu unutma, adımlar yazıda.</p></a>
+    <a class="tile t-a" href="#rota"><img class="o" src="/assets/3d/compass.webp" alt="" loading="lazy"><h3>Rota planlayıcı</h3><p>Bütçene göre öneri</p></a>
+    <a class="tile t-b" href="#bilet"><img class="o" src="/assets/3d/plane.webp" alt="" loading="lazy"><h3>Canlı bilet</h3><p>İstanbul çıkışlı</p></a>
+    <a class="tile t-c" href="/yazi/vize-basvurusunda-istenen-ortak-belgeler/"><img class="o" src="/assets/3d/passport.webp" alt="" loading="lazy"><h3>Belge listesi</h3><p>Ortak vize belgeleri</p></a>
+    <a class="tile t-d" href="/yazi/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir/"><img class="o" src="/assets/3d/backpack.webp" alt="" loading="lazy"><h3>Çanta seçimi</h3><p>İlk seyahat için</p></a>
+    <a class="tile t-e" href="/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/"><img class="o" src="/assets/3d/phone.webp" alt="" loading="lazy"><h3>Uygulamalar</h3><p>Kamboçya'da tuk-tuk, yemek, ödeme</p></a>
+    <a class="tile t-f" href="/yazi/sinirda-donus-bileti-neden-soruluyor-yeterlilik-ispati/"><img class="o" src="/assets/3d/ticket.webp" alt="" loading="lazy"><h3>Dönüş bileti</h3><p>Sınırda neden soruluyor</p></a>
+    <a class="tile t-a" href="/yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/"><img class="o" src="/assets/3d/yurt.webp" alt="" loading="lazy"><h3>Kırgızistan</h3><p>Taksi, yemek, harita</p></a>
+    <a class="tile t-b" href="https://www.youtube.com/@gezikorn" target="_blank" rel="noopener"><img class="o" src="/assets/3d/camera.webp" alt="" loading="lazy"><h3>YouTube</h3><p>@gezikorn videoları</p></a>
+  </div>
+</section>
+
+<section class="sec" id="bilet" style="padding-top:8px">
+  <div class="sec-head"><h2>Uçak bileti <mark>ara</mark></h2><span>fiyatlar canlı</span></div>
   <div id="flightWidget">
-    <script async src="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=9&plain=true&color_button=%23D4A373&color_button_text=%23070C18&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+    <script async src="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=12&plain=true&color_button=%23F97316&color_button_text=%230B2B2B&promo_id=3414&campaign_id=111" charset="utf-8"></script>
   </div>
-  <p id="searchHint">👆 rotanı yukarıdaki kutuya gir ve "Ara"ya bas</p>
-
+  <p id="searchHint">Rotanı yukarıdaki kutuya gir ve "Ara"ya bas</p>
   <div class="deals" id="gearDeals"></div>
-</div>
+</section>
 
-<div class="section" style="padding-top:0;">
-  <div class="section-head"><h2>Rotanı oluştur</h2><span>bütçe + süreye göre öneri</span></div>
+<section class="sec" id="rota" style="padding-top:8px">
+  <div class="sec-head"><h2>Rotanı <mark>oluştur</mark></h2><span>bütçe + süreye göre öneri</span></div>
   <div class="planner">
-    <div class="planner-controls">
-      <div class="row">
-        <label>Bütçen <span style="text-transform:none;font-weight:400;">(uçak bileti hariç)</span></label>
-        <input type="range" id="budgetRange" min="25000" max="70000" step="1000" value="40000">
-        <div class="budget-val" id="budgetVal">40.000₺</div>
-      </div>
-      <div class="row">
-        <label>Kaç gün gidiyorsun</label>
-        <select id="durationSelect">
-          <option value="3">3 gün</option><option value="5" selected>5 gün</option>
-          <option value="7">7 gün</option><option value="10">10+ gün</option>
-        </select>
-      </div>
-      <button class="planner-btn" id="planBtn">Rota oluştur</button>
-      <p style="margin-top:14px;font-size:12.5px;color:var(--muted);">Hiç fikrin yok mu ya da kararsız mısın?
-        <a href="danismanlik.html" style="color:var(--coral);border-bottom:1px dashed var(--coral);">Bizimle iletişime geç →</a>
-      </p>
+    <div>
+      <div class="row"><label for="budgetRange">Bütçen (uçak bileti hariç)</label><input type="range" id="budgetRange" min="25000" max="70000" step="1000" value="40000"><div class="budget-val" id="budgetVal">40.000₺</div></div>
+      <div class="row"><label for="durationSelect">Kaç gün gidiyorsun</label><select id="durationSelect"><option value="3">3 gün</option><option value="5" selected>5 gün</option><option value="7">7 gün</option><option value="10">10+ gün</option></select></div>
+      <button class="btn" id="planBtn" type="button">Rota oluştur</button>
+      <p class="note">Hiç fikrin yok mu ya da kararsız mısın? <a href="/danismanlik.html">Bizimle iletişime geç</a></p>
     </div>
-    <div class="planner-result" id="planResult">
-      <div class="tag">öneri bekliyor</div>
-      <h3>Bütçeni ve süreni seç</h3>
-      <p>Rotanı senin için eşleştirelim.</p>
-    </div>
+    <div class="plan-result" id="planResult"><div class="tag">öneri bekliyor</div><h3>Bütçeni ve süreni seç</h3><p>Rotanı senin için eşleştirelim.</p></div>
   </div>
-</div>
+</section>
 
-<div class="section" style="padding-top:0;">
-  <div class="section-head"><h2>Son yazılar</h2><a href="/yazi/" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">tümünü gör →</a></div>
-  <div class="posts" id="postsGrid"><!--LATEST_START--><a class="post-card" href="/yazi/sinirda-donus-bileti-neden-soruluyor-yeterlilik-ispati/"><span class="post-tag">haber</span><h3>Sınırda Dönüş Bileti Neden Soruluyor? Yeterlilik İspatı</h3><p>Sınırda veya check in sırasında dönüş bileti neden isteniyor, yerine hangi belgeler geçerli sayılıyor? İşte pratik açıklama ve alternatifler.</p></a><a class="post-card" href="/yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/"><span class="post-tag">rehber</span><h3>Kırgızistan&#39;da İşe Yarayan Uygulamalar: Taksi, Yemek, Harita</h3><p>Kırgızistan&#39;a gitmeden telefonuna indirmen gereken 6 uygulama: Yandex Go, inDrive, 2GIS, Namba Food, Glovo ve Google Translate. Ne işe yaradıkları tek yazıda.</p></a><a class="post-card" href="/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/"><span class="post-tag">rehber</span><h3>Kamboçya&#39;da İşe Yarayan Uygulamalar: Tuk-Tuk, Yemek, Ödeme</h3><p>Kamboçya&#39;ya gitmeden indir: PassApp, Grab, foodpanda, Bakong Tourists, Google Maps ve Google Translate. Tuk-tuk, yemek, ödeme ve harita için 6 uygulama.</p></a><a class="post-card" href="/yazi/yurt-disina-cikarken-bavula-ne-konulur-liste/"><span class="post-tag">rehber</span><h3>Yurt Dışı Bavul ve Çanta Listesi: Ne Götürmeli, Ne Bırakmalı?</h3><p>Yurt dışı seyahatinde çantaya konacak belgeler, kıyafet, elektronik ve sağlık eşyaları. İlk kez çıkanlar için sade bir liste ve fazla getirilen şeyler.</p></a><a class="post-card" href="/yazi/kamp-cantasi-ve-cadir-secerken-nelere-bakilir/"><span class="post-tag">rehber</span><h3>Çadır ve Kamp Çantası Alırken Nelere Bakılır? Başlangıç Rehberi</h3><p>İlk çadırını ve kamp çantanı alırken mevsim, kişi sayısı, su geçirmezlik, ağırlık ve kurulum kolaylığı kriterleri. Gereksiz para harcamadan doğru seçim.</p></a><a class="post-card" href="/yazi/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir/"><span class="post-tag">rehber</span><h3>Sırt Çantası Nasıl Seçilir? İlk Kez Yurt Dışına Çıkanlar İçin</h3><p>İlk yurt dışı seyahati için sırt çantası seçerken litre, sırt uyumu, ağırlık ve kabin boyutu kriterleri. Marka değil ihtiyaca göre seçim rehberi.</p></a><!--LATEST_END--></div>
-</div>
+<section class="sec" style="padding-top:8px">
+  <div class="route">
+    <h3>Gezicorn rotası</h3>
+    <p class="s">Kırgızistan'dan Kamboçya'ya gerçekten gittiğimiz duraklar.</p>
+    <div class="stops"><div class="stop"><b>Bişkek</b><small>90 gün vizesiz</small></div><div class="stop"><b>Almatı</b><small>30 gün vizesiz</small></div><div class="stop"><b>Semerkant</b><small>30 gün vizesiz</small></div><div class="stop"><b>Bangkok</b><small>30 gün + TDAC</small></div><div class="stop"><b>Kuala Lumpur</b><small>90 gün + MDAC</small></div><div class="stop"><b>Phnom Penh</b><small>e-vize</small></div></div>
+  </div>
+</section>
 
-<div class="section" style="padding-top:0;" id="partners">
-  <div class="section-head"><h2>Önerdiklerimiz</h2><span>ortaklık bağlantıları içerir</span></div>
-  <div class="partners"><!--PARTNERS_START--><a class="partner-card" href="https://klook.tpk.lv/E7wCjYCm" rel="sponsored nofollow noopener" target="_blank"><b>Klook: tur, bilet ve eSIM</b><p>Tapınak ve şehir turları, giriş biletleri, havalimanı transferi ve eSIM için tek yerden rezervasyon.</p><span>Klook&#39;ta bak →</span></a><!--PARTNERS_END--></div>
+<section class="sec" style="padding-top:8px">
+  <div class="sec-head"><h2>Son <mark>yazılar</mark></h2><a href="/yazi/">tümünü gör</a></div>
+  <div class="tags" id="postsGrid"><!--LATEST_START--><a class="tagcard" href="/yazi/sinirda-donus-bileti-neden-soruluyor-yeterlilik-ispati/"><img src="/img/covers/sinirda-donus-bileti-neden-soruluyor-yeterlilik-ispati.jpg" alt="Havalimanı pasaport kontrol tezgahında bordo pasaport ve biniş kartı" loading="lazy" width="1200" height="675"><span class="chip haber">haber</span><h3>Sınırda Dönüş Bileti Neden Soruluyor? Yeterlilik İspatı</h3><p>Sınırda veya check in sırasında dönüş bileti neden isteniyor, yerine hangi belgeler geçerli sayılıyor? İşte pratik açıklama ve alternatifler.</p></a><a class="tagcard" href="/yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/"><img src="/img/covers/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita.jpg" alt="Kafe masasında harita açık telefon ve dağ manzarası" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Kırgızistan&#39;da İşe Yarayan Uygulamalar: Taksi, Yemek, Harita</h3><p>Kırgızistan&#39;a gitmeden telefonuna indirmen gereken 6 uygulama: Yandex Go, inDrive, 2GIS, Namba Food, Glovo ve Google Translate. Ne işe yaradıkları tek yazıda.</p></a><a class="tagcard" href="/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/"><img src="/img/covers/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme.jpg" alt="Phnom Penh sokağında renkli tuk-tuk" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Kamboçya&#39;da İşe Yarayan Uygulamalar: Tuk-Tuk, Yemek, Ödeme</h3><p>Kamboçya&#39;ya gitmeden indir: PassApp, Grab, foodpanda, Bakong Tourists, Google Maps ve Google Translate. Tuk-tuk, yemek, ödeme ve harita için 6 uygulama.</p></a><a class="tagcard" href="/yazi/yurt-disina-cikarken-bavula-ne-konulur-liste/"><img src="/img/covers/yurt-disina-cikarken-bavula-ne-konulur-liste.jpg" alt="Seyahat malzemeleri yukarıdan görünüm" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Yurt Dışı Bavul ve Çanta Listesi: Ne Götürmeli, Ne Bırakmalı?</h3><p>Yurt dışı seyahatinde çantaya konacak belgeler, kıyafet, elektronik ve sağlık eşyaları. İlk kez çıkanlar için sade bir liste ve fazla getirilen şeyler.</p></a><a class="tagcard" href="/yazi/kamp-cantasi-ve-cadir-secerken-nelere-bakilir/"><img src="/img/covers/kamp-cantasi-ve-cadir-secerken-nelere-bakilir.jpg" alt="Dağ gölü kenarında kurulu turuncu çadır" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Çadır ve Kamp Çantası Alırken Nelere Bakılır? Başlangıç Rehberi</h3><p>İlk çadırını ve kamp çantanı alırken mevsim, kişi sayısı, su geçirmezlik, ağırlık ve kurulum kolaylığı kriterleri. Gereksiz para harcamadan doğru seçim.</p></a><a class="tagcard" href="/yazi/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir/"><img src="/img/covers/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir.jpg" alt="Dağ manzarasında yeşil seyahat sırt çantası" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Sırt Çantası Nasıl Seçilir? İlk Kez Yurt Dışına Çıkanlar İçin</h3><p>İlk yurt dışı seyahati için sırt çantası seçerken litre, sırt uyumu, ağırlık ve kabin boyutu kriterleri. Marka değil ihtiyaca göre seçim rehberi.</p></a><a class="tagcard" href="/yazi/decathlon-alternatifleri-seyahat-ve-kamp-ekipmani/"><img src="/img/covers/decathlon-alternatifleri-seyahat-ve-kamp-ekipmani.jpg" alt="Outdoor ekipman mağazası rafları" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Decathlon Dışında Seyahat ve Kamp Ekipmanı Nereden Alınır?</h3><p>Sırt çantası, çadır ve kamp ekipmanı için Decathlon dışındaki seçenekler: markalar, online pazaryerleri, ikinci el ve nelere dikkat edilmeli.</p></a><a class="tagcard" href="/yazi/yurt-disinda-uzun-sureli-kiralik-ev-nasil-bulunur/"><img src="/img/covers/yurt-disinda-uzun-sureli-kiralik-ev-nasil-bulunur.jpg" alt="Güneşli oturma odası, pencere ve masada anahtarlar" loading="lazy" width="1200" height="675"><span class="chip rehber">rehber</span><h3>Yurt Dışında Uzun Süreli Kiralık Ev Nasıl Bulunur?</h3><p>Yurt dışında uzun süreli kiralık ev bulmak için yerel emlak sitelerine, gerçek fotoğraflı ilanlara ve net bir kira sözleşmesine bakmak gerekir.</p></a><!--LATEST_END--></div>
+</section>
+
+<section class="sec" id="partners" style="padding-top:8px">
+  <div class="sec-head"><h2>Önerdiklerimiz</h2><span>ortaklık bağlantıları içerir</span></div>
+  <div class="partners"><!--PARTNERS_START--><a class="partner-card" href="https://klook.tpk.lv/E7wCjYCm" rel="sponsored nofollow noopener" target="_blank"><img src="/assets/3d/ticket.webp" alt="" width="78" height="78" loading="lazy"><div><b>Klook: tur, bilet ve eSIM</b><p>Tapınak ve şehir turları, giriş biletleri, havalimanı transferi ve eSIM için tek yerden rezervasyon.</p><span>Klook&#39;ta bak →</span></div></a><!--PARTNERS_END--></div>
   <p class="partner-note">Bu bölümdeki bağlantılar ortaklık (affiliate) bağlantısıdır. Fiyatın değişmez, satın alırsan Gezicorn küçük bir komisyon kazanabilir.</p>
-</div>
+</section>
 
-<div class="section" style="padding-top:0;">
-  <div class="section-head"><h2>Ülke ülke vize rehberleri</h2><a href="/yazi/#vize" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">tüm vize yazıları →</a></div>
+<section class="sec" style="padding-top:8px">
+  <div class="sec-head"><h2>Ülke ülke vize rehberleri</h2><a href="/yazi/#vize">tüm vize yazıları</a></div>
   <div class="country-links"><!--COUNTRIES_START--><a href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/">Kırgızistan</a><a href="/yazi/kazakistana-vizesiz-girmek-mumkun-mu/">Kazakistan</a><a href="/yazi/ozbekistan-vize-kurallari-kalis-suresi/">Özbekistan</a><a href="/yazi/rusya-e-vize-basvurusu-nasil-yapilir/">Rusya</a><a href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/">Tayland</a><a href="/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/">Malezya</a><a href="/yazi/hong-konga-giriste-vize-gerekiyor-mu/">Hong Kong</a><a href="/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/">Kamboçya</a><a href="/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/">Vietnam</a><a href="/yazi/japonya-vizesi-turkler-icin-zor-mu/">Japonya</a><a href="/yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/">Güney Kore</a><a href="/yazi/avustralya-vizesi-turkler-icin-ne-kadar-zor/">Avustralya</a><a href="/yazi/kanada-vizesi-basvuru-sureci-red-sebepleri/">Kanada</a><a href="/yazi/abd-vizesi-neden-bu-kadar-zor/">ABD</a><a href="/yazi/ingiltere-vizesi-schengenden-farkli-mi/">İngiltere</a><a href="/yazi/almanya-vizesi-nasil-alinir/">Almanya</a><a href="/yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/">Schengen</a><!--COUNTRIES_END--></div>
-</div>
+</section>
+</main>
 
-<div id="communitySection">
-  <div class="community-head">
-    <h2>Topluluğa katıl, rotayı birlikte çizelim</h2>
-    <p>Her gün fırsat, vize güncellemesi ve canlı yayın.</p>
-  </div>
+<div id="communitySection"><div class="in">
+  <div class="community-head"><h2>Topluluğa katıl, rotayı birlikte çizelim</h2><p>Yeni rehberler, vize güncellemeleri ve videolar.</p></div>
   <div class="social-grid" id="socialGrid"></div>
-</div>
+</div></div>
 
-<footer><a href="/yazi/">Tüm yazılar</a> · <a href="/danismanlik.html">Danışmanlık</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a><br><span style="display:inline-block;margin-top:8px;">© Gezicorn · Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</span></footer>
+<footer class="gz-foot"><div class="row">
+  <p>© Gezicorn. Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</p>
+  <div><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
+</div></footer>
 
 <script>
-// TODO: kendi firebaseConfig objenle değiştir (admin.html ve seed.html ile aynı olmalı)
 const firebaseConfig = {
   apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
   authDomain: "gezicorn.firebaseapp.com",
@@ -312,24 +261,19 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 const ICONS = {
-  telegram: {cls:'ic-telegram', html:'<i class="fa-brands fa-telegram"></i>'},
-  instagram: {cls:'ic-instagram', html:'<i class="fa-brands fa-instagram"></i>'},
-  youtube: {cls:'ic-youtube', html:'<i class="fa-brands fa-youtube"></i>'},
-  kick: {cls:'ic-kick', html:'KICK'},
-  facebook: {cls:'ic-facebook', html:'<i class="fa-brands fa-facebook"></i>'}
+  telegram: '<i class="fa-brands fa-telegram"></i>', instagram: '<i class="fa-brands fa-instagram"></i>',
+  youtube: '<i class="fa-brands fa-youtube"></i>', kick: 'K', facebook: '<i class="fa-brands fa-facebook"></i>'
 };
-
 function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 async function loadBanners(){
   try{
     const snap = await db.collection('banners').get();
-    const data = snap.docs.map(d=>d.data()).filter(b=>b.active);
+    const data = snap.docs.filter(d=>/^banner_[12]$/.test(d.id)).map(d=>d.data()).filter(b=>b.active && b.image_url);
     if(data.length){
-      document.getElementById('bannerStrip').style.display = 'block';
-      document.getElementById('bannerStrip').innerHTML = data.map(b=>
-        `<a class="banner-item" href="${b.link_url||'#'}" target="_blank"><img src="${b.image_url}" alt="${b.alt_text||''}"></a>`
-      ).join('');
+      const el = document.getElementById('bannerStrip'); el.style.display = 'block';
+      el.innerHTML = data.map(b=>`<a class="banner-item" href="${esc(b.link_url||'#')}" target="_blank" rel="sponsored noopener"><img src="${esc(b.image_url)}" alt="${esc(b.alt_text||'Reklam')}"></a>`).join('');
     }
   }catch(e){}
 }
@@ -338,109 +282,59 @@ async function loadSocial(){
   try{
     const snap = await db.collection('social_links').get();
     const data = snap.docs.map(d=>({platform:d.id, ...d.data()})).filter(s=>s.active);
-    const navSocial = document.getElementById('navSocial');
-    const grid = document.getElementById('socialGrid');
-    if(data.length){
-      navSocial.innerHTML = data.map(s=>`<a class="soc-btn" href="${s.url||'#'}" target="_blank">${(ICONS[s.platform]||{html:''}).html}</a>`).join('');
-      grid.innerHTML = data.map(s=>`
-        <a class="social-card" href="${s.url||'#'}" target="_blank">
-          <div class="social-icon ${(ICONS[s.platform]||{}).cls||''}">${(ICONS[s.platform]||{html:''}).html}</div>
-          <div class="n">${s.follower_label||''}</div>
-          <div class="l">${s.platform} </div>
-        </a>`).join('');
-      document.getElementById('communitySection').style.display = 'block';
-    }
+    if(!data.length) return;
+    document.getElementById('navSocial').innerHTML = data.map(s=>`<a href="${esc(s.url||'#')}" target="_blank" rel="noopener" aria-label="${esc(s.platform)}">${ICONS[s.platform]||''}</a>`).join('');
+    document.getElementById('socialGrid').innerHTML = data.map(s=>`
+      <a class="social-card" href="${esc(s.url||'#')}" target="_blank" rel="noopener">
+        <div class="social-icon">${ICONS[s.platform]||''}</div>
+        <div><div class="n">${esc(s.follower_label||'')}</div><div class="l">${esc(s.platform)}</div></div>
+      </a>`).join('');
+    document.getElementById('communitySection').style.display = 'block';
   }catch(e){}
 }
 
-const COUNTRY_COORDS = {
-  'Kırgızistan':{lat:42.87,lng:74.59}, 'Kazakistan':{lat:43.24,lng:76.95},
-  'Özbekistan':{lat:41.30,lng:69.24}, 'Rusya':{lat:55.75,lng:37.62},
-  'Tayland':{lat:13.75,lng:100.50}, 'Malezya':{lat:3.14,lng:101.68},
-  'Hong Kong':{lat:22.32,lng:114.17}, 'Kamboçya':{lat:11.55,lng:104.92},
-  'Vietnam':{lat:21.03,lng:105.85}
-};
-
-async function loadCountries(){
+async function loadCounts(){
   try{
-    const snap = await db.collection('countries').where('visited','==',true).get();
-    let chips = '';
-    snap.forEach(doc=>{
-      const c = doc.data();
-      const coord = COUNTRY_COORDS[c.name];
-      if(coord && typeof addGlobePin === 'function') addGlobePin(coord.lat, coord.lng);
-      chips += `<a href="posts.html?country=${encodeURIComponent(c.name)}"><span>${c.name}</span></a>`;
-    });
-    const legend = document.getElementById('globeLegend');
-    if(legend) legend.innerHTML = chips;
-    const countStat = document.getElementById('countryCount');
-    if(countStat) countStat.textContent = snap.size;
+    const c = await db.collection('countries').where('visited','==',true).get();
+    if(c.size) document.getElementById('countryCount').textContent = c.size;
   }catch(e){}
 }
 
-let flightDeals = [];
-async function loadGearDeals(){
+async function loadDeals(){
   try{
     const snap = await db.collection('deals').where('active','==',true).get();
-    const all = snap.docs.map(d=>d.data());
-    flightDeals = all.filter(d=>d.type==='flight' && d.route_from && d.route_to);
-    if(flightDeals.length) renderBoard();
-    const data = all.sort((a,b)=>ts(b)-ts(a)).slice(0,4);
-    const el = document.getElementById('gearDeals');
-    el.innerHTML = data.map(d=>{
+    const all = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,4);
+    document.getElementById('gearDeals').innerHTML = all.map(d=>{
       const isFlight = d.type === 'flight';
-      const icon = isFlight ? 'fa-plane' : 'fa-tent';
-      const route = isFlight ? (d.route_from+' → '+d.route_to) : 'ürün';
-      const priceArea = isFlight
-        ? `<span class="deal-cta">canlı fiyata bak →</span>`
-        : `<div class="deal-price">${d.old_price?`<span class="old">${d.old_price}₺</span>`:''}<span class="new">${d.new_price}₺</span></div>`;
-      const click = isFlight ? `onclick="scrollToFlightSearch()"` : (d.affiliate_url ? `onclick="window.open('${d.affiliate_url}','_blank')"` : '');
-      const tag = isFlight ? (d.title || 'rota önerisi') : '';
-      return `
-      <button class="deal-card" ${click}>
-        ${d.discount_label ? `<div class="deal-badge">${d.discount_label}</div>` : ''}
-        <div class="deal-route"><i class="fa-solid ${icon}"></i>${route}</div>
-        <h3>${tag}</h3>
-        ${priceArea}
-      </button>`;
-    }).join('') || '';
+      const route = isFlight ? (esc(d.route_from)+' → '+esc(d.route_to)) : 'ürün';
+      const price = isFlight ? '<span class="deal-cta">canlı fiyata bak →</span>'
+        : `<div class="deal-price">${d.old_price?`<span class="old">${esc(d.old_price)}₺</span>`:''}<span class="new">${esc(d.new_price)}₺</span></div>`;
+      const click = isFlight ? 'onclick="scrollToFlightSearch()"' : (d.affiliate_url ? `onclick="window.open('${esc(d.affiliate_url)}','_blank','noopener')"` : '');
+      return `<button class="deal-card" ${click}>${d.discount_label?`<div class="deal-badge">${esc(d.discount_label)}</div>`:''}
+        <div class="deal-route"><i class="fa-solid ${isFlight?'fa-plane':'fa-tent'}"></i>${route}</div>
+        <h3>${esc(isFlight ? (d.title||'rota önerisi') : (d.title||''))}</h3>${price}</button>`;
+    }).join('');
   }catch(e){}
 }
 
 function scrollToFlightSearch(){
-  const widget = document.getElementById('flightWidget');
-  widget.scrollIntoView({behavior:'smooth', block:'center'});
-  widget.classList.add('highlight');
-  const hint = document.getElementById('searchHint');
-  hint.classList.add('show');
-  setTimeout(()=>{ widget.classList.remove('highlight'); hint.classList.remove('show'); }, 3500);
+  const w = document.getElementById('flightWidget');
+  w.scrollIntoView({behavior:'smooth', block:'center'});
+  w.classList.add('highlight'); document.getElementById('searchHint').classList.add('show');
+  setTimeout(()=>{ w.classList.remove('highlight'); document.getElementById('searchHint').classList.remove('show'); }, 3500);
 }
 
 async function loadPosts(){
   try{
     const snap = await db.collection('posts').where('published','==',true).get();
-    const data = snap.docs.map(d=>d.data()).sort((a,b)=>ts(b)-ts(a)).slice(0,6);
-    const pc = document.getElementById('postCount'); if(pc) pc.textContent = snap.size;
-    const el = document.getElementById('postsGrid');
-    const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
-    if(!data.length) return;   // boş dönerse sayfadaki statik "Son yazılar" listesi kalsın
-    el.innerHTML = data.map(p=>`
-      <a class="post-card" href="/yazi/${encodeURIComponent(p.slug)}/">
-        <span class="post-tag">${labels[p.category]||p.category}</span>
-        <h3>${p.title}</h3>
-        <p>${p.excerpt||''}</p>
-      </a>`).join('');
+    const pc = document.getElementById('postCount'); const n = snap.docs.filter(d=>!d.data().noindex).length; if(pc && n > 0) pc.textContent = n;
   }catch(e){}
 }
 
 let routeRecs = [];
 async function loadRouteRecs(){
-  try{
-    const snap = await db.collection('route_recommendations').where('active','==',true).get();
-    routeRecs = snap.docs.map(d=>d.data());
-  }catch(e){}
+  try{ routeRecs = (await db.collection('route_recommendations').where('active','==',true).get()).docs.map(d=>d.data()); }catch(e){}
 }
-
 document.getElementById('budgetRange').addEventListener('input', function(){
   document.getElementById('budgetVal').textContent = Number(this.value).toLocaleString('tr-TR') + '₺';
 });
@@ -449,153 +343,50 @@ document.getElementById('planBtn').addEventListener('click', function(){
   const days = Number(document.getElementById('durationSelect').value);
   const pick = routeRecs.find(r => budget >= r.budget_min && budget < r.budget_max) || routeRecs[0];
   const el = document.getElementById('planResult');
-  if(pick){
-    el.innerHTML = `<div class="tag">${days} günlük rota önerisi</div><h3>${pick.destination}</h3><p>${pick.note}</p><a class="planner-live-link" href="#flightWidget">canlı bilet fiyatına bak →</a>`;
-  } else {
-    el.innerHTML = `<div class="tag">veri yok</div><h3>Öneri bulunamadı</h3><p>Şu an bu bütçeye uygun bir rota yok, biraz sonra tekrar dene.</p>`;
-  }
+  el.innerHTML = pick
+    ? `<div class="tag">${days} günlük rota önerisi</div><h3>${esc(pick.destination)}</h3><p>${esc(pick.note)}</p><a href="#bilet">canlı bilet fiyatına bak →</a>`
+    : `<div class="tag">öneri yok</div><h3>Şu an öneri bulunamadı</h3><p>Biraz sonra tekrar dene.</p>`;
 });
 
-// --- Rota tahtası (split-flap departures board) ---
-let boardIndex = 0;
-function renderBoard(){
-  if(!flightDeals.length) return;
-  const d = flightDeals[boardIndex % flightDeals.length];
-  const from = document.getElementById('boardFrom');
-  const to = document.getElementById('boardTo');
-  if(from) from.textContent = (d.route_from||'İSTANBUL').toUpperCase();
-  if(to) to.textContent = (d.route_to||'').toUpperCase();
-}
-function advanceBoard(){
-  if(!flightDeals.length) return;
-  const from = document.getElementById('boardFrom');
-  const to = document.getElementById('boardTo');
-  if(!from || !to) return;
-  from.classList.add('flipping'); to.classList.add('flipping');
-  setTimeout(function(){
-    boardIndex = (boardIndex+1) % flightDeals.length;
-    renderBoard();
-    from.classList.remove('flipping'); to.classList.remove('flipping');
-  }, 260);
-}
-
-// --- 3D globe (three.js), hafif ve mobil dostu ---
-let globeScene, globeCamera, globeRenderer, globeGroup, globeWrapEl;
-let globeVisible = true, globeReduced = false, globeBoost = false, globeBoostFrames = 0;
-
-function latLngToVec3(lat, lng, r){
-  const phi = (90-lat)*(Math.PI/180), theta = (lng+180)*(Math.PI/180);
-  return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(theta), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(theta));
-}
-
-function addGlobePin(lat, lng){
-  if(!globeGroup) return;
-  const pos = latLngToVec3(lat, lng, 1.53);
-  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.028, 10, 10), new THREE.MeshBasicMaterial({color:0xD4A373}));
-  dot.position.copy(pos);
-  globeGroup.add(dot);
-  const glow = new THREE.Mesh(new THREE.SphereGeometry(0.05, 10, 10), new THREE.MeshBasicMaterial({color:0xD4A373, transparent:true, opacity:0.25}));
-  glow.position.copy(pos);
-  globeGroup.add(glow);
-  globeNeedsRender = true;
-}
-
-function initGlobe(){
-  globeWrapEl = document.getElementById('globeCanvasWrap');
-  if(!globeWrapEl || typeof THREE === 'undefined'){ if(globeWrapEl) globeWrapEl.style.display='none'; return; }
-  try{
-    globeReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const size = globeWrapEl.clientWidth || 340;
-
-    globeScene = new THREE.Scene();
-    globeCamera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    globeCamera.position.set(0, 0, 4.4);
-
-    globeRenderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
-    globeRenderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 1.5));
-    globeRenderer.setSize(size, size);
-    globeWrapEl.appendChild(globeRenderer.domElement);
-
-    globeGroup = new THREE.Group();
-    globeScene.add(globeGroup);
-
-    const core = new THREE.Mesh(
-      new THREE.SphereGeometry(1.5, 40, 40),
-      new THREE.MeshPhongMaterial({color:0x0c1526, shininess:12})
-    );
-    globeGroup.add(core);
-
-    const gridMat = new THREE.LineBasicMaterial({color:0xD4A373, transparent:true, opacity:0.32});
-    const R = 1.508;
-    for(let lat=-60; lat<=60; lat+=30){
-      const pts=[]; const r=R*Math.cos(lat*Math.PI/180), y=R*Math.sin(lat*Math.PI/180);
-      for(let a=0;a<=64;a++){ const t=a/64*Math.PI*2; pts.push(new THREE.Vector3(r*Math.cos(t), y, r*Math.sin(t))); }
-      globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridMat));
-    }
-    for(let lng=0; lng<180; lng+=30){
-      const pts=[]; const th=lng*Math.PI/180;
-      for(let a=0;a<=64;a++){ const t=a/64*Math.PI*2; pts.push(new THREE.Vector3(R*Math.cos(t)*Math.cos(th), R*Math.sin(t), R*Math.cos(t)*Math.sin(th))); }
-      globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), gridMat));
-    }
-
-    const glow = new THREE.Mesh(
-      new THREE.SphereGeometry(1.62, 32, 32),
-      new THREE.MeshBasicMaterial({color:0xD4A373, transparent:true, opacity:0.06, side:THREE.BackSide})
-    );
-    globeGroup.add(glow);
-
-    globeScene.add(new THREE.AmbientLight(0x445066, 1.4));
-    const dLight = new THREE.DirectionalLight(0xE8D2A6, 0.9);
-    dLight.position.set(3, 2, 4);
-    globeScene.add(dLight);
-
-    if('IntersectionObserver' in window){
-      const io = new IntersectionObserver(function(entries){ globeVisible = entries[0].isIntersecting; }, {threshold:0.05});
-      io.observe(globeWrapEl);
-    }
-    window.addEventListener('resize', function(){
-      if(!globeRenderer || !globeWrapEl) return;
-      const s = globeWrapEl.clientWidth;
-      if(s) globeRenderer.setSize(s, s);
+// 3D bavul (Higgsfield görselinden üretilen GLB). Yüklenemezse yedek görsel kalır.
+(function(){
+  const st = document.getElementById('stage'); if(!st) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function add(src, cb){ const s = document.createElement('script'); s.src = src; s.onload = cb; s.onerror = function(){}; document.head.appendChild(s); }
+  function start(){
+    add('https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js', function(){
+      add('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js', function(){
+        try{
+          const cv = st.querySelector('canvas'), fb = st.querySelector('.fb');
+          const r = new THREE.WebGLRenderer({canvas:cv, alpha:true, antialias:true});
+          r.setPixelRatio(Math.min(devicePixelRatio||1, 2)); if(THREE.sRGBEncoding) r.outputEncoding = THREE.sRGBEncoding;
+          const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(32, 1, .1, 100); cam.position.set(0,.2,5.2);
+          scene.add(new THREE.AmbientLight(0xffffff, 1.05));
+          const d1 = new THREE.DirectionalLight(0xffffff, 1.1); d1.position.set(3,4,5); scene.add(d1);
+          const d2 = new THREE.DirectionalLight(0xffe2b0, .55); d2.position.set(-4,1,-3); scene.add(d2);
+          const holder = new THREE.Group(); scene.add(holder); let ready = false, visible = true, px = 0, py = 0;
+          function size(){ const w = st.clientWidth, h = st.clientHeight; if(!w||!h) return; r.setSize(w,h,false); cam.aspect = w/h; cam.updateProjectionMatrix(); }
+          new THREE.GLTFLoader().load('/assets/3d/suitcase.glb', function(g){
+            const m = g.scene, box = new THREE.Box3().setFromObject(m), c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+            m.position.sub(c); const k = 2.3/Math.max(s.x,s.y,s.z); m.scale.setScalar(k); m.position.multiplyScalar(k);
+            holder.add(m); holder.rotation.y = .4; ready = true; cv.hidden = false; fb.style.visibility = 'hidden'; size();
+          });
+          st.addEventListener('pointermove', e => { const b = st.getBoundingClientRect(); px = (e.clientX-b.left)/b.width-.5; py = (e.clientY-b.top)/b.height-.5; });
+          st.addEventListener('pointerleave', () => { px = 0; py = 0; });
+          new IntersectionObserver(e => { visible = e[0].isIntersecting; }, {threshold:.05}).observe(st);
+          addEventListener('resize', size); size();
+          const t0 = performance.now();
+          (function loop(){ requestAnimationFrame(loop); if(!ready||!visible) return;
+            holder.rotation.y = .4 + (reduce ? 0 : (performance.now()-t0)/2000) + px*1.2;
+            holder.rotation.x += (py*.5 - holder.rotation.x)*.08; r.render(scene, cam); })();
+        }catch(e){}
+      });
     });
-
-    requestAnimationFrame(globeLoop);
-  }catch(e){ if(globeWrapEl) globeWrapEl.style.display='none'; }
-}
-
-let globeNeedsRender = true;
-function globeLoop(){
-  if(globeRenderer && globeGroup && globeVisible && !document.hidden){
-    if(globeReduced){
-      if(globeNeedsRender){ globeRenderer.render(globeScene, globeCamera); globeNeedsRender = false; }
-    } else {
-      globeGroup.rotation.y += globeBoost ? 0.05 : 0.0018;
-      if(globeBoost){ globeBoostFrames--; if(globeBoostFrames<=0) globeBoost=false; }
-      globeRenderer.render(globeScene, globeCamera);
-    }
   }
-  requestAnimationFrame(globeLoop);
-}
+  if('requestIdleCallback' in window) requestIdleCallback(start, {timeout:2500}); else setTimeout(start, 1200);
+})();
 
-document.getElementById('spinBtn').addEventListener('click', function(){
-  globeBoost = true; globeBoostFrames = 70;
-  advanceBoard();
-});
-setInterval(function(){ if(globeVisible && !globeReduced) advanceBoard(); }, 5500);
-
-async function loadBranding(){
-  try{
-    const doc = await db.collection('settings').doc('branding').get();
-    const logoUrl = doc.exists ? doc.data().logo_url : '';
-    if(logoUrl){
-      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
-    }
-  }catch(e){}
-}
-
-initGlobe();
-loadBanners(); loadSocial(); loadCountries(); loadGearDeals(); loadPosts(); loadRouteRecs(); loadBranding();
+loadBanners(); loadSocial(); loadCounts(); loadDeals(); loadPosts(); loadRouteRecs();
 </script>
-
 </body>
 </html>

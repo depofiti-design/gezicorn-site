@@ -130,104 +130,99 @@ const AD_SCRIPT = `<script>(function(){var B='https://firestore.googleapis.com/v
 const YT_SCRIPT = `<script>document.querySelectorAll('.yt-frame').forEach(function(f){f.querySelector('.yt-play').addEventListener('click',function(){var i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1&rel=0';i.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title='YouTube video';f.innerHTML='';f.appendChild(i);});});</script>`;
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">`;
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="/assets/gz.css?v=20260920b">`;
 
+// Ortak tokenlar, gezinme, düğme, kart, damga, altbilgi: assets/gz.css. Burada sadece yazı ve liste sayfalarına özel stiller.
 const CSS = `
-:root{--navy:#101B30;--navy-deep:#070C18;--cream:#FFFDF7;--paper:#FFFFFF;--gold:#D4A373;--coral:#0E7490;--teal:#166534;--ink:#181611;--muted:#6E6A5D;}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{-webkit-text-size-adjust:100%;}
-body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;height:auto;}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 52px;background:var(--navy);color:var(--cream);}
-.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;letter-spacing:.05em;display:flex;align-items:center;gap:9px;}
-.brand img{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);object-fit:cover;flex:none;}
-.nav-links{display:flex;gap:22px;font-size:13px;font-weight:500;list-style:none;}
-.nav-links a:hover{color:var(--gold);}
-.crumbs{max-width:760px;margin:0 auto;padding:22px 24px 0;font-size:12.5px;color:var(--muted);}
-.crumbs a{border-bottom:1px dashed rgba(20,31,56,.3);}
+.crumbs{max-width:760px;margin:0 auto;padding:22px 24px 0;font:600 12px var(--f-mono);color:var(--muted);}
+.crumbs a{border-bottom:2px dashed currentColor;}
 .crumbs span{margin:0 6px;}
-.cover{width:100%;max-width:760px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border-radius:12px;background:var(--navy);}
-.article{max-width:760px;margin:0 auto;padding:28px 24px 72px;}
-.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:16px;}
-.article h1{font-family:'Fraunces',serif;font-weight:800;font-size:38px;line-height:1.18;color:var(--navy);margin-bottom:14px;}
-.meta{font-size:13px;color:var(--muted);margin-bottom:22px;display:flex;flex-wrap:wrap;gap:4px 14px;}
-.excerpt{font-size:17.5px;color:#3d3a30;margin-bottom:26px;}
-.toc{background:var(--paper);border:1px solid rgba(20,31,56,.1);border-radius:10px;padding:16px 20px;margin-bottom:30px;}
-.toc strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px;}
-.toc ol{padding-left:20px;font-size:14.5px;}
+.cover{width:100%;max-width:760px;aspect-ratio:16/9;object-fit:cover;display:block;margin:20px auto 0;border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);background:var(--teal);}
+.article{max-width:760px;margin:0 auto;padding:30px 24px 72px;}
+.head-row{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;}
+.article h1{font:800 clamp(30px,4.6vw,46px)/1.06 var(--f-display);letter-spacing:-.03em;margin-bottom:14px;text-wrap:balance;}
+.article .stamp{--s:132px;flex:none;margin-top:4px;}
+.meta{font:600 12.5px var(--f-mono);color:var(--muted);margin-bottom:22px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+.excerpt{font-size:18px;color:#2C4745;margin-bottom:26px;}
+.toc{background:var(--mint);border:3px solid var(--ink);border-radius:18px;padding:16px 20px;margin-bottom:30px;box-shadow:var(--sh-s);}
+.toc strong{display:block;font:600 11px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;}
+.toc ol{padding-left:20px;font-size:15px;font-weight:600;}
 .toc li{margin:4px 0;}
-.toc a{color:var(--navy);border-bottom:1px dashed rgba(20,31,56,.3);}
-.body h2{font-family:'Fraunces',serif;font-weight:800;font-size:26px;line-height:1.25;color:var(--navy);margin:38px 0 12px;scroll-margin-top:16px;}
-.body h3{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.3;color:var(--navy);margin:26px 0 8px;}
-.body p{font-size:17px;line-height:1.75;margin-bottom:16px;}
-.body ul,.body ol{margin:0 0 18px 22px;font-size:17px;line-height:1.7;}
+.toc a{border-bottom:2px dashed var(--teal);}
+.body h2{font:800 clamp(24px,3.4vw,30px)/1.15 var(--f-display);letter-spacing:-.025em;margin:40px 0 12px;scroll-margin-top:90px;}
+.body h3{font:800 20px/1.25 var(--f-display);letter-spacing:-.01em;margin:26px 0 8px;}
+.body p{font-size:17.5px;line-height:1.75;margin-bottom:16px;}
+.body ul,.body ol{margin:0 0 18px 22px;font-size:17.5px;line-height:1.7;}
 .body li{margin-bottom:6px;}
-.body strong{color:var(--navy);}
-.body a{color:var(--coral);border-bottom:1px solid rgba(14,116,144,.35);}
-.callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16.5px!important;color:#2b2820;}
-.ad{display:none;font-size:11px;color:var(--muted);text-align:center;}
-.ad.on{display:block;}
-.ad img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid rgba(20,31,56,.1);}
-.ad small{display:block;margin-top:4px;letter-spacing:.06em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;}
+.body li::marker{color:var(--or-d);font-weight:800;}
+.body strong{font-weight:800;}
+.body a{color:var(--teal-d);font-weight:700;border-bottom:2px solid rgba(15,118,110,.35);}
+.body a:hover{background:var(--yl);}
+.callout{background:var(--sand);border:3px solid var(--ink);border-radius:18px;padding:14px 18px;box-shadow:var(--sh-s);font-size:17px!important;}
 .ad-inline{margin:0 0 26px;}
 .ad-inline img{max-height:180px;object-fit:cover;}
 .ad-left,.ad-right{position:fixed;top:110px;width:180px;}
 .ad-left{left:calc(50% - 380px - 200px);}
 .ad-right{left:calc(50% + 380px + 20px);}
 @media(max-width:1299px){.ad-left.on,.ad-right.on{display:none;}}
-.aff{display:flex;gap:16px;align-items:center;justify-content:space-between;background:var(--paper);border:1.5px solid var(--gold);border-radius:14px;padding:18px 22px;margin:34px 0 8px;}
-.aff b{display:block;font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:4px;}
-.aff p{font-size:14.5px;color:#3d3a30;margin:0;line-height:1.55;}
-.aff a.btn{flex:none;background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:14px;padding:11px 18px;border-radius:9px;border:0;}
-.aff-note{font-size:12px;color:var(--muted);margin-top:6px;}
-@media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{text-align:center;}}
+.aff{display:flex;gap:16px;align-items:center;justify-content:space-between;background:var(--sand);border:3px solid var(--ink);border-radius:20px;box-shadow:var(--sh);padding:18px 22px;margin:34px 0 8px;}
+.aff b{display:block;font:800 19px var(--f-display);margin-bottom:4px;}
+.aff p{font-size:14.5px;color:#2C4745;margin:0;line-height:1.55;}
+.aff a.btn{flex:none;}
+.aff-note{font-size:12px;color:var(--muted);margin-top:8px;}
+@media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{justify-content:center;}.head-row{flex-direction:column-reverse;align-items:flex-start;gap:6px;}.article .stamp{--s:110px;}}
 .yt{margin:6px 0 26px;}
-.yt-frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;}
+.yt-frame{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:20px;box-shadow:var(--sh);overflow:hidden;background:#000;}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
-.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:rgba(7,12,24,.25);cursor:pointer;border:0;}
-.yt-play span{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;}
-.yt-cap{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
-.author{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid rgba(20,31,56,.1);border-radius:12px;padding:18px 20px;margin-top:40px;}
-.author img{width:48px;height:48px;border-radius:50%;flex:none;border:1.5px solid var(--gold);}
-.author p{font-size:14px;color:var(--muted);line-height:1.6;}
-.author b{color:var(--navy);display:block;margin-bottom:2px;font-size:15px;}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:rgba(11,43,43,.25);}
+.yt-play span{width:66px;height:66px;border-radius:50%;background:var(--or);border:3px solid var(--ink);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;box-shadow:var(--sh-s);}
+.yt-cap{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.5;}
+.author{display:flex;gap:14px;align-items:flex-start;background:var(--mint);border:3px solid var(--ink);border-radius:20px;padding:18px 20px;margin-top:40px;box-shadow:var(--sh-s);}
+.author img{width:48px;height:48px;border-radius:50%;flex:none;border:2px solid var(--ink);}
+.author p{font-size:14px;color:#2C4745;line-height:1.6;}
+.author b{display:block;margin-bottom:2px;font:800 16px var(--f-display);}
+.author a{border-bottom:2px dashed var(--teal);}
+.next{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;background:var(--teal);color:#fff;border:3px solid var(--ink);border-radius:26px;box-shadow:var(--sh);padding:18px 22px;margin-top:34px;}
+.next img{width:92px;flex:none;filter:drop-shadow(0 8px 8px rgba(0,0,0,.3));}
+.next div{flex:1 1 220px;}
+.next b{display:block;font:800 22px/1.1 var(--f-display);letter-spacing:-.02em;margin-bottom:4px;}
+.next p{font-size:14px;color:#D9FBF5;}
+.next .btns{display:flex;gap:10px;flex-wrap:wrap;flex:none;}
 .disclaimer{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.6;}
-.related{max-width:1000px;margin:0 auto;padding:0 24px 64px;}
-.related h2{font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:16px;}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,.1);border-radius:12px;overflow:hidden;transition:border-color .15s;}
-.card:hover{border-color:var(--gold);}
-.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--navy);}
-.card .in{padding:16px 18px 18px;}
-.card h3{font-family:'Fraunces',serif;font-size:17px;line-height:1.3;color:var(--navy);margin-bottom:6px;}
-.card p{font-size:13.5px;color:var(--muted);line-height:1.5;}
-.list-head{max-width:1100px;margin:0 auto;padding:36px 24px 8px;}
-.list-head h1{font-family:'Fraunces',serif;font-weight:800;font-size:36px;color:var(--navy);margin-bottom:10px;line-height:1.2;}
-.list-head p{color:var(--muted);max-width:40em;}
-.chips{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;gap:10px;flex-wrap:wrap;}
-.chips a{padding:8px 16px;border-radius:20px;border:1.5px solid rgba(20,31,56,.2);background:var(--paper);font-size:13px;font-weight:500;}
-.chips a:hover{border-color:var(--gold);}
-.sec{max-width:1100px;margin:0 auto;padding:12px 24px 24px;}
-.sec h2{font-family:'Fraunces',serif;font-size:24px;color:var(--navy);margin:18px 0 14px;scroll-margin-top:16px;}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-footer{padding:28px 24px;font-size:12.5px;color:var(--muted);text-align:center;background:var(--cream);border-top:1px solid rgba(20,31,56,.08);}
-footer a{border-bottom:1px dashed rgba(20,31,56,.3);margin:0 8px;}
-@media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){
- .nav{padding:12px 16px;}.brand{font-size:18px;}.brand img{width:34px;height:34px;}
- .nav-links{gap:14px;font-size:12.5px;}.nav-links li:nth-child(n+3){display:none;}
- .article{padding:20px 18px 56px;}.article h1{font-size:28px;}
- .excerpt{font-size:16.5px;}.body h2{font-size:22px;}.body p,.body ul,.body ol{font-size:16.5px;}
- .cover{border-radius:0;margin-top:0;}.crumbs{padding:16px 18px 0;}
- .grid,.grid3{grid-template-columns:1fr;}.related{padding:0 18px 48px;}
- .list-head{padding:24px 18px 4px;}.list-head h1{font-size:28px;}.chips,.sec{padding-left:18px;padding-right:18px;}
-}`;
+.related{max-width:1100px;margin:0 auto;padding:0 24px 72px;}
+.related h2{font:800 clamp(24px,3.4vw,32px) var(--f-display);letter-spacing:-.03em;margin-bottom:22px;}
+.list-hero{max-width:1220px;margin:24px auto 0;padding:0 clamp(12px,3vw,32px);}
+.list-hero .in{background:var(--teal);color:#fff;border:3px solid var(--ink);border-radius:30px;box-shadow:8px 8px 0 var(--ink);padding:clamp(24px,4vw,48px);display:flex;gap:24px;align-items:center;justify-content:space-between;position:relative;overflow:hidden;}
+.list-hero .in::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;background:rgba(250,204,21,.25);}
+.list-hero h1{font:800 clamp(32px,5vw,58px)/1 var(--f-display);letter-spacing:-.035em;margin-bottom:12px;text-wrap:balance;position:relative;z-index:1;}
+.list-hero h1 mark{background:var(--or);color:var(--ink);padding:0 .12em;border-radius:8px;}
+.list-hero p{color:#D9FBF5;max-width:46ch;position:relative;z-index:1;}
+.list-hero img{width:clamp(120px,20vw,230px);flex:none;position:relative;z-index:1;filter:drop-shadow(0 20px 18px rgba(0,0,0,.3));animation:bob 5s ease-in-out infinite;}
+@keyframes bob{50%{translate:0 -10px;}}
+.chips{max-width:1220px;margin:26px auto 0;padding:0 clamp(16px,4vw,44px);display:flex;gap:10px;flex-wrap:wrap;}
+.chips a{padding:8px 16px;border-radius:99px;border:2.5px solid var(--ink);background:var(--paper);font:800 13px var(--f-body);box-shadow:2px 2px 0 var(--ink);}
+.chips a:hover{background:var(--yl);}
+.sec h2{display:flex;align-items:center;gap:14px;scroll-margin-top:90px;}
+.sec h2 img{width:64px;height:64px;object-fit:contain;flex:none;}
+@media(max-width:640px){.list-hero .in{flex-direction:column-reverse;align-items:flex-start;}.list-hero img{width:120px;}.article{padding:22px 18px 56px;}.crumbs{padding:16px 18px 0;}.related{padding:0 18px 56px;}}
+`;
 
-const NAV = `<header class="nav"><a class="brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="40" height="40">GEZICORN</a>
-<nav aria-label="Ana menü"><ul class="nav-links"><li><a href="/yazi/">Yazılar</a></li><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehber</a></li><li><a href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
-const FOOTER = `<footer><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a>
-<p style="margin-top:12px;">© Gezicorn · Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p></footer>`;
+const NAV = `<header class="gz-nav"><a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
+<nav aria-label="Ana menü"><ul class="gz-links"><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehberler</a></li><li><a href="/yazi/#haber">Haberler</a></li><li><a href="/#bilet">Bilet ara</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
+const FOOTER = `<footer class="gz-foot"><div class="row"><p>© Gezicorn. Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p>
+<div><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div></div></footer>`;
+
+const STAMPS = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'stamps.json'), 'utf-8')).stamps;
+const STAMP_BY_SLUG = Object.fromEntries(STAMPS.map(x => [x.slug, x]));
+const ROT = [-4, 3, -2, 5, -5, 2, -3, 4, -1, 2];
+const CAT_ICON = { vize: 'passport', rehber: 'compass', firsat: 'backpack', haber: 'camera' };
+const stampHtml = (st, i = 0, link = false) => {
+  const inner = `<div><b>${esc(st.name)}</b><small>${esc(st.text)}</small></div>`;
+  const cls = `stamp${st.kind === 'e' ? ' e' : ''}`;
+  return link ? `<a class="${cls}" style="--r:${ROT[i % ROT.length]}deg" href="/yazi/${st.slug}/">${inner}</a>`
+              : `<div class="${cls}" style="--r:-6deg" role="img" aria-label="${esc(st.name)}: ${esc(st.text)}">${inner}</div>`;
+};
 
 const headCommon = ({ title, desc, canonical, image, type = 'website', extra = '', robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' }) => `<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -246,7 +241,7 @@ const headCommon = ({ title, desc, canonical, image, type = 'website', extra = '
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${image}">
-<meta name="theme-color" content="#101B30">
+<meta name="theme-color" content="#0F766E">
 <link rel="icon" type="image/png" href="/logo-256.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ${FONTS}${extra}`;
@@ -313,8 +308,8 @@ ${NAV}
 <nav class="crumbs" aria-label="Sayfa yolu"><a href="/">Ana sayfa</a><span>›</span><a href="/yazi/">Yazılar</a><span>›</span><a href="/yazi/#${p.category}">${esc(cat.label)}</a></nav>
 ${p.cover_image ? `<img class="cover" src="${image}" alt="${esc(p.cover_alt || p.title)}" width="1200" height="675" fetchpriority="high">` : ''}
 <article class="article">
-<span class="post-tag">${esc(CAT[p.category]?.short || p.category)}</span>
-<h1>${esc(p.title)}</h1>
+<span class="chip ${esc(p.category)}">${esc(CAT[p.category]?.short || p.category)}</span>
+<div class="head-row"><h1 style="margin-top:12px">${esc(p.title)}</h1>${STAMP_BY_SLUG[p.slug] ? stampHtml(STAMP_BY_SLUG[p.slug]) : ''}</div>
 <div class="meta"><span>Yazan: Gezicorn</span><span>Güncelleme: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time></span><span>${mins} dk okuma</span></div>
 ${p.excerpt && blocks[0]?.t !== 'quote' ? `<p class="excerpt">${inline(p.excerpt)}</p>` : ''}
 ${tocHtml}
@@ -324,7 +319,8 @@ ${ytHtml}
 ${html}
 </div>
 ${affHtml}
-<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya solo seyahat rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener" style="border-bottom:1px dashed rgba(20,31,56,.3);">YouTube kanalında</a> paylaşan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara dayanır.</p></aside>
+<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya solo seyahat rotasını <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube kanalında</a> paylaşan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara dayanır.</p></aside>
+<aside class="next"><img src="/assets/3d/plane.webp" alt="" width="92" height="92" loading="lazy"><div><b>Sıradaki durak neresi?</b><p>Canlı uçak biletini ara ya da başka bir ülkenin rehberine göz at.</p></div><div class="btns"><a class="btn yl" href="/#bilet">Uçak bileti ara</a><a class="btn alt" href="/yazi/#vize">Vize rehberleri</a></div></aside>
 <p class="disclaimer">Bu yazı genel bilgi amaçlıdır. Vize, ücret ve giriş kuralları ülkeye ve döneme göre değişir. Başvurudan önce ilgili ülkenin konsolosluğunun veya resmi e-vize sitesinin güncel duyurularını kontrol et.</p>
 </article>
 ${relHtml}
@@ -337,8 +333,8 @@ ${AD_SCRIPT}${p.youtube_id ? YT_SCRIPT : ''}
 }
 
 function cardHtml(p) {
-  const img = absImg(p.cover_image) || `${BASE}/img/covers/_default.jpg`;   // kapaksız yazı da aynı boyda kart olsun
-  return `<a class="card" href="/yazi/${p.slug}/"><img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675"><div class="in"><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></div></a>`;
+  const img = (absImg(p.cover_image) || `${BASE}/img/covers/_default.jpg`).replace(BASE, '');   // kapaksız yazı da aynı boyda kart olsun, kendi domainimizde göreli yol
+  return `<a class="tagcard" href="/yazi/${p.slug}/"><img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675"><span class="chip ${esc(p.category)}">${esc(CAT[p.category]?.short || p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></a>`;
 }
 
 function renderList(posts) {
@@ -358,9 +354,10 @@ ${headCommon({ title: 'Vize ve Gezi Rehberleri, Türk Pasaportuna Göre | Gezico
 <body>
 ${NAV}
 <main>
-<div class="list-head"><h1>Vize ve gezi rehberleri</h1><p>Türk pasaportuyla nereye vizesiz gidilir, e-vize nasıl alınır, rota nasıl kurulur. Kırgızistan'dan Kamboçya'ya kendi gezdiğimiz ülkelerden ve resmi kaynaklara bakarak yazıyoruz.</p></div>
+<section class="list-hero"><div class="in"><div><h1>Vize ve <mark>gezi</mark> rehberleri</h1><p>Türk pasaportuyla nereye vizesiz gidilir, e-vize nasıl alınır, rota nasıl kurulur. Kırgızistan'dan Kamboçya'ya kendi gezdiğimiz ülkelerden ve resmi kaynaklara bakarak yazıyoruz.</p></div><img src="/assets/3d/passport.webp" alt="" width="230" height="230"></div></section>
 <nav class="chips" aria-label="Kategoriler">${groups.map(g => `<a href="#${g.c}">${esc(CAT[g.c].label)} (${g.items.length})</a>`).join('')}</nav>
-${groups.map(g => `<section class="sec" id="${g.c}"><h2>${esc(CAT[g.c].label)}</h2><div class="grid3">${g.items.map(cardHtml).join('')}</div></section>`).join('\n')}
+<section class="sec"><div class="sec-head"><h2>Vize damgaları</h2><span>Eylül 2026 itibarıyla</span></div><div class="stamps">${STAMPS.map((st, i) => stampHtml(st, i, true)).join('')}</div></section>
+${groups.map(g => `<section class="sec" id="${g.c}" style="padding-top:8px"><div class="sec-head"><h2><img src="/assets/3d/${CAT_ICON[g.c]}.webp" alt="" width="64" height="64" loading="lazy">${esc(CAT[g.c].label)}</h2></div><div class="tags">${g.items.map(cardHtml).join('')}</div></section>`).join('\n')}
 </main>
 ${FOOTER}
 </body>
@@ -402,8 +399,7 @@ writeFileSync(path.join(ROOT, 'sitemap.xml'),
 // ana sayfa: son yazılar (taranabilir statik HTML, JS yüklenince aynı şeyi dinamik basar)
 const idxPath = path.join(ROOT, 'index.html');
 let idx = readFileSync(idxPath, 'utf-8');
-const latest = pub.slice(0, 6).map(p =>
-  `<a class="post-card" href="/yazi/${p.slug}/"><span class="post-tag">${esc(CAT[p.category]?.short || p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></a>`).join('');
+const latest = pub.slice(0, 8).map(cardHtml).join('');
 if (idx.includes('<!--LATEST_START-->')) {
   idx = idx.replace(/<!--LATEST_START-->[\s\S]*?<!--LATEST_END-->/, `<!--LATEST_START-->${latest}<!--LATEST_END-->`);
   writeFileSync(idxPath, idx, 'utf-8');
@@ -423,11 +419,20 @@ if (idx.includes('<!--LATEST_START-->')) {
   }
 }
 
+// ana sayfa: vize damgaları (stamps.json)
+{
+  let cur = readFileSync(idxPath, 'utf-8');
+  if (cur.includes('<!--STAMPS_START-->')) {
+    cur = cur.replace(/<!--STAMPS_START-->[\s\S]*?<!--STAMPS_END-->/, `<!--STAMPS_START-->${STAMPS.map((st, i) => stampHtml(st, i, true)).join('')}<!--STAMPS_END-->`);
+    writeFileSync(idxPath, cur, 'utf-8');
+  }
+}
+
 // ana sayfa: Önerdiklerimiz (affiliates.json içinde active olanlar)
 {
   let cur = readFileSync(idxPath, 'utf-8');
   const cards = Object.values(AFF).filter(a => a.active).map(a =>
-    `<a class="partner-card" href="${a.url}" rel="sponsored nofollow noopener" target="_blank"><b>${esc(a.title)}</b><p>${esc(a.blurb)}</p><span>${esc(a.cta)} →</span></a>`).join('');
+    `<a class="partner-card" href="${a.url}" rel="sponsored nofollow noopener" target="_blank">${a.img ? `<img src="${a.img}" alt="" width="78" height="78" loading="lazy">` : ''}<div><b>${esc(a.title)}</b><p>${esc(a.blurb)}</p><span>${esc(a.cta)} →</span></div></a>`).join('');
   if (cur.includes('<!--PARTNERS_START-->')) {
     cur = cur.replace(/<!--PARTNERS_START-->[\s\S]*?<!--PARTNERS_END-->/, `<!--PARTNERS_START-->${cards}<!--PARTNERS_END-->`);
     writeFileSync(idxPath, cur, 'utf-8');

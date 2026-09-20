@@ -5,124 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gezicorn: Seyahat Danışmanlığı | GEZİCORN TRAVEL LTD</title>
 <meta name="description" content="GEZİCORN TRAVEL LTD, Kamboçya merkezli resmi seyahat danışmanlığı şirketimiz. Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir destek.">
+<link rel="canonical" href="https://www.gezicorn.com/danismanlik.html">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Gezicorn">
 <meta property="og:title" content="Gezicorn Seyahat Danışmanlığı: GEZİCORN TRAVEL LTD">
 <meta property="og:description" content="Vize türleri, uçak bileti alımı ve rota planlaması konusunda birebir danışmanlık desteği.">
-<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BISX51pyjgR1WlirlUH7qpCMcW/hf_20260704_233315_b105ab07-b70d-41a8-8dbc-607946d69068.png">
+<meta property="og:url" content="https://www.gezicorn.com/danismanlik.html">
+<meta property="og:image" content="https://www.gezicorn.com/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="logo-256.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" type="image/png" href="/logo-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/assets/gz.css?v=20260920b">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-:root{
-  --navy:#101B30; --navy-deep:#070C18; --cream:#FFFDF7; --paper:#FFFFFF;
-  --gold:#D4A373; --coral:#0E7490; --teal:#166534; --ink:#181611; --muted:#6E6A5D;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
-.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
-.brand .mark img{width:100%;height:100%;object-fit:cover;}
-.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
-.back-link:hover{color:var(--gold);}
-
-.hero{background:var(--navy);color:var(--cream);padding:64px 52px 56px;text-align:center;}
-.hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(224,165,38,0.15);border:1px solid var(--gold);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 14px;border-radius:20px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.03em;}
-.hero h1{font-family:'Fraunces',serif;font-weight:800;font-size:38px;line-height:1.15;max-width:16em;margin:0 auto 16px;}
-.hero p{color:#C8C4B6;max-width:34em;margin:0 auto;font-size:15.5px;}
-
-.wrap{max-width:900px;margin:0 auto;padding:56px 24px 96px;}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px;}
-@media(max-width:800px){.services{grid-template-columns:1fr;}}
-.service-card{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;padding:24px;}
-.service-card .icon{width:42px;height:42px;border-radius:50%;background:rgba(224,165,38,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);margin-bottom:16px;}
-.service-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;}
-.service-card p{font-size:13.5px;color:var(--muted);}
-
-.why{background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:16px;padding:36px;margin-bottom:56px;}
-.why h2{font-family:'Fraunces',serif;font-size:24px;color:var(--navy);margin-bottom:16px;}
-.why p{font-size:14.5px;color:var(--ink);margin-bottom:12px;}
-.why p:last-child{margin-bottom:0;}
-
-.cta{background:var(--navy);color:var(--cream);border-radius:16px;padding:44px;text-align:center;}
-.cta .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;letter-spacing:.04em;}
-.cta h2{font-family:'Fraunces',serif;font-size:26px;margin-bottom:12px;}
-.cta p{color:#C8C4B6;font-size:14.5px;margin-bottom:24px;max-width:32em;margin-left:auto;margin-right:auto;}
-.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:14.5px;padding:13px 26px;border-radius:8px;}
-.cta-btn:hover{opacity:.92;}
-.cta-btn.secondary{background:rgba(246,241,228,0.08);color:var(--cream);border:1px solid rgba(246,241,228,0.3);}
-.cta-btn.secondary:hover{border-color:var(--gold);opacity:1;}
-.cta-soon{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#A6A290;}
-
-.social-section{margin-top:56px;text-align:center;}
-.social-section h2{font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:18px;}
-.social-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.social-btn{width:50px;height:50px;border-radius:50%;background:var(--paper);border:1px solid rgba(20,31,56,0.12);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--navy);transition:border-color .15s,transform .15s;}
-.social-btn:hover{border-color:var(--gold);transform:translateY(-2px);}
-.social-soon{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);}
-
-.legal{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);text-align:center;margin-top:28px;}
-
-footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+.hero{margin:22px clamp(12px,3vw,32px) 0;background:var(--teal);color:#fff;border:3px solid var(--ink);border-radius:32px;box-shadow:8px 8px 0 var(--ink);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(26px,5vw,56px);position:relative;overflow:hidden;isolation:isolate}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(250,204,21,.25);z-index:-1}
+.hero .badge{display:inline-block;font:600 12px var(--f-mono);letter-spacing:.1em;background:var(--yl);color:var(--ink);padding:5px 12px;border:2px solid var(--ink);border-radius:99px;margin-bottom:16px}
+.hero h1{font:800 clamp(32px,5vw,58px)/1 var(--f-display);letter-spacing:-.035em;margin-bottom:14px;max-width:16em;text-wrap:balance}
+.hero h1 mark{background:var(--or);color:var(--ink);padding:0 .12em;border-radius:8px}
+.hero p{color:#D9FBF5;max-width:42ch;font-size:17px}
+.hero img{width:clamp(120px,20vw,240px);flex:none;filter:drop-shadow(0 20px 18px rgba(0,0,0,.3));animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -10px}}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-bottom:44px}
+.service{position:relative;background:var(--paper);border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:24px 22px 22px}
+.service img{width:84px;height:84px;object-fit:contain;margin-bottom:8px;filter:drop-shadow(0 8px 6px rgba(0,0,0,.2))}
+.service h3{font:800 21px var(--f-display);letter-spacing:-.02em;margin-bottom:8px}
+.service p{font-size:14.5px;color:var(--muted)}
+.why{background:var(--mint);border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:30px 28px;margin-bottom:44px}
+.why h2{font:800 28px var(--f-display);letter-spacing:-.03em;margin-bottom:14px}
+.why p{font-size:16px;margin-bottom:12px;max-width:70ch}
+.why p:last-child{margin-bottom:0}
+.cta{background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:28px;padding:clamp(26px,4vw,44px);text-align:center;box-shadow:8px 8px 0 var(--or)}
+.cta .tag{font:600 12px var(--f-mono);letter-spacing:.1em;color:var(--yl);text-transform:uppercase;margin-bottom:10px}
+.cta h2{font:800 clamp(28px,4vw,40px) var(--f-display);letter-spacing:-.03em;margin-bottom:12px}
+.cta p{color:#B9D3CE;max-width:36em;margin:0 auto 24px}
+.contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.social-section{margin-top:44px;text-align:center}
+.social-section h2{font:800 24px var(--f-display);letter-spacing:-.02em;margin-bottom:16px}
+.social-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.social-btn{width:52px;height:52px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);display:grid;place-items:center;font-size:20px;box-shadow:var(--sh-s)}
+.social-btn:hover{background:var(--yl)}
+.legal{font:500 12px var(--f-mono);color:var(--muted);text-align:center;margin-top:30px}
+@media(max-width:700px){.hero{flex-direction:column-reverse;align-items:flex-start}.hero img{width:110px}}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a class="brand" href="index.html"><span class="mark" id="brandMark">G</span>GEZICORN</a>
-  <a class="back-link" href="index.html">← ana sayfaya dön</a>
-</div>
+<header class="gz-nav">
+  <a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
+  <ul class="gz-links" aria-label="Ana menü">
+    <li><a href="/yazi/#vize">Vize</a></li>
+    <li><a href="/yazi/#rehber">Rehberler</a></li>
+    <li><a href="/yazi/#haber">Haberler</a></li>
+    <li><a href="/#bilet">Bilet ara</a></li>
+    <li><a class="hl on" href="/danismanlik.html">Danışmanlık</a></li>
+  </ul>
+</header>
 
-<div class="hero">
-  <div class="badge">GEZİCORN TRAVEL LTD</div>
-  <h1>Rotanı tek başına çözmek zorunda değilsin</h1>
-  <p>Kamboçya merkezli resmi seyahat danışmanlığı şirketimizle, vize sürecinden bilet alımına kadar
-     gerçek deneyimden gelen birebir destek veriyoruz.</p>
-</div>
+<main>
+<section class="hero">
+  <div>
+    <span class="badge">GEZİCORN TRAVEL LTD</span>
+    <h1>Rotanı tek başına <mark>çözmek</mark> zorunda değilsin</h1>
+    <p>Kamboçya merkezli resmi seyahat danışmanlığı şirketimizle, vize sürecinden bilet alımına kadar gerçek deneyimden gelen birebir destek veriyoruz.</p>
+  </div>
+  <img src="/assets/3d/compass.webp" alt="" width="240" height="240">
+</section>
 
-<div class="wrap">
+<div class="sec">
   <div class="services">
-    <div class="service-card">
-      <div class="icon">📄</div>
-      <h3>Vize Danışmanlığı</h3>
-      <p>Hangi ülkeye hangi vize türüyle gidebileceğinden (örneğin Tayland vize seçenekleri) evrak
-         hazırlığına kadar adım adım yönlendirme.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">✈️</div>
-      <h3>Uçak Bileti Desteği</h3>
-      <p>Doğru rotayı, doğru zamanda ve gerçek bütçene uygun şekilde bulman için bilet arama ve
-         alım sürecinde yanındayız.</p>
-    </div>
-    <div class="service-card">
-      <div class="icon">🧭</div>
-      <h3>Rota Planlama</h3>
-      <p>Hiç fikrin yoksa ya da kararsızsan sorun değil, bütçene ve süren göre kişiye özel bir
-         rota birlikte kurarız.</p>
-    </div>
+    <article class="service"><img src="/assets/3d/passport.webp" alt="" loading="lazy"><h3>Vize danışmanlığı</h3><p>Hangi ülkeye hangi vize türüyle gidebileceğinden evrak hazırlığına kadar adım adım yönlendirme.</p></article>
+    <article class="service"><img src="/assets/3d/ticket.webp" alt="" loading="lazy"><h3>Uçak bileti desteği</h3><p>Doğru rotayı, doğru zamanda ve gerçek bütçene uygun şekilde bulman için bilet arama ve alım sürecinde yanındayız.</p></article>
+    <article class="service"><img src="/assets/3d/pin.webp" alt="" loading="lazy"><h3>Rota planlama</h3><p>Hiç fikrin yoksa ya da kararsızsan sorun değil, bütçene ve süren göre kişiye özel bir rota birlikte kurarız.</p></article>
   </div>
 
   <div class="why">
     <h2>Neden Gezicorn Travel?</h2>
-    <p>Bu tavsiyeleri internetten toplama bir listeden değil, gerçekten kendi gittiğimiz rotalardan
-       (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam) çıkardık.</p>
-    <p>Vize sürecini, bilet arama mantığını ya da rota kurmayı hiç bilmeyenlere; sıfırdan, anlaşılır
-       ve dürüst şekilde anlatıyoruz. Abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
+    <p>Bu tavsiyeleri internetten toplama bir listeden değil, gerçekten kendi gittiğimiz rotalardan (Kırgızistan, Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam) çıkardık.</p>
+    <p>Vize sürecini, bilet arama mantığını ya da rota kurmayı hiç bilmeyenlere sıfırdan, anlaşılır ve dürüst şekilde anlatıyoruz. Abartılı vaatler yerine gerçekçi beklenti kuruyoruz.</p>
   </div>
 
   <div class="cta">
     <div class="tag">hiç fikrin yok mu, kararsız mısın?</div>
     <h2>Bizimle iletişime geç</h2>
-    <p>Nereye gideceğine karar veremedin, vize süreci kafanı karıştırdı ya da bilet ararken
-       kayboldun mu? Anlat, birlikte netleştirelim.</p>
+    <p>Nereye gideceğine karar veremedin, vize süreci kafanı karıştırdı ya da bilet ararken kayboldun mu? Anlat, birlikte netleştirelim.</p>
     <div id="ctaArea" class="contact-btns"></div>
   </div>
 
@@ -133,56 +104,42 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 
   <div class="legal">GEZİCORN TRAVEL LTD · Kamboçya merkezli resmi seyahat danışmanlığı şirketi</div>
 </div>
+</main>
 
-<footer>© Gezicorn</footer>
+<footer class="gz-foot"><div class="row">
+  <p>© Gezicorn. Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</p>
+  <div><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a></div>
+</div></footer>
 
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc",
-  authDomain: "gezicorn.firebaseapp.com",
-  projectId: "gezicorn",
-  storageBucket: "gezicorn.firebasestorage.app",
-  messagingSenderId: "542127745680",
-  appId: "1:542127745680:web:c59e7919eb0e78865c0615"
-};
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp({
+  apiKey: "AIzaSyBTMRufCWKbfrLBN3WiVDWCjzrpxMhrFmc", authDomain: "gezicorn.firebaseapp.com", projectId: "gezicorn",
+  storageBucket: "gezicorn.firebasestorage.app", messagingSenderId: "542127745680", appId: "1:542127745680:web:c59e7919eb0e78865c0615"
+});
 const db = firebase.firestore();
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+// Danışmanlık iletişim alanları admin panelden doldurulur. Boşsa Instagram ve YouTube'a yönlendiriyoruz.
 async function loadContact(){
-  const ctaEl = document.getElementById('ctaArea');
-  const socialEl = document.getElementById('socialArea');
-  try{
-    const doc = await db.collection('settings').doc('consultancy').get();
-    const c = doc.exists ? doc.data() : {};
-
-    const btns = [];
-    if(c.whatsapp_url) btns.push(`<a class="cta-btn" href="${c.whatsapp_url}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>`);
-    if(c.telegram_url) btns.push(`<a class="cta-btn secondary" href="${c.telegram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Telegram</a>`);
-    if(c.email) btns.push(`<a class="cta-btn secondary" href="mailto:${c.email}"><i class="fa-solid fa-envelope"></i> E-posta</a>`);
-    ctaEl.innerHTML = btns.length ? btns.join('') : `<span class="cta-soon">İletişim kanallarımız çok yakında burada, hazırlıyoruz.</span>`;
-
-    const socials = [];
-    if(c.instagram_url) socials.push(`<a class="social-btn" href="${c.instagram_url}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>`);
-    if(c.tiktok_url) socials.push(`<a class="social-btn" href="${c.tiktok_url}" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>`);
-    if(c.x_url) socials.push(`<a class="social-btn" href="${c.x_url}" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>`);
-    socialEl.innerHTML = socials.length ? socials.join('') : `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
-  }catch(e){
-    ctaEl.innerHTML = `<span class="cta-soon">İletişim kanallarımız çok yakında burada, hazırlıyoruz.</span>`;
-    socialEl.innerHTML = `<span class="social-soon">Hesaplarımız çok yakında burada.</span>`;
-  }
+  const ctaEl = document.getElementById('ctaArea'), socialEl = document.getElementById('socialArea');
+  let c = {};
+  try{ const doc = await db.collection('settings').doc('consultancy').get(); c = doc.exists ? doc.data() : {}; }catch(e){}
+  const btns = [];
+  if(c.whatsapp_url) btns.push(`<a class="btn" href="${esc(c.whatsapp_url)}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>`);
+  if(c.telegram_url) btns.push(`<a class="btn alt" href="${esc(c.telegram_url)}" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Telegram</a>`);
+  if(c.email) btns.push(`<a class="btn alt" href="mailto:${esc(c.email)}"><i class="fa-solid fa-envelope"></i> E-posta</a>`);
+  if(!btns.length) btns.push(`<a class="btn" href="https://www.instagram.com/gezicorn/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram'dan yaz</a>`,
+                             `<a class="btn alt" href="https://www.youtube.com/@gezikorn" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>`);
+  ctaEl.innerHTML = btns.join('');
+  const socials = [];
+  socials.push(`<a class="social-btn" href="${esc(c.instagram_url || 'https://www.instagram.com/gezicorn/')}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>`);
+  socials.push(`<a class="social-btn" href="https://www.youtube.com/@gezikorn" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>`);
+  socials.push(`<a class="social-btn" href="https://www.facebook.com/profile.php?id=144062395450039" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>`);
+  if(c.tiktok_url) socials.push(`<a class="social-btn" href="${esc(c.tiktok_url)}" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>`);
+  if(c.x_url) socials.push(`<a class="social-btn" href="${esc(c.x_url)}" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>`);
+  socialEl.innerHTML = socials.join('');
 }
-async function loadBranding(){
-  try{
-    const doc = await db.collection('settings').doc('branding').get();
-    const logoUrl = doc.exists ? doc.data().logo_url : '';
-    if(logoUrl){
-      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
-    }
-  }catch(e){}
-}
-
 loadContact();
-loadBranding();
 </script>
 </body>
 </html>

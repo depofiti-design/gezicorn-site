@@ -16,58 +16,27 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="/assets/gz.css?v=20260920b">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-:root{
-  --navy:#101B30; --navy-deep:#070C18; --cream:#FFFDF7; --paper:#FFFFFF;
-  --gold:#D4A373; --coral:#0E7490; --teal:#166534; --ink:#181611; --muted:#6E6A5D;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.5;}
-a{color:inherit;text-decoration:none;}
-
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:var(--navy);color:var(--cream);}
-.brand{font-family:'Fraunces',serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;}
-.brand .mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;color:var(--gold);font-family:'IBM Plex Mono',monospace;overflow:hidden;}
-.brand .mark img{width:100%;height:100%;object-fit:cover;}
-.back-link{font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;}
-.back-link:hover{color:var(--gold);}
-
-.header{padding:56px 52px 24px;max-width:1220px;margin:0 auto;}
-.header h1{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--navy);margin-bottom:10px;}
-.header p{color:var(--muted);font-size:14.5px;max-width:36em;}
-
-.filters{display:flex;gap:10px;padding:0 52px 36px;max-width:1220px;margin:0 auto;flex-wrap:wrap;}
-.filter-btn{padding:9px 18px;border-radius:20px;border:1.5px solid rgba(20,31,56,0.2);background:var(--paper);font-size:13px;font-weight:500;color:var(--ink);}
-.filter-btn.active{background:var(--navy);color:var(--cream);border-color:var(--navy);}
-.filter-btn:hover:not(.active){border-color:var(--gold);}
-
-.country-filters{padding-top:0;margin-top:-20px;}
-.filter-label{width:100%;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
-.filter-btn.country{border-style:dashed;font-size:12.5px;padding:7px 14px;}
-.filter-btn.country.active{background:var(--teal);border-color:var(--teal);}
-
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 52px 80px;max-width:1220px;margin:0 auto;}
-@media(max-width:900px){.grid{grid-template-columns:1fr;}}
-.post-card{display:block;background:var(--paper);border:1px solid rgba(20,31,56,0.1);border-radius:12px;overflow:hidden;transition:border-color .15s;}
-.post-card:hover{border-color:var(--gold);}
-.post-card img{width:100%;height:150px;object-fit:cover;display:block;background:var(--navy);}
-.post-card .body{padding:20px 22px;}
-.post-tag{display:inline-flex;border:1.5px dashed var(--teal);border-radius:20px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
-.post-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px;line-height:1.3;}
-.post-card p{font-size:13.5px;color:var(--muted);}
-.empty{color:var(--muted);font-size:14px;padding:20px 0;}
-
-footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-align:center;background:var(--cream);}
+.header{max-width:1220px;margin:0 auto;padding:36px clamp(16px,4vw,44px) 18px}
+.header h1{font:800 clamp(32px,5vw,54px)/1 var(--f-display);letter-spacing:-.035em;margin-bottom:10px}
+.header p{color:var(--muted);max-width:40em}
+.filters{display:flex;gap:10px;padding:0 clamp(16px,4vw,44px) 20px;max-width:1220px;margin:0 auto;flex-wrap:wrap}
+.filter-btn{padding:8px 16px;border-radius:99px;border:2.5px solid var(--ink);background:var(--paper);font:800 13px var(--f-body);box-shadow:2px 2px 0 var(--ink)}
+.filter-btn.active,.filter-btn:hover{background:var(--yl)}
+.country-filters{padding-top:0}
+.filter-label{width:100%;font:600 11px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.filter-btn.country{font-size:12.5px;padding:6px 13px}
+.filter-btn.country.active{background:var(--teal);color:#fff}
+.grid{max-width:1220px;margin:0 auto;padding:0 clamp(16px,4vw,44px) 70px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.empty{color:var(--muted);padding:20px 0}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a class="brand" href="index.html"><span class="mark" id="brandMark">G</span>GEZICORN</a>
-  <a class="back-link" href="index.html">← ana sayfaya dön</a>
-</div>
+<header class="gz-nav"><a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a><ul class="gz-links"><li><a href="/yazi/">Tüm yazılar</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></header>
 
 <div class="header">
   <h1 id="pageTitle">Yazılar</h1>
@@ -88,7 +57,7 @@ footer{padding:26px 52px;font-family:'IBM Plex Mono',monospace;font-size:12px;co
 
 <div class="grid" id="postsGrid"></div>
 
-<footer>© Gezicorn</footer>
+<footer class="gz-foot"><div class="row"><p>© Gezicorn</p></div></footer>
 
 <script>
 const firebaseConfig = {
@@ -151,30 +120,18 @@ async function loadPosts(){
     }
     const el = document.getElementById('postsGrid');
     el.innerHTML = data.map(p=>`
-      <a class="post-card" href="/yazi/${encodeURIComponent(p.slug)}/">
-        <img src="${p.cover_image || '/img/covers/_default.jpg'}" alt="${p.title}">
-        <div class="body">
-          <span class="post-tag">${labels[p.category]||p.category}</span>
-          <h3>${p.title}</h3>
-          <p>${p.excerpt||''}</p>
-        </div>
+      <a class="tagcard" href="/yazi/${encodeURIComponent(p.slug)}/">
+        <img src="${(p.cover_image||'/img/covers/_default.jpg').replace('https://www.gezicorn.com','')}" alt="${p.title}" loading="lazy">
+        <span class="chip ${p.category}">${labels[p.category]||p.category}</span>
+        <h3>${p.title}</h3>
+        <p>${p.excerpt||''}</p>
       </a>`).join('') || '<p class="empty">Bu filtrede henüz yazı yok.</p>';
   }catch(e){
     document.getElementById('postsGrid').innerHTML = '<p class="empty">Yazılar yüklenemedi.</p>';
   }
 }
-async function loadBranding(){
-  try{
-    const doc = await db.collection('settings').doc('branding').get();
-    const logoUrl = doc.exists ? doc.data().logo_url : '';
-    if(logoUrl){
-      document.getElementById('brandMark').innerHTML = `<img src="${logoUrl}" alt="Gezicorn logo">`;
-    }
-  }catch(e){}
-}
 
 loadPosts();
-loadBranding();
 loadCountries();
 </script>
 </body>

@@ -1,0 +1,15 @@
+{
+  "_not": "Vize damgaları. Süreler Eylül 2026 itibarıyla doğrulanmış bilgidir (bkz. ilgili yazılar). Kural değişince burayı ve yazıyı birlikte güncelle, sonra node build-static.js çalıştır. kind: free = vizesiz, e = e-vize/başvuru gerekli.",
+  "stamps": [
+    { "slug": "kirgizistan-vizesi-turkler-icin-ne-gerekiyor", "name": "Kırgızistan", "text": "90 gün vizesiz", "kind": "free" },
+    { "slug": "kazakistana-vizesiz-girmek-mumkun-mu", "name": "Kazakistan", "text": "30 gün vizesiz", "kind": "free" },
+    { "slug": "ozbekistan-vize-kurallari-kalis-suresi", "name": "Özbekistan", "text": "30 gün vizesiz", "kind": "free" },
+    { "slug": "tayland-vize-muafiyeti-kuru-sezon-rehberi", "name": "Tayland", "text": "30 gün vizesiz", "kind": "free" },
+    { "slug": "malezyaya-kac-gun-vizesiz-kalinabilir", "name": "Malezya", "text": "90 gün vizesiz", "kind": "free" },
+    { "slug": "hong-konga-giriste-vize-gerekiyor-mu", "name": "Hong Kong", "text": "90 gün vizesiz", "kind": "free" },
+    { "slug": "japonya-vizesi-turkler-icin-zor-mu", "name": "Japonya", "text": "90 gün vizesiz", "kind": "free" },
+    { "slug": "vietnam-vizesi-turkler-icin-e-vize-sureci", "name": "Vietnam", "text": "e-vize", "kind": "e" },
+    { "slug": "kambocya-vizesi-turkler-icin-e-vize-sureci", "name": "Kamboçya", "text": "e-vize", "kind": "e" },
+    { "slug": "rusya-e-vize-basvurusu-nasil-yapilir", "name": "Rusya", "text": "e-vize", "kind": "e" }
+  ]
+}
