@@ -8,6 +8,43 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 
 **Barbaros'un gerçekten gittiği 9 ülke** (site içeriğinde ve globe pin'lerinde bunlar kullanılıyor): Kırgızistan (ikamet), Kazakistan, Özbekistan, Rusya, Tayland, Malezya, Hong Kong, Kamboçya, Vietnam (21 Ağustos 2026'da eklendi). Ülke sayısı `index.html`'deki hero istatistiğinde artık Firestore'dan dinamik okunuyor (`#countryCount`), yeni ülke eklenince elle güncellemeye gerek yok — ama hero paragrafındaki "9 ülke, tek pasaport" cümlesi hâlâ statik metin, yeni ülke eklenince onu elle güncellemek gerekiyor.
 
+## DEVAM NOTU ve YAPILACAKLAR (20 Eylül 2026, yeni sohbet buradan devam etsin)
+
+**Önce bunu oku.** Kullanıcı (Türkçe konuşur, kısa ve net cevap ister, "onay sorma, yap sonra bildir" kuralı, metinde tire yok, sadece erkek figür, marka adı her yerde "Gezicorn") bu oturumu böyle kapattı. Her cevabın sonunda aşağıdaki bekleyenleri hatırlat.
+
+### Bu oturumda tamamlananlar (özet)
+- Domain gezicorn.com canlı, Search Console doğrulandı, sitemap gönderildi, 8 URL için "Dizine ekleme iste" yapıldı.
+- 78 yazı statik sayfa (`yazi/<slug>/`), JSON-LD, SSS, iç linkler, kapak görselleri (`img/covers/`), hatalı vize bilgileri düzeltildi. Yazıların büyük kısmı derinleştirildi ama ~25 yazı hâlâ kısa (200 ile 270 kelime).
+- Klook affiliate (`scripts/affiliates.json`), reklam alanları (sol/sağ/yazı içi/ana sayfa şeridi), YouTube video gömme, Instagram/YouTube/Facebook butonları aktif.
+- Sosyal: Kırgızistan, Vietnam, Tayland, Malezya, Hong Kong ve iki ülke uygulama gönderisi (Kırgızistan carousel, Kamboçya carousel) yayınlandı. Kural: uygulama/liste gönderileri **kaydırmalı carousel**, kendiliğinden kayan reel yapma.
+- Yeni tasarım **"Rota" sistemi** (Harita + Bavul harmanı, vize damgaları, 3D Higgsfield renderlar, WebGL bavul): tüm site geçti. `assets/gz.css`, `assets/3d/`, `scripts/stamps.json`, `design/rota-DESIGN.md`. admin.html hâlâ eski palette.
+- Uçak suyu reeli: Higgsfield ile 4 animasyon sahnesi üretildi (`social-content/reels-ucak/`), doğruluk kontrollü senaryo `senaryo.md` içinde (Gemini taslağındaki "ısıtıcı 100 dereceye çıkmıyor" yanlış, söylenmeyecek). Sesi kullanıcı kaydedip birleştirecek.
+
+### Yapılacaklar (yapılmadı)
+**Kullanıcının yapacakları:**
+1. Kamboçya **reelini** Instagram'dan sil (kullanıcı beğenmedi, API ile silinemiyor).
+2. Facebook sayfa adını "Yol Var Nizam Var" yerine **Gezicorn** yap (Sayfa ayarları > Sayfa bilgileri).
+3. Affiliate başvuruları: SafetyWing (safetywing.com/ambassador), Airalo (partners.airalo.com), Surfshark, NordVPN. Onay gelince linkleri Claude'a ver, `scripts/affiliates.json`'a ve ilgili yazılara `affiliate` alanıyla işlenecek. Klook için Travelpayouts eklentisiyle derin linkler üretilecek (Angkor Wat, Bangkok, Phuket, Hong Kong, Tokyo, Ha Long).
+4. Reels çekimleri: uçak suyu videosunun sesi, Tayland 30 gün kuralı, Rusya e-vize, Japonya "vize getirdi" yalanı, Kamboçya e-vize sahte site tuzağı.
+5. Kamboçya uygulama gönderisini (PassApp, Grab, foodpanda, Bakong Tourists) yaşadığı yerden gözden geçirip yanlış/eksik varsa söylemesi.
+6. DesignMD **gerçek API anahtarı** (designmd.ai/settings, `dk_...`) verirse MCP'ye bağlanacak, kit içeriği indirilebilir. Şu an sadece arama çalışıyor.
+7. Canlıda uçak bileti (Travelpayouts) kutusunun ana sayfada göründüğünü kendi tarayıcısında kontrol etmesi (test tarayıcısında boş çıktı).
+
+**Claude'un yapacakları (kullanıcı isteyince):**
+1. **Yazım/dil hatası taraması (kullanıcı istedi, önemli):** sitede metin hataları var. Örnek: ana sayfa/listede "Türklerin Vizesiz ya da Kolay Vizeli Gidebileceği 9 Rota" başlığı (`turklerin-en-sevdigi-vizesiz-rotalar`) bozuk/yapay okunuyor. Tüm yazı başlıklarını, özetlerini (excerpt), içerikleri, ana sayfa/damga/bento/danışmanlık metinlerini, `deals` kartlarını, `social_links` ve `route_recommendations` metinlerini tek tek okuyup Türkçe yazım, ek, noktalama ve anlatım hatalarını düzelt (başlık ≤65 karakter, özet ≤165, tire yok). `update-post.js` ile düzelt, `node scripts/build-static.js`, push. Ekran görüntüsüyle gelen hataları aynı gün düzelt.
+2. ~25 kısa yazıyı (200 ile 270 kelime) gerçek deneyim/fiyat/süre bilgisiyle genişlet (uydurma bilgi yok, kullanıcıdan bilgi al).
+3. admin.html'i yeni "Rota" paletine geçir.
+4. Sosyal medya görsellerini (carousel) yeni Rota renkleriyle (teal/turuncu/sarı) üret, ülke uygulama gönderilerini diğer ülkeler için tekrarla (Tayland: Grab, Bolt, LINE, foodpanda, Google Maps, Google Translate verisi toplandı).
+5. Uçak suyu videosu için kullanıcı sesi hazır olunca birleştirme/altyazı yardımı, sonra Instagram+Facebook'a yayın (önce önizleme onayı).
+6. Ekipman yazılarına (çanta, çadır, bavul listesi) affiliate linkleri, eSIM yazısına Airalo/Klook eSIM linki (onay gelince).
+7. Günlük otomasyon (`scripts/DAILY_CONTENT.md`) yeni yazıya kapak üretmiyor: yeni günlük yazılar varsayılan kapakla çıkıyor, arada Higgsfield ile kapak üretip `process-cover.py` + `update-post.js` ile ekle. Yeni günlük yazıları yazım hatası için de tara.
+8. Yeni ülke gezildiğinde `scripts/stamps.json` ve hero metinleri güncellenecek.
+
+### Bilinen notlar
+- Vize damgaları (`stamps.json`) Eylül 2026 itibarıyla doğrulanmış bilgi: Kırgızistan 90, Kazakistan 30, Özbekistan 30, Tayland 30 (+TDAC), Malezya 90 (+MDAC), Hong Kong 90, Japonya 90 gün vizesiz; Vietnam, Kamboçya, Rusya e-vize. Kural değişince yazıyı ve damgayı birlikte güncelle.
+- Bu oturumdaki son değişiklik de `main`'e itildi (Rota tasarımı + belgeler). Sadece bu devam notu bölümü commitlenmedi, yeni sohbet başında `git add -A && git commit && git push` ile gönderilebilir.
+- Playwright MCP ve DesignMD MCP kullanıcı düzeyinde kurulu (yeni sohbette araçlar görünür).
+
 ## Tasarım dili (29 Ağustos 2026'da profesyonelleştirildi)
 
 Orijinal tasarım claude.ai'de adım adım onaylanmıştı ("harika olmuş, buna uygun yapalım"), ama kullanıcı sonradan "fontları, renkleri profesyonelleştirelim, yapay zeka slot görseller yerine gerçekçi şeyler, yer yer 3D, telefonu kasmayacak şeyler ekle" dedi. Palet ve hero yenilendi, mimari/yapı aynı kaldı:
