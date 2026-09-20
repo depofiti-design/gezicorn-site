@@ -144,8 +144,12 @@ Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka g
 
 - `social-content/apps/build_slides.py` (gitignore'da, yerel): iki ülke için 8 karelik kaydırmalı gönderi (1080x1350) ve reel karesi (1080x1920) üretir; uygulama ikonları iTunes Search/Lookup API'den (resmi mağaza ikonu). `make_music.py` telifsiz sentez müzik, `make_video.py` geçişli MP4 (imageio-ffmpeg). Yeni ülke eklemek için `SETS` sözlüğüne 6 uygulama ekle (id = App Store trackId, isimleri ve özellikleri doğrula).
 - `scripts/post-social.js` artık `carousel_images` (herkese açık JPEG URL listesi, sadece Instagram) ve `video_url` (reel, MP4, müzik videonun içinde) destekliyor. Görselleri önce `img/social/` altına koyup push'la, URL'ler 200 dönmeli.
-- Yayınlananlar: Kırgızistan kaydırmalı (19 Eylül 13:40). Kamboçya reel, Windows Görev Zamanlayıcı görevi `GezicornKambocyaReel` ile 19 Eylül 19:10'da otomatik atılır (log: `social-content/apps/reel-log.txt`). Bilgisayar açık olmalı, uyursa uyanınca çalışır.
+- Yayınlananlar: Kırgızistan kaydırmalı (19 Eylül 13:40), Kamboçya reel (19 Eylül 19:10, kullanıcı beğenmedi: otomatik kayıyor, kullanıcı kendi kaydırmak istiyor; uygulamadan silmesi gerekir), Kamboçya kaydırmalı (20 Eylül). **Kural: uygulama/liste gönderileri kaydırmalı carousel olur, kendiliğinden kayan reel yapma.** Reel gerekiyorsa gerçek çekim ya da kısa animasyon + kullanıcının sesi. Zamanlayıcı görevi kaldırıldı.
 - Detay yazıları: `kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita`, `kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme`.
+
+## Yeni tasarım şablonları (20 Eylül 2026)
+
+Kullanıcı DesignMD/açık kaynak tasarımlardan 3 yeni şablon istedi (3D destekli). Artifact: https://claude.ai/artifact/YRjxQ8LHiwpbvZRFZvM9va (kaynak `scratchpad/d3/template.html`): 1 Pasaport (ResortLux: lacivert/altın/fildişi, Instrument Serif, vize damgaları, 3D pasaport render), 2 Harita (LocalGuide: turuncu/turkuaz/sarı, Bricolage Grotesque, 3D küre + dönen uçak), 3 Bavul (WanderMap: turkuaz/mercan, bento, bagaj etiketi kartlar, gerçek WebGL 3D bavul GLB). DesignMD MCP gerçek API anahtarı olmadan kit içeriğini indirmiyor (`Authentication required`), sadece arama çalışıyor. Kullanıcı seçince siteye uygulanacak. 3D varlıklar: Higgsfield `gpt_image_2_5` (transparent arka plan) ve `image_to_3d` (GLB, texture 768px'e küçültülerek ~1MB). Passport GLB kötü çıktı (yan yatık/lekeli), bavul GLB iyi.
 
 ## Yönetim paneli bilgisi
 
