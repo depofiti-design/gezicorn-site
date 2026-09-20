@@ -2,16 +2,44 @@
   "redirects": [
     {
       "source": "/post.html",
-      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>.+)" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "(?<slug>.+)"
+        }
+      ],
       "destination": "/yazi/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/yazi/kamboca-e-vize-basvurusu-adim-adim/",
+      "destination": "/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/",
       "permanent": true
     }
   ],
   "headers": [
-    { "source": "/img/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-    ] }
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
   ]
 }
