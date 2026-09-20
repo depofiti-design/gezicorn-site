@@ -43,7 +43,6 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 ### Bilinen notlar
 - **Kamboçya vizesi (20 Eylül 2026, kullanıcı):** `kamboca-e-vize-basvurusu-adim-adim` yazısı `kambocya-vizesi-turkler-icin-e-vize-sureci` içine birleştirildi, eski adres `vercel.json` ile 301 yönlendiriliyor, yazı `published:false`. Kullanıcının bilgisi: Kamboçya'da 30 günden uzun kalış/uzun süreli işlemlerde çoğu zaman aracı gerekiyor, GEZİCORN TRAVEL LTD bunu (e-vize başvurusu dahil) danışmanlıkla yapıyor. Yazıda bu şekilde, danışmanlık sayfasına linkle geçiyor. Kullanıcının tam kastı net değildi ("uzun süreli turistik hariç e visa için"), yanlış anlaşıldıysa metni düzelt.
 - Vize damgaları (`stamps.json`) Eylül 2026 itibarıyla doğrulanmış bilgi: Kırgızistan 90, Kazakistan 30, Özbekistan 30, Tayland 30 (+TDAC), Malezya 90 (+MDAC), Hong Kong 90, Japonya 90 gün vizesiz; Vietnam, Kamboçya, Rusya e-vize. Kural değişince yazıyı ve damgayı birlikte güncelle.
-- Bu oturumdaki son değişiklik de `main`'e itildi (Rota tasarımı + belgeler). Sadece bu devam notu bölümü commitlenmedi, yeni sohbet başında `git add -A && git commit && git push` ile gönderilebilir.
 - Playwright MCP ve DesignMD MCP kullanıcı düzeyinde kurulu (yeni sohbette araçlar görünür).
 
 ## Tasarım dili (29 Ağustos 2026'da profesyonelleştirildi)
