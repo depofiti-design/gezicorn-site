@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="/assets/gz.css?v=20260920b">
+<link rel="stylesheet" href="/assets/gz.css?v=20260921b">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
@@ -194,7 +194,11 @@
 <section class="sec" id="bilet" style="padding-top:8px">
   <div class="sec-head"><h2>Uçak bileti <mark>ara</mark></h2><span>fiyatlar canlı</span></div>
   <div id="flightWidget">
-    <script async src="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=12&plain=true&color_button=%23F97316&color_button_text=%230B2B2B&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+    <div class="consent-slot" data-consent-script="https://tpwdgt.com/content?currency=usd&trs=546506&shmarker=746787&locale=tr&default_origin=IST&stops=any&show_hotels=true&powered_by=true&border_radius=12&plain=true&color_button=%23F97316&color_button_text=%230B2B2B&promo_id=3414&campaign_id=111">
+      <p>Uçak bileti arama kutusu Travelpayouts (Aviasales) tarafından sağlanır ve üçüncü taraf çerezi bırakabilir. Görmek için izin vermen gerekiyor.</p>
+      <button type="button" class="btn yl" data-accept-partners>Kutuyu göster</button>
+      <a href="/cerez-politikasi/">Çerez politikası</a>
+    </div>
   </div>
   <p id="searchHint">Rotanı yukarıdaki kutuya gir ve "Ara"ya bas</p>
   <div class="deals" id="gearDeals"></div>
@@ -243,10 +247,13 @@
   <div class="social-grid" id="socialGrid"></div>
 </div></div>
 
-<footer class="gz-foot"><div class="row">
-  <p>© Gezicorn. Vize kuralları değişebilir, başvurudan önce resmi kaynağı kontrol et.</p>
-  <div><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
+<!--FOOT_START--><footer class="gz-foot"><div class="row">
+<p>© Gezicorn. Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p>
+<div class="foot-links"><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="/hakkimizda/">Hakkımızda</a><a href="/iletisim/">İletişim</a></div>
+<div class="foot-links"><a href="/gizlilik/">Gizlilik</a><a href="/cerez-politikasi/">Çerezler</a><a href="/kullanim-kosullari/">Koşullar</a><button type="button" data-open-consent>Çerez tercihleri</button></div>
+<div class="foot-links"><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
 </div></footer>
+<script src="/assets/consent.js?v=20260921b" defer></script><!--FOOT_END-->
 
 <script>
 const firebaseConfig = {

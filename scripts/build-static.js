@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase-client.js';
+import { FOOT_HTML, CSS_V } from './site-parts.js';
 
 const BASE = 'https://www.gezicorn.com';
 const AFF = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'affiliates.json'), 'utf-8'));
@@ -131,7 +132,7 @@ const YT_SCRIPT = `<script>document.querySelectorAll('.yt-frame').forEach(functi
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="/assets/gz.css?v=20260920b">`;
+<link rel="stylesheet" href="/assets/gz.css?v=${CSS_V}">`;
 
 // Ortak tokenlar, gezinme, düğme, kart, damga, altbilgi: assets/gz.css. Burada sadece yazı ve liste sayfalarına özel stiller.
 const CSS = `
@@ -210,8 +211,7 @@ const CSS = `
 
 const NAV = `<header class="gz-nav"><a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
 <nav aria-label="Ana menü"><ul class="gz-links"><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehberler</a></li><li><a href="/yazi/#haber">Haberler</a></li><li><a href="/#bilet">Bilet ara</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
-const FOOTER = `<footer class="gz-foot"><div class="row"><p>© Gezicorn. Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p>
-<div><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div></div></footer>`;
+const FOOTER = FOOT_HTML;
 
 const STAMPS = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'stamps.json'), 'utf-8')).stamps;
 const STAMP_BY_SLUG = Object.fromEntries(STAMPS.map(x => [x.slug, x]));
@@ -390,6 +390,7 @@ const urls = [
   { loc: `${BASE}/`, lastmod: newest, priority: '1.0' },
   { loc: `${BASE}/yazi/`, lastmod: newest, priority: '0.9' },
   { loc: `${BASE}/danismanlik.html`, lastmod: null, priority: '0.6' },
+  ...['hakkimizda', 'iletisim', 'gizlilik', 'cerez-politikasi', 'kullanim-kosullari'].map(s => ({ loc: `${BASE}/${s}/`, lastmod: null, priority: '0.3' })),
   ...pub.map(p => ({ loc: `${BASE}/yazi/${p.slug}/`, lastmod: p.updated, priority: '0.7' })),
 ];
 writeFileSync(path.join(ROOT, 'sitemap.xml'),

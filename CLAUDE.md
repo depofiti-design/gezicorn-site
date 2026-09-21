@@ -192,6 +192,16 @@ Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka g
 
 Kullanıcı DesignMD/açık kaynak tasarımlardan 3 yeni şablon istedi (3D destekli). Artifact: https://claude.ai/artifact/YRjxQ8LHiwpbvZRFZvM9va (kaynak `scratchpad/d3/template.html`): 1 Pasaport (ResortLux: lacivert/altın/fildişi, Instrument Serif, vize damgaları, 3D pasaport render), 2 Harita (LocalGuide: turuncu/turkuaz/sarı, Bricolage Grotesque, 3D küre + dönen uçak), 3 Bavul (WanderMap: turkuaz/mercan, bento, bagaj etiketi kartlar, gerçek WebGL 3D bavul GLB). DesignMD MCP gerçek API anahtarı olmadan kit içeriğini indirmiyor (`Authentication required`), sadece arama çalışıyor. Kullanıcı seçince siteye uygulanacak. 3D varlıklar: Higgsfield `gpt_image_2_5` (transparent arka plan) ve `image_to_3d` (GLB, texture 768px'e küçültülerek ~1MB). Passport GLB kötü çıktı (yan yatık/lekeli), bavul GLB iyi.
 
+## Yasal sayfalar ve çerez onayı (21 Eylül 2026)
+
+Kullanıcı "gizlilik politikası, hata sayfası, çerezler vesaire eksiklerimizi ayarla" dedi. Eklenenler:
+- **Sayfalar:** `/gizlilik/` (KVKK aydınlatma dahil), `/cerez-politikasi/`, `/kullanim-kosullari/` (sorumluluk reddi, ortaklık açıklaması), `/hakkimizda/`, `/iletisim/`. Kaynak `scripts/build-legal.js` (Firestore gerekmez): metni orada değiştir, `node scripts/build-legal.js && node scripts/build-static.js`, push. Aynı script index/danismanlik/posts/404 altbilgisini (`<!--FOOT_START-->` işaretçisi) yeniler. Ortak altbilgi ve sürüm numarası `scripts/site-parts.js` (`CSS_V`, `gz.css` ve `consent.js` değişince artır). Sitemap'e build-static ekliyor.
+- **Çerez onayı:** `assets/consent.js` (tercih localStorage `gz_consent`, 12 ay). Gerekli depolama her zaman açık, "ortak içerik" kapalı başlar. Şu an tek izne bağlı öğe: ana sayfadaki uçak bileti kutusu (Travelpayouts), izin yoksa `.consent-slot` bilgi kutusu görünür (`data-consent-script` ile sonradan yüklenir). Yeni üçüncü taraf betik (analiz, reklam vb.) eklenirse aynı kalıpla izne bağla ve çerez politikası tablosunu güncelle. Analiz/reklam çerezi kullanılmıyor, yazılarda YouTube sadece oynat'a basınca yükleniyor.
+- **İletişim sayfası** e-posta/WhatsApp/Telegram'ı Firestore `settings/consultancy` dokümanından okur, boşsa göstermez. **E-posta henüz boş:** admin panelden doldurulunca KVKK başvuru kanalı da netleşir.
+- **Hata sayfaları:** `404.html` vardı (altbilgi ve çerez betiği eklendi), `posts.html` yükleme hatası mesajı bağlantılı hale getirildi. `vercel.json`'a `X-Frame-Options` ve `Permissions-Policy` başlıkları eklendi (CSP eklenmedi, sayfalarda inline betik çok).
+- Metinler hukuk danışmanı yazısı değil, standart şablon; yetkili mahkeme/uyuşmazlık maddesi bilerek yok, şirket unvanı/adres/sicil bilgisi uydurulmadı.
+- Google Fonts ve cdnjs (Font Awesome) üçüncü taraftan yükleniyor, gizlilik politikasında IP aktarımı olarak belirtildi. İleride kendi sunucuya alınabilir.
+
 ## Yönetim paneli bilgisi
 
 Panel giriş bilgileri `admin/PANEL-GIRIS.txt` dosyasında (klasör `.gitignore`'da, GitHub'a çıkmaz). Panel: `https://www.gezicorn.com/admin.html`, sadece şifre. Instagram, YouTube ve Facebook sosyal butonları `social_links` koleksiyonunda aktif (Telegram ve Kick kapalı).

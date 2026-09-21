@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İletişim | Gezicorn</title>
+<meta name="description" content="Gezicorn ile iletişim: hata bildirimi, öneri, işbirliği, danışmanlık talebi ve KVKK başvurusu için kanallar.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.gezicorn.com/iletisim/">
+<meta property="og:site_name" content="Gezicorn"><meta property="og:locale" content="tr_TR"><meta property="og:type" content="website">
+<meta property="og:url" content="https://www.gezicorn.com/iletisim/"><meta property="og:title" content="İletişim | Gezicorn"><meta property="og:description" content="Gezicorn ile iletişim: hata bildirimi, öneri, işbirliği, danışmanlık talebi ve KVKK başvurusu için kanallar.">
+<meta property="og:image" content="https://www.gezicorn.com/og-default.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" type="image/png" href="/logo-256.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="/assets/gz.css?v=20260921b">
+</head>
+<body>
+<header class="gz-nav"><a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
+<nav aria-label="Ana menü"><ul class="gz-links"><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehberler</a></li><li><a href="/yazi/#haber">Haberler</a></li><li><a href="/#bilet">Bilet ara</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>
+<main class="legal">
+<span class="kicker">Bize ulaş</span>
+<h1>İletişim</h1>
+<p class="upd">Son güncelleme: 21 Eylül 2026</p>
+
+<div class="sum">
+<p><b>Kısaca:</b> Hata bildirimi, öneri, işbirliği ve KVKK başvurusu için aşağıdaki kanalları kullanabilirsin. Vize danışmanlığı için <a href="/danismanlik.html">danışmanlık sayfasına</a> bak.</p>
+</div>
+
+<h2>Kanallar</h2>
+<div class="btns" id="contactBtns">
+<a href="https://www.instagram.com/gezicorn/" target="_blank" rel="noopener">Instagram @gezicorn</a>
+<a href="https://www.youtube.com/@gezikorn" target="_blank" rel="noopener">YouTube @gezikorn</a>
+<a href="https://www.facebook.com/profile.php?id=144062395450039" target="_blank" rel="noopener">Facebook</a>
+</div>
+
+<h2>Ne için yazabilirsin?</h2>
+<ul>
+<li><b>Hata bildirimi:</b> Yanlış ya da eski bir bilgi gördüysen yazının adresiyle birlikte yaz, kontrol edip düzeltiriz.</li>
+<li><b>Öneri ve konu isteği:</b> Merak ettiğin bir ülke ya da vize konusunu bize söyle.</li>
+<li><b>İşbirliği ve reklam:</b> Konunu ve ne düşündüğünü kısaca anlat.</li>
+<li><b>Danışmanlık:</b> Vize, bilet ve rota planlama için <a href="/danismanlik.html">danışmanlık sayfası</a>.</li>
+<li><b>KVKK başvurusu:</b> Konu satırına "KVKK" yaz. Ayrıntı için <a href="/gizlilik/">gizlilik politikası</a>.</li>
+</ul>
+
+<h2>Yanıt süresi</h2>
+<p>Mesajlara genellikle birkaç gün içinde dönüyoruz. KVKK başvurularını en geç 30 gün içinde yanıtlarız.</p>
+
+</main>
+<footer class="gz-foot"><div class="row">
+<p>© Gezicorn. Vize ve seyahat kuralları değişebilir, başvurudan önce mutlaka resmi kaynağı kontrol et.</p>
+<div class="foot-links"><a href="/">Ana sayfa</a><a href="/yazi/">Tüm yazılar</a><a href="/danismanlik.html">Danışmanlık</a><a href="/hakkimizda/">Hakkımızda</a><a href="/iletisim/">İletişim</a></div>
+<div class="foot-links"><a href="/gizlilik/">Gizlilik</a><a href="/cerez-politikasi/">Çerezler</a><a href="/kullanim-kosullari/">Koşullar</a><button type="button" data-open-consent>Çerez tercihleri</button></div>
+<div class="foot-links"><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
+</div></footer>
+<script src="/assets/consent.js?v=20260921b" defer></script>
+<script>
+(function(){
+  var box=document.getElementById('contactBtns');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  fetch('https://firestore.googleapis.com/v1/projects/gezicorn/databases/(default)/documents/settings/consultancy')
+    .then(function(r){return r.ok?r.json():null}).then(function(d){
+      var f=(d&&d.fields)||{}, out='';
+      function v(k){return f[k]&&f[k].stringValue?f[k].stringValue.trim():''}
+      if(v('email'))out+='<a href="mailto:'+esc(v('email'))+'">E-posta: '+esc(v('email'))+'</a>';
+      if(v('whatsapp_url'))out+='<a href="'+esc(v('whatsapp_url'))+'" target="_blank" rel="noopener">WhatsApp</a>';
+      if(v('telegram_url'))out+='<a href="'+esc(v('telegram_url'))+'" target="_blank" rel="noopener">Telegram</a>';
+      if(v('tiktok_url'))out+='<a href="'+esc(v('tiktok_url'))+'" target="_blank" rel="noopener">TikTok</a>';
+      if(v('x_url'))out+='<a href="'+esc(v('x_url'))+'" target="_blank" rel="noopener">X</a>';
+      if(out)box.insertAdjacentHTML('afterbegin',out);
+    }).catch(function(){});
+})();
+</script>
+</body>
+</html>
