@@ -35,7 +35,8 @@ const slugify = s => trLower(s).replace(/ı/g,'i').replace(/ğ/g,'g').replace(/�
   .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const absImg = u => !u ? null : (u.startsWith('http') ? u : `${BASE}/${u.replace(/^\//,'')}`);
 const MONTHS = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
-const trDate = d => `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+// Türkiye saati (UTC+3) sabit: derleyen makinenin saat dilimine göre tarih kaymasın
+const trDate = d => { const t = new Date(d.getTime() + 3 * 3600e3); return `${t.getUTCDate()} ${MONTHS[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
 const isoDate = d => d.toISOString().slice(0, 10);
 
 function inline(str) {
