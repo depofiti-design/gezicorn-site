@@ -27,7 +27,7 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 **Kullanıcının yapacakları:**
 1. Kamboçya **reelini** Instagram'dan silmek: kullanıcı şimdilik dursun dedi, tekrarlanmaması yeterli (kaydırmalı carousel kuralı geçerli).
 2. ~~Facebook sayfa adı~~ tamam: kullanıcı 21 Eylül 2026'da "Gezicorn" yaptı.
-3. Affiliate başvuruları: SafetyWing (safetywing.com/ambassador), Airalo (partners.airalo.com), Surfshark, NordVPN. Onay gelince linkleri Claude'a ver, `scripts/affiliates.json`'a ve ilgili yazılara `affiliate` alanıyla işlenecek. Klook için Travelpayouts eklentisiyle derin linkler üretilecek (Angkor Wat, Bangkok, Phuket, Hong Kong, Tokyo, Ha Long).
+3. Affiliate başvuruları: Surfshark, NordVPN (Airalo kodu geldi ve işlendi, SafetyWing vazgeçildi). Onay gelince linkleri Claude'a ver, `scripts/affiliates.json`'a ve ilgili yazılara `affiliate` alanıyla işlenecek. Klook için Travelpayouts eklentisiyle derin linkler üretilecek (Angkor Wat, Bangkok, Phuket, Hong Kong, Tokyo, Ha Long).
 4. Reels çekimleri: uçak suyu videosunun sesi, Tayland 30 gün kuralı, Rusya e-vize, Japonya "vize getirdi" yalanı, Kamboçya e-vize sahte site tuzağı.
 5. Kamboçya uygulama gönderisini (PassApp, Grab, foodpanda, Bakong Tourists) yaşadığı yerden gözden geçirip yanlış/eksik varsa söylemesi.
 6. DesignMD **gerçek API anahtarı** (designmd.ai/settings, `dk_...`) verirse MCP'ye bağlanacak, kit içeriği indirilebilir. Şu an sadece arama çalışıyor.
@@ -187,7 +187,9 @@ Kullanıcı designmd sitesinden NomadKit tasarım sistemini verdi ("yapay zeka g
 - Ortaklık programları `scripts/affiliates.json` içinde (`active: true` olanlar sitede görünür). Şu an: **Klook** (Travelpayouts kısa linki `https://klook.tpk.lv/E7wCjYCm`, kullanıcının hesabı onaylı). Yeni program onaylanınca buraya ekle (name, url, title, blurb, cta, active).
 - Yazıya kutu koymak için Firestore'da `affiliate: 'klook'` (+ isteğe bağlı `affiliate_text`) alanını `update-post.js` ile yaz; kutu yazar kutusundan önce çıkar, "ortaklık bağlantısıdır" notu otomatik, linkler `rel="sponsored nofollow noopener"`. Klook kutusu Kamboçya, Tayland, Malezya, Hong Kong, Vietnam, Japonya, Güney Kore ve eSIM yazılarında. Ana sayfada "Önerdiklerimiz" bölümü aynı dosyadan dolar.
 - Kullanıcı Travelpayouts Chrome eklentisini kurdu; derin linkleri (örn. Klook Angkor Wat sayfası) eklentiyle üretip gönderirse kutu linkini sayfaya özel yap.
-- Bekleyen başvurular: SafetyWing (safetywing.com/ambassador, Community menüsünden), Airalo (partners.airalo.com), Surfshark, NordVPN. Onay gelince `affiliates.json`'a ekle, ilgili yazılara (sigorta, eSIM, VPN) `affiliate` alanı ver. SafetyWing'in Schengen vizesi için kabul edildiğini doğrulamadan yazma.
+- **Airalo (21 Eylül 2026): link değil TAVSİYE KODU** `DEPO1112`, kullanıcı hesap açarken "Tavsiye veya kupon kodu" alanına girmeli (kayıt sırasında). `affiliates.json` içinde `code` alanı var: yazı kutusunda kopyala düğmeli kod, ana sayfada kartta kod görünür. Bir yazıda birden fazla ortak için `affiliate: "airalo,klook"` (virgüllü). Şu an eSIM yazısında (`yurt-disinda-esim-kullanimi-nasil-calisir`) ve ana sayfada. Airalo'nun kullanıcıya verdiği indirim/kredi miktarını bilmiyoruz, yazma. Sosyal gönderide kodu yaz.
+- **SafetyWing: vazgeçildi** (kullanıcı: "değmez"), tekrar önerme.
+- Bekleyen başvurular: Surfshark, NordVPN. Onay gelince `affiliates.json`'a ekle, ilgili yazılara `affiliate` alanı ver.
 
 ## Ülke uygulamaları gönderileri (19 Eylül 2026)
 

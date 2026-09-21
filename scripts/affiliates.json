@@ -7,5 +7,15 @@
     "blurb": "Tapınak ve şehir turları, giriş biletleri, havalimanı transferi ve eSIM için tek yerden rezervasyon.",
     "cta": "Klook'ta bak",
     "img": "/assets/3d/ticket.webp"
+  },
+  "airalo": {
+    "active": true,
+    "name": "Airalo",
+    "url": "https://www.airalo.com",
+    "code": "DEPO1112",
+    "title": "Airalo: yurt dışı için eSIM",
+    "blurb": "Gideceğin ülke için veri paketini uygulamadan al, QR kodla kur, inince internete bağlan. Hesap açarken tavsiye kodunu girmeyi unutma.",
+    "cta": "Airalo'yu aç",
+    "img": "/assets/3d/phone.webp"
   }
 }

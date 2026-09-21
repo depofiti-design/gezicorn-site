@@ -129,6 +129,7 @@ function related(post, all) {
 
 const AD_SCRIPT = `<script>(function(){var B='https://firestore.googleapis.com/v1/projects/gezicorn/databases/(default)/documents/banners/';document.querySelectorAll('.ad[data-slot]').forEach(function(el){fetch(B+el.dataset.slot).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.fields)return;var f=d.fields,on=f.active&&f.active.booleanValue,img=f.image_url&&f.image_url.stringValue;if(!on||!img)return;var a=document.createElement('a');a.href=(f.link_url&&f.link_url.stringValue)||'#';a.rel='sponsored noopener';a.target='_blank';var i=document.createElement('img');i.src=img;i.alt=(f.alt_text&&f.alt_text.stringValue)||'Reklam';i.loading='lazy';a.appendChild(i);var s=document.createElement('small');s.textContent='Reklam';el.appendChild(a);el.appendChild(s);el.classList.add('on');}).catch(function(){});});})();</script>`;
 
+const CODE_SCRIPT = `<script>document.querySelectorAll('.code-copy').forEach(function(b){b.addEventListener('click',function(){var c=b.dataset.code;function ok(){b.classList.add('ok');setTimeout(function(){b.classList.remove('ok')},2000)}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(c).then(ok,function(){})}else{var t=document.createElement('textarea');t.value=c;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){}t.remove()}})});</script>`;
 const YT_SCRIPT = `<script>document.querySelectorAll('.yt-frame').forEach(function(f){f.querySelector('.yt-play').addEventListener('click',function(){var i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1&rel=0';i.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title='YouTube video';f.innerHTML='';f.appendChild(i);});});</script>`;
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +174,11 @@ const CSS = `
 .aff p{font-size:14.5px;color:#2C4745;margin:0;line-height:1.55;}
 .aff a.btn{flex:none;}
 .aff-note{font-size:12px;color:var(--muted);margin-top:8px;}
+.aff-code{margin-top:10px!important;font-size:13.5px!important;}
+.aff-code span{color:var(--muted);}
+.code-copy{font:700 15px var(--f-mono);background:var(--yl);border:2px solid var(--ink);border-radius:8px;padding:2px 10px;cursor:pointer;letter-spacing:.06em}
+.code-copy.ok::after{content:" kopyalandı";font:600 12px var(--f-body)}
+.aff+.aff{margin-top:14px}
 @media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{justify-content:center;}.head-row{flex-direction:column-reverse;align-items:flex-start;gap:6px;}.article .stamp{--s:110px;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:20px;box-shadow:var(--sh);overflow:hidden;background:#000;}
@@ -290,8 +296,12 @@ function renderPost(p, all) {
   const tocHtml = toc.length >= 3
     ? `<nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol>${toc.map(t => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : '';
   const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. ${esc(p.youtube_note || 'Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.')}</figcaption></figure>` : '';
-  const aff = p.affiliate && AFF[p.affiliate] && AFF[p.affiliate].active ? AFF[p.affiliate] : null;
-  const affHtml = aff ? `<div class="aff"><div><b>${esc(aff.title)}</b><p>${esc(p.affiliate_text || aff.blurb)}</p></div><a class="btn" href="${aff.url}" rel="sponsored nofollow noopener" target="_blank">${esc(aff.cta)} →</a></div><p class="aff-note">Bu kutudaki bağlantı bir ortaklık (affiliate) bağlantısıdır. Senin ödediğin fiyat değişmez, satın alırsan Gezicorn küçük bir komisyon kazanabilir.</p>` : '';
+  const affList = String(p.affiliate || '').split(',').map(x => x.trim()).filter(x => AFF[x] && AFF[x].active);
+  const affBox = (aff, single) => `<div class="aff"><div><b>${esc(aff.title)}</b><p>${esc((single && p.affiliate_text) || aff.blurb)}</p>${aff.code ? `<p class="aff-code">Tavsiye kodu: <button type="button" class="code-copy" data-code="${esc(aff.code)}" aria-label="Kodu kopyala">${esc(aff.code)}</button> <span>Hesap açarken "Tavsiye veya kupon kodu" alanına yaz.</span></p>` : ''}</div><a class="btn" href="${aff.url}" rel="sponsored nofollow noopener" target="_blank">${esc(aff.cta)} →</a></div>`;
+  const affNote = affList.some(k => AFF[k].code)
+    ? 'Bu kutulardaki bağlantı ve tavsiye kodu ortaklık kapsamındadır. Senin ödediğin fiyat değişmez, kullanırsan Gezicorn küçük bir komisyon kazanabilir.'
+    : 'Bu kutudaki bağlantı bir ortaklık (affiliate) bağlantısıdır. Senin ödediğin fiyat değişmez, satın alırsan Gezicorn küçük bir komisyon kazanabilir.';
+  const affHtml = affList.length ? affList.map(k => affBox(AFF[k], affList.length === 1)).join('') + `<p class="aff-note">${affNote}</p>` : '';
   const relHtml = rel.length ? `<section class="related" aria-label="İlgili yazılar"><h2>Bunlar da işine yarayabilir</h2><div class="grid">${rel.map(cardHtml).join('')}</div></section>` : '';
 
   return `<!DOCTYPE html>
@@ -327,7 +337,7 @@ ${affHtml}
 ${relHtml}
 </main>
 ${FOOTER}
-${AD_SCRIPT}${p.youtube_id ? YT_SCRIPT : ''}
+${AD_SCRIPT}${p.youtube_id ? YT_SCRIPT : ''}${affList.some(k => AFF[k].code) ? CODE_SCRIPT : ''}
 </body>
 </html>
 `;
@@ -434,7 +444,7 @@ if (idx.includes('<!--LATEST_START-->')) {
 {
   let cur = readFileSync(idxPath, 'utf-8');
   const cards = Object.values(AFF).filter(a => a.active).map(a =>
-    `<a class="partner-card" href="${a.url}" rel="sponsored nofollow noopener" target="_blank">${a.img ? `<img src="${a.img}" alt="" width="78" height="78" loading="lazy">` : ''}<div><b>${esc(a.title)}</b><p>${esc(a.blurb)}</p><span>${esc(a.cta)} →</span></div></a>`).join('');
+    `<a class="partner-card" href="${a.url}" rel="sponsored nofollow noopener" target="_blank">${a.img ? `<img src="${a.img}" alt="" width="78" height="78" loading="lazy">` : ''}<div><b>${esc(a.title)}</b><p>${esc(a.blurb)}</p><span>${a.code ? `Kod: ${esc(a.code)} · ` : ''}${esc(a.cta)} →</span></div></a>`).join('');
   if (cur.includes('<!--PARTNERS_START-->')) {
     cur = cur.replace(/<!--PARTNERS_START-->[\s\S]*?<!--PARTNERS_END-->/, `<!--PARTNERS_START-->${cards}<!--PARTNERS_END-->`);
     writeFileSync(idxPath, cur, 'utf-8');
