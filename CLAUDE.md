@@ -23,7 +23,7 @@ Gezicorn — Barbaros'un YouTube (@gezikorn) ve Instagram gezi/vize içerik kana
 ### Yapılacaklar (yapılmadı)
 **Kullanıcının yapacakları:**
 1. Kamboçya **reelini** Instagram'dan silmek: kullanıcı şimdilik dursun dedi, tekrarlanmaması yeterli (kaydırmalı carousel kuralı geçerli).
-2. Facebook sayfa adını "Yol Var Nizam Var" yerine **Gezicorn** yap (Sayfa ayarları > Sayfa bilgileri).
+2. ~~Facebook sayfa adı~~ tamam: kullanıcı 21 Eylül 2026'da "Gezicorn" yaptı.
 3. Affiliate başvuruları: SafetyWing (safetywing.com/ambassador), Airalo (partners.airalo.com), Surfshark, NordVPN. Onay gelince linkleri Claude'a ver, `scripts/affiliates.json`'a ve ilgili yazılara `affiliate` alanıyla işlenecek. Klook için Travelpayouts eklentisiyle derin linkler üretilecek (Angkor Wat, Bangkok, Phuket, Hong Kong, Tokyo, Ha Long).
 4. Reels çekimleri: uçak suyu videosunun sesi, Tayland 30 gün kuralı, Rusya e-vize, Japonya "vize getirdi" yalanı, Kamboçya e-vize sahte site tuzağı.
 5. Kamboçya uygulama gönderisini (PassApp, Grab, foodpanda, Bakong Tourists) yaşadığı yerden gözden geçirip yanlış/eksik varsa söylemesi.
