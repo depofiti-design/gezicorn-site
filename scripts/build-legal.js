@@ -72,7 +72,7 @@ PAGES.push({
 </div>
 
 <h2>1. Veri sorumlusu</h2>
-<p>Bu site Gezicorn markası altında yayınlanır. Danışmanlık hizmetinin ve bu kapsamda işlenen kişisel verilerin sorumlusu GEZİCORN TRAVEL LTD'dir (Kamboçya merkezli şirket, bundan sonra "Gezicorn"). Veri sorumlusuyla iletişim: ${CONTACT_NOTE}</p>
+<p>Bu site Gezicorn markası altında yayınlanır. Danışmanlık hizmetinin ve bu kapsamda işlenen kişisel verilerin sorumlusu Gezicorn'dur (Kamboçya merkezli şahıs şirketi). Veri sorumlusuyla iletişim: ${CONTACT_NOTE}</p>
 
 <h2>2. Hangi verileri işliyoruz?</h2>
 <ul>
@@ -193,7 +193,7 @@ PAGES.push({
 <p>Yazılar Türk pasaportu sahiplerine yönelik genel bilgi ve deneyim paylaşımıdır. Vize, giriş, sağlık, sigorta ve ödeme kuralları ülkelere göre ve zamanla değişir. Bilgileri yayınlarken doğru olmasına özen gösteririz ve yazılarda güncelleme tarihi belirtiriz, ancak eksiksiz veya güncel olduğunu garanti edemeyiz. Karar vermeden önce T.C. Dışişleri Bakanlığı'nın ve ilgili ülkenin resmi kaynaklarını kontrol etmek senin sorumluluğundadır.</p>
 
 <h2>3. Danışmanlık hizmeti</h2>
-<p>Danışmanlık hizmeti site içeriğinden ayrıdır ve GEZİCORN TRAVEL LTD tarafından verilir. Hizmetin kapsamı ve ücreti işe başlamadan önce yazılı olarak netleştirilir. Hiçbir danışmanlık vize onayını garanti edemez, karar her zaman ilgili konsolosluğa veya göçmenlik makamına aittir. Detaylar için <a href="/danismanlik.html">danışmanlık sayfası</a>.</p>
+<p>Danışmanlık hizmeti site içeriğinden ayrıdır ve Gezicorn tarafından verilir. Hizmetin kapsamı ve ücreti işe başlamadan önce yazılı olarak netleştirilir. Hiçbir danışmanlık vize onayını garanti edemez, karar her zaman ilgili konsolosluğa veya göçmenlik makamına aittir. Detaylar için <a href="/danismanlik.html">danışmanlık sayfası</a>.</p>
 
 <h2>4. Ortaklık bağlantıları ve reklamlar</h2>
 <ul>
@@ -253,13 +253,13 @@ PAGES.push({
 <h2>Siteyi nasıl finanse ediyoruz?</h2>
 <ul>
 <li><b>Ortaklık bağlantıları:</b> Klook gibi ortaklarımızın ve uçak bileti arama kutusunun (Travelpayouts) bağlantılarından yapılan alışverişlerde komisyon alabiliriz. Fiyatın değişmez.</li>
-<li><b>Danışmanlık:</b> GEZİCORN TRAVEL LTD, vize ve rota danışmanlığı verir.</li>
+<li><b>Danışmanlık:</b> Gezicorn, vize ve rota danışmanlığı verir.</li>
 <li><b>Reklam alanları:</b> Sitede "Reklam" etiketiyle gösterilen alanlar olabilir.</li>
 </ul>
 <p>Bunların hiçbiri vize bilgisini ya da rota önerisini belirlemez. Ayrıntı için <a href="/kullanim-kosullari/">kullanım koşulları</a>.</p>
 
 <h2>Şirket</h2>
-<p>GEZİCORN TRAVEL LTD, Kamboçya merkezli resmi seyahat danışmanlığı şirketidir. Hizmetler için <a href="/danismanlik.html">danışmanlık sayfasına</a>, diğer konular için <a href="/iletisim/">iletişim sayfasına</a> bak.</p>
+<p>Gezicorn, Kamboçya merkezli bir şahıs şirketidir ve seyahat danışmanlığı verir. Hizmetler için <a href="/danismanlik.html">danışmanlık sayfasına</a>, diğer konular için <a href="/iletisim/">iletişim sayfasına</a> bak.</p>
 `,
 });
 
