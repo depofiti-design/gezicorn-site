@@ -85,9 +85,10 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
 - `posts`/`deals` koleksiyonlarından hiçbir kaydı SİLME veya var olanı DÜZENLEME, sadece ekle. (Mevcut yazıları güncellemek kullanıcı ile yapılan ayrı bir iştir: `update-post.js`.)
 - seed.html'i tekrar çalıştırma.
 - Günde 1'den fazla post ekleme (spam görünümü + kalite düşüşü riski).
-- **Instagram/Facebook'a otomatik gönderi atma.** Sosyal medya paylaşımı (`scripts/post-social.js`,
-  `scripts/lib-social.js`) bu günlük rutinin parçası DEĞİL, kasıtlı olarak ayrı tutuluyor. 17 Eylül
-  2026'da bozuk Türkçe karakter ve yanlış cinsiyette görsel içeren gönderiler otomatik/incelemesiz
-  gittiği için kullanıcı önce önizleme (Artifact ile "sanki paylaşılmış gibi" mockup) isteyip onaylama
-  akışına geçti. Sosyal medyaya HER gönderi önce kullanıcıya önizleme olarak gösterilip onay alınmadan
-  atılmamalı, bu günlük ajan tarafından tetiklenmemeli.
+- **Instagram/Facebook'a otomatik gönderi atma.** Bu, günlük İÇERİK rutininin (bu dosyanın) parçası
+  DEĞİL. 17 Eylül 2026'da bozuk Türkçe karakter ve yanlış cinsiyette görsel içeren gönderiler
+  otomatik/incelemesiz gittiği için bir süre önizleme/onay akışına geçilmişti; 22 Eylül 2026'da kullanıcı
+  bu kısıtı kaldırıp günlük en az 2 sosyal gönderiyi otomasyona bağladı, ayrı bir rutinde:
+  bkz. **`DAILY_SOCIAL.md`** ve ayrı zamanlanmış rutin "Gezicorn günlük sosyal". O rutin insan/karakter
+  içermeyen görseller ve UTF-8 güvenli JSON dosyası kullanarak 17 Eylül'deki iki sorunu da yapısal olarak
+  önlüyor. Bu dosya (DAILY_CONTENT.md) hâlâ SADECE yazı eklemekten sorumlu, sosyal gönderiyi tetiklemez.

@@ -10,7 +10,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const API_KEY = readFileSync(path.join(__dirname, 'composio-key.local.txt'), 'utf-8').trim();
+// Yerelde composio-key.local.txt'den (gitignore'da), cloud rutininde COMPOSIO_API_KEY ortam değişkeninden okunur.
+const API_KEY = process.env.COMPOSIO_API_KEY || readFileSync(path.join(__dirname, 'composio-key.local.txt'), 'utf-8').trim();
 const MCP_URL = 'https://connect.composio.dev/mcp';
 
 const IG_USER_ID = '28470759025941073';
