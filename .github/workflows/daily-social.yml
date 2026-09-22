@@ -1,0 +1,25 @@
+name: Günlük sosyal medya
+
+on:
+  schedule:
+    # 07:00 UTC = 10:00 Europe/Istanbul. Günlük içerik rutini (Claude Code cloud) 06:00 UTC'de
+    # çalışıp yazıyı ekliyor; deploy ve yayına girme süresi için 1 saat sonrasına ayarlandı.
+    - cron: '0 7 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+      - name: Paylaş
+        working-directory: scripts
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+        run: node daily-social.js
