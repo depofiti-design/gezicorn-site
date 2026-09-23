@@ -1,10 +1,10 @@
 // Günlük sosyal medya rutini (GitHub Actions cron ile çalışır, scripts/DAILY_SOCIAL.md'nin
 // tamamen deterministik/koda dökülmüş hali: LLM kullanmaz, kapak üretmez, sadece o günkü en yeni
-// yayında yazıyı Instagram feed + Facebook feed + Instagram hikaye olarak paylaşır).
+// yayında yazıyı Instagram feed + Facebook feed olarak paylaşır, hikaye atmaz).
 // Aynı yazıyı iki kez paylaşmamak için settings/social_automation.last_posted_slug'a bakar.
 import { collection, getDocs, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase-client.js';
-import { postInstagram, postFacebook, postInstagramStory } from './lib-social.js';
+import { postInstagram, postFacebook } from './lib-social.js';
 
 const HASHTAGS = {
   vize: '#vize', rehber: '#gezirehberi', haber: '#seyahathaberleri', firsat: '#firsat'
@@ -50,11 +50,11 @@ async function main() {
   console.log('Instagram feed:', igId);
   const fbId = await postFacebook({ image_url, caption_facebook });
   console.log('Facebook:', fbId);
-  const storyId = await postInstagramStory({ image_url });
-  console.log('Instagram hikaye:', storyId);
+  // Hikaye bilerek yok: 16:9 blog kapağı 9:16 hikayeye kötü kırpılıyordu (kullanıcı 23 Eylül'de iki hikayeyi sildi).
+  // Hikayeler 1080x1920 özel tasarımla elle atılır (bkz. DAILY_SOCIAL.md).
 
   await setDoc(stateRef, { last_posted_slug: latest.slug, last_posted_at: serverTimestamp() }, { merge: true });
-  console.log('Tamamlandı:', latest.slug, { igId, fbId, storyId });
+  console.log('Tamamlandı:', latest.slug, { igId, fbId });
 }
 
 main().then(() => process.exit(0)).catch(err => { console.error(err); process.exit(1); });

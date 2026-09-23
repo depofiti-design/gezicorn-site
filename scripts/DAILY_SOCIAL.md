@@ -18,8 +18,10 @@ tamamen deterministiktir:
    altyazısı üretir (Facebook'a `https://www.gezicorn.com/yazi/<slug>/` linki eklenir, Instagram'a
    "profildeki linkte" + kategoriye göre hashtag). Kapak görseli varsa onu, yoksa `og-default.png`'yi
    kullanır (**bu akış kapak üretmez**).
-5. `lib-social.js` ile Instagram feed + Facebook feed + Instagram hikaye olmak üzere **3 gönderi**
-   atar (kullanıcının 22 Eylül 2026'da istediği "günlük en az 2 post" şartını karşılar).
+5. `lib-social.js` ile Instagram feed + Facebook feed olmak üzere **2 gönderi** atar (kullanıcının
+   22 Eylül 2026'da istediği "günlük en az 2 post" şartını karşılar). **Hikaye artık otomatik atılmıyor**
+   (23 Eylül 2026): 16:9 blog kapağı 9:16 hikayeye kötü kırpılıyordu, kullanıcı iki hikayeyi sildi.
+   Hikaye gerekirse 1080x1920 özel tasarımla elle atılır (`postInstagramStory`, `social-content/stories2/`).
 6. `settings/social_automation`'ı günceller.
 
 Composio API anahtarı GitHub repo secret'ı (`COMPOSIO_API_KEY`, `gh secret set` ile eklendi,
