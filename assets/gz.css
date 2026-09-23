@@ -67,7 +67,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:0}
 a.stamp:hover{transform:rotate(0deg) scale(1.06)}
 .stamps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 12px;justify-items:center}
 .stamps .stamp{width:100%;max-width:190px;--s:180px}
-@media(max-width:820px){.stamps{grid-template-columns:repeat(2,minmax(0,1fr))}.stamps .stamp{--s:150px}}
+@media(max-width:820px){.stamps{display:flex;flex-wrap:nowrap;overflow-x:auto;justify-items:unset;gap:10px;padding:4px 2px 10px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}.stamps .stamp{flex:0 0 auto;width:auto;max-width:none;--s:92px;scroll-snap-align:start}}
 
 /* altbilgi */
 .gz-foot{background:var(--ink);color:#CFE3DF;padding:30px clamp(16px,4vw,44px);font-size:13.5px}
