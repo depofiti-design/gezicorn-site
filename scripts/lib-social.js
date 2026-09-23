@@ -80,6 +80,17 @@ export async function postFacebook({ image_url, caption_facebook, caption }) {
   return result.post_id || result.id;
 }
 
+// YouTube video duyurusu vb. için: link alanı FB'nin kendi önizleme kartını (video başlığı+kapağı) oluşturur,
+// metnin sonuna ayrıca site linkini ekle.
+export async function postFacebookLink({ link, message }) {
+  const result = await multiExecute([{
+    tool_slug: 'FACEBOOK_CREATE_POST',
+    arguments: { page_id: FB_PAGE_ID, link, message },
+    account: FB_ACCOUNT
+  }]);
+  return result.post_id || result.id;
+}
+
 // Instagram carousel'in Facebook karşılığı: tek /feed gönderisi içinde birden fazla kaydırmalı foto.
 // IG'deki gibi ayrı ayrı kart değil, tek post ama kullanıcı feed'de kaydırarak tüm fotoları görebiliyor.
 export async function postFacebookCarousel({ image_urls, caption_facebook, caption }) {
