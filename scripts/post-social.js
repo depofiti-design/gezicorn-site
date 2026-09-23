@@ -116,6 +116,18 @@ async function postFacebook() {
   console.log('Facebook published:', result.post_id || result.id);
 }
 
+// Instagram carousel'in Facebook karşılığı: tek /feed gönderisi, kaydırmalı çoklu foto (ayrı kart değil).
+async function postFacebookCarousel() {
+  const result = await multiExecute([{
+    tool_slug: 'FACEBOOK_CREATE_MULTI_PHOTO_POST',
+    arguments: { page_id: FB_PAGE_ID, photo_urls: post.carousel_images, message: post.caption_facebook || post.caption },
+    account: FB_ACCOUNT
+  }]);
+  console.log('Facebook carousel published:', result.post_id || result.id);
+}
+
 if (platforms.includes('instagram')) await (mode === 'carousel' ? postInstagramCarousel() : mode === 'reel' ? postInstagramReel() : postInstagram());
+// Reel modunda Facebook'a video atmıyoruz (ayrı bir yükleme/format işi gerektirir), sadece photo ve carousel modunda paylaşıyoruz.
 if (platforms.includes('facebook') && mode === 'photo') await postFacebook();
+if (platforms.includes('facebook') && mode === 'carousel') await postFacebookCarousel();
 process.exit(0);
