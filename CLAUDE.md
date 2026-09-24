@@ -268,3 +268,6 @@ Kullanıcı 21 Ağustos 2026'da "sadece domain almak kalsın, buna göre ayarla"
 ## Kullanıcı hakkında (ton/yaklaşım için)
 
 Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sürecinde, aynı anda iş değişikliği/bütçe kısıtları yaşıyor. Vercel+Supabase/Firebase+vanilla JS stack'ini birden fazla projede (TikoBey, BonusRota, kipzone, Perdeci TV) kullanmış, bu akışa aşina. Türkçe konuşuyor, adım adım, teknik ama sade anlatım tercih ediyor.
+
+## Günlük Search Console raporu (24 Eylül 2026)
+`scripts/gsc-report.js` + `.github/workflows/gsc-report.yml` (06:30 UTC): Search Console API'den son 7 gün vs önceki 7 gün raporu üretir, `seo-reports/latest.md` ve tarihli dosyaya commit'ler. Servis hesabı `gsc-repor@gezicorn-seo.iam.gserviceaccount.com` (GCP projesi gezicorn-seo, GSC'de Restricted), anahtar GitHub secret `GSC_SA_KEY`, yerelde `scripts/gsc-sa.local.json` (gitignore). Mülk `sc-domain:gezicorn.com`. Veri ~3 gün gecikmeli. "SEO raporuna bak" denince `seo-reports/latest.md` oku, 8-20. sıradaki sorgular ve tıksız 1-5. sıra sorgular için başlık/meta/içerik düzelt. Not: anahtar bir kez sohbete yapıştırıldı, istenirse GCP'den silinip yenilenir.
