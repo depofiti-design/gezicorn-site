@@ -26,7 +26,7 @@ const CAT = {
   haber:  { label: 'Haberler & gelişmeler', short: 'haber' },
 };
 const COUNTRIES = ['Kırgızistan','Kazakistan','Özbekistan','Rusya','Tayland','Malezya','Hong Kong','Kamboçya','Vietnam',
-  'Japonya','Güney Kore','Avustralya','Kanada','ABD','İngiltere','Almanya','Schengen','Gürcistan','Azerbaycan'];
+  'Japonya','Güney Kore','Avustralya','Kanada','ABD','İngiltere','Almanya','Schengen','Gürcistan','Azerbaycan','Dubai','Balkanlar'];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 const jsonLd = obj => JSON.stringify(obj).replace(/</g, '\\u003c');
