@@ -167,6 +167,13 @@ Kullanıcı "Google/Yandex aramasında, Google AI asistanında çıkacak düzeyd
 
 Kullanıcı fark etti: carousel modundaki gönderilerde Facebook'a hiç post gitmiyordu (`post-social.js` eski hali sadece `mode==='photo'` için Facebook'a atıyordu, carousel/reel modunda FB adımı sessizce atlanıyordu). Composio'da `FACEBOOK_CREATE_PHOTO_POST` tek foto atıyor, gerçek çoklu foto/kaydırmalı FB gönderisi için ayrı bir araç var: **`FACEBOOK_CREATE_MULTI_PHOTO_POST`** (`page_id`, `photo_urls[]`, `message` — dahili olarak fotoları `published:false` yükleyip tek `/feed` post'unda `attached_media` ile birleştiriyor). `lib-social.js`'e `postFacebookCarousel()`, `post-social.js`'e carousel modunda Facebook adımı eklendi. Reel modunda Facebook'a hâlâ video atılmıyor (ayrı format/yükleme işi, kapsam dışı bırakıldı, şimdilik sadece Instagram reel). 23 Eylül'de e-vize gönderisiyle uçtan uca test edildi, IG carousel + FB çoklu foto ikisi de başarılı.
 
+## 24 Eylül 2026 günü
+
+- 23 Eylül 17:00 için kurulan oturum-içi CronCreate tetiklenmedi (oturum kapanınca ölüyor, güvenme). "Vizesiz ülkeler" carousel'i 24 Eylül sabahı IG + FB (çoklu foto) olarak atıldı. Otomasyon aynı konuyu 23'ünde tek kapak görseliyle zaten paylaşmıştı.
+- Yeni yazı: `kambocya-e-arrival-card-nedir-nasil-doldurulur` (vize, YouTube videosu gömülü, kapak `yt-kambocya/v1.png` yazısız hali). Sitede e-Arrival hiç geçmiyordu, gerçek boşluktu. Doğrulama: arrival.gov.kh ücretsiz, varıştan en fazla 7 gün önce, resmi anlatımda tüm yolcular. Giriş noktası (hava/kara/deniz) ayrımı yazıda bilerek yok.
+- Site QA: 92 HTML, 3377 iç link/görsel, kırık yok (tek "hata" posts.html içindeki JS şablonu, yanlış pozitif). Canlı kritik sayfalar 200, konsol hatası yok, mobil damga şeridi doğru.
+- e-Arrival sosyal gönderisi 17:03'e oturum-içi cron ile kuruldu (`scripts/tmp-earrival-social.json`, gönderilmeden önce `last_posted_slug` kontrol eder). Oturum kapanırsa gitmez.
+
 ## Otomatik hikaye kapatıldı (23 Eylül 2026)
 
 Kullanıcı en son atılan 2 Instagram hikayesini "hatalıydı" diyerek sildi. Sebep: `daily-social.js` 16:9 (1200x675) blog kapağını olduğu gibi 9:16 hikaye olarak atıyordu. Otomasyondan hikaye adımı kaldırıldı (feed + Facebook devam ediyor). Hikaye ancak 1080x1920 özel tasarımla, elle atılır. İsteğe bağlı iyileştirme: kapaktan otomatik 9:16 hikaye üretici (bulanık arka plan + ortada kapak + başlık), henüz yapılmadı.
