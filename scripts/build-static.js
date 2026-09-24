@@ -401,6 +401,7 @@ const urls = [
   { loc: `${BASE}/`, lastmod: newest, priority: '1.0' },
   { loc: `${BASE}/yazi/`, lastmod: newest, priority: '0.9' },
   { loc: `${BASE}/danismanlik.html`, lastmod: null, priority: '0.6' },
+  { loc: `${BASE}/vize-tablosu/`, lastmod: null, priority: '0.8' },
   ...['hakkimizda', 'iletisim', 'gizlilik', 'cerez-politikasi', 'kullanim-kosullari'].map(s => ({ loc: `${BASE}/${s}/`, lastmod: null, priority: '0.3' })),
   ...pub.map(p => ({ loc: `${BASE}/yazi/${p.slug}/`, lastmod: p.updated, priority: '0.7' })),
 ];
