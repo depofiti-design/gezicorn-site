@@ -271,3 +271,8 @@ Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sür
 
 ## Günlük Search Console raporu (24 Eylül 2026)
 `scripts/gsc-report.js` + `.github/workflows/gsc-report.yml` (06:30 UTC): Search Console API'den son 7 gün vs önceki 7 gün raporu üretir, `seo-reports/latest.md` ve tarihli dosyaya commit'ler. Servis hesabı `gsc-repor@gezicorn-seo.iam.gserviceaccount.com` (GCP projesi gezicorn-seo, GSC'de Restricted), anahtar GitHub secret `GSC_SA_KEY`, yerelde `scripts/gsc-sa.local.json` (gitignore). Mülk `sc-domain:gezicorn.com`. Veri ~3 gün gecikmeli. "SEO raporuna bak" denince `seo-reports/latest.md` oku, 8-20. sıradaki sorgular ve tıksız 1-5. sıra sorgular için başlık/meta/içerik düzelt. Not: anahtar bir kez sohbete yapıştırıldı, istenirse GCP'den silinip yenilenir.
+
+### SEO analizi 24 Eylül 2026 (GSC API + URL Inspection)
+- 81 sitemap URL'sinden 60'ı Google'da dizinli, 13 "Discovered - not indexed", 7 "unknown" (yeni yazılar: kambocya e-vize, e-arrival, almanya vizesi, schengen bölgesi, seyahat sigortası, özbekistan, avustralya, gönüllü projeler vb.). API ile "dizine ekleme isteği" gönderilemez, kullanıcı Search Console'dan URL Denetimi > Dizine ekleme iste yapar (günde ~10).
+- İlk 7 gün: 160 gösterim, 0 tık, ortalama sıra 6-8 (bordo/yeşil pasaport, İngiltere Schengen, Orta Asya, Kırgızistan, Malezya). Bordo pasaport ve İngiltere yazıları sorgu odaklı genişletildi (başlık: "Yeşil ve Bordo Pasaport Farkı...", "İngiltere Schengen'e Dahil mi?...").
+- 79 yayınlı yazının ~38'i 300 kelimenin altında (ince içerik). Genişletme sırası: en çok gösterim alan/dizinlenmiş olanlar. agy dosya bulamayıp takıldı (görev klasörü verilmeli), çıktısı doğrulanmadan yayınlanmaz. 6 duyuru yazısı zaten noindex.
