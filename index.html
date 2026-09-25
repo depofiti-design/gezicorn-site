@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="/assets/gz.css?v=20260924b">
+<link rel="stylesheet" href="/assets/gz.css?v=20260925b">
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
@@ -143,7 +143,7 @@
 <header class="gz-nav">
   <a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
   <ul class="gz-links" aria-label="Ana menü">
-    <li><a href="/yazi/#vize">Vize</a></li>
+    <li><a class="hl2" href="/vize-tablosu/">Vize Tablosu</a></li><li><a href="/yazi/#vize">Vize</a></li>
     <li><a href="/yazi/#rehber">Rehberler</a></li>
     <li><a href="/yazi/#haber">Haberler</a></li>
     <li><a href="#bilet">Bilet ara</a></li>
@@ -158,7 +158,7 @@
     <span class="eyebrow">Türk pasaportuna göre</span>
     <h1>Pasaportunla <mark>nereye</mark> gidebilirsin?</h1>
     <p class="lead">Vizesiz ve e-vizeyle gidilen ülkeler, vize rehberleri ve canlı uçak bileti fiyatları. Kırgızistan'dan Kamboçya'ya 9 ülke gezerek yazdık.</p>
-    <div class="cta"><a class="btn yl" href="/vize-tablosu/">Vize tablosuna bak</a><a class="btn alt" href="/yazi/#vize">Vize rehberleri</a></div>
+    <div class="cta"><a class="btn yl" href="/vize-tablosu/">Pasaportunu seç</a><a class="btn alt" href="/yazi/#vize">Vize rehberleri</a></div>
     <div class="facts"><span><b id="countryCount">9</b> gezilen ülke</span><span><b id="postCount">70</b> rehber</span></div>
   </div>
   <div class="stage" id="stage">
@@ -173,7 +173,7 @@
 
 <section class="sec">
   <div class="sec-head"><h2>Vize <mark>damgaları</mark></h2><span>Eylül 2026 itibarıyla, başvurudan önce resmi kaynağı kontrol et</span></div>
-  <div class="stamps"><!--STAMPS_START--><a class="stamp" style="--r:-4deg" href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/"><div><b>Kırgızistan</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:3deg" href="/yazi/kazakistana-vizesiz-girmek-mumkun-mu/"><div><b>Kazakistan</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:-2deg" href="/yazi/ozbekistan-vize-kurallari-kalis-suresi/"><div><b>Özbekistan</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:5deg" href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/"><div><b>Tayland</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:-5deg" href="/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/"><div><b>Malezya</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:2deg" href="/yazi/hong-konga-giriste-vize-gerekiyor-mu/"><div><b>Hong Kong</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:-3deg" href="/yazi/japonya-vizesi-turkler-icin-zor-mu/"><div><b>Japonya</b><small>90 gün vizesiz</small></div></a><a class="stamp e" style="--r:4deg" href="/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/"><div><b>Vietnam</b><small>e-vize</small></div></a><a class="stamp e" style="--r:-1deg" href="/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/"><div><b>Kamboçya</b><small>e-vize</small></div></a><a class="stamp e" style="--r:2deg" href="/yazi/rusya-e-vize-basvurusu-nasil-yapilir/"><div><b>Rusya</b><small>e-vize</small></div></a><!--STAMPS_END--></div>
+  <div class="stamps"><!--STAMPS_START--><a class="stamp" style="--r:-4deg" href="/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/"><div><b>Kırgızistan</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:3deg" href="/yazi/kazakistana-vizesiz-girmek-mumkun-mu/"><div><b>Kazakistan</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:-2deg" href="/yazi/ozbekistan-vize-kurallari-kalis-suresi/"><div><b>Özbekistan</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:5deg" href="/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/"><div><b>Tayland</b><small>30 gün vizesiz</small></div></a><a class="stamp" style="--r:-5deg" href="/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/"><div><b>Malezya</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:2deg" href="/yazi/hong-konga-giriste-vize-gerekiyor-mu/"><div><b>Hong Kong</b><small>90 gün vizesiz</small></div></a><a class="stamp" style="--r:-3deg" href="/yazi/japonya-vizesi-turkler-icin-zor-mu/"><div><b>Japonya</b><small>90 gün vizesiz</small></div></a><a class="stamp e" style="--r:4deg" href="/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/"><div><b>Vietnam</b><small>e-vize</small></div></a><a class="stamp e" style="--r:-1deg" href="/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/"><div><b>Kamboçya</b><small>e-vize</small></div></a><a class="stamp e" style="--r:2deg" href="/yazi/rusya-e-vize-basvurusu-nasil-yapilir/"><div><b>Rusya</b><small>e-vize</small></div></a><!--STAMPS_END--></div>
 </section>
 
 <section class="sec" style="padding-top:8px">
@@ -221,7 +221,7 @@
   <div class="route">
     <h3>Gezicorn rotası</h3>
     <p class="s">Kırgızistan'dan Kamboçya'ya gerçekten gittiğimiz duraklar.</p>
-    <div class="stops"><div class="stop"><b>Bişkek</b><small>90 gün vizesiz</small></div><div class="stop"><b>Almatı</b><small>30 gün vizesiz</small></div><div class="stop"><b>Semerkant</b><small>30 gün vizesiz</small></div><div class="stop"><b>Bangkok</b><small>30 gün + TDAC</small></div><div class="stop"><b>Kuala Lumpur</b><small>90 gün + MDAC</small></div><div class="stop"><b>Phnom Penh</b><small>e-vize</small></div></div>
+    <div class="stops"><div class="stop"><b>Bişkek</b><small>90 gün vizesiz</small></div><div class="stop"><b>Almatı</b><small>90 gün vizesiz</small></div><div class="stop"><b>Semerkant</b><small>30 gün vizesiz</small></div><div class="stop"><b>Bangkok</b><small>30 gün + TDAC</small></div><div class="stop"><b>Kuala Lumpur</b><small>90 gün + MDAC</small></div><div class="stop"><b>Phnom Penh</b><small>e-vize</small></div></div>
   </div>
 </section>
 
@@ -253,7 +253,7 @@
 <div class="foot-links"><a href="/gizlilik/">Gizlilik</a><a href="/cerez-politikasi/">Çerezler</a><a href="/kullanim-kosullari/">Koşullar</a><button type="button" data-open-consent>Çerez tercihleri</button></div>
 <div class="foot-links"><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
 </div></footer>
-<script src="/assets/consent.js?v=20260924b" defer></script><!--FOOT_END-->
+<script src="/assets/consent.js?v=20260925b" defer></script><!--FOOT_END-->
 
 <script>
 const firebaseConfig = {

@@ -217,7 +217,7 @@ const CSS = `
 `;
 
 const NAV = `<header class="gz-nav"><a class="gz-brand" href="/"><img src="/logo-128.png" alt="Gezicorn logo" width="38" height="38"><span>gezicorn</span></a>
-<nav aria-label="Ana menü"><ul class="gz-links"><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehberler</a></li><li><a href="/yazi/#haber">Haberler</a></li><li><a href="/#bilet">Bilet ara</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
+<nav aria-label="Ana menü"><ul class="gz-links"><li><a class="hl2" href="/vize-tablosu/">Vize Tablosu</a></li><li><a href="/yazi/#vize">Vize</a></li><li><a href="/yazi/#rehber">Rehberler</a></li><li><a href="/yazi/#haber">Haberler</a></li><li><a href="/#bilet">Bilet ara</a></li><li><a class="hl" href="/danismanlik.html">Danışmanlık</a></li></ul></nav></header>`;
 const FOOTER = FOOT_HTML;
 
 const STAMPS = JSON.parse(readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'stamps.json'), 'utf-8')).stamps;

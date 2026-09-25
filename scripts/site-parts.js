@@ -1,6 +1,6 @@
 // Tüm sayfaların paylaştığı parçalar: altbilgi (yasal bağlantılar dahil) ve çerez onay betiği.
 // build-static.js ve build-legal.js buradan alır. Değiştirince: node scripts/build-legal.js && node scripts/build-static.js
-export const CSS_V = '20260924b';
+export const CSS_V = '20260925b';
 export const CONSENT_TAG = `<script src="/assets/consent.js?v=${CSS_V}" defer></script>`;
 
 export const FOOT_HTML = `<footer class="gz-foot"><div class="row">
