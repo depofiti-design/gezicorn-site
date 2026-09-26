@@ -11,6 +11,10 @@ on:
         description: 'Boş bırak. Doluysa o yazıyı zorla paylaşır (last_posted_slug değişmez)'
         required: false
         default: ''
+      dry_run:
+        description: 'true yazarsan sadece görselleri üretir, paylaşmaz (test)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -40,4 +44,5 @@ jobs:
         env:
           COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
           FORCE_SLUG: ${{ github.event.inputs.force_slug }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: node daily-social.js

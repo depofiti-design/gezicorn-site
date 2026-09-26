@@ -83,6 +83,8 @@ async function main() {
   const feedUrl = `${BASE}/${feedRel}`, storyUrl = `${BASE}/${storyRel}`;
   if (!(await waitFor(feedUrl)) || !(await waitFor(storyUrl))) throw new Error('Görseller sitede yayına girmedi, paylaşım iptal.');
 
+  if (process.env.DRY_RUN) { console.log('DRY_RUN: görseller üretildi ve yayında, paylaşım yapılmadı:', feedUrl, storyUrl); return; }
+
   // 3) paylaş
   const caption = `${latest.title}\n\n${hook}\n\nYazının tamamı profildeki linkte.\n\n#gezicorn ${tag}`.trim();
   const caption_facebook = `${latest.title}\n\n${hook}\n\n${url}`;
