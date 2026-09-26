@@ -6,7 +6,7 @@ import { readFileSync } from 'fs';
 import { collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase-client.js';
 
-const ALLOWED = ['title', 'excerpt', 'content', 'category', 'cover_image', 'cover_alt', 'seo_description', 'noindex', 'published', 'youtube_id', 'youtube_title', 'youtube_note', 'affiliate', 'affiliate_text'];
+const ALLOWED = ['title', 'excerpt', 'content', 'category', 'cover_image', 'cover_alt', 'seo_description', 'noindex', 'published', 'youtube_id', 'youtube_title', 'youtube_note', 'youtube_short', 'youtube_date', 'affiliate', 'affiliate_text'];
 const VALID_CATEGORIES = ['vize', 'firsat', 'rehber', 'haber'];
 
 const jsonPath = process.argv[2];

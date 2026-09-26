@@ -182,6 +182,7 @@ const CSS = `
 @media(max-width:640px){.aff{flex-direction:column;align-items:stretch;}.aff a.btn{justify-content:center;}.head-row{flex-direction:column-reverse;align-items:flex-start;gap:6px;}.article .stamp{--s:110px;}}
 .yt{margin:6px 0 26px;}
 .yt-frame{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:20px;box-shadow:var(--sh);overflow:hidden;background:#000;}
+.yt-short{max-width:340px;margin-left:auto;margin-right:auto}.yt-short .yt-frame{aspect-ratio:9/16}
 .yt-frame img,.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;}
 .yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:rgba(11,43,43,.25);}
 .yt-play span{width:66px;height:66px;border-radius:50%;background:var(--or);border:3px solid var(--ink);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;box-shadow:var(--sh-s);}
@@ -288,6 +289,13 @@ function renderPost(p, all) {
       ],
     },
   ];
+  if (p.youtube_id && p.youtube_date) ld.push({
+    '@context': 'https://schema.org', '@type': 'VideoObject',
+    name: p.youtube_title || p.title, description: desc, uploadDate: p.youtube_date,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${p.youtube_id}/${p.youtube_short ? 'oar2' : 'hqdefault'}.jpg`],
+    embedUrl: `https://www.youtube.com/embed/${p.youtube_id}`, contentUrl: `https://www.youtube.com/watch?v=${p.youtube_id}`,
+    inLanguage: 'tr-TR', publisher: { '@type': 'Organization', name: SITE, url: `${BASE}/` },
+  });
   if (faq.length) ld.push({
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: faq.map(f => ({ '@type': 'Question', name: f.name, acceptedAnswer: { '@type': 'Answer', text: f.text } })),
@@ -295,7 +303,7 @@ function renderPost(p, all) {
 
   const tocHtml = toc.length >= 3
     ? `<nav class="toc" aria-label="İçindekiler"><strong>Bu yazıda</strong><ol>${toc.map(t => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : '';
-  const ytHtml = p.youtube_id ? `<figure class="yt"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/hqdefault.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. ${esc(p.youtube_note || 'Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.')}</figcaption></figure>` : '';
+  const ytHtml = p.youtube_id ? `<figure class="yt${p.youtube_short ? ' yt-short' : ''}"><div class="yt-frame" data-yt="${esc(p.youtube_id)}"><img src="https://i.ytimg.com/vi/${esc(p.youtube_id)}/${p.youtube_short ? 'oar2' : 'hqdefault'}.jpg" alt="${esc(p.youtube_title || p.title)} videosu" loading="lazy" width="480" height="360"><button class="yt-play" type="button" aria-label="Videoyu oynat"><span>&#9654;</span></button></div><figcaption class="yt-cap">Kanalda bu konuyu anlattık: ${esc(p.youtube_title || '')}. ${esc(p.youtube_note || 'Video eski tarihli olabilir, güncel kurallar için yazıdaki bilgiye bak.')}</figcaption></figure>` : '';
   const affList = String(p.affiliate || '').split(',').map(x => x.trim()).filter(x => AFF[x] && AFF[x].active);
   const affBox = (aff, single) => `<div class="aff"><div><b>${esc(aff.title)}</b><p>${esc((single && p.affiliate_text) || aff.blurb)}</p>${aff.code ? `<p class="aff-code">Tavsiye kodu: <button type="button" class="code-copy" data-code="${esc(aff.code)}" aria-label="Kodu kopyala">${esc(aff.code)}</button> <span>Hesap açarken "Tavsiye veya kupon kodu" alanına yaz.</span></p>` : ''}</div><a class="btn" href="${aff.url}" rel="sponsored nofollow noopener" target="_blank">${esc(aff.cta)} →</a></div>`;
   const affNote = affList.some(k => AFF[k].code)
