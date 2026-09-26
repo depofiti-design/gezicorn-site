@@ -5,7 +5,15 @@ on:
     # 07:00 UTC = 10:00 Europe/Istanbul. Günlük içerik rutini (Claude Code cloud) 06:00 UTC'de
     # çalışıp yazıyı ekliyor; deploy ve yayına girme süresi için 1 saat sonrasına ayarlandı.
     - cron: '0 7 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_slug:
+        description: 'Boş bırak. Doluysa o yazıyı zorla paylaşır (last_posted_slug değişmez)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
 
 jobs:
   post:
@@ -15,11 +23,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Install dependencies
         working-directory: scripts
-        run: npm install
+        run: |
+          npm install
+          pip install pillow
+      - name: Git kimliği
+        run: |
+          git config user.name "gezicorn-bot"
+          git config user.email "bot@gezicorn.com"
       - name: Paylaş
         working-directory: scripts
         env:
           COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          FORCE_SLUG: ${{ github.event.inputs.force_slug }}
         run: node daily-social.js
