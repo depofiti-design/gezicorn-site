@@ -1,0 +1,16 @@
+import { readFileSync, readdirSync } from 'node:fs';
+const f=readdirSync('youtube-backup').filter(x=>x.startsWith('videos-')).sort().pop();
+const v=JSON.parse(readFileSync('youtube-backup/'+f,'utf8'));
+const dur=s=>{const m=/^P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(s||'');if(!m)return 0;return (+m[1]||0)*86400+(+m[2]||0)*3600+(+m[3]||0)*60+(+m[4]||0)};
+const pub=v.filter(x=>x.status.privacyStatus==='public');
+console.log('toplam',v.length,'| herkese açık',pub.length,'| gizli/liste dışı/planlı',v.length-pub.length);
+const shorts=pub.filter(x=>{const d=dur(x.contentDetails.duration);return d>0&&d<=180});
+console.log('herkese açık kısa(<=3dk)',shorts.length,'| uzun',pub.length-shorts.length);
+console.log('açıklaması boş/çok kısa (<80 karakter):',pub.filter(x=>(x.snippet.description||'').length<80).length);
+console.log('etiketsiz:',pub.filter(x=>!(x.snippet.tags||[]).length).length);
+console.log('gezicorn.com linki olan:',pub.filter(x=>/gezicorn\.com/i.test(x.snippet.description||'')).length);
+console.log('toplam izlenme',pub.reduce((a,x)=>a+ +x.statistics.viewCount,0));
+console.log('\nEN ÇOK İZLENEN 12');
+pub.slice().sort((a,b)=>b.statistics.viewCount-a.statistics.viewCount).slice(0,12).forEach(x=>console.log(x.statistics.viewCount,'|',x.snippet.title.slice(0,75),'|',x.snippet.publishedAt.slice(0,10),'|',Math.round(dur(x.contentDetails.duration)/60*10)/10+'dk'));
+const n=pub.slice().sort((a,b)=>b.snippet.publishedAt.localeCompare(a.snippet.publishedAt));
+for (const x of [n[0], n[Math.floor(n.length/2)]]) console.log('\n#### ÖRNEK:',x.snippet.title,'\n',x.snippet.description.slice(0,500),'\n--- etiket:',(x.snippet.tags||[]).join(', ').slice(0,160),'| kat',x.snippet.categoryId,'| dil',x.snippet.defaultLanguage||x.snippet.defaultAudioLanguage||'-');
