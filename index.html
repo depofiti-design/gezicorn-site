@@ -217,6 +217,37 @@
   </div>
 </section>
 
+
+<script>
+/* Rota planlayıcı: Firebase/CDN yüklenmese bile çalışır. Statik öneriler + (varsa) Firestore'dan gelen güncel kayıtlar. */
+(function(){
+  var RECS=[
+    {d:'Özbekistan',min:25000,max:38000,p:32000,n:'vizesiz, uygun bütçeli, kısa uçuş',s:'ozbekistan-vize-kurallari-kalis-suresi'},
+    {d:'Tayland',min:38000,max:50000,p:44000,n:'vize muafiyeti, dengeli bütçe',s:'tayland-vize-muafiyeti-kuru-sezon-rehberi'},
+    {d:'Malezya',min:50000,max:62000,p:56000,n:'vize muafiyeti, uzun rota için ideal',s:'malezyaya-kac-gun-vizesiz-kalinabilir'},
+    {d:'Hong Kong',min:62000,max:999999,p:68000,n:'premium rota, kısa vizesiz kalış',s:'hong-konga-giriste-vize-gerekiyor-mu'}
+  ];
+  var SLUG={}; RECS.forEach(function(r){ SLUG[r.d]=r.s; });
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function fmt(n){ return Number(n).toLocaleString('tr-TR'); }
+  function list(){
+    var f=window.__routeRecs;
+    if(f && f.length){ return f.map(function(r){ return {d:r.destination,min:Number(r.budget_min),max:Number(r.budget_max),p:Number(r.estimated_price)||0,n:r.note||'',s:SLUG[r.destination]||''}; }); }
+    return RECS;
+  }
+  var range=document.getElementById('budgetRange'), val=document.getElementById('budgetVal'), btn=document.getElementById('planBtn'), sel=document.getElementById('durationSelect'), out=document.getElementById('planResult');
+  if(!range||!btn||!out) return;
+  range.addEventListener('input',function(){ val.textContent=fmt(this.value)+'₺'; });
+  btn.addEventListener('click',function(){
+    var budget=Number(range.value), days=Number(sel.value), L=list();
+    var pick=L.filter(function(r){ return budget>=r.min && budget<r.max; })[0] || L[0];
+    var links=(pick.s?'<a href="/yazi/'+esc(pick.s)+'/">'+esc(pick.d)+' vize rehberi →</a> ':'')+'<a href="/vize-tablosu/">vize tablosu →</a> <a href="#bilet">canlı bilet fiyatına bak →</a>';
+    out.setAttribute('aria-live','polite');
+    out.innerHTML='<div class="tag">'+days+(days===10?'+':'')+' günlük rota önerisi</div><h3>'+esc(pick.d)+'</h3><p>'+esc(pick.n)+'</p>'+(pick.p?'<p><b>Tahmini bütçe: ~'+fmt(pick.p)+'₺</b> (uçak bileti hariç)</p>':'')+'<div class="plan-links" style="display:flex;flex-wrap:wrap;gap:6px 14px">'+links+'</div>';
+    if(window.innerWidth<900 && out.scrollIntoView){ try{ out.scrollIntoView({behavior:'smooth',block:'nearest'}); }catch(e){} }
+  });
+})();
+</script>
 <section class="sec" style="padding-top:8px">
   <div class="route">
     <h3>Gezicorn rotası</h3>
@@ -264,8 +295,8 @@ const firebaseConfig = {
   messagingSenderId: "542127745680",
   appId: "1:542127745680:web:c59e7919eb0e78865c0615"
 };
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+let db = null;
+try{ firebase.initializeApp(firebaseConfig); db = firebase.firestore(); }catch(e){ console.warn('Firebase yüklenemedi, statik içerikle devam'); }
 
 const ICONS = {
   telegram: '<i class="fa-brands fa-telegram"></i>', instagram: '<i class="fa-brands fa-instagram"></i>',
@@ -338,22 +369,10 @@ async function loadPosts(){
   }catch(e){}
 }
 
-let routeRecs = [];
+// Rota önerileri: planlayıcı kendi betiğinde çalışır (Firestore'dan bağımsız), burada sadece güncel kayıtları ona iletir.
 async function loadRouteRecs(){
-  try{ routeRecs = (await db.collection('route_recommendations').where('active','==',true).get()).docs.map(d=>d.data()); }catch(e){}
+  try{ window.__routeRecs = (await db.collection('route_recommendations').where('active','==',true).get()).docs.map(d=>d.data()); }catch(e){}
 }
-document.getElementById('budgetRange').addEventListener('input', function(){
-  document.getElementById('budgetVal').textContent = Number(this.value).toLocaleString('tr-TR') + '₺';
-});
-document.getElementById('planBtn').addEventListener('click', function(){
-  const budget = Number(document.getElementById('budgetRange').value);
-  const days = Number(document.getElementById('durationSelect').value);
-  const pick = routeRecs.find(r => budget >= r.budget_min && budget < r.budget_max) || routeRecs[0];
-  const el = document.getElementById('planResult');
-  el.innerHTML = pick
-    ? `<div class="tag">${days} günlük rota önerisi</div><h3>${esc(pick.destination)}</h3><p>${esc(pick.note)}</p><a href="#bilet">canlı bilet fiyatına bak →</a>`
-    : `<div class="tag">öneri yok</div><h3>Şu an öneri bulunamadı</h3><p>Biraz sonra tekrar dene.</p>`;
-});
 
 // 3D bavul (Higgsfield görselinden üretilen GLB). Yüklenemezse yedek görsel kalır.
 (function(){
