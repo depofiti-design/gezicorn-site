@@ -5,7 +5,7 @@ yazı ekledikten sonra, bu yazıyı sosyal medyaya taşıyan **ikinci, bağıms�
 
 ## Temel akış (otomatik, her gün çalışır)
 
-**`.github/workflows/daily-social.yml`** (GitHub Actions, `0 7 * * *` = 07:00 UTC, günlük içerik
+**`.github/workflows/daily-social.yml`** (Node + Python/Pillow, `contents: write`; elle çalıştırırken `force_slug` ve `dry_run` girdileri var) (GitHub Actions, `0 7 * * *` = 07:00 UTC, günlük içerik
 rutininden 1 saat sonra) **`scripts/daily-social.js`**'i çalıştırır. Bu betik LLM kullanmaz,
 tamamen deterministiktir:
 
@@ -14,14 +14,13 @@ tamamen deterministiktir:
    paylaşıldıysa atlar (çift paylaşım engeli).
 3. Yazı 36 saatten eskiyse atlar (günlük içerik rutini o gün çalışmadıysa boşa eski yazıyı
    paylaşmasın diye).
-4. Yazının `> **Kısaca:** ...` cümlesini (yoksa `excerpt`'i) alıp şablonla Instagram ve Facebook
-   altyazısı üretir (Facebook'a `https://www.gezicorn.com/yazi/<slug>/` linki eklenir, Instagram'a
-   "profildeki linkte" + kategoriye göre hashtag). Kapak görseli varsa onu, yoksa `og-default.png`'yi
-   kullanır (**bu akış kapak üretmez**).
-5. `lib-social.js` ile Instagram feed + Facebook feed olmak üzere **2 gönderi** atar (kullanıcının
-   22 Eylül 2026'da istediği "günlük en az 2 post" şartını karşılar). **Hikaye artık otomatik atılmıyor**
-   (23 Eylül 2026): 16:9 blog kapağı 9:16 hikayeye kötü kırpılıyordu, kullanıcı iki hikayeyi sildi.
-   Hikaye gerekirse 1080x1920 özel tasarımla elle atılır (`postInstagramStory`, `social-content/stories2/`).
+4. Yazının `> **Kısaca:** ...` cümlesini (yoksa `excerpt`'i) alır. `scripts/social-image.py` ile **iki görsel üretir**:
+   feed **1080x1350 (4:5 dikey)** ve hikaye **1080x1920 (9:16)**. Kapak varsa çerçeveli görsel, yoksa kategoriye uygun 3D nesne
+   (`assets/3d`). **Yatay 16:9 kapak ya da `og-default.png` ASLA doğrudan feed/hikaye olmaz** (kullanıcı 23 ve 26 Eylül 2026'da iki kez
+   şikayet etti). Görseller `img/social/auto/<slug>-feed.jpg` ve `-story.jpg` olarak commit'lenip push'lanır, sitede 200 dönene kadar
+   beklenir (Instagram/Facebook herkese açık URL ister). Görsel üretilemezse hiçbir şey paylaşılmaz, çalışma hata verir.
+5. `lib-social.js` ile **3 gönderi**: Instagram feed (4:5), Facebook feed (aynı görsel + site linki), Instagram hikaye (9:16).
+   Altyazı şablonludur (Instagram "profildeki linkte" + hashtag, Facebook site linki).
 6. `settings/social_automation`'ı günceller.
 
 Composio API anahtarı GitHub repo secret'ı (`COMPOSIO_API_KEY`, `gh secret set` ile eklendi,
