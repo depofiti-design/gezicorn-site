@@ -14,3 +14,7 @@ scripts/gemini-key.local.txt
 scripts/youtube-client.local.json
 scripts/youtube-token.local.json
 scripts/youtube-backup/
+scripts/higgsfield-key.local.txt
+scripts/youtube-token.backup.json
+scripts/youtube-token.depofiti-wrong.json
+scripts/elevenlabs-key.local.txt
