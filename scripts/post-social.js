@@ -3,7 +3,7 @@
 // Ek modlar: "carousel_images": [url,...] (kaydırmalı) ya da "video_url": url (reel); bu modlarda sadece Instagram'a gider.
 // caption_facebook overrides caption for the Facebook post (e.g. drop hashtags, add a link).
 // Posts via Composio MCP (https://connect.composio.dev/mcp) using the API key in composio-key.local.txt
-// (gitignored, never commit it). Instagram account: instagram_warmus-musery (ig_user_id 28470759025941073).
+// (gitignored, never commit it). Instagram account: instagram_stoop-ensoul (ig_user_id 28470759025941073).
 // Facebook page: 144062395450039 ("Yol Var Nizam Var"), account: facebook_harr-iao.
 import { readFileSync } from 'fs';
 import path from 'path';
@@ -15,7 +15,7 @@ const API_KEY = process.env.COMPOSIO_API_KEY || readFileSync(path.join(__dirname
 const MCP_URL = 'https://connect.composio.dev/mcp';
 
 const IG_USER_ID = '28470759025941073';
-const IG_ACCOUNT = 'instagram_warmus-musery';
+const IG_ACCOUNT = 'instagram_stoop-ensoul'; // 29 Eylül 2026: şifre değişince eski bağlantı (instagram_warmus-musery) geçersiz oldu, yeniden bağlandı
 const FB_PAGE_ID = '144062395450039';
 const FB_ACCOUNT = 'facebook_harr-iao';
 

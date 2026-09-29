@@ -9,7 +9,7 @@ const API_KEY = process.env.COMPOSIO_API_KEY || readFileSync(path.join(__dirname
 const MCP_URL = 'https://connect.composio.dev/mcp';
 
 export const IG_USER_ID = '28470759025941073';
-export const IG_ACCOUNT = 'instagram_warmus-musery';
+export const IG_ACCOUNT = 'instagram_stoop-ensoul'; // 29 Eylül 2026: şifre değişince eski bağlantı (instagram_warmus-musery) geçersiz oldu, yeniden bağlandı
 export const FB_PAGE_ID = '144062395450039';
 export const FB_ACCOUNT = 'facebook_harr-iao';
 
