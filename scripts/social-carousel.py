@@ -22,6 +22,16 @@ def base():
     return im, ImageDraw.Draw(im)
 
 
+def deco_fit(text_bottom, max_r=150, min_r=80, footer_top=H - 110):
+    """29 Eylül 2026 düzeltmesi: ikonun cy/r'ini metnin bittiği yere göre hesapla, asla üstüne binmesin
+    (eskiden cy/r sabitti, uzun başlık+alt metin varsa ikon metnin arkasında kalıyordu)."""
+    avail = footer_top - (text_bottom + 20)
+    r = max(min_r, min(max_r, int(avail / 2.7))) if avail > 0 else min_r
+    cy = text_bottom + 20 + int(r * 1.3)
+    cy = min(cy, footer_top - int(r * 1.3))
+    return cy, r
+
+
 def deco(im, name, cy, r):
     """Alt bölümde ortalanmış sarı daire + 3D nesne (metin bloğunun altında sabit yerde, çakışmaz)."""
     cx = W // 2
@@ -54,7 +64,9 @@ def cover(c, total):
         y += 230
     d.rectangle([70, y + 20, 250, y + 26], fill=SAND)
     d.text((70, y + 64), c['sub'], font=font(52, 500, 24), fill=SOFT)
-    deco(im, c.get('obj', 'passport'), 1085, 150)
+    text_bottom = y + 64 + 62
+    cy, r = deco_fit(text_bottom)
+    deco(im, c.get('obj', 'passport'), cy, r)
     footer(d, 0, total)
     return im.convert('RGB')
 
@@ -73,12 +85,15 @@ def inner(s, n, total):
     for ln in wrap(d, s['body'], fb, W - 140):
         d.text((70, y), ln, font=fb, fill=SOFT)
         y += 70
+    text_bottom = y
     if s.get('chip'):
         fc = font(46, 800, 24)
         tw = d.textlength(s['chip'], font=fc)
         d.rounded_rectangle([70, y + 24, 70 + tw + 70, y + 108], radius=42, fill=ORANGE)
         d.text((105, y + 66), s['chip'], font=fc, fill=NAVY, anchor='lm')
-    deco(im, s.get('obj', 'stampobj'), 1100, 135)
+        text_bottom = y + 108
+    cy, r = deco_fit(text_bottom, max_r=135)
+    deco(im, s.get('obj', 'stampobj'), cy, r)
     footer(d, n, total)
     return im.convert('RGB')
 
