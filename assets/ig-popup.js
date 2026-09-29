@@ -1,11 +1,9 @@
 // Kaydırınca sağ kenardan çıkan, rahatsız etmeyen Instagram hatırlatıcısı (29 Eylül 2026).
-// Kurallar: sadece bir miktar aşağı kaydırınca çıkar, çarpıya basılınca 14 gün boyunca hiç çıkmaz,
-// aynı oturumda başka bir sayfaya geçilse bile (kapatılmamış olsa da) tekrar tekrar çıkmaz.
+// Kurallar: sadece bir miktar aşağı kaydırınca çıkar; kapatılınca (ya da bir kez gösterilince) o
+// tarayıcı sekmesi/oturumu kapanana kadar bir daha çıkmaz, kullanıcı siteye yeniden girince (yeni
+// sekme/oturum) tekrar görünür. Kalıcı (günlerce süren) bir susturma YOK, sessionStorage kullanılıyor.
 (function () {
   try {
-    var MUTE_KEY = 'gz_ig_popup_dismissed_at';
-    var last = localStorage.getItem(MUTE_KEY);
-    if (last && Date.now() - Number(last) < 14 * 24 * 3600 * 1000) return;
     if (sessionStorage.getItem('gz_ig_popup_shown')) return;
   } catch (e) { /* depolama kapalıysa sessizce devam et, sorun değil */ }
 
@@ -28,7 +26,6 @@
     wrap.querySelector('.gz-igpop-x').addEventListener('click', function () {
       wrap.classList.remove('show');
       setTimeout(function () { wrap.remove(); }, 320);
-      try { localStorage.setItem(MUTE_KEY, String(Date.now())); } catch (e) {}
     });
   }
 

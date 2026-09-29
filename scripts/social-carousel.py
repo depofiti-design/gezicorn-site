@@ -106,8 +106,16 @@ def outro(o):
     y = int(H * 0.22) + 500
     d.text((W // 2, y), 'gezicorn', font=font(110), fill=CREAM, anchor='mm')
     d.rectangle([W // 2 - 90, y + 70, W // 2 + 90, y + 76], fill=SAND)
-    d.text((W // 2, y + 150), o['line'], font=font(50, 500, 24), fill=CREAM, anchor='mm')
-    d.text((W // 2, y + 220), 'profildeki linkte', font=font(50, 800, 24), fill=SAND, anchor='mm')
+    # 29 Eylül 2026 düzeltmesi: 'line' tek satır ve sabit genişlikte basılıyordu, uzun cümlede
+    # kenarlardan taşıyordu (Tiflis carousel'inde fark edildi). Artık fit() ile ortalanmış, en fazla
+    # 2 satıra sarılıp gerekirse küçülüyor.
+    f_line, ls = fit(d, o['line'], W - 160, 2, [50, 44, 38, 34], wght=500)
+    ly = y + 150
+    lh = int(f_line.size * 1.15)
+    for ln in ls:
+        d.text((W // 2, ly), ln, font=f_line, fill=CREAM, anchor='mm')
+        ly += lh
+    d.text((W // 2, ly + 30), 'profildeki linkte', font=font(50, 800, 24), fill=SAND, anchor='mm')
     d.text((W // 2, H - 90), '@gezicorn', font=font(44, 800, 24), fill=CREAM, anchor='mm')
     return im.convert('RGB')
 
