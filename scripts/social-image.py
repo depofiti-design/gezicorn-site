@@ -133,7 +133,11 @@ def build_feed(a, cover, logo):
         y += lh
     d.rectangle([70, y + 12, 250, y + 18], fill=SAND)
     fb = font(44, 500, 24)
-    maxb = 3 if cover is None else (4 if len(ls) <= 3 else 3)
+    # Başlık uzun sürdükçe (4 satıra yaklaştıkça) gövde metnini kısaltarak alt taraftaki
+    # daire+3D nesne ile çakışmayı önle (26 Eylül 2026 bug: TDT yazısı örneğinde metin ikonun
+    # arkasında kalmıştı, çünkü buradaki taban yükseklik metnin bittiği yeri hiç kontrol etmiyordu).
+    base_max = 4 if cover is not None else 3
+    maxb = max(1, base_max - max(0, len(ls) - 2))
     bl = wrap(d, a['hook'], fb, W - 140)[:maxb]
     if len(wrap(d, a['hook'], fb, W - 140)) > maxb:
         while bl and d.textlength(bl[-1] + '…', font=fb) > W - 140: bl[-1] = bl[-1].rsplit(' ', 1)[0] if ' ' in bl[-1] else bl[-1][:-1]
@@ -142,10 +146,14 @@ def build_feed(a, cover, logo):
     for ln in bl:
         d.text((70, yb), ln, font=fb, fill=SOFT)
         yb += 62
-    vh = min(470, H - 170 - (yb + 30))
-    vh = max(vh, 330 if cover is not None else 430)
+    min_floor = 330 if cover is not None else 260
+    top_limit = yb + 30          # metnin bittiği yer, ikon bundan yukarı çıkamaz
+    bottom_limit = H - 95        # alttaki "Yazının tamamı..." satırı için ayrılan yer
+    avail = max(60, bottom_limit - top_limit)
+    vh = max(min(min_floor, avail), min(470, avail))  # mümkünse min_floor/470, sığmıyorsa küçül
+    vy = max(top_limit, bottom_limit - vh)
     vb = visual(940, vh, cover, a['obj'])
-    im.alpha_composite(vb, (70, H - 150 - vh))
+    im.alpha_composite(vb, (70, vy))
     d = ImageDraw.Draw(im)
     d.text((W // 2, H - 72), 'Yazının tamamı profildeki linkte', font=font(40, 800, 24), fill=SAND, anchor='mm')
     return im.convert('RGB')
