@@ -57,6 +57,23 @@ export async function postInstagram({ image_url, caption }) {
   return published.id;
 }
 
+// Reels (video) gönderisi: video_url temiz, yönlendirmesiz, sorgu dizesiz doğrudan mp4 linki olmalı
+// (Instagram'ın video ingestion'ı redirect/querystring'de sık hata veriyor). İşleme image'dan uzun sürer,
+// max_wait_seconds yüksek tutuldu.
+export async function postInstagramReel({ video_url, caption }) {
+  const container = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
+    arguments: { ig_user_id: IG_USER_ID, video_url, caption, content_type: 'reel', graph_api_version: 'v21.0' },
+    account: IG_ACCOUNT
+  }]);
+  const published = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH',
+    arguments: { ig_user_id: IG_USER_ID, creation_id: container.id, max_wait_seconds: 180 },
+    account: IG_ACCOUNT
+  }]);
+  return published.id;
+}
+
 export async function postInstagramStory({ image_url }) {
   const container = await multiExecute([{
     tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
