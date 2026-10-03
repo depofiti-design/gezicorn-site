@@ -63,7 +63,7 @@ export async function postInstagram({ image_url, caption }) {
 export async function postInstagramReel({ video_url, caption }) {
   const container = await multiExecute([{
     tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
-    arguments: { ig_user_id: IG_USER_ID, video_url, caption, content_type: 'reel', graph_api_version: 'v21.0' },
+    arguments: { ig_user_id: IG_USER_ID, video_url, caption, media_type: 'REELS', graph_api_version: 'v21.0' },
     account: IG_ACCOUNT
   }]);
   const published = await multiExecute([{
