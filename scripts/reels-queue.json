@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": "fb-yt-tayland-vize-2026",
+    "platform": "facebook_link",
+    "publish_at": "2026-10-06T10:00:00Z",
+    "link": "https://www.youtube.com/watch?v=1qX1lVZ0YYA",
+    "message": "Tayland vize kuralları 2026 için değişti. Hangi durumda vize gerekiyor, hangi durumda gerekmiyor ve güncel kurallar nedir, bu videoda anlattık.\n\nDaha fazla rehber için: https://www.gezicorn.com",
+    "published_id": null,
+    "published_at": null
+  },
+  {
+    "id": "fb-yt-rusya-e-vize",
+    "platform": "facebook_link",
+    "publish_at": "2026-10-08T10:00:00Z",
+    "link": "https://www.youtube.com/watch?v=Uk2RtbRgv60",
+    "message": "Rusya vizesi nasıl alınır? Elektronik vize başvurusunun adım adım nasıl yapıldığını bu videoda gösterdik.\n\nDaha fazla rehber için: https://www.gezicorn.com",
+    "published_id": null,
+    "published_at": null
+  },
+  {
+    "id": "fb-yt-tayland-vize-uzatma",
+    "platform": "facebook_link",
+    "publish_at": "2026-10-10T10:00:00Z",
+    "link": "https://www.youtube.com/watch?v=D366_IjSbhg",
+    "message": "Tayland vizesi nasıl uzatılır? Başvuru adımlarını ve dikkat edilmesi gerekenleri adım adım anlattık.\n\nDaha fazla rehber için: https://www.gezicorn.com",
+    "published_id": null,
+    "published_at": null
+  },
+  {
+    "id": "fb-yt-pasaport-kaybi",
+    "platform": "facebook_link",
+    "publish_at": "2026-10-12T10:00:00Z",
+    "link": "https://www.youtube.com/watch?v=omc2EXbmR5o",
+    "message": "Yurt dışında pasaportunu kaybedersen ne yapmalısın? Geçici pasaport nasıl alınır, bu videoda anlattık.\n\nDaha fazla rehber için: https://www.gezicorn.com",
+    "published_id": null,
+    "published_at": null
+  }
+]
