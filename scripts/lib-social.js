@@ -118,3 +118,12 @@ export async function postFacebookCarousel({ image_urls, caption_facebook, capti
   }]);
   return result.post_id || result.id;
 }
+
+export async function postFacebookVideo({ file_url, title, description }) {
+  const result = await multiExecute([{
+    tool_slug: 'FACEBOOK_CREATE_VIDEO_POST',
+    arguments: { page_id: FB_PAGE_ID, file_url, title, description, published: true },
+    account: FB_ACCOUNT
+  }]);
+  return result.id;
+}
