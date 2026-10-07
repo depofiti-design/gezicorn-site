@@ -362,3 +362,6 @@ Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sür
 - **Şablonlar:** `img/social/templates/` içinde 5 paket, şablon 2 ve 4 kullanıldı, font Manrope.
 - **SEO:** Yüksek gösterimli sıfır-tıklı yazıların arama açıklamaları yenilendi (5 + 2). 26 Eylül–3 Ekim: 10 tık, 1389 gösterim (önceki dönem 4 tık, 685 gösterim).
 - **Açık:** "çift vatandaş" yazısı (6 Ekim) henüz indekslenmedi, kullanıcı index isteği gönderecek. IG takipçi ülke/şehir verisi API'den alınamıyor (demographics döndürmüyor). YouTube: 77 kısa açıklama, 125 etiketsiz video toplu düzeltme bekliyor.
+
+## 7 Ekim 2026 (devam): YouTube toplu optimizasyon tamamlandı
+- `node scripts/yt-optimize.mjs --batch 150 --apply` çalıştırıldı, geriye kalan 13 video işlendi. `youtube-backup/state.json` artık 282/282 video v>=2 (tamamı optimize edilmiş: hook satırı, açıklama, etiket, ilgili yazı linki). Bu proje kapandı, yeni video yüklenmedikçe tekrar çalıştırmaya gerek yok.
