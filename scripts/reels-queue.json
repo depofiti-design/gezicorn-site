@@ -47,8 +47,10 @@
     "publish_at": "2026-10-07T15:54:00Z",
     "link": "https://www.youtube.com/watch?v=1qX1lVZ0YYA",
     "message": "Tayland vize kuralları 2026 için değişti. Hangi durumda vize gerekiyor, hangi durumda gerekmiyor ve güncel kurallar nedir, bu videoda anlattık.\n\nDaha fazla rehber için: https://www.gezicorn.com",
-    "published_id": null,
-    "published_at": null
+    "published_id": {
+      "facebook": "144062395450039_122285066372056880"
+    },
+    "published_at": "2026-10-07T17:15:39.389Z"
   },
   {
     "id": "reel-04-reel-v5-05-balkanlara-vizesiz-gidilir-mi-turkler-icin",
