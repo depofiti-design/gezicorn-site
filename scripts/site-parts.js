@@ -1,6 +1,6 @@
 // Tüm sayfaların paylaştığı parçalar: altbilgi (yasal bağlantılar dahil) ve çerez onay betiği.
 // build-static.js ve build-legal.js buradan alır. Değiştirince: node scripts/build-legal.js && node scripts/build-static.js
-export const CSS_V = '20260929';
+export const CSS_V = '20261007';
 export const CONSENT_TAG = `<script src="/assets/consent.js?v=${CSS_V}" defer></script>
 <script src="/assets/ig-popup.js?v=${CSS_V}" defer></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>`;

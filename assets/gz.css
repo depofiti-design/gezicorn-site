@@ -105,7 +105,7 @@ a.stamp:hover{transform:rotate(0deg) scale(1.06)}
 .gz-igpop span b{display:block;font:800 14.5px var(--f-display);color:var(--ink);letter-spacing:-.01em}
 .gz-igpop-x{position:absolute;top:-11px;left:-11px;width:24px;height:24px;border-radius:50%;border:2px solid var(--ink);background:var(--yl);font:700 14px/1 var(--f-body);cursor:pointer;display:grid;place-items:center;padding:0}
 .gz-igpop-x:hover{background:var(--or)}
-@media(max-width:640px){.gz-igpop{max-width:168px;padding:11px 14px 11px 11px}.gz-igpop span{font-size:11px}.gz-igpop span b{font-size:13px}}
+@media(max-width:640px){.gz-igpop{top:auto;bottom:18px;right:0;transform:translateX(100%);max-width:148px;padding:10px 12px 10px 10px;border-radius:14px 0 0 14px}.gz-igpop.show{transform:translateX(0)}.gz-igpop span{font-size:10.5px}.gz-igpop span b{font-size:12.5px}}
 @media(prefers-reduced-motion:reduce){.gz-igpop{transition:none}}
 .gz-consent .cc-btns{display:flex;flex-wrap:wrap;gap:8px}
 .gz-consent .btn{padding:9px 15px;font-size:13.5px;border-radius:12px}
