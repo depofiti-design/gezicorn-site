@@ -365,3 +365,9 @@ Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sür
 
 ## 7 Ekim 2026 (devam): YouTube toplu optimizasyon tamamlandı
 - `node scripts/yt-optimize.mjs --batch 150 --apply` çalıştırıldı, geriye kalan 13 video işlendi. `youtube-backup/state.json` artık 282/282 video v>=2 (tamamı optimize edilmiş: hook satırı, açıklama, etiket, ilgili yazı linki). Bu proje kapandı, yeni video yüklenmedikçe tekrar çalıştırmaya gerek yok.
+
+## 7 Ekim 2026 (devam): tam site denetimi ve düzeltmeler
+- Playwright ile canlı site taraması yapıldı (20 yazı + sitemap + robots + mobil görünüm). Kırık link/görsel yok, meta/canonical/duplicate sorunu yok, sitemap dosya sistemiyle birebir eşleşiyor.
+- **Düzeltildi:** Instagram popup kartı mobilde (390px) gövde metninin üzerine biniyordu, artık dikey ortada değil sağ-alt köşede sabit, daha küçük (CSS_V 20261007).
+- **Düzeltildi:** `pasaport-turleri-bordo-yesil-hususi-gri-fark` yazısına ayrı "Siyah pasaport nedir?" SSS maddesi eklendi (GSC'de "siyah pasaport nedir" ayrı sorgu olarak 12+ gösterim alıyordu, önceden sadece birleşik gri+siyah sorusu vardı).
+- Reels zamanlayıcısı bugün iki kez saatlerce gecikti (GitHub'ın kendi scheduler sorunu, kod hatası değil), iki kez elle `gh workflow run reels-schedule.yml` ile tetiklendi. Ayrıca dünün elle yayınlanan reeli bugünün 2. slotunu "yayınlandı" gösterip boş bırakmıştı, kuyruk elle düzeltildi. **Ders:** bundan sonra kuyruğa elle müdahale edince (erken yayın, slot taşıma) o slotun gerçekten boşta kalıp kalmadığını kontrol et.
