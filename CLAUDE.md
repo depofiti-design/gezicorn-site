@@ -371,3 +371,10 @@ Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sür
 - **Düzeltildi:** Instagram popup kartı mobilde (390px) gövde metninin üzerine biniyordu, artık dikey ortada değil sağ-alt köşede sabit, daha küçük (CSS_V 20261007).
 - **Düzeltildi:** `pasaport-turleri-bordo-yesil-hususi-gri-fark` yazısına ayrı "Siyah pasaport nedir?" SSS maddesi eklendi (GSC'de "siyah pasaport nedir" ayrı sorgu olarak 12+ gösterim alıyordu, önceden sadece birleşik gri+siyah sorusu vardı).
 - Reels zamanlayıcısı bugün iki kez saatlerce gecikti (GitHub'ın kendi scheduler sorunu, kod hatası değil), iki kez elle `gh workflow run reels-schedule.yml` ile tetiklendi. Ayrıca dünün elle yayınlanan reeli bugünün 2. slotunu "yayınlandı" gösterip boş bırakmıştı, kuyruk elle düzeltildi. **Ders:** bundan sonra kuyruğa elle müdahale edince (erken yayın, slot taşıma) o slotun gerçekten boşta kalıp kalmadığını kontrol et.
+
+## 7 Ekim 2026 (devam 2): v7 reels, yeni yazılar, TikTok/Pinterest bağlantı istekleri
+- **v7 (15 reel, index 58-72):** 2k çözünürlüklü Higgsfield görsel (v6'daki 752px/upscale sorunu düzeltildi), tekrar eden görsel yok (75 görsel MD5 ile kontrol edildi). Reel 65'te istemsiz gerçek yüz üretilmişti (biyometrik fotoğraf sahnesi), fark edilip yüzsüz versiyonla değiştirildi. Takvime eklendi, plan artık 13 Kasım'a kadar uzuyor. Higgsfield kredisi: 348 → 135.
+- **2 yeni yazı:** Hindistan e-vizesi, Yeni Zelanda NZeTA. İkisi de yayında, NZeTA yazısı aynı gün normal gönderi olarak paylaşıldı.
+- **TikTok ve Pinterest için bağlantı linkleri kullanıcıya gönderildi** (7 Ekim), onay bekleniyor. Reddit linki de verildi ama otomatik paylaşım kurulmayacak (topluluk kurallarına aykırı riski var), sadece istenirse elle kullanılabilir.
+- **llms.txt eklendi** (`scripts/build-llms-txt.js` ile üretiliyor), yapay zeka arama motorları için site özeti.
+- EES ve Tiflis reel'leri (ilk yayınlandıklarında IG-only'di) artık Facebook'ta da var.
