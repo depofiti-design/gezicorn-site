@@ -33,14 +33,22 @@ async function callMcp(toolCallParams) {
   return parsed.data;
 }
 
-async function multiExecute(tools) {
-  const data = await callMcp({
-    name: 'COMPOSIO_MULTI_EXECUTE_TOOL',
-    arguments: { tools, sync_response_to_workbench: false, memory: {}, session_id: 'gezicorn-social' }
-  });
-  const result = data.results[0];
-  if (result.error) throw new Error(result.error);
-  return result.response.data;
+async function multiExecute(tools, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const data = await callMcp({
+      name: 'COMPOSIO_MULTI_EXECUTE_TOOL',
+      arguments: { tools, sync_response_to_workbench: false, memory: {}, session_id: 'gezicorn-social' }
+    });
+    const result = data.results[0];
+    if (!result.error) return result.response.data;
+    // Vercel'e az önce push'lanan görsel/video bazen Instagram'ın crawler'ının gittiği edge'e
+    // henüz yayılmamış oluyor (HEAD kontrolümüz başka bir edge'den 200 dönse de). "could not be
+    // fetched" hatasında birkaç kez, artan beklemeyle tekrar dene; başka hata ise hemen fırlat.
+    const isFetchDelay = /could not be fetched from this URI/i.test(result.error);
+    if (!isFetchDelay || attempt === retries) throw new Error(result.error);
+    console.log(`Medya henüz yayılmadı (deneme ${attempt}/${retries}), ${attempt * 30}s bekleniyor...`);
+    await new Promise((r) => setTimeout(r, attempt * 30000));
+  }
 }
 
 export async function postInstagram({ image_url, caption }) {
