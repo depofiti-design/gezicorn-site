@@ -5,10 +5,23 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
 
 ## Adımlar
 
+0. **Gündem taraması (16 Ekim 2026'dan itibaren, kullanıcı talimatı).** Konu seçmeden önce WebSearch ile
+   Türkiye'nin güncel seyahat/vize gündemini, Türk turistlerin merak ettiği konuları ve sosyal medyada
+   yayılan seyahat haberlerini kontrol et (örnek sorgular: "Türk vatandaşları vize haberi <bu ay/yıl>",
+   "Türkiye seyahat gündemi <bu ay>", "viral seyahat haberi Türkiye pasaport vize"). Birden fazla
+   bağımsız kaynakta (haber sitesi, resmi duyuru) tutarlı şekilde doğrulanan, Türk gezginleri gerçekten
+   ilgilendiren, **tarihli ve somut** bir gelişme bulursan (örnek: bir ülkenin vize rejimini değiştirmesi,
+   yeni bir elektronik izin sistemi, ücret değişikliği), o günün yazısı için bunu normal rotasyonun
+   ÖNÜNE koy ve `haber` kategorisinde yaz. Böyle bir gelişme hâlâ etkiliyse ve sitede ilgili ülke/konu
+   yazısı varsa, aynı gün o yazıyı da `update-post.js` ile güncelle (çakışan eski bilgiyi düzelt, çapraz
+   link ekle). Hiçbir somut/doğrulanabilir gelişme yoksa adım 1-2'deki normal rotasyona geç, konu
+   uydurma veya zayıf/tek kaynaklı bir haberi kesin gibi yazma.
+
 1. `cd scripts && node list-posts.js 20` çalıştır, son 20 yazının başlık/kategorisini gör.
    Bugünün konusu bunlarla **aynı olmasın**, kalıp/kelime tekrarından kaçın.
 
-2. Bugün için **1 yeni post** üret. Kategoriyi şu sırayla döndür (son eklenenin kategorisine bakıp sıradakini seç):
+2. Bugün için **1 yeni post** üret (adım 0'da gündem konusu bulunduysa o konu, yoksa normal rotasyon).
+   Kategoriyi şu sırayla döndür (son eklenenin kategorisine bakıp sıradakini seç):
    `haber → vize → rehber → haber → vize → rehber → ...`
    (vize ve rehber ~29+9 yazıyla zaten en kalabalık, haber ile dengeyi koru; firsat kategorisine
    otomatik yazı ekleme, o kategori gerçek fırsat duyuruları için ayrılmış.)
@@ -16,10 +29,15 @@ Bu talimat, gezicorn-site için her gün otomatik çalışan içerik ekleme ruti
    **Editoryal kurallar (CLAUDE.md'den, kesinlikle uy):**
    - Metinde tire (—) KULLANMA. Nokta, virgül, iki nokta üst üste ile böl.
    - `haber` kategorisi: doğrulayamayacağımız spesifik/tarihli iddia yazma
-     ("X ülke Y tarihinde vize kuralını değiştirdi" gibi cümleler YASAK).
-     Sadece uzun süredir bilinen yapısal gelişmeler (dijital vize sistemleri, vize ücret
-     trendleri, konsolosluk randevu sistemleri, seyahat sigortası, pasaport yenileme gibi genel
-     konular) ve her yazının sonunda "güncel durumu resmi kaynaktan teyit et" uyarısı.
+     ("X ülke Y tarihinde vize kuralını değiştirdi" gibi cümleler, WebSearch ile birden fazla
+     bağımsız kaynakta doğrulanmadıysa YASAK). **İstisna (adım 0, 16 Ekim 2026):** gündem
+     taramasında birden fazla kaynakta tutarlı şekilde doğrulanan tarihli bir gelişme (örn.
+     Karadağ'ın 1 Kasım 2026'dan itibaren Türklere vize getirmesi) varsa, tarihi ve kaynağı
+     açıkça yazarak haber yapılabilir, yine de "resmi kaynaktan teyit et" uyarısı eklenir.
+     Doğrulanamayan konularda sadece uzun süredir bilinen yapısal gelişmeler (dijital vize
+     sistemleri, vize ücret trendleri, konsolosluk randevu sistemleri, seyahat sigortası,
+     pasaport yenileme gibi genel konular) ve her yazının sonunda "güncel durumu resmi
+     kaynaktan teyit et" uyarısı.
    - `vize`/`rehber` kategorisi: genel, zamanla değişmeyecek yapısal bilgi ver (vize türleri,
      pasaport kategorileri, genel süreç anlatımı). Spesifik ücret/süre rakamı verme, rakamlar
      çabuk eskir; "güncel bilgi için resmi kaynağa bak" notu ekle.
