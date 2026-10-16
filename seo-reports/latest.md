@@ -1,66 +1,66 @@
 # Gezicorn Search Console raporu
-Dönem: 2026-10-06 → 2026-10-12 (önceki: 2026-09-29 → 2026-10-05)
+Dönem: 2026-10-07 → 2026-10-13 (önceki: 2026-09-30 → 2026-10-06)
 
-**Toplam:** 6 tık, 1116 gösterim (önceki dönem: 10 tık, 1423 gösterim)
+**Toplam:** 7 tık, 987 gösterim (önceki dönem: 9 tık, 1454 gösterim)
 
 ## Ön plandaki sayfalar (gösterime göre)
 | Sayfa | Gösterim | Tık | Ort. sıra | Önceki gösterim |
 |---|---|---|---|---|
-| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 85 | 0 | 7.5 | 90 |
-| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 73 | 0 | 13.4 | 166 |
-| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 70 | 1 | 16.8 | 67 |
-| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 56 | 0 | 8.2 | 25 |
-| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 54 | 0 | 11.5 | 125 |
-| /yazi/kazakistana-vizesiz-girmek-mumkun-mu/ | 49 | 0 | 9.8 | 105 |
-| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 47 | 0 | 62.5 | 10 |
-| /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 38 | 0 | 14.7 | 43 |
-| /yazi/pasaport-fotografi-nasil-olmali-icao-standartlari/ | 36 | 0 | 19.3 | 46 |
-| /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 34 | 0 | 8.8 | 30 |
-| /yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/ | 32 | 0 | 19.3 | 18 |
-| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 32 | 0 | 8.8 | 19 |
-| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 28 | 1 | 6.6 | 0 |
-| /yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/ | 28 | 0 | 10.0 | 30 |
-| /yazi/orta-asyada-vizesiz-ulkeler-listesi/ | 27 | 1 | 7.4 | 45 |
+| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 79 | 0 | 7.7 | 93 |
+| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 62 | 0 | 14.5 | 142 |
+| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 59 | 2 | 20.2 | 67 |
+| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 50 | 0 | 13.7 | 119 |
+| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 36 | 0 | 8.2 | 45 |
+| /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 33 | 0 | 8.9 | 31 |
+| /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 33 | 0 | 14.8 | 47 |
+| /yazi/kazakistana-vizesiz-girmek-mumkun-mu/ | 33 | 0 | 10.6 | 113 |
+| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 32 | 1 | 6.8 | 0 |
+| /yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/ | 32 | 0 | 19.4 | 22 |
+| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 31 | 0 | 7.1 | 20 |
+| /yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/ | 25 | 0 | 10.2 | 32 |
+| /yazi/pasaport-fotografi-nasil-olmali-icao-standartlari/ | 25 | 0 | 22.4 | 56 |
+| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 25 | 0 | 53.2 | 32 |
+| /yazi/dubai-vizesi-turkler-icin-bordo-yesil-pasaport/ | 22 | 0 | 61.1 | 42 |
 
 ## Yükselenler (gösterim artışı)
 | Sayfa | Şimdi | Önceki |
 |---|---|---|
-| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 47 | 10 |
-| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 56 | 25 |
-| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 28 | 0 |
-| /yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/ | 32 | 18 |
-| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 32 | 19 |
+| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 32 | 0 |
+| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 31 | 20 |
+| /yazi/dunya-pasaportlari-neden-farkli-renklerde/ | 10 | 0 |
+| /yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/ | 32 | 22 |
 | /yazi/havalimaninda-pasaport-gumruk-kontrolu-nelere-dikkat/ | 15 | 7 |
-| /yazi/gonullu-vizesi-nasil-alinir/ | 10 | 3 |
-| /yazi/dunya-pasaportlari-neden-farkli-renklerde/ | 6 | 0 |
+| /yazi/ilk-kez-yurt-disina-cikacaklar-icin-vize-checklist/ | 8 | 0 |
+| /yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/ | 7 | 1 |
+| /yazi/gonullu-vizesi-nasil-alinir/ | 9 | 4 |
 
 ## Düşenler
 | Sayfa | Şimdi | Önceki |
 |---|---|---|
-| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 73 | 166 |
-| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 54 | 125 |
-| /yazi/kazakistana-vizesiz-girmek-mumkun-mu/ | 49 | 105 |
-| /yazi/vize-basvurusunda-davetiye-mektubu-sponsorluk/ | 8 | 45 |
-| /yazi/vize-suresi-ile-kalis-suresi-arasindaki-fark/ | 17 | 50 |
-| /yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/ | 21 | 53 |
-| /yazi/orta-asyada-vizesiz-ulkeler-listesi/ | 27 | 45 |
-| /yazi/sari-kart-uluslararasi-asi-sertifikasi-nedir/ | 10 | 28 |
+| /yazi/kazakistana-vizesiz-girmek-mumkun-mu/ | 33 | 113 |
+| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 62 | 142 |
+| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 50 | 119 |
+| /yazi/orta-asyada-vizesiz-ulkeler-listesi/ | 17 | 52 |
+| /yazi/pasaport-fotografi-nasil-olmali-icao-standartlari/ | 25 | 56 |
+| /yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/ | 19 | 49 |
+| /yazi/vize-basvurusunda-davetiye-mektubu-sponsorluk/ | 9 | 39 |
+| /yazi/vize-suresi-ile-kalis-suresi-arasindaki-fark/ | 17 | 44 |
 
 ## Fırsat: 8-20. sıradaki sorgular (küçük iyileştirmeyle 1. sayfaya çıkabilir)
 | Sorgu | Sayfa | Gösterim | Sıra |
 |---|---|---|---|
 | ingiltere schengen mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 20 | 10.3 |
-| biyometrik pasaport nedir | /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 11 | 8.6 |
-| balkanlara vizesiz gidilir mi | /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 7 | 10.4 |
-| ingiltere schengen'e dahil mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 6 | 9.3 |
+| biyometrik pasaport nedir | /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 10 | 8.8 |
+| balkanlara vizesiz gidilir mi | /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 5 | 10.2 |
+| ingiltere schengen'e dahil mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 5 | 9.4 |
 | bordo gri yeşil pasaport farkı | /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 5 | 8.6 |
-| siyah ve yeşil pasaport farkı | /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 4 | 8.3 |
+| tiflise kimlikle gidilir mi | /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 3 | 9.0 |
 | balkanlara vize var mı | /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 3 | 11.0 |
-| japonya türklerden vize istiyor mu | /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 3 | 9.0 |
-| pasaport süresi 6 aydan az ise | /yazi/pasaport-gecerlilik-suresi-neden-6-ay-sart/ | 3 | 9.3 |
-| sarı humma aşı kartı | /yazi/sari-kart-uluslararasi-asi-sertifikasi-nedir/ | 3 | 10.3 |
-| tiflis'e kimlikle gidilir mi | /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 2 | 9.0 |
-| ingiltere schengen vizesi mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 2 | 10.5 |
+| siyah ve yeşil pasaport farkı | /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 3 | 8.0 |
+| biometric passport nedir | /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 2 | 8.0 |
+| japonya türklerden vize istiyor mu | /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 2 | 8.5 |
+| yeşil gri pasaport farkı | /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 2 | 9.0 |
+| duration of stay ne demek | /yazi/vize-suresi-ile-kalis-suresi-arasindaki-fark/ | 2 | 10.5 |
 
 ## 1-5. sırada ama tık yok (başlık/açıklama zayıf olabilir)
 | Sorgu | Sayfa | Gösterim | Sıra |
@@ -71,17 +71,17 @@ Dönem: 2026-10-06 → 2026-10-12 (önceki: 2026-09-29 → 2026-10-05)
 | Sorgu | Gösterim | Tık | Sıra |
 |---|---|---|---|
 | ingiltere schengen mi | 20 | 0 | 10.3 |
-| biyometrik pasaport nedir | 11 | 0 | 8.6 |
-| londra schengen mi | 11 | 0 | 6.4 |
+| biyometrik pasaport nedir | 10 | 0 | 8.8 |
+| londra schengen mi | 10 | 0 | 6.5 |
 | pasaport geçerlilik süresi 6 aydan az | 8 | 0 | 7.5 |
-| balkanlara vizesiz gidilir mi | 7 | 0 | 10.4 |
-| elektronik seyahat izni nedir | 6 | 0 | 5.8 |
-| ingiltere schengen'e dahil mi | 6 | 0 | 9.3 |
-| schengen ülkeleri | 6 | 0 | 71.3 |
+| schengen ülkeleri | 7 | 0 | 74.0 |
+| gürcistan vize | 6 | 0 | 98.8 |
+| balkanlara vizesiz gidilir mi | 5 | 0 | 10.2 |
 | bordo gri yeşil pasaport farkı | 5 | 0 | 8.6 |
-| gürcistan vize | 5 | 0 | 99.0 |
-| tiflise kimlikle gidilir mi | 4 | 1 | 7.0 |
-| dubai vize istiyor mu | 4 | 0 | 59.0 |
-| siyah ve yeşil pasaport farkı | 4 | 0 | 8.3 |
+| dubai vize istiyor mu | 5 | 0 | 59.8 |
+| ingiltere schengen'e dahil mi | 5 | 0 | 9.4 |
+| tiflise kimlikle gidilir mi | 3 | 1 | 9.0 |
 | balkanlara vize var mı | 3 | 0 | 11.0 |
 | dubai yeşil pasaport | 3 | 0 | 42.0 |
+| e-pasaport nedir | 3 | 0 | 68.0 |
+| elektronik seyahat izni nedir | 3 | 0 | 5.7 |
