@@ -17,7 +17,7 @@ for (const item of queue) {
   if (item.platform === 'facebook_link') {
     result = { facebook: await postFacebookLink({ link: item.link, message: item.message }) };
   } else {
-    const igId = await postInstagramReel({ video_url: item.video_url, caption: item.caption_ig });
+    const igId = await postInstagramReel({ video_url: item.video_url, caption: item.caption_ig, cover_url: item.cover_url });
     const fbId = await postFacebookVideo({ file_url: item.video_url, title: item.title, description: item.caption_fb });
     result = { instagram: igId, facebook: fbId };
   }

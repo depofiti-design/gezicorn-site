@@ -68,10 +68,12 @@ export async function postInstagram({ image_url, caption }) {
 // Reels (video) gönderisi: video_url temiz, yönlendirmesiz, sorgu dizesiz doğrudan mp4 linki olmalı
 // (Instagram'ın video ingestion'ı redirect/querystring'de sık hata veriyor). İşleme image'dan uzun sürer,
 // max_wait_seconds yüksek tutuldu.
-export async function postInstagramReel({ video_url, caption }) {
+export async function postInstagramReel({ video_url, caption, cover_url }) {
+  const args = { ig_user_id: IG_USER_ID, video_url, caption, media_type: 'REELS', graph_api_version: 'v21.0' };
+  if (cover_url) args.cover_url = cover_url; // her reel icin ozel, tek seferlik uretilmis kapak (video ilk karesi yerine)
   const container = await multiExecute([{
     tool_slug: 'INSTAGRAM_POST_IG_USER_MEDIA',
-    arguments: { ig_user_id: IG_USER_ID, video_url, caption, media_type: 'REELS', graph_api_version: 'v21.0' },
+    arguments: args,
     account: IG_ACCOUNT
   }]);
   const published = await multiExecute([{
