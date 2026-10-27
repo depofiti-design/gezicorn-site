@@ -1,58 +1,57 @@
 # Gezicorn Search Console raporu
-Dönem: 2026-10-17 → 2026-10-23 (önceki: 2026-10-10 → 2026-10-16)
+Dönem: 2026-10-18 → 2026-10-24 (önceki: 2026-10-11 → 2026-10-17)
 
-**Toplam:** 4 tık, 680 gösterim (önceki dönem: 9 tık, 828 gösterim)
+**Toplam:** 3 tık, 647 gösterim (önceki dönem: 9 tık, 804 gösterim)
 
 ## Ön plandaki sayfalar (gösterime göre)
 | Sayfa | Gösterim | Tık | Ort. sıra | Önceki gösterim |
 |---|---|---|---|---|
-| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 36 | 0 | 7.7 | 67 |
-| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 35 | 0 | 83.3 | 3 |
-| /yazi/azerbaycana-kimlikle-giris-var-mi-turkler-icin/ | 31 | 0 | 17.6 | 33 |
-| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 30 | 0 | 16.8 | 48 |
-| /yazi/cin-vizesi-turkler-icin-nasil-alinir/ | 27 | 0 | 53.7 | 0 |
-| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 24 | 0 | 9.1 | 17 |
-| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 22 | 0 | 10.8 | 46 |
-| /yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/ | 21 | 0 | 4.7 | 24 |
-| /yazi/dubai-vizesi-turkler-icin-bordo-yesil-pasaport/ | 20 | 0 | 84.8 | 12 |
-| /yazi/sari-kart-uluslararasi-asi-sertifikasi-nedir/ | 19 | 0 | 7.9 | 12 |
-| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 18 | 1 | 4.8 | 34 |
-| /yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/ | 18 | 0 | 81.1 | 17 |
-| /yazi/coklu-giris-vizesi-nedir-tek-giristen-farki/ | 17 | 0 | 6.4 | 5 |
-| /yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/ | 17 | 0 | 41.9 | 29 |
+| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 35 | 0 | 83.3 | 2 |
+| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 30 | 0 | 9.0 | 64 |
+| /yazi/azerbaycana-kimlikle-giris-var-mi-turkler-icin/ | 29 | 0 | 18.5 | 36 |
+| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 28 | 0 | 9.3 | 12 |
+| /yazi/cin-vizesi-turkler-icin-nasil-alinir/ | 27 | 0 | 57.1 | 3 |
+| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 26 | 0 | 11.1 | 52 |
+| /yazi/dubai-vizesi-turkler-icin-bordo-yesil-pasaport/ | 19 | 0 | 85.4 | 14 |
+| /yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/ | 19 | 0 | 4.9 | 27 |
+| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 19 | 0 | 10.6 | 41 |
+| /yazi/pasaport-fotografi-nasil-olmali-icao-standartlari/ | 19 | 0 | 37.4 | 17 |
+| /yazi/sari-kart-uluslararasi-asi-sertifikasi-nedir/ | 19 | 0 | 7.6 | 13 |
+| /yazi/coklu-giris-vizesi-nedir-tek-giristen-farki/ | 18 | 0 | 6.4 | 5 |
 | /yazi/katar-vizesi-turkler-icin-90-gun-vizesiz-mi/ | 17 | 0 | 12.8 | 0 |
+| /yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/ | 17 | 0 | 80.7 | 15 |
+| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 15 | 0 | 8.0 | 26 |
 
 ## Yükselenler (gösterim artışı)
 | Sayfa | Şimdi | Önceki |
 |---|---|---|
-| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 35 | 3 |
-| /yazi/cin-vizesi-turkler-icin-nasil-alinir/ | 27 | 0 |
+| /yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/ | 35 | 2 |
+| /yazi/cin-vizesi-turkler-icin-nasil-alinir/ | 27 | 3 |
 | /yazi/katar-vizesi-turkler-icin-90-gun-vizesiz-mi/ | 17 | 0 |
-| /yazi/ucagini-kacirdiysan-ne-yapmalisin/ | 14 | 0 |
-| /yazi/coklu-giris-vizesi-nedir-tek-giristen-farki/ | 17 | 5 |
-| /yazi/ | 11 | 2 |
-| /yazi/dubai-vizesi-turkler-icin-bordo-yesil-pasaport/ | 20 | 12 |
-| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 24 | 17 |
+| /yazi/japonya-vizesi-turkler-icin-zor-mu/ | 28 | 12 |
+| /yazi/coklu-giris-vizesi-nedir-tek-giristen-farki/ | 18 | 5 |
+| /yazi/ucagini-kacirdiysan-ne-yapmalisin/ | 13 | 1 |
+| /yazi/ | 12 | 4 |
+| /yazi/tax-free-kdv-iadesi-nasil-alinir/ | 8 | 2 |
 
 ## Düşenler
 | Sayfa | Şimdi | Önceki |
 |---|---|---|
-| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 36 | 67 |
-| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 7 | 37 |
-| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 22 | 46 |
-| /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 9 | 31 |
-| /yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/ | 12 | 31 |
-| /yazi/elektronik-seyahat-izni-eta-sistemleri-nedir/ | 4 | 22 |
-| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 30 | 48 |
-| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 18 | 34 |
+| /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 30 | 64 |
+| /yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/ | 26 | 52 |
+| /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 11 | 34 |
+| /yazi/malezyaya-kac-gun-vizesiz-kalinabilir/ | 15 | 37 |
+| /yazi/ozbekistan-vize-kurallari-kalis-suresi/ | 19 | 41 |
+| /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 7 | 28 |
+| /yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/ | 7 | 27 |
+| /yazi/elektronik-seyahat-izni-eta-sistemleri-nedir/ | 3 | 20 |
 
 ## Fırsat: 8-20. sıradaki sorgular (küçük iyileştirmeyle 1. sayfaya çıkabilir)
 | Sorgu | Sayfa | Gösterim | Sıra |
 |---|---|---|---|
-| pasaport geçerlilik süresi 6 aydan az | /yazi/pasaport-gecerlilik-suresi-neden-6-ay-sart/ | 6 | 9.0 |
-| balkanlara vizesiz gidilir mi | /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 5 | 10.2 |
-| londra schengen mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 4 | 9.8 |
-| biyometrik pasaport nedir | /yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/ | 3 | 9.3 |
+| pasaport geçerlilik süresi 6 aydan az | /yazi/pasaport-gecerlilik-suresi-neden-6-ay-sart/ | 5 | 9.2 |
+| londra schengen mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 3 | 10.3 |
+| balkanlara vizesiz gidilir mi | /yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/ | 2 | 10.5 |
 | ingiltere schengen'e dahil mi | /yazi/ingiltere-vizesi-schengenden-farkli-mi/ | 2 | 10.0 |
 
 ## 1-5. sırada ama tık yok (başlık/açıklama zayıf olabilir)
@@ -63,18 +62,18 @@ Dönem: 2026-10-17 → 2026-10-23 (önceki: 2026-10-10 → 2026-10-16)
 ## En çok gösterim alan sorgular
 | Sorgu | Gösterim | Tık | Sıra |
 |---|---|---|---|
-| schengen ülkeleri | 10 | 0 | 88.9 |
-| çin vizesi | 7 | 0 | 81.4 |
-| dubai vize istiyor mu | 6 | 0 | 87.0 |
-| pasaport geçerlilik süresi 6 aydan az | 6 | 0 | 9.0 |
-| balkanlara vizesiz gidilir mi | 5 | 0 | 10.2 |
-| londra schengen mi | 4 | 0 | 9.8 |
-| biyometrik pasaport nedir | 3 | 0 | 9.3 |
-| dubai vizeli mi | 3 | 0 | 98.7 |
-| gürcistan vize | 3 | 0 | 97.7 |
+| schengen ülkeleri | 9 | 0 | 89.1 |
+| dubai vize istiyor mu | 7 | 0 | 88.3 |
+| çin vizesi | 7 | 0 | 82.0 |
+| pasaport geçerlilik süresi 6 aydan az | 5 | 0 | 9.2 |
+| londra schengen mi | 3 | 0 | 10.3 |
+| pasaport fotoğrafı nasıl olmalı | 3 | 0 | 81.3 |
 | pasaport kaybolunca ne yapılır | 3 | 0 | 87.3 |
 | çin vize istiyor mu | 3 | 0 | 93.7 |
+| balkanlara vizesiz gidilir mi | 2 | 0 | 10.5 |
 | dubai için vize gerekiyor mu | 2 | 0 | 91.0 |
+| dubai vizeli mi | 2 | 0 | 99.5 |
 | dubai yeşil pasaport | 2 | 0 | 38.0 |
 | eski pasaportumu kaybettim yenisi için gerekli evraklar | 2 | 0 | 88.0 |
 | guney koreye nasil gidebilirim | 2 | 0 | 73.0 |
+| ingiltere schengen'e dahil mi | 2 | 0 | 10.0 |
