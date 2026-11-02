@@ -18,7 +18,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Nunito+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="/assets/gz.css?v=20261007">
+<link rel="stylesheet" href="/assets/gz.css?v=20261102">
 <style>
 .header{max-width:1220px;margin:0 auto;padding:36px clamp(16px,4vw,44px) 18px}
 .header h1{font:800 clamp(32px,5vw,54px)/1 var(--f-display);letter-spacing:-.035em;margin-bottom:10px}
@@ -63,8 +63,8 @@
 <div class="foot-links"><a href="/gizlilik/">Gizlilik</a><a href="/cerez-politikasi/">Çerezler</a><a href="/kullanim-kosullari/">Koşullar</a><button type="button" data-open-consent>Çerez tercihleri</button></div>
 <div class="foot-links"><a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a><a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a></div>
 </div></footer>
-<script src="/assets/consent.js?v=20261007" defer></script>
-<script src="/assets/ig-popup.js?v=20261007" defer></script>
+<script src="/assets/consent.js?v=20261102" defer></script>
+<script src="/assets/ig-popup.js?v=20261102" defer></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!--FOOT_END-->
 
 <script>
@@ -81,6 +81,8 @@ const db = firebase.firestore();
 
 const labels = {vize:'vize', firsat:'fırsat', rehber:'rehber', haber:'haber'};
 function ts(d){ return d.created_at && d.created_at.seconds ? d.created_at.seconds : 0; }
+const MONTHS_TR = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+function fmtDate(d){ if(!d.created_at||!d.created_at.seconds) return ''; const t = new Date(d.created_at.seconds*1000); return `${t.getDate()} ${MONTHS_TR[t.getMonth()]} ${t.getFullYear()}`; }
 
 const params = new URLSearchParams(window.location.search);
 const activeCat = params.get('category') || 'all';
@@ -131,6 +133,7 @@ async function loadPosts(){
       <a class="tagcard" href="/yazi/${encodeURIComponent(p.slug)}/">
         <img src="${(p.cover_image||'/img/covers/_default.jpg').replace('https://www.gezicorn.com','')}" alt="${p.title}" loading="lazy">
         <span class="chip ${p.category}">${labels[p.category]||p.category}</span>
+        <time class="card-date">${fmtDate(p)}</time>
         <h3>${p.title}</h3>
         <p>${p.excerpt||''}</p>
       </a>`).join('') || '<p class="empty">Bu filtrede henüz yazı yok.</p>';

@@ -353,7 +353,7 @@ ${AD_SCRIPT}${p.youtube_id ? YT_SCRIPT : ''}${affList.some(k => AFF[k].code) ? C
 
 function cardHtml(p) {
   const img = (absImg(p.cover_image) || `${BASE}/img/covers/_default.jpg`).replace(BASE, '');   // kapaksız yazı da aynı boyda kart olsun, kendi domainimizde göreli yol
-  return `<a class="tagcard" href="/yazi/${p.slug}/"><img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675"><span class="chip ${esc(p.category)}">${esc(CAT[p.category]?.short || p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></a>`;
+  return `<a class="tagcard" href="/yazi/${p.slug}/"><img src="${img}" alt="${esc(p.cover_alt || p.title)}" loading="lazy" width="1200" height="675"><span class="chip ${esc(p.category)}">${esc(CAT[p.category]?.short || p.category)}</span><time class="card-date" datetime="${isoDate(p.created)}">${trDate(p.created)}</time><h3>${esc(p.title)}</h3><p>${esc(p.excerpt || '')}</p></a>`;
 }
 
 function renderList(posts) {

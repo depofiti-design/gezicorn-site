@@ -55,6 +55,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:0}
 .tagcard:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 .tagcard::before{content:"";position:absolute;left:50%;top:10px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--bg);border:2.5px solid var(--ink)}
 .tagcard img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;border:2px solid var(--ink);display:block;margin-bottom:12px;background:var(--mint)}
+.tagcard .card-date{display:inline-block;margin-left:8px;font:600 11px var(--f-mono);color:var(--muted);vertical-align:middle}
 .tagcard h3{font:800 18px/1.22 var(--f-display);letter-spacing:-.01em;margin:10px 0 6px}
 .tagcard p{font-size:13.5px;color:var(--muted);line-height:1.5}
 
