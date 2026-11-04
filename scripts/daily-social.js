@@ -1,6 +1,8 @@
 // Günlük sosyal medya rutini (GitHub Actions cron ile çalışır, scripts/DAILY_SOCIAL.md'nin koda dökülmüş hali: LLM kullanmaz).
-// O günkü en yeni yayında yazıdan iki görsel üretir (social-image.py): feed 1080x1350 (4:5 dikey) ve hikaye 1080x1920 (9:16),
-// img/social/auto/ altına commit'leyip push'lar, sitede 200 dönene kadar bekler, sonra Instagram feed + Facebook feed + Instagram hikaye atar.
+// O günkü en yeni yayında yazıdan hikaye görseli üretir (social-image.py): 1080x1920 (9:16),
+// img/social/auto/ altına commit'leyip push'lar, sitede 200 dönene kadar bekler, sonra SADECE Instagram hikaye atar.
+// KURAL (kullanıcı 4 Kasım 2026, kalıcı): normal feed gönderisi (Instagram/Facebook fotoğraf postu) ARTIK ATILMIYOR,
+// sadece hikaye. Eskiden burada feed + hikaye ikisi de atılıyordu, feed adımı kaldırıldı.
 // KURAL (kullanıcı 23 ve 26 Eylül 2026): yatay 16:9 kapak/og görseli asla doğrudan feed ya da hikaye olmaz. Görsel üretilemezse HİÇBİR ŞEY paylaşılmaz.
 // Aynı yazıyı iki kez paylaşmamak için settings/social_automation.last_posted_slug'a bakar.
 // FORCE_SLUG=<slug>: o yazıyı zorla paylaşır (yaş ve last_posted_slug kontrolü yok, last_posted_slug değişmez).
@@ -10,12 +12,11 @@ import { writeFileSync, existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { db } from './firebase-client.js';
-import { postInstagram, postInstagramStory, postFacebook } from './lib-social.js';
+import { postInstagramStory } from './lib-social.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 const BASE = 'https://www.gezicorn.com';
-const HASHTAGS = { vize: '#vize', rehber: '#gezirehberi', haber: '#seyahathaberleri', firsat: '#firsat' };
 
 function pickKisaca(content) {
   const m = /^>\s*\*\*Kısaca:\*\*\s*(.+)$/m.exec(content || '');
@@ -58,46 +59,38 @@ async function main() {
   }
 
   const hook = strip(pickKisaca(latest.content) || latest.excerpt || latest.title);
-  const tag = HASHTAGS[latest.category] || '';
-  const url = `${BASE}/yazi/${latest.slug}/`;
 
-  // 1) görselleri üret (feed 4:5 + hikaye 9:16)
+  // 1) hikaye görselini üret (9:16). social-image.py feed görselini de üretir ama artık kullanılmıyor/paylaşılmıyor.
   const outDir = path.join(ROOT, 'img', 'social', 'auto');
   mkdirSync(outDir, { recursive: true });
   const inputPath = path.join(HERE, 'tmp-social-input.json');
   writeFileSync(inputPath, JSON.stringify({ slug: latest.slug, title: latest.title, hook, category: latest.category, cover_url: latest.cover_image || '', out_dir: outDir }));
   const py = process.platform === 'win32' ? 'python' : 'python3';
   console.log(execFileSync(py, [path.join(HERE, 'social-image.py'), inputPath], { encoding: 'utf8' }).trim());
-  const feedRel = `img/social/auto/${latest.slug}-feed.jpg`, storyRel = `img/social/auto/${latest.slug}-story.jpg`;
-  if (!existsSync(path.join(ROOT, feedRel)) || !existsSync(path.join(ROOT, storyRel))) throw new Error('Görseller üretilemedi, paylaşım iptal.');
+  const storyRel = `img/social/auto/${latest.slug}-story.jpg`;
+  if (!existsSync(path.join(ROOT, storyRel))) throw new Error('Hikaye görseli üretilemedi, paylaşım iptal.');
 
-  // 2) siteye yükle (Instagram/Facebook herkese açık URL ister) ve yayına girmesini bekle
-  git('add', feedRel, storyRel);
+  // 2) siteye yükle (Instagram herkese açık URL ister) ve yayına girmesini bekle
+  git('add', storyRel);
   try {
-    git('commit', '-m', `Sosyal görseller: ${latest.slug}`);
+    git('commit', '-m', `Sosyal görsel: ${latest.slug}`);
     try { git('pull', '--rebase', '--autostash'); } catch (e) { console.log('pull uyarı:', String(e.stderr || e).slice(0, 200)); }
     git('push');
   } catch (e) {
     console.log('commit/push notu:', String(e.stdout || e.stderr || e).slice(0, 300));
   }
-  const feedUrl = `${BASE}/${feedRel}`, storyUrl = `${BASE}/${storyRel}`;
-  if (!(await waitFor(feedUrl)) || !(await waitFor(storyUrl))) throw new Error('Görseller sitede yayına girmedi, paylaşım iptal.');
+  const storyUrl = `${BASE}/${storyRel}`;
+  if (!(await waitFor(storyUrl))) throw new Error('Hikaye görseli sitede yayına girmedi, paylaşım iptal.');
 
-  if (process.env.DRY_RUN) { console.log('DRY_RUN: görseller üretildi ve yayında, paylaşım yapılmadı:', feedUrl, storyUrl); return; }
+  if (process.env.DRY_RUN) { console.log('DRY_RUN: hikaye görseli üretildi ve yayında, paylaşım yapılmadı:', storyUrl); return; }
 
-  // 3) paylaş
-  const caption = `${latest.title}\n\n${hook}\n\nYazının tamamı profildeki linkte.\n\n#gezicorn ${tag}`.trim();
-  const caption_facebook = `${latest.title}\n\n${hook}\n\n${url}`;
-  console.log('Paylaşılıyor:', latest.slug);
-  const igId = await postInstagram({ image_url: feedUrl, caption });
-  console.log('Instagram feed:', igId);
-  const fbId = await postFacebook({ image_url: feedUrl, caption_facebook });
-  console.log('Facebook:', fbId);
+  // 3) paylaş (SADECE hikaye, normal feed postu yok)
+  console.log('Paylaşılıyor (hikaye):', latest.slug);
   const storyId = await postInstagramStory({ image_url: storyUrl });
   console.log('Instagram hikaye:', storyId);
 
   if (!force) await setDoc(stateRef, { last_posted_slug: latest.slug, last_posted_at: serverTimestamp() }, { merge: true });
-  console.log('Tamamlandı:', latest.slug, { igId, fbId, storyId });
+  console.log('Tamamlandı:', latest.slug, { storyId });
 }
 
 main().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });
