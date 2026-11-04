@@ -213,8 +213,28 @@ def preview():
     print('ok, 5 onizleme uretildi:', out)
 
 
+FORMATS = {'f1_kisaca': f1_kisaca, 'f2_sayi': f2_sayi, 'f3_mit': f3_mit, 'f4_liste': f4_liste, 'f5_karsilastir': f5_karsilastir}
+
+
+def render_cli(fmt, data_path, out_path):
+    import json
+    with open(data_path, encoding='utf-8') as f:
+        data = json.load(f)
+    fn = FORMATS.get(fmt)
+    if not fn:
+        raise SystemExit(f'bilinmeyen format: {fmt} (seçenekler: {", ".join(FORMATS)})')
+    if fmt == 'f1_kisaca':
+        data.setdefault('kicker', si.KICK.get(data.get('category'), 'GEZİCORN'))
+        data.setdefault('obj', si.pick_obj(data['title'], data.get('category')))
+    fn(data).save(out_path, quality=92, optimize=True)
+    print('ok', fmt, '->', out_path)
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'preview':
         preview()
+    elif len(sys.argv) > 1 and sys.argv[1] == 'render':
+        render_cli(sys.argv[2], sys.argv[3], sys.argv[4])
     else:
         print('kullanim: python story-formats.py preview')
+        print('       ya da: python story-formats.py render <format_adi> <veri.json> <cikti.jpg>')

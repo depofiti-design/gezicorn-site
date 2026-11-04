@@ -1,0 +1,18 @@
+[
+  { "format": "f2_sayi", "data": { "kicker": "SCHENGEN", "title": "Kısa süreli Schengen vizesi ücreti", "big": "90€", "sub": "Yetişkin için standart ücret, 6-12 yaş arası çocuklarda 45€. 6 yaş altı ücretsiz." } },
+  { "format": "f2_sayi", "data": { "kicker": "VİZE", "title": "10 yıllık pasaport harcı ne kadar?", "big": "14.761₺", "sub": "13.410 TL harç + 1.351 TL defter bedeli, 1 Ocak 2026'dan beri geçerli." } },
+  { "format": "f3_mit", "data": { "myth": "Kamboçya vizesi tamamen kaldırıldı, artık kapıda hiç işlem yok.", "stamp": "YANLIŞ", "truth": "E-vize hâlâ geçerli ve gerekli. Bazı ülkeler için kapıda vize kolaylığı var, deport haberleri bambaşka bir konu." } },
+  { "format": "f3_mit", "data": { "myth": "Schengen vizesi alınca her Schengen ülkesine süresiz oturabilirim.", "stamp": "YANLIŞ", "truth": "Schengen vizesi 180 günde en fazla 90 gün kısa süreli ziyaret hakkı verir, oturma izni ya da çalışma izni değildir." } },
+  { "format": "f4_liste", "data": { "kicker": "ÇIKMADAN ÖNCE", "title": "Yurt dışına çıkmadan önce 3 kontrol", "items": [
+    { "obj": "passport", "text": "Pasaport geçerlilik süresi en az 6 ay olmalı" },
+    { "obj": "phone", "text": "Seyahat sigortası poliçesini telefonuna kaydet" },
+    { "obj": "ticket", "text": "Dönüş bileti ya da devam bileti hazır olsun" }
+  ] } },
+  { "format": "f4_liste", "data": { "kicker": "BAŞVURUDA", "title": "Vize başvurusunda istenen ortak belgeler", "items": [
+    { "obj": "passport", "text": "En az 6 ay geçerli pasaport, boş sayfa" },
+    { "obj": "camera", "text": "Güncel biyometrik fotoğraf (son 6 ay)" },
+    { "obj": "ticket", "text": "Uçak rezervasyonu ve konaklama belgesi" }
+  ] } },
+  { "format": "f5_karsilastir", "data": { "kicker": "TAYLAND KURAL DEĞİŞİKLİĞİ", "title": "Vizesiz kalış süresi değişti", "left": { "label": "ESKİ", "obj": "passport", "big": "60 gün", "sub": "15 Eylül 2026'dan önce geçerliydi" }, "right": { "label": "YENİ", "obj": "stampobj", "big": "30 gün", "sub": "TDAC varış kartı zorunlu, resmi sistemden doldurulur" } } },
+  { "format": "f5_karsilastir", "data": { "kicker": "PASAPORT TÜRÜ FARKI", "title": "Bordo ve yeşil pasaportta vize farkı", "left": { "label": "BORDO", "obj": "passport", "big": "Vize şart", "sub": "Dubai gibi çoğu ülkede önceden vize/e-vize gerekir" }, "right": { "label": "YEŞİL", "obj": "stampobj", "big": "90 gün muaf", "sub": "Hususi pasaportta birçok ülkede vize muafiyeti var" } } }
+]

@@ -21,3 +21,5 @@ scripts/youtube-token.backup.json
 scripts/youtube-token.depofiti-wrong.json
 scripts/elevenlabs-key.local.txt
 scripts/__pycache__/
+scripts/tmp-story-preview/
+reels-mascot/
