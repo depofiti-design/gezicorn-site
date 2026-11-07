@@ -1,0 +1,1131 @@
+{
+  "checked_at": "2026-11-07T07:17:43.081Z",
+  "total": 164,
+  "indexed": 137,
+  "not_indexed": 27,
+  "errors": 0,
+  "results": [
+    {
+      "url": "https://www.gezicorn.com/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T19:07:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T21:14:51Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/danismanlik.html",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T17:45:39Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/vize-tablosu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-15T17:56:53Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/hakkimizda/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-17T11:06:31Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/iletisim/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-06T04:53:49Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/gizlilik/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-13T03:08:18Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/cerez-politikasi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T20:00:21Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/kullanim-kosullari/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T18:55:34Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-markette-alisveris-yaparken-nelere-dikkat-edilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/suudi-arabistan-vizesi-turkler-icin-nasil-alinir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/esta-nedir-turkler-icin-gecerli-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/guneydogu-asyada-scooter-motosiklet-kiralama-rehberi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/tc-kimlik-kartiyla-pasaportsuz-girilebilen-ulkeler/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yilbasinda-vizesiz-gidilecek-en-uygun-rotalar/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/schengen-vize-randevusu-neden-zor-bulunuyor-ne-zaman-basvurmali/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/gumrukte-kirmizi-hat-yesil-hat-ne-anlama-gelir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/rusyada-odeme-ve-banka-hesabi-turistler-icin-rehber/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kirgizistan-manas-universitesi-rehberi-yurt-kayit-bolumler/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kambocyada-yabancilara-banka-hesabi-nasil-acilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/apis-nedir-check-inde-pasaport-bilgisi-neden-isteniyor/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucakta-bagaj-agirlik-boyut-siniri-ekstra-ucretten-kacinma/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-31T10:06:27Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/iran-vizesi-turkler-icin-90-gun-vizesiz-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-30T09:40:15Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaportta-bos-vize-sayfasi-sarti-kac-sayfa-gerekir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T09:40:18Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/cocukla-yurt-disina-cikarken-muvafakatname-sart-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:38:08Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/umman-vizesi-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/urdun-vizesi-turkler-icin-on-kapida-vize/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/tayvan-vizesi-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/fas-vizesi-turkler-icin-gerekli-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-para-transferi-en-ucuz-yontemler/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/seyahat-cantasi-paketleme-teknikleri-yer-kazanma/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-kayip-esya-icin-sigortaya-nasil-basvurulur/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/havalimaninda-uzun-aktarmada-vakit-nasil-degerlendirilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T09:07:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-dil-engeli-nasil-asilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/grup-seyahati-mi-tek-basina-mi-hangisi-sana-uygun/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/backpacker-indirim-kartlari-nasil-kullanilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/dijital-gocebe-toplulugu-indirimleri-nasil-bulunur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/sezonluk-tarim-isci-vizesi-avrupada-nasil-alinir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucuz-ucak-bileti-fiyat-alarmi-nasil-kurulur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-staj-programlari-nasil-bulunur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/workaway-worldpackers-gibi-gonullu-platformlari-nasil-calisir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/au-pair-programi-nedir-turkler-nasil-basvurur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/hostelde-calisarak-konaklama-work-exchange-nedir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/erasmus-ve-degisim-programlari-turk-ogrenciler-icin/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/work-and-travel-abd-turkler-icin-nasil-basvurulur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/jet-lag-nedir-nasil-gecer/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/singapur-vizesi-turkler-icin-kac-gun-vizesiz/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-26T09:00:11Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/soyadi-degisince-pasaport-nasil-guncellenir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-24T08:58:13Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-arac-kiralarken-nelere-dikkat-etmeli/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-24T08:58:13Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucakta-powerbank-tasima-kurallari-nedir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T01:00:17Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yunan-adalarina-ekspres-vize-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-23T00:56:57Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/peru-vizesi-turkler-icin-90-gun-vizesiz-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-22T08:57:49Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-kartla-oderken-tl-mi-yerel-para-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-21T08:56:54Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-taksi-dolandiriciligindan-nasil-korunursun/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-20T08:57:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/katar-vizesi-turkler-icin-90-gun-vizesiz-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-19T08:55:38Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucus-rotarinda-iptalinde-tazminat-hakki-ab261/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-18T08:57:47Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucagini-kacirdiysan-ne-yapmalisin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-17T08:57:41Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/karadag-turklere-vize-sarti-getirdi-1-kasim-2026/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-16T16:59:17Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/cin-vizesi-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-16T09:00:10Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disina-cikis-yasagi-var-mi-nasil-ogrenilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-16T09:00:10Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-konaklama-otel-hostel-airbnb-farki/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-14T08:56:41Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/sri-lanka-vizesi-eta-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-13T08:58:30Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/azerbaycana-kimlikle-giris-var-mi-turkler-icin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-13T08:58:30Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disi-cikis-harci-nedir-kimler-muaf/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-01T19:00:15Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-hastalanirsan-ne-yapmalisin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-11T08:57:35Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/endonezya-bali-vizesi-turkler-icin-kurallar/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/dunya-pasaportlari-neden-farkli-renklerde/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T05:10:23Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/backpacker-butcesi-nasil-planlanir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-09T18:41:02Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yeni-zelanda-nzeta-nedir-turkleri-ilgilendiriyor-mu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-09T19:06:31Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/hindistan-e-vizesi-turkler-icin-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-09T19:13:20Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kapida-varista-vize-nedir-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-07T20:45:12Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/cift-vatandas-hangi-pasaportla-seyahat-etmeli/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-07T15:04:25Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/tek-basina-seyahat-guvenli-mi-solo-gezginler-icin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-06T07:39:09Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/misir-vizesi-turkler-icin-e-vize-kapida-vize/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-04T22:22:36Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/etias-nedir-turkleri-ilgilendiriyor-mu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-04T07:56:29Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/tax-free-kdv-iadesi-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-12T05:24:40Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/schengen-vizesinde-hangi-ulkeye-basvurulmali/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-01T21:51:32Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucakta-100-ml-sivi-kurali-hala-gecerli-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-30T23:40:25Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucakta-bagaj-kaybolursa-gecikirse-ne-yapmali/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-30T01:49:05Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-basvurusunda-parmak-izi-neden-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-29T02:47:07Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turk-devletleri-teskilati-ortak-pasaport-plani/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-29T10:06:38Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/schengen-vizesi-ucreti-2026-ne-kadar/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-28T00:45:33Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yeni-nesil-polikarbonat-turk-pasaportu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-28T01:15:40Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ab-giris-cikis-sistemi-ees-tam-devrede/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-27T23:13:02Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/bangkokta-sel-felaketi-taylanda-gidecekler-dikkat/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-18T01:52:14Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-suresi-ile-kalis-suresi-arasindaki-fark/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-28T01:19:31Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaport-fotografi-nasil-olmali-icao-standartlari/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T20:26:50Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-evraklarinda-meslege-gore-farklar/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T03:13:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/gurcistan-vizesi-turkler-icin-kimlikle-giris-sigorta/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T01:34:44Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/dubai-vizesi-turkler-icin-bordo-yesil-pasaport/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-12T10:32:33Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/balkanlara-vizesiz-gidilir-mi-turkler-icin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T19:42:48Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kambocya-e-arrival-card-nedir-nasil-doldurulur/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-12T10:30:09Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turk-pasaportuyla-vizesiz-ulkeler-ve-gun-sayilari/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-24T03:21:03Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-acil-durumda-konsoloslukla-nasil-iletisime-gecilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-30T05:57:22Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-basvuru-merkezi-vfs-tlscontact-ne-is-yapar/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T16:12:36Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/sinirda-donus-bileti-neden-soruluyor-yeterlilik-ispati/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:05:07Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-18T21:46:23Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T16:44:27Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disina-cikarken-bavula-ne-konulur-liste/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T13:37:19Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kamp-cantasi-ve-cadir-secerken-nelere-bakilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T13:50:46Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T17:10:13Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/decathlon-alternatifleri-seyahat-ve-kamp-ekipmani/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-29T10:04:29Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-uzun-sureli-kiralik-ev-nasil-bulunur/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T12:06:48Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ikamet-izni-ile-vize-arasindaki-fark/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T08:19:17Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/konsoloslukta-randevu-beklerken-ogrendiklerim/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T09:46:40Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/havalimaninda-pasaport-gumruk-kontrolu-nelere-dikkat/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T09:57:21Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/transit-vizesi-nedir-hangi-durumlarda-gerekir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:19:40Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/elektronik-seyahat-izni-eta-sistemleri-nedir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T15:46:56Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disina-cikis-yasagi-nasil-sorgulanir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:17:20Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-basvurusunda-davetiye-mektubu-sponsorluk/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T22:38:58Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/e-kapilar-e-gates-nedir-pasaport-kontrolu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-25T18:01:12Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-nakit-mi-kart-mi-kullanmali/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T07:56:52Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-basvurusunda-mulakat-sureci-nasil-isliyor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T16:14:16Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vizesiz-seyahat-anlasmalari-karsiliklik-ilkesi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-20T15:20:15Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T08:27:44Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-reddi-sonrasi-itiraz-yeniden-basvuru-sureci/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-14T04:12:55Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/biyometrik-pasaport-e-pasaport-nedir-farki-ne/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T08:04:53Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-esim-kullanimi-nasil-calisir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T07:56:52Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/coklu-giris-vizesi-nedir-tek-giristen-farki/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T11:31:26Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/sari-kart-uluslararasi-asi-sertifikasi-nedir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T16:02:51Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/uluslararasi-surucu-belgesi-nedir-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:44:45Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kambocya-vizesi-turkler-icin-e-vize-sureci/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T01:52:17Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaport-gecerlilik-suresi-neden-6-ay-sart/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T08:04:07Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vietnam-vizesi-turkler-icin-e-vize-sureci/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:10:31Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/seyahat-sigortasi-neden-sart-nasil-secilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T07:30:36Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ab-dijital-schengen-vizesi-plani/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T06:56:13Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-ucretleri-neden-artiyor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:02:39Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/dijital-nomad-vizesi-nedir-hangi-ulkeler/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:30:57Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaport-yenileme-sureci-nasil-isliyor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T12:05:06Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/konsolosluk-randevu-sistemleri-idata-vfs-bls/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T09:56:44Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-danismanligi-secerken-nelere-dikkat-etmeli/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:18:20Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/pasaport-turleri-bordo-yesil-hususi-gri-fark/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "lastCrawlTime": "2026-09-19T12:20:19Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-cesitleri-turistik-ogrenci-calisma-transit/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T22:21:38Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/e-vize-nedir-hangi-ulkelerde-var/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T12:03:58Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-basvurusunda-istenen-ortak-belgeler/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T14:32:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turk-pasaportuyla-en-cok-red-alinan-ulkeler/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T00:56:13Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/schengen-bolgesi-hangi-ulkeleri-kapsiyor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-24T14:38:40Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/almanya-vizesi-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T21:08:20Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ingiltere-vizesi-schengenden-farkli-mi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T03:39:56Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turkiye-ab-vize-serbestisi-gorusmeleri/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T12:12:39Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kirgizistan-vizesi-turkler-icin-ne-gerekiyor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-17T16:03:57Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kazakistana-vizesiz-girmek-mumkun-mu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T15:15:15Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ozbekistan-vize-kurallari-kalis-suresi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T04:50:37Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/orta-asyada-vizesiz-ulkeler-listesi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T19:09:51Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/tayland-vize-muafiyeti-kuru-sezon-rehberi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-30T14:24:23Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/malezyaya-kac-gun-vizesiz-kalinabilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-25T15:26:18Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/hong-konga-giriste-vize-gerekiyor-mu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:35:27Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/japonya-vizesi-turkler-icin-zor-mu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T09:50:28Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/guney-kore-vize-surecinde-dikkat-edilmesi-gerekenler/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T08:04:16Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/rusya-e-vize-basvurusu-nasil-yapilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-03T14:18:39Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/bdt-ulkelerine-vizesiz-seyahat-rehberi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T09:44:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/dunyanin-en-zor-alinan-vizeleri-hangileri/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:09:18Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/abd-vizesi-neden-bu-kadar-zor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-28T06:17:41Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kanada-vizesi-basvuru-sureci-red-sebepleri/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T06:07:22Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/avustralya-vizesi-turkler-icin-ne-kadar-zor/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T07:30:36Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-gonullu-projelere-nasil-katilirsin/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-27T06:59:27Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/gonullu-vizesi-nasil-alinir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T05:05:47Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ucretsiz-gonulluluk-programlari-nereden-bulunur/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T12:19:28Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/vize-mulakatina-nasil-hazirlanilir-10-ipucu/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T18:48:01Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ilk-kez-yurt-disina-cikacaklar-icin-vize-checklist/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-19T10:04:20Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/neden-gezmeli-rotasiz-hayat/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T12:53:42Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turkiyeden-cikis-gezme-istegi/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-29T11:49:18Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/turklerin-en-sevdigi-vizesiz-rotalar/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-20T20:53:50Z",
+      "robotsTxtState": "ALLOWED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/schengen-vizesi-neden-reddedilir/",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-20T23:02:32Z",
+      "robotsTxtState": "ALLOWED"
+    }
+  ]
+}
