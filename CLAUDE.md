@@ -424,3 +424,9 @@ Barbaros — freelance web geliştirici, Bişkek'ten Phnom Penh'e taşınma sür
 - **Ders (tekrar):** Günün başında `git fetch` yapıp `git merge --ff-only` etmeden `reels-queue.json`'u okuyunca yanlışlıkla "iki reel saatlerce gecikmiş" sandım, oysa sadece local klon 6 commit gerideydi. Fetch + merge sonrası her şey normaldi. **Bu proje için her oturum/kontrol başında önce `git fetch origin main && git merge --ff-only origin/main` yapmak artık standart ilk adım olmalı.**
 - **2 yeni günlük otomasyon yazısına kapak eklendi:** `esta-nedir-turkler-icin-gecerli-mi`, `guneydogu-asyada-scooter-motosiklet-kiralama-rehberi`. Yayında kapaksız yazı yok.
 - **Haber taraması:** Yunan adaları kapıda vize uzatması (Mart 2026, 1 yıl) arama sonuçlarında çıktı ama **zaten** `yunan-adalarina-ekspres-vize-turkler-icin-nasil-alinir` yazısında (12 ada, uzatma tarihi, ücret aralığı, KKTC damga şartı) eksiksiz işlenmiş durumda, güncelleme gerekmedi. Başka güncel (son 24-48 saat) bir gelişme bulunamadı. **Sonuç: yine yeni yazı boşluğu çıkmadı**, site gündemi iyi karşılıyor.
+
+## 7 Kasım 2026: günlük rutin kontrol
+- 2 günlük boşlukta (5-7 Kasım) her şey sorunsuz işlemiş: günlük içerik otomasyonu `suudi-arabistan-vizesi-turkler-icin-nasil-alinir` yazısını ekledi, hikaye rotasyonu her gün 2 kart attı, reels throttle çalıştı (son 5 yayın arası 4.8h-24.8h, hep ≥4 saat). 67 reel yayında, 13 kaldı.
+- Tek eksik kapak (Suudi Arabistan) kapatıldı, yayında kapaksız yazı yok (160/160).
+- SEO raporu: toplam tık 10→13'e çıktı, VFS SSS düzeltmesinin etkisi henüz netleşmedi (gecikme var). Alarm yok.
+- Haber taraması: 6-7 Kasım için somut/yeni bir gelişme bulunamadı, yeni yazı eklenmedi.
