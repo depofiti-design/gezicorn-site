@@ -26,7 +26,9 @@ const CAT = {
   haber:  { label: 'Haberler & gelişmeler', short: 'haber' },
 };
 const COUNTRIES = ['Kırgızistan','Kazakistan','Özbekistan','Rusya','Tayland','Malezya','Hong Kong','Kamboçya','Vietnam',
-  'Japonya','Güney Kore','Avustralya','Kanada','ABD','İngiltere','Almanya','Schengen','Gürcistan','Azerbaycan','Dubai','Balkanlar'];
+  'Japonya','Güney Kore','Avustralya','Kanada','ABD','İngiltere','Almanya','Schengen','Gürcistan','Azerbaycan','Dubai','Balkanlar',
+  'Endonezya','Hindistan','Meksika','Suudi Arabistan','Filipinler','Güney Afrika','Mısır','Umman','Katar','Ürdün','Fas','Tayvan',
+  'Singapur','Peru','İran','BAE','Yeni Zelanda','Sri Lanka','Moldova','Çin'];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 const jsonLd = obj => JSON.stringify(obj).replace(/</g, '\\u003c');
@@ -111,8 +113,22 @@ function extractFaq(blocks) {
 
 function wordCount(content) { return (content || '').split(/\s+/).filter(Boolean).length; }
 
+// Alt dize eşleşmesi kelime sınırına bakmaz: "Çin" kelimesi "için" içinde de geçer. Eşleşen
+// kısmın hemen öncesi/sonrası Türkçe harf değilse kabul et (gerçek kelime/öbek sınırı).
+const TR_LETTERS = 'abcçdefgğhıijklmnoöprsştuüvyzqwx';
+function containsWord(haystackLower, needleLower) {
+  let idx = haystackLower.indexOf(needleLower);
+  while (idx !== -1) {
+    const before = idx === 0 ? '' : haystackLower[idx - 1];
+    const after = idx + needleLower.length >= haystackLower.length ? '' : haystackLower[idx + needleLower.length];
+    if (!TR_LETTERS.includes(before) && !TR_LETTERS.includes(after)) return true;
+    idx = haystackLower.indexOf(needleLower, idx + 1);
+  }
+  return false;
+}
 function countryOf(p) {
-  return COUNTRIES.filter(c => trLower(p.title).includes(trLower(c)));
+  const t = trLower(p.title);
+  return COUNTRIES.filter(c => containsWord(t, trLower(c)));
 }
 
 function related(post, all) {

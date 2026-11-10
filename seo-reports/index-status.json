@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-07T07:17:43.081Z",
-  "total": 164,
+  "checked_at": "2026-11-10T09:37:54.304Z",
+  "total": 178,
   "indexed": 137,
-  "not_indexed": 27,
+  "not_indexed": 41,
   "errors": 0,
   "results": [
     {
@@ -69,9 +69,93 @@
       "robotsTxtState": "ALLOWED"
     },
     {
-      "url": "https://www.gezicorn.com/yazi/yurt-disinda-markette-alisveris-yaparken-nelere-dikkat-edilir/",
+      "url": "https://www.gezicorn.com/yazi/vietnamda-ise-yarayan-uygulamalar-taksi-yemek-odeme/",
       "verdict": "NEUTRAL",
       "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/meksika-vizesi-turkler-icin-gerekli-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disina-ne-kadar-nakit-cikarilabilir-beyan-siniri/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/taskentte-toplu-tasima-metro-otobus-nasil-kullanilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/ozbekistanda-ise-yarayan-uygulamalar-taksi-yemek-odeme/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/kazakistanda-ise-yarayan-uygulamalar-taksi-odeme-harita/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/biskekten-taskente-otobusle-gitmek-sinir-gecisi-rehberi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/angkor-wat-ziyaret-rehberi-bilet-saat-en-iyi-zaman/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/filipinler-vizesi-turkler-icin-gerekli-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/cinde-240-saatlik-vizesiz-transit-turkiye-listede-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/uk-eta-turkleri-ilgilendiriyor-mu/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/guney-afrika-vizesi-turkler-icin-gerekli-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/bae-altin-vize-nedir-turk-vatandaslari-nasil-basvurur/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/green-card-dv-lottery-nedir-turkler-basvurabilir-mi/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.gezicorn.com/yazi/yurt-disinda-markette-alisveris-yaparken-nelere-dikkat-edilir/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -83,7 +167,7 @@
     {
       "url": "https://www.gezicorn.com/yazi/esta-nedir-turkler-icin-gecerli-mi/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -101,31 +185,31 @@
     {
       "url": "https://www.gezicorn.com/yazi/yilbasinda-vizesiz-gidilecek-en-uygun-rotalar/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/schengen-vize-randevusu-neden-zor-bulunuyor-ne-zaman-basvurmali/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/gumrukte-kirmizi-hat-yesil-hat-ne-anlama-gelir/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/rusyada-odeme-ve-banka-hesabi-turistler-icin-rehber/",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/kirgizistan-manas-universitesi-rehberi-yurt-kayit-bolumler/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -137,7 +221,7 @@
     {
       "url": "https://www.gezicorn.com/yazi/apis-nedir-check-inde-pasaport-bilgisi-neden-isteniyor/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -227,7 +311,7 @@
     {
       "url": "https://www.gezicorn.com/yazi/yurt-disinda-dil-engeli-nasil-asilir/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -263,13 +347,13 @@
     {
       "url": "https://www.gezicorn.com/yazi/yurt-disinda-staj-programlari-nasil-bulunur/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/workaway-worldpackers-gibi-gonullu-platformlari-nasil-calisir/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
@@ -281,19 +365,19 @@
     {
       "url": "https://www.gezicorn.com/yazi/hostelde-calisarak-konaklama-work-exchange-nedir/",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/erasmus-ve-degisim-programlari-turk-ogrenciler-icin/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.gezicorn.com/yazi/work-and-travel-abd-turkler-icin-nasil-basvurulur/",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED"
     },
     {
