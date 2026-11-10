@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase-client.js';
 import { FOOT_HTML, CSS_V } from './site-parts.js';
@@ -475,6 +476,9 @@ if (idx.includes('<!--LATEST_START-->')) {
     writeFileSync(idxPath, cur, 'utf-8');
   }
 }
+
+// llms.txt (AI arama/yanıt motorları için site özeti) burada da eskimesin diye her build'de tazelenir
+try { console.log(execFileSync('node', ['build-llms-txt.js'], { encoding: 'utf8', cwd: path.dirname(fileURLToPath(import.meta.url)) }).trim()); } catch (e) { console.log('llms.txt güncellenemedi:', String(e.stdout || e.message || e).slice(0, 200)); }
 
 console.log(`build-static: ${posts.length} yazı sayfası (${posts.length - pub.length} noindex) + liste + sitemap (${urls.length} URL) üretildi.`);
 process.exit(0);

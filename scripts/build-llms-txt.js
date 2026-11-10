@@ -14,7 +14,7 @@ const byCat = {};
 for (const p of posts) (byCat[p.category] ??= []).push(p);
 for (const k in byCat) byCat[k].sort((a, b) => (b.created_at?.seconds || 0) - (a.created_at?.seconds || 0));
 
-const CAT_LABEL = { vize: 'Vize rehberleri', rehber: 'Seyahat rehberleri', haber: 'Güncel haberler', firsat: 'Fırsatlar' };
+const CAT_LABEL = { vize: 'Vize rehberleri', rehber: 'Seyahat rehberleri', haber: 'Güncel haberler', firsat: 'Fırsatlar ve gönüllülük' };
 const section = (cat, n) => {
   const list = (byCat[cat] || []).slice(0, n);
   if (!list.length) return '';
@@ -28,7 +28,7 @@ const out = `# Gezicorn
 Site: ${BASE}
 Vize tablosu (ülke ülke vizesiz kalış süreleri): ${BASE}/vize-tablosu/
 Tüm yazılar: ${BASE}/yazi/
-${section('vize', 25)}${section('rehber', 15)}${section('haber', 10)}
+${section('vize', 60)}${section('rehber', 40)}${section('firsat', 25)}${section('haber', 15)}
 ## Notlar
 - İçerik Türkçe'dir, hedef kitle Türk vatandaşlarıdır (T.C. pasaportu/kimliği).
 - Vize ve sınır kuralları değişebilir, bu sayfalar yayın tarihli bilgidir; en güncel durum için resmi kaynak (T.C. Dışişleri Bakanlığı, ilgili ülke konsolosluğu) önerilir.
@@ -36,4 +36,5 @@ ${section('vize', 25)}${section('rehber', 15)}${section('haber', 10)}
 `;
 
 writeFileSync('../llms.txt', out, 'utf-8');
-console.log('llms.txt yazıldı:', out.split('\n').length, 'satır,', Object.values(byCat).reduce((a, l) => a + l.length, 0), 'yazıdan', 50, 'tanesi listelendi');
+const listed = (out.match(/^- \[/gm) || []).length;
+console.log('llms.txt yazıldı:', out.split('\n').length, 'satır,', posts.length, 'yazıdan', listed, 'tanesi listelendi');
