@@ -71,6 +71,7 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 
 ## Seyahat rehberleri
 
+- [Tayland'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/taylandda-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Tayland'da taksi, yemek siparişi ve ödeme için hangi uygulamalar çalışır, hangileri artık hizmet vermiyor. Gitmeden indirmen gereken listeyi anlatıyoruz.
 - [Vietnam'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/vietnamda-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Vietnam'da işini görecek uygulamalar: Grab ile taksi ve yemek, Be alternatifi, MoMo ve ZaloPay ile ödeme nasıl yapılır, hepsi tek yazıda.
 - [Taşkent'te Toplu Taşıma: Metro ve Otobüs Nasıl Kullanılır?](https://www.gezicorn.com/yazi/taskentte-toplu-tasima-metro-otobus-nasil-kullanilir/): Taşkent metrosu Orta Asya'nın en eski ve en gösterişli metrolarından biri. Kart sistemi, hat yapısı ve turistler için pratik bilgiler burada.
 - [Özbekistan'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/ozbekistanda-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Özbekistan'da taksi için Yandex Go, ödeme için Payme ve Click, harita için 2GIS işini görür. Gitmeden önce indirip ayarlaman gerekenler burada.
@@ -110,7 +111,6 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 - [Kamboçya'da İşe Yarayan Uygulamalar: Tuk-Tuk, Yemek, Ödeme](https://www.gezicorn.com/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/): Kamboçya'ya gitmeden indir: PassApp, Grab, foodpanda, Bakong Tourists, Google Maps ve Google Translate. Tuk-tuk, yemek, ödeme ve harita için 6 uygulama.
 - [Yurt Dışı Bavul ve Çanta Listesi: Ne Götürmeli, Ne Bırakmalı?](https://www.gezicorn.com/yazi/yurt-disina-cikarken-bavula-ne-konulur-liste/): Yurt dışı seyahatinde çantaya konacak belgeler, kıyafet, elektronik ve sağlık eşyaları. İlk kez çıkanlar için sade bir liste ve fazla getirilen şeyler.
 - [Çadır ve Kamp Çantası Alırken Nelere Bakılır? Başlangıç Rehberi](https://www.gezicorn.com/yazi/kamp-cantasi-ve-cadir-secerken-nelere-bakilir/): İlk çadırını ve kamp çantanı alırken mevsim, kişi sayısı, su geçirmezlik, ağırlık ve kurulum kolaylığı kriterleri. Gereksiz para harcamadan doğru seçim.
-- [Sırt Çantası Nasıl Seçilir? İlk Kez Yurt Dışına Çıkanlar İçin](https://www.gezicorn.com/yazi/ilk-kez-yurt-disina-cikanlar-icin-sirt-cantasi-nasil-secilir/): İlk yurt dışı seyahati için sırt çantası seçerken litre, sırt uyumu, ağırlık ve kabin boyutu kriterleri. Marka değil ihtiyaca göre seçim rehberi.
 
 ## Fırsatlar ve gönüllülük
 
