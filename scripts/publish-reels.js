@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { postInstagramReel, postFacebookLink, postFacebookVideo } from './lib-social.js';
+import { postInstagramReel, postFacebookLink, postFacebookVideo, postFacebookComment, postInstagramComment } from './lib-social.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const QUEUE = path.join(__dirname, 'reels-queue.json');
@@ -50,5 +50,22 @@ item.published_id = result;
 item.published_at = new Date().toISOString();
 console.log('Yayında:', item.id, JSON.stringify(result));
 if (due.length > 1) console.log(`Not: ${due.length - 1} öğe daha vadesi gelmiş durumda, günlük/4 saatlik kurala göre sıradaki uygun çalıştırmada yayınlanacak.`);
+
+// Yayından hemen sonra site linkli bir tanıtım yorumu atar (kullanıcı 14 Kasım 2026). Composio'da yorum
+// SABİTLEME aksiyonu yok, sadece oluşturma var; sabitlemek istenirse Meta uygulamasından elle yapılmalı.
+if (item.article_slug) {
+  const msg = `Bu konu ve ücretsiz rota planı önerileri dahil daha fazla pratik bilgi için yazımıza bakabilirsin: https://www.gezicorn.com/yazi/${item.article_slug}/`;
+  const commentResult = {};
+  try {
+    if (result.facebook) commentResult.facebook = await postFacebookComment({ object_id: result.facebook, message: msg });
+  } catch (e) { console.error('[yorum/FB] hata:', e.message || e); }
+  if (result.instagram) {
+    await new Promise((r) => setTimeout(r, 20000));
+    try { commentResult.instagram = await postInstagramComment({ ig_media_id: result.instagram, message: msg }); }
+    catch (e) { console.error('[yorum/IG] hata:', e.message || e); }
+  }
+  item.commented_at = new Date().toISOString();
+  item.comment_result = commentResult;
+}
 
 writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + '\n', 'utf-8');

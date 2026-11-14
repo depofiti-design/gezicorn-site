@@ -137,3 +137,25 @@ export async function postFacebookVideo({ file_url, title, description }) {
   }]);
   return result.id;
 }
+
+// NOT: Composio'nun FACEBOOK/INSTAGRAM araç setinde yorum SABİTLEME (pin) aksiyonu yok (14 Kasım 2026'da
+// arandı, yok). Sadece yorum oluşturulabilir. object_id çıplak sayısal post id ya da 'pageId_postId' olabilir.
+export async function postFacebookComment({ object_id, message }) {
+  const result = await multiExecute([{
+    tool_slug: 'FACEBOOK_CREATE_COMMENT',
+    arguments: { object_id, message },
+    account: FB_ACCOUNT
+  }]);
+  return result.id;
+}
+
+// ig_media_id = postInstagramReel/postInstagram'ın döndürdüğü id. Mesaj en fazla 300 karakter, en fazla
+// 1 URL ve 4 hashtag içerebilir (Instagram kısıtı).
+export async function postInstagramComment({ ig_media_id, message }) {
+  const result = await multiExecute([{
+    tool_slug: 'INSTAGRAM_POST_IG_MEDIA_COMMENTS',
+    arguments: { ig_media_id, message },
+    account: IG_ACCOUNT
+  }]);
+  return result.id;
+}

@@ -1,0 +1,41 @@
+name: Eski reels'lere yorum
+
+# Gecmiste yayinlanmis reels'lerin altina site linkli tanitim yorumu ekler (kullanici 14 Kasim 2026).
+# Bot/spam kontrolune takilmamak icin gunde sadece birkac kez, her calistirmada en fazla 2 oge islenir
+# (bkz. scripts/backfill-comments.js). ~79 ogelik kuyruk bu hizla yaklasik 1.5-2 haftada biter.
+on:
+  schedule:
+    - cron: '20 5,11,17,23 * * *'
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Bu calistirmada islenecek oge sayisi (bos birak = varsayilan 2)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+      - name: Yorum at
+        working-directory: scripts
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          BACKFILL_BATCH_SIZE: ${{ github.event.inputs.batch_size }}
+        run: node backfill-comments.js
+      - name: Durumu kaydet
+        run: |
+          git config user.name "gezicorn-bot"
+          git config user.email "bot@gezicorn.com"
+          git add scripts/reels-queue.json
+          git diff --cached --quiet || (git commit -m "Eski reels yorumlari: durum guncellendi" && git push)
