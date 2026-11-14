@@ -3,8 +3,11 @@ name: Günlük sosyal medya
 on:
   schedule:
     # 07:00 UTC = 10:00 Europe/Istanbul. Günlük içerik rutini (Claude Code cloud) 06:00 UTC'de
-    # çalışıp yazıyı ekliyor; deploy ve yayına girme süresi için 1 saat sonrasına ayarlandı.
+    # çalışıp yazıyı ekliyor; deploy ve yayına girme süresi için 1 saat sonrasına ayarlandı. Hikaye A.
     - cron: '0 7 * * *'
+    # 13:00 UTC = 16:00 Europe/Istanbul, A'dan 6 saat sonra (kullanıcı 14 Kasım 2026: aralarında en az
+    # 4 saat olsun, ard arda atılmasın). Hikaye B.
+    - cron: '0 13 * * *'
   workflow_dispatch:
     inputs:
       force_slug:
@@ -13,6 +16,10 @@ on:
         default: ''
       dry_run:
         description: 'true yazarsan sadece görselleri üretir, paylaşmaz (test)'
+        required: false
+        default: ''
+      story:
+        description: 'Boş bırak = ikisi de. A ya da B yazarsan sadece o hikaye atılır (test için)'
         required: false
         default: ''
 
@@ -39,10 +46,20 @@ jobs:
         run: |
           git config user.name "gezicorn-bot"
           git config user.email "bot@gezicorn.com"
+      - name: Hangi hikaye zamanı?
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 13 * * *" ]; then
+            echo "STORY_SLOT=B" >> "$GITHUB_ENV"
+          elif [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
+            echo "STORY_SLOT=A" >> "$GITHUB_ENV"
+          else
+            echo "STORY_SLOT=${{ github.event.inputs.story }}" >> "$GITHUB_ENV"
+          fi
       - name: Paylaş
         working-directory: scripts
         env:
           COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
           FORCE_SLUG: ${{ github.event.inputs.force_slug }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
+          STORY_SLOT: ${{ env.STORY_SLOT }}
         run: node daily-social.js

@@ -4,6 +4,9 @@
 // güne göre dönen (gün-of-year % havuz uzunluğu) ikinci bir format (büyük sayı / mit kırma / liste / karşılaştırma).
 // Formatlar scripts/story-formats.py'de (5 farklı tasarım, kullanıcı 4 Kasım'da hepsini onayladı). 3. hikaye (özel
 // durum: düzeltme, haber vb.) otomasyonun dışında, elle eklenir.
+// KURAL (kullanıcı 14 Kasım 2026): A ve B hikayesi ARD ARDA atılmasın, aralarında en az 4 saat olsun.
+// Bu yüzden workflow iki ayrı cron'la (10:00 ve 16:00 TR) tetiklenir, STORY_SLOT env'i hangisinin
+// çalışacağını seçer ('A', 'B' ya da boşsa ikisi de - manuel workflow_dispatch/test için).
 // KURAL (kullanıcı 23 ve 26 Eylül 2026): yatay 16:9 kapak/og görseli asla doğrudan feed ya da hikaye olmaz. Görsel üretilemezse HİÇBİR ŞEY paylaşılmaz.
 // Aynı yazıyı iki kez paylaşmamak için settings/social_automation.last_posted_slug'a bakar (sadece A hikayesi için).
 // FORCE_SLUG=<slug>: o yazıyı zorla A hikayesi yapar (yaş ve last_posted_slug kontrolü yok, last_posted_slug değişmez).
@@ -100,9 +103,10 @@ async function storyB() {
 }
 
 async function main() {
-  const a = await storyA().catch((e) => { console.error('[A] hata:', e.message || e); return null; });
-  const b = await storyB().catch((e) => { console.error('[B] hata:', e.message || e); return null; });
-  console.log('Tamamlandı:', { a, b });
+  const slot = process.env.STORY_SLOT || '';
+  const a = slot === 'B' ? null : await storyA().catch((e) => { console.error('[A] hata:', e.message || e); return null; });
+  const b = slot === 'A' ? null : await storyB().catch((e) => { console.error('[B] hata:', e.message || e); return null; });
+  console.log('Tamamlandı:', { slot: slot || 'BOTH', a, b });
 }
 
 main().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });

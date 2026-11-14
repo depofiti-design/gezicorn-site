@@ -48,10 +48,15 @@ def f1_kisaca(a, cover=None):
     d = ImageDraw.Draw(im)
     answer_y = min(vy + vh + 110, 1660)
     if a.get('answer'):
-        fb = font(52, 600, 24)
-        for ln in wrap(d, a['answer'], fb, W - 180):
+        # Footer CTA sabit y=H-90'da; cevap uzun olursa ona cakismasin diye kalan bosluga
+        # gore punto/satir sayisini kisalt (kullanici 14 Kasim 2026: metinler birbirine giriyordu).
+        line_h = 66
+        safe_bottom = H - 90 - 70
+        maxlines = max(1, int((safe_bottom - answer_y) // line_h))
+        fb, lines = fit(d, a['answer'], W - 180, maxlines, [52, 46, 40, 36], wght=600)
+        for ln in lines:
             d.text((W // 2, answer_y), ln, font=fb, fill=SOFT, anchor='mm')
-            answer_y += 66
+            answer_y += line_h
     footer_cta(d)
     return im.convert('RGB')
 
