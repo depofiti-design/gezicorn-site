@@ -71,6 +71,7 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 
 ## Seyahat rehberleri
 
+- [Malezya'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/malezyada-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Malezya'ya gidecekler için Grab, Touch 'n Go eWallet ve Waze gibi gerçekten işe yarayan uygulamalar: taksi, yemek siparişi ve ödeme nasıl çalışır.
 - [Yurt Dışına İlk Kez Çıkacaklar İçin Hazırlık Rehberi](https://www.gezicorn.com/yazi/yurt-disina-ilk-kez-cikacaklar-icin-hazirlik-rehberi/): İlk yurt dışı seyahatinden önce pasaport, vize, sigorta ve paradan oluşan hazırlık adımlarının hepsi tek yazıda, sırayla.
 - [Ücretsiz Gezi Rotası Nasıl Hazırlanır? Adım Adım Şablon](https://www.gezicorn.com/yazi/ucretsiz-gezi-rotasi-nasil-hazirlanir-sablon/): Hangi ülkeye gidersen git kullanabileceğin ücretsiz rota şablonu: gün gün plan, bütçe takibi ve çıkmadan önce son kontrol listesi.
 - [Tayland'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/taylandda-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Tayland'da taksi, yemek siparişi ve ödeme için hangi uygulamalar çalışır, hangileri artık hizmet vermiyor. Gitmeden indirmen gereken listeyi anlatıyoruz.
@@ -110,7 +111,6 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 - [Türk Pasaportuyla Vizesiz Gidilen Ülkeler ve Gün Sayıları](https://www.gezicorn.com/yazi/turk-pasaportuyla-vizesiz-ulkeler-ve-gun-sayilari/): Türk pasaportuyla hangi ülkelere vizesiz gidilir, kaç gün kalınabilir? Bölge bölge güncel liste ve her ülkenin kendi rehberine bağlantı.
 - [Yurt Dışında Acil Durumda Konsoloslukla Nasıl İletişime Geçilir?](https://www.gezicorn.com/yazi/yurt-disinda-acil-durumda-konsoloslukla-nasil-iletisime-gecilir/): Pasaport çalınması, kaza veya gözaltı gibi acil durumlarda yurt dışında büyükelçilik ve konsolosluğuyla nasıl iletişime geçileceği, ne zaman aranmaları gerekir.
 - [Kırgızistan'da İşe Yarayan Uygulamalar: Taksi, Yemek, Harita](https://www.gezicorn.com/yazi/kirgizistanda-ise-yarayan-uygulamalar-taksi-yemek-harita/): Kırgızistan'a gitmeden telefonuna indirmen gereken 6 uygulama: Yandex Go, inDrive, 2GIS, Namba Food, Glovo ve Google Translate. Ne işe yaradıkları tek yazıda.
-- [Kamboçya'da İşe Yarayan Uygulamalar: Tuk-Tuk, Yemek, Ödeme](https://www.gezicorn.com/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/): Kamboçya'ya gitmeden indir: PassApp, Grab, foodpanda, Bakong Tourists, Google Maps ve Google Translate. Tuk-tuk, yemek, ödeme ve harita için 6 uygulama.
 
 ## Fırsatlar ve gönüllülük
 
