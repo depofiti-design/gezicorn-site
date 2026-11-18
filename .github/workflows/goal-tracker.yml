@@ -1,0 +1,35 @@
+name: Buyume hedefi takibi
+
+# Gunluk gorunteleme/etkilesim hedeflerini (kullanici 18 Kasim 2026) takip eder.
+# GSC gosterimi/tiklamasi + Instagram reach/begeni/yorum + Facebook reach/etkilesim toplanir.
+on:
+  schedule:
+    - cron: '45 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+      - name: Rapor
+        working-directory: scripts
+        env:
+          GSC_SA_KEY: ${{ secrets.GSC_SA_KEY }}
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+        run: node goal-tracker.js
+      - name: Kaydet
+        run: |
+          git config user.name "gezicorn-bot"
+          git config user.email "bot@gezicorn.com"
+          git add seo-reports/goal-tracker-latest.md
+          git diff --cached --quiet || (git commit -m "Buyume hedefi raporu $(date -u +%F)" && git push)

@@ -98,6 +98,19 @@ const cards = ROWS.map((r) => `<li class="vt-row" data-tb="${r.pb.t}" data-ty="$
 <a class="vt-go" href="/yazi/${r.s}/" aria-label="${esc(r.u)} rehberini oku">Rehberi oku →</a>
 </li>`).join('\n');
 
+// AI arama motorlarinin (ChatGPT, Perplexity, Gemini) karsilastirma verisini dogrudan alintilayabilmesi icin
+// her ulkeyi bordo/yesil pasaport durumuyla birlikte ItemList olarak da isaretliyoruz (18 Kasim 2026, ai-seo skill).
+const itemList = {
+  '@type': 'ItemList', name: 'Türk pasaportuyla vizesiz, e-vize ve vize gerektiren ülkeler', numberOfItems: ROWS.length,
+  itemListElement: ROWS.map((r, i) => ({
+    '@type': 'ListItem', position: i + 1,
+    item: {
+      '@type': 'Country', name: r.u,
+      description: `Bordo (umuma mahsus) pasaport: ${r.pb.k}. Yeşil (hususi) pasaport: ${r.py.k}.`,
+    },
+  })),
+};
+
 const jsonld = JSON.stringify({
   '@context': 'https://schema.org', '@type': 'WebPage', name: TITLE, url, description: DESC, inLanguage: 'tr-TR',
   isPartOf: { '@type': 'WebSite', name: 'Gezicorn', url: BASE + '/' },
@@ -105,6 +118,7 @@ const jsonld = JSON.stringify({
     { '@type': 'ListItem', position: 1, name: 'Ana sayfa', item: BASE + '/' },
     { '@type': 'ListItem', position: 2, name: 'Vize tablosu', item: url },
   ] },
+  mainEntity: itemList,
 });
 
 const html = `<!DOCTYPE html>
