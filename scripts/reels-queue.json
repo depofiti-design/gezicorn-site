@@ -875,7 +875,12 @@
     },
     "published_at": "2026-11-02T02:32:00.530Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/tek-basina-seyahat-guvenli-mi-solo-gezginler-icin-cover.jpg",
-    "article_slug": "tek-basina-seyahat-guvenli-mi-solo-gezginler-icin"
+    "article_slug": "tek-basina-seyahat-guvenli-mi-solo-gezginler-icin",
+    "commented_at": "2026-11-19T14:32:22.621Z",
+    "comment_result": {
+      "facebook": "2325769721522063_2428213744583147",
+      "instagram": "18138465163733791"
+    }
   },
   {
     "id": "reel-51-reel-v6-51-japonya-vizesi-turkler-icin-zor-mu",
@@ -891,7 +896,12 @@
     },
     "published_at": "2026-11-02T20:38:21.888Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/japonya-vizesi-turkler-icin-zor-mu-cover.jpg",
-    "article_slug": "japonya-vizesi-turkler-icin-zor-mu"
+    "article_slug": "japonya-vizesi-turkler-icin-zor-mu",
+    "commented_at": "2026-11-19T14:30:24.059Z",
+    "comment_result": {
+      "facebook": "5577486462476909_1571273781427002",
+      "instagram": "17971142490199479"
+    }
   },
   {
     "id": "reel-52-reel-v6-52-pasaport-yenileme-sureci-nasil-isliyor",
