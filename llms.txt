@@ -130,6 +130,7 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 
 ## Güncel haberler
 
+- [Fransa Schengen Vizesinde Bekleme Listesi Sistemi Başladı](https://www.gezicorn.com/yazi/fransa-schengen-vizesinde-bekleme-listesi-basladi/): Fransa, Türkiye'den yapılan kısa süreli Schengen vizesi başvurularında 15 Ekim 2026'dan itibaren randevu yerine bekleme listesi uyguluyor. Sistem nasıl işliyor?
 - [Danimarka Schengen Vizesinde Bekleme Listesi Başlattı](https://www.gezicorn.com/yazi/danimarka-schengen-vizesinde-bekleme-listesi-basladi/): Danimarka, Türkiye'den gelen turistik Schengen vizesi başvurularında yeni bir bekleme listesi uyguluyor. Süreç nasıl işliyor, ne değişti?
 - [Suudi Arabistan ile Vize Muafiyeti Anlaşması Yürürlüğe Girdi](https://www.gezicorn.com/yazi/suudi-arabistan-vize-muafiyeti-anlasmasi-yururlukte/): Türkiye ile Suudi Arabistan arasındaki vize muafiyeti anlaşması 6 Kasım 2026'da yürürlüğe girdi, kapsam diplomatik ve hususi pasaportlarla sınırlı.
 - [İkinci Pasaport Nedir, Türkiye'de Kimler Alabilir?](https://www.gezicorn.com/yazi/ikinci-pasaport-nedir-turkiyede-kimler-alabilir/): İkinci pasaport, Türkiye'de herkese açık bir hak değil, gerekçeli dilekçeyle nüfus müdürlüğünden istenen özel bir izindir.
@@ -144,7 +145,6 @@ Tüm yazılar: https://www.gezicorn.com/yazi/
 - [Yurt Dışında Kartla Öderken TL mi Yerel Para mı?](https://www.gezicorn.com/yazi/yurt-disinda-kartla-oderken-tl-mi-yerel-para-mi/): POS cihazı TL ile mi yoksa yerel para ile mi ödeme sorduğunda doğru seçim DCC denen gizli kur farkını önler, yanlış seçim faturayı şişirir.
 - [AB261: Uçuş Rötarı ve İptalinde Tazminat Hakkın Var mı?](https://www.gezicorn.com/yazi/ucus-rotarinda-iptalinde-tazminat-hakki-ab261/): Uçuşun AB, Norveç, İzlanda veya İsviçre ile bağlantılıysa ve 3 saatten fazla gecikirse AB261 kapsamında 250 ile 600 euro tazminat hakkın olabilir.
 - [Karadağ Türklere Vize Şartı Getirdi: 1 Kasım 2026](https://www.gezicorn.com/yazi/karadag-turklere-vize-sarti-getirdi-1-kasim-2026/): Karadağ, 1 Kasım 2026'dan itibaren Türk vatandaşlarına vize zorunluluğu getiriyor. Karar ne zaman başlıyor, başvuru nasıl yapılır, detaylar burada.
-- [Yurt Dışına Çıkış Yasağı Var mı? Nasıl Öğrenilir?](https://www.gezicorn.com/yazi/yurt-disina-cikis-yasagi-var-mi-nasil-ogrenilir/): Yurt dışına çıkış yasağı genelde mahkeme, icra ya da askerlik kaynaklıdır ve uçuştan önce e-Devlet'teki sorgulama hizmetiyle kontrol edilebilir.
 
 ## Notlar
 - İçerik Türkçe'dir, hedef kitle Türk vatandaşlarıdır (T.C. pasaportu/kimliği).
