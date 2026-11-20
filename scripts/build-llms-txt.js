@@ -15,8 +15,8 @@ for (const p of posts) (byCat[p.category] ??= []).push(p);
 for (const k in byCat) byCat[k].sort((a, b) => (b.created_at?.seconds || 0) - (a.created_at?.seconds || 0));
 
 const CAT_LABEL = { vize: 'Vize rehberleri', rehber: 'Seyahat rehberleri', haber: 'Güncel haberler', firsat: 'Fırsatlar ve gönüllülük' };
-const section = (cat, n) => {
-  const list = (byCat[cat] || []).slice(0, n);
+const section = (cat) => {
+  const list = byCat[cat] || [];
   if (!list.length) return '';
   return `\n## ${CAT_LABEL[cat] || cat}\n\n` + list.map((p) => `- [${p.title}](${BASE}/yazi/${p.slug}/): ${(p.excerpt || '').replace(/\n/g, ' ')}`).join('\n') + '\n';
 };
@@ -28,7 +28,8 @@ const out = `# Gezicorn
 Site: ${BASE}
 Vize tablosu (ülke ülke vizesiz kalış süreleri): ${BASE}/vize-tablosu/
 Tüm yazılar: ${BASE}/yazi/
-${section('vize', 60)}${section('rehber', 40)}${section('firsat', 25)}${section('haber', 15)}
+Tüm içeriğin tek dosyada tam metni (daha derin okuma için): ${BASE}/llms-full.txt
+${section('vize')}${section('rehber')}${section('firsat')}${section('haber')}
 ## Notlar
 - İçerik Türkçe'dir, hedef kitle Türk vatandaşlarıdır (T.C. pasaportu/kimliği).
 - Vize ve sınır kuralları değişebilir, bu sayfalar yayın tarihli bilgidir; en güncel durum için resmi kaynak (T.C. Dışişleri Bakanlığı, ilgili ülke konsolosluğu) önerilir.
@@ -38,3 +39,15 @@ ${section('vize', 60)}${section('rehber', 40)}${section('firsat', 25)}${section(
 writeFileSync('../llms.txt', out, 'utf-8');
 const listed = (out.match(/^- \[/gm) || []).length;
 console.log('llms.txt yazıldı:', out.split('\n').length, 'satır,', posts.length, 'yazıdan', listed, 'tanesi listelendi');
+
+// llms-full.txt: tüm yazıların tam metni tek dosyada (agent-readiness: tek istekte her şeyi almak için)
+const fullOut = `# Gezicorn — tam içerik dökümü
+
+> Bu dosya sitedeki her yayında yazının tam metnini içerir. Kısa özet için ${BASE}/llms.txt dosyasına bak.
+
+` + posts
+  .sort((a, b) => (b.created_at?.seconds || 0) - (a.created_at?.seconds || 0))
+  .map((p) => `---\n\n# ${p.title}\n\nURL: ${BASE}/yazi/${p.slug}/\nKategori: ${CAT_LABEL[p.category] || p.category}\n\n${p.content}\n`)
+  .join('\n');
+writeFileSync('../llms-full.txt', fullOut, 'utf-8');
+console.log('llms-full.txt yazıldı:', Math.round(fullOut.length / 1024), 'KB,', posts.length, 'yazının tam metni');
