@@ -20,7 +20,9 @@ const PORTFOLIO = [
   'fransa schengen vizesinde bekleme listesi sistemi nedir',
 ];
 
-const MODELS = ['gemini-2.5-flash', 'gemini-flash-latest'];
+// Tek model: 'gemini-flash-latest' bazen yogunluktan surekli hata veriyor, 10 cagri zaten
+// gunluk 20 cagri kotasinin icinde kaliyor, rotasyona gerek yok.
+const MODELS = ['gemini-2.5-flash'];
 
 async function ask(prompt, model) {
   for (let i = 0; i < 3; i++) {
@@ -46,7 +48,7 @@ async function ask(prompt, model) {
 const rows = [];
 for (let i = 0; i < PORTFOLIO.length; i++) {
   const prompt = PORTFOLIO[i];
-  const model = MODELS[i % 2];
+  const model = MODELS[i % MODELS.length];
   const res = await ask(prompt, model);
   if (res.error) { rows.push({ prompt, model, error: res.error }); continue; }
   const cited = res.sources.some((s) => /gezicorn/i.test(s)) || /gezicorn/i.test(res.text);
