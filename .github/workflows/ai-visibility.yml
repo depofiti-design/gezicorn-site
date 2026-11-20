@@ -1,0 +1,33 @@
+name: AI gorunurluk testi
+
+# Haftalik, sabit 10 soruluk portfoyle Gemini (google_search grounding) uzerinden gercek
+# gorunurluk testi yapar. Kullanici isteği (20 Kasim 2026): ChatGPT/Gemini gibi yapay zeka
+# aramalarinda gorunup gorunmedigimizi takip edelim. Sadece Gemini olcer (ChatGPT/Perplexity
+# icin ayri ucretli API anahtari gerekir, henuz yok).
+on:
+  schedule:
+    - cron: '30 6 * * 1'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test
+        working-directory: scripts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node ai-visibility-check.js
+      - name: Kaydet
+        run: |
+          git config user.name "gezicorn-bot"
+          git config user.email "bot@gezicorn.com"
+          git add seo-reports/ai-visibility-latest.md
+          git diff --cached --quiet || (git commit -m "AI gorunurluk raporu $(date -u +%F)" && git push)
