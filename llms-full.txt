@@ -5918,6 +5918,12 @@ Pasaportuna vize basılıysa yeni belgeyle birlikte bulunduğun ülkenin göçme
 ### Yurt dışında pasaport kaybedersem ne yapmalıyım?
 Önce yerel polise kayıp ya da çalıntı bildirimi yap, sonra en yakın Türk büyükelçiliği ya da konsolosluğuna başvurup geçici pasaport ya da yeni pasaport talep et.
 
+### Pasaport kaybolunca genel olarak ne yapılır?
+Kısaca: nerede olduğun fark eder. Yurt dışındaysan yerel polise bildirip Türk temsilciliğinden geçici pasaport al, Türkiye'deysen doğrudan nüfus müdürlüğü pasaport birimine gidip yeni pasaport başvurusu yaparsın. İkisinde de ilk adım bir kayıp/çalıntı beyanı.
+
+### Süresi geçmiş pasaportumu kaybettim, ne yapmalıyım?
+Süresinin dolmuş olması süreci değiştirmiyor, kayıp/çalıntı olarak işlem görüyor. Yurt dışındaysan yine geçici pasaport için temsilciliğe, Türkiye'deysen nüfus müdürlüğüne kayıp beyanıyla başvurup direkt yeni (süreli) pasaport çıkartırsın, süresi geçmiş eski pasaportun ayrıca bir ek işlem gerektirmez.
+
 ### Pasaport kaybolursa ne olur, Türkiye'deysem de aynı mı?
 Hayır, farklı. Bu yazı yurt dışındaki süreci anlatıyor (konsolosluk, geçici pasaport). Türkiye içindeysen konsolosluğa değil, en yakın nüfus müdürlüğü pasaport birimine gidip kayıp/çalıntı beyanıyla doğrudan yeni pasaport başvurusu yaparsın, geçici pasaporta gerek kalmaz.
 
@@ -6795,6 +6801,9 @@ Evet. Resmi rengi bordo, halk arasında kırmızı denir. İkisi de umuma mahsus
 
 ### Yeşil pasaport kimlere verilir?
 Belirli kamu görevlilerine ve mevzuatta sayılan yakınlarına verilir. Ayrıntılı şartlar mevzuata bağlı olduğu için güncel bilgiyi emniyet pasaport birimlerinden ya da resmi kaynaklardan teyit et.
+
+### Öğrenci pasaportu diye ayrı bir renk var mı?
+Hayır. Türkiye'de pasaport rengi öğrenci olup olmamana değil, kamu görevi statüne göre belirlenir. Bir öğrenci, ailesinde kamu görevlisi yoksa standart bordo (kırmızı) pasaport alır, yurt dışında okuyan ya da Erasmus'a giden öğrencilerin çoğu da bordo pasaport kullanır. "Öğrenci pasaportu" diye ayrı bir kategori ya da renk yok.
 
 ### Gri ve siyah pasaport kimlere verilir?
 Gri pasaport, resmi görevle yurt dışına çıkan kamu görevlilerine, siyah pasaport ise diplomatlar ve üst düzey devlet yetkililerine verilir.
