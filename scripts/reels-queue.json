@@ -747,7 +747,12 @@
     },
     "published_at": "2026-10-28T18:07:02.444Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/yeni-nesil-polikarbonat-turk-pasaportu-cover.jpg",
-    "article_slug": "yeni-nesil-polikarbonat-turk-pasaportu"
+    "article_slug": "yeni-nesil-polikarbonat-turk-pasaportu",
+    "commented_at": "2026-11-21T13:34:39.096Z",
+    "comment_result": {
+      "facebook": "1106548095502628_1119649850944627",
+      "instagram": "18118049144467706"
+    }
   },
   {
     "id": "reel-43-reel-v6-43-uluslararasi-surucu-belgesi-nedir-nasil-alinir",
@@ -763,7 +768,12 @@
     },
     "published_at": "2026-10-29T16:45:58.909Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/uluslararasi-surucu-belgesi-nedir-nasil-alinir-cover.jpg",
-    "article_slug": "uluslararasi-surucu-belgesi-nedir-nasil-alinir"
+    "article_slug": "uluslararasi-surucu-belgesi-nedir-nasil-alinir",
+    "commented_at": "2026-11-21T13:32:38.987Z",
+    "comment_result": {
+      "facebook": "2594628467616261_3763782180444409",
+      "instagram": "18181008475445407"
+    }
   },
   {
     "id": "reel-44-reel-v6-44-misir-vizesi-turkler-icin-e-vize-kapida-vize",
