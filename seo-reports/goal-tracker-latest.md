@@ -1,5 +1,5 @@
 # Gezicorn büyüme hedefi takibi
-Oluşturulma: 2026-11-21T14:45:11.637Z
+Oluşturulma: 2026-11-21T14:58:12.305Z
 
 **Tanım:** Görüntüleme = GSC gösterimi + Instagram reach + Facebook reach. Etkileşim = GSC tıklama + Instagram (beğeni+yorum) + Facebook (reaksiyon+yorum+paylaşım).
 
