@@ -7069,6 +7069,9 @@ Genel kural: en çok gün geçireceğin ülkenin konsolosluğu. Eşit gün geçi
 ### Schengen bölgesinde kaç ülke var?
 29 ülke.
 
+### Schengen vizesi hangi ülkeleri kapsıyor?
+Tek bir Schengen ülkesinden alınan vize, tüm Schengen bölgesinde (29 ülke) geçerli. Yani Fransa'dan aldığın vizeyle Almanya, İtalya ya da Yunanistan'a da girebilirsin, tek tek her ülkeden ayrı vize almana gerek yok.
+
 ### Tek vizeyle hepsine girilir mi?
 Evet, Schengen vizesi tüm üye ülkelerde geçerli.
 
