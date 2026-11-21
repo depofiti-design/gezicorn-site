@@ -4,6 +4,48 @@
 
 ---
 
+# Hong Kong'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme
+
+URL: https://www.gezicorn.com/yazi/hong-kongda-ise-yarayan-uygulamalar-taksi-yemek-odeme/
+Kategori: Seyahat rehberleri
+
+> **Kısaca:** Hong Kong'da ulaşımın ve çoğu küçük harcamanın anahtarı Octopus kartı, yemek siparişinde Keeta ile foodpanda öne çıkıyor, taksi için de MTR dışında Uber'in lisanslı taksi çağırma özelliği işe yarıyor.
+
+Hong Kong, Orta Asya rotasına göre çok daha hızlı ve dijital bir şehir. Kırgızistan ve Kamboçya'da kullandığımız [işe yarayan uygulamalar](/yazi/kambocyada-ise-yarayan-uygulamalar-tuktuk-yemek-odeme/) rehberlerindeki mantık burada da geçerli ama araçlar farklı.
+
+## Octopus kartı: şehrin anahtarı
+
+Hong Kong'da hemen her şey Octopus kartıyla çözülüyor. Havalimanında MTR gişelerinden, bazı 7-Eleven ve Circle K marketlerinden alınabiliyor, küçük bir kart bedeli ve iade edilebilir bir depozito ödüyorsun, çıkışta kartı teslim edip depozitoyu geri alabiliyorsun.
+
+Kart sadece metroda değil, otobüste, feribotta, 7-Eleven ve Circle K gibi marketlerde, ParknShop ve Wellcome süpermarketlerinde, McDonald's ve Café de Coral gibi zincirlerde de geçerli. Telefonuna Octopus uygulamasını kurup kartı dijital olarak takip edebilir, kredi kartından bakiye yükleyebilirsin.
+
+## MTR ile toplu taşıma
+
+Hong Kong'un metrosu MTR, şehrin en pratik ulaşım aracı. Octopus kartıyla giriş ve çıkışta okutma yapıyorsun, ücret otomatik düşüyor. Google Maps burada sorunsuz çalışıyor ve MTR hatlarını, otobüs güzergahlarını doğru şekilde gösteriyor. Bu noktada Çin anakarasından farkı önemli: Hong Kong'da Google Maps, WhatsApp ve Gmail gibi uygulamalar için VPN'e gerek yok.
+
+## Taksi ve Uber Taxi
+
+Hong Kong taksileri (kırmızı, yeşil, mavi renk kodlarına göre bölge farkı var) uzun süre nakit ağırlıklıydı, 2026 içinde elektronik ödemeye geçiş hızlandı. Uber uygulaması burada klasik özel araç çağırma değil, şehrin HKTaxi altyapısıyla entegre **Uber Taxi** özelliğiyle çalışıyor, yani uygulamadan lisanslı bir taksi çağırıyorsun. Özel araçla yolcu taşımacılığı (klasik Uber modeli) Kasım 2026 itibarıyla hâlâ lisanslama sürecinde, bu yüzden en garanti seçenek MTR, cadde taksisi veya Uber Taxi.
+
+## Yemek siparişi: Keeta ve foodpanda
+
+Uber Eats ve Deliveroo Hong Kong pazarından çekildi, şu an yemek siparişinde iki büyük oyuncu var: **Keeta** (Meituan'a bağlı, hızla büyüdü) ve **foodpanda**. İkisi de İngilizce arayüz sunuyor, kredi kartı veya Octopus bağlı ödeme yöntemleriyle çalışıyor.
+
+## Sık sorulan sorular
+
+### Hong Kong'da Uber çalışıyor mu?
+Evet ama klasik özel araç modeliyle değil. Uber uygulaması üzerinden lisanslı taksi çağırabiliyorsun (Uber Taxi), bağımsız özel şoför hizmeti Kasım 2026 itibarıyla henüz tam lisanslı değil.
+
+### Octopus kartını nereden alırım?
+Havalimanındaki MTR gişelerinden, bazı 7-Eleven ve Circle K şubelerinden alınabiliyor. Küçük bir kart bedeli ve iade edilebilir bir depozito var, kartı çıkışta teslim edince depozito geri ödeniyor.
+
+### Hong Kong'da internet için VPN gerekir mi?
+Hayır. Hong Kong, Çin anakarasından ayrı bir internet rejimine sahip, Google, WhatsApp, Instagram gibi uygulamalar normal şekilde çalışıyor.
+
+Uygulamalar, kapsam ve lisanslama süreçleri zamanla değişebilir. Gitmeden önce uygulama mağazasında güncel durumu kontrol et, giriş kuralları için [Hong Kong vizesi](/yazi/hong-konga-giriste-vize-gerekiyor-mu/) yazımıza da bakabilirsin. Genel resmi bilgi için [T.C. Dışişleri Bakanlığı](https://www.mfa.gov.tr) sitesine bak.
+
+---
+
 # Laos Vizesi Türkler İçin: Kapıda mı, E-Vize mi?
 
 URL: https://www.gezicorn.com/yazi/laos-vizesi-turkler-icin-kapida-mi-e-vize-mi/
