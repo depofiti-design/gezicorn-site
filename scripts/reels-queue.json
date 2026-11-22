@@ -651,7 +651,12 @@
     },
     "published_at": "2026-10-25T17:30:39.231Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/kambocya-e-arrival-card-nedir-nasil-doldurulur-cover.jpg",
-    "article_slug": "kambocya-e-arrival-card-nedir-nasil-doldurulur"
+    "article_slug": "kambocya-e-arrival-card-nedir-nasil-doldurulur",
+    "commented_at": "2026-11-22T13:28:06.373Z",
+    "comment_result": {
+      "facebook": "1806411543920303_1174113721796572",
+      "instagram": "18084315317718773"
+    }
   },
   {
     "id": "reel-37-reel-v6-37-yurt-disina-cikis-yasagi-nasil-sorgulanir",
@@ -667,7 +672,12 @@
     },
     "published_at": "2026-10-26T16:40:58.175Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/yurt-disina-cikis-yasagi-nasil-sorgulanir-cover.jpg",
-    "article_slug": "yurt-disina-cikis-yasagi-nasil-sorgulanir"
+    "article_slug": "yurt-disina-cikis-yasagi-nasil-sorgulanir",
+    "commented_at": "2026-11-22T13:26:25.141Z",
+    "comment_result": {
+      "facebook": "1488416756677807_1654642692969137",
+      "instagram": "18137706163761728"
+    }
   },
   {
     "id": "reel-38-reel-v6-38-yurt-disinda-acil-durumda-konsoloslukla-nasil-iletisime-gecilir",
