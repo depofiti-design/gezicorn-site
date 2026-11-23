@@ -587,7 +587,12 @@
     },
     "published_at": "2026-10-23T13:14:04.799Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/ucakta-100-ml-sivi-kurali-hala-gecerli-mi-cover.jpg",
-    "article_slug": "ucakta-100-ml-sivi-kurali-hala-gecerli-mi"
+    "article_slug": "ucakta-100-ml-sivi-kurali-hala-gecerli-mi",
+    "commented_at": "2026-11-23T03:49:33.196Z",
+    "comment_result": {
+      "facebook": "1119687861034019_1012691564556865",
+      "instagram": "18435307255144827"
+    }
   },
   {
     "id": "reel-32-reel-v6-32-e-kapilar-e-gates-nedir-pasaport-kontrolu",
@@ -603,7 +608,12 @@
     },
     "published_at": "2026-10-23T18:13:27.044Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/e-kapilar-e-gates-nedir-pasaport-kontrolu-cover.jpg",
-    "article_slug": "e-kapilar-e-gates-nedir-pasaport-kontrolu"
+    "article_slug": "e-kapilar-e-gates-nedir-pasaport-kontrolu",
+    "commented_at": "2026-11-23T03:47:23.695Z",
+    "comment_result": {
+      "facebook": "1096137000050058_2260224134542883",
+      "instagram": "18121932512587308"
+    }
   },
   {
     "id": "reel-33-reel-v6-33-havalimaninda-pasaport-gumruk-kontrolu-nelere-dikkat",
