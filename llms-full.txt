@@ -4,6 +4,50 @@
 
 ---
 
+# Rusya'da İşe Yarayan Uygulamalar: Taksi, Yemek, Harita
+
+URL: https://www.gezicorn.com/yazi/rusyada-ise-yarayan-uygulamalar-taksi-yemek-harita/
+Kategori: Seyahat rehberleri
+
+> **Kısaca:** Rusya'da en çok işe yarayan üç uygulama Yandex Go (taksi), Yandex Eda (yemek siparişi) ve 2GIS (harita ve navigasyon). Üçü de Google Play ve App Store'dan indirilebiliyor, Google haritaları yerine bunlara güvenmek daha pratik.
+
+## Yandex Go: taksi ve ulaşım
+Yandex Go, Rusya'da Uber'in yerini tutan uygulama. Moskova, St. Petersburg ve diğer büyük şehirlerde yaygın, araç çağırma çoğu zaman 5 dakikayı geçmiyor. Uygulama içinde adres Latin alfabesiyle de yazılabiliyor, sürücüyle Rusça konuşmaya gerek kalmıyor çünkü adres zaten haritada işaretli geliyor.
+
+**Ödeme konusunda dikkat:** yabancı Visa ve Mastercard kartları Yandex Go üzerinde pratikte çalışmıyor. Yanına nakit (ruble) bulundurmak ya da yerel bir Mir kartı çıkarmak en güvenli yol. Kart ve banka hesabı konusunu [Rusya'da ödeme ve banka hesabı](/yazi/rusyada-odeme-ve-banka-hesabi-turistler-icin-rehber/) yazısında ayrıntılı anlattık, oraya göz atmanı öneririz.
+
+## Yandex Eda: yemek ve market siparişi
+Yandex Eda, restoran yemeği ve market alışverişini aynı uygulamadan sipariş etmeyi sağlıyor. Otel odasına ya da kaldığın adrese teslimat yapıyor, menüler görsellerle geldiği için Rusça bilmesen de sipariş verebiliyorsun. Bazı şehirlerde ödeme kapıda nakit olarak da alınabiliyor, bu da kart sorunuyla uğraşmak istemeyenler için pratik bir çözüm.
+
+## 2GIS ve Yandex Haritalar: yön bulma
+Google Haritalar Rusya'da bazı bölgelerde yetersiz kalabiliyor, bunun yerine yerel iki uygulama daha güvenilir sonuç veriyor:
+
+- **2GIS:** çevrimdışı çalışabiliyor, bu yüzden şehre girmeden önce ilgili şehrin haritasını indirmek iyi bir alışkanlık. İşletme bilgileri (çalışma saatleri, telefon) güncel tutuluyor.
+- **Yandex Haritalar:** toplu taşıma rotalarını (metro, otobüs, tramvay) gösteriyor, bazı şehirlerde çevrimdışı rota planlama da yapılabiliyor.
+
+İkisini de telefona kurup şehre girmeden önce haritayı indirmek, mobil veri çekmeyen yerlerde işini görür.
+
+## İnternet ve uygulamaların çalışması
+Bu üç uygulama (Yandex Go, Yandex Eda, 2GIS) Rusya'daki internet kesintilerinde çalışmaya devam eden servisler listesinde yer alıyor, yani zayıf bağlantıda bile diğer uygulamalardan daha stabil kalabiliyorlar. VPN açıkken bu uygulamalarda bazen sorun çıkabiliyor, konum tabanlı özellikler (taksi çağırma, teslimat adresi) yanlış çalışabiliyor. Bu yüzden Rusya içindeyken VPN'i gerekmedikçe kapalı tutmak daha sağlıklı.
+
+## Sık sorulan sorular
+
+### Yandex Go'da yabancı kartla ödeme yapılabiliyor mu?
+Genel olarak hayır, yabancı Visa ve Mastercard kartları kabul edilmiyor. Nakit ruble ya da yerel bir ödeme yöntemi (Mir kartı, SBP) ile ödeme yapmak gerekiyor.
+
+### Rusya'da Google Haritalar yerine ne kullanılmalı?
+2GIS ve Yandex Haritalar, özellikle küçük şehirlerde ve toplu taşıma planlamasında daha güvenilir sonuç veriyor, ikisi de çevrimdışı kullanıma uygun.
+
+### Bu uygulamalar için Rusça bilmek gerekiyor mu?
+Hayır, Yandex Go ve Yandex Eda'da adres ve menüler Latin alfabesiyle de yazılabiliyor, görsellerle sipariş vermek mümkün. Temel düzeyde kullanmak için Rusça bilmek şart değil.
+
+### Bu uygulamaları gitmeden önce mi kurmalıyım?
+Evet, uçaktan inmeden önce telefona kurup kayıt işlemini tamamlamak işini kolaylaştırır, havalimanında internetsiz kalma ihtimaline karşı önceden hazır olmak daha güvenli. Rusya'ya gidecekler [Rusya vizesi](/yazi/rusya-e-vize-basvurusu-nasil-yapilir/) sürecini de önceden tamamlamalı.
+
+Güncel uygulama adları ve sürümleri zamanla değişebilir, gitmeden önce App Store veya Google Play üzerinden güncel halini kontrol etmekte fayda var.
+
+---
+
 # Maldivler Vizesi Türkler İçin: Varışta Kaç Gün?
 
 URL: https://www.gezicorn.com/yazi/maldivler-vizesi-turkler-icin-varista-vize-kac-gun/

@@ -85,6 +85,7 @@ Tüm içeriğin tek dosyada tam metni (daha derin okuma için): https://www.gezi
 
 ## Seyahat rehberleri
 
+- [Rusya'da İşe Yarayan Uygulamalar: Taksi, Yemek, Harita](https://www.gezicorn.com/yazi/rusyada-ise-yarayan-uygulamalar-taksi-yemek-harita/): Rusya'da taksi, yemek siparişi ve yol bulmak için turistlerin gerçekte kullandığı uygulamalar: Yandex Go, Yandex Eda ve 2GIS.
 - [Hong Kong'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/hong-kongda-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Hong Kong'da Octopus kartı, MTR, Keeta ve Uber Taxi nasıl kullanılır? Turistler için işe yarayan uygulamalar ve ödeme yöntemleri.
 - [Malezya'da İşe Yarayan Uygulamalar: Taksi, Yemek, Ödeme](https://www.gezicorn.com/yazi/malezyada-ise-yarayan-uygulamalar-taksi-yemek-odeme/): Malezya'ya gidecekler için Grab, Touch 'n Go eWallet ve Waze gibi gerçekten işe yarayan uygulamalar: taksi, yemek siparişi ve ödeme nasıl çalışır.
 - [Yurt Dışına İlk Kez Çıkacaklar İçin Hazırlık Rehberi](https://www.gezicorn.com/yazi/yurt-disina-ilk-kez-cikacaklar-icin-hazirlik-rehberi/): İlk yurt dışı seyahatinden önce pasaport, vize, sigorta ve paradan oluşan hazırlık adımlarının hepsi tek yazıda, sırayla.
