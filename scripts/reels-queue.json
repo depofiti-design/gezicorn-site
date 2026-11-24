@@ -491,7 +491,12 @@
     },
     "published_at": "2026-10-20T14:49:55.489Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/almanya-vizesi-nasil-alinir-cover.jpg",
-    "article_slug": "almanya-vizesi-nasil-alinir"
+    "article_slug": "almanya-vizesi-nasil-alinir",
+    "commented_at": "2026-11-24T16:00:37.619Z",
+    "comment_result": {
+      "facebook": "1743832306914855_996457729691090",
+      "instagram": "17969459832077917"
+    }
   },
   {
     "id": "reel-26-reel-v6-26-turkiye-ab-vize-serbestisi-gorusmeleri",
@@ -507,7 +512,12 @@
     },
     "published_at": "2026-10-20T19:04:01.840Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/turkiye-ab-vize-serbestisi-gorusmeleri-cover.jpg",
-    "article_slug": "turkiye-ab-vize-serbestisi-gorusmeleri"
+    "article_slug": "turkiye-ab-vize-serbestisi-gorusmeleri",
+    "commented_at": "2026-11-24T15:59:08.523Z",
+    "comment_result": {
+      "facebook": "1822700222071393_2443859076369671",
+      "instagram": "18108527645198711"
+    }
   },
   {
     "id": "reel-27-reel-v6-27-vize-suresi-ile-kalis-suresi-arasindaki-fark",
