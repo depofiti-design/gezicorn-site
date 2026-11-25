@@ -459,7 +459,12 @@
     },
     "published_at": "2026-10-19T12:33:33.622Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/schengen-bolgesi-hangi-ulkeleri-kapsiyor-cover.jpg",
-    "article_slug": "schengen-bolgesi-hangi-ulkeleri-kapsiyor"
+    "article_slug": "schengen-bolgesi-hangi-ulkeleri-kapsiyor",
+    "commented_at": "2026-11-25T01:31:29.216Z",
+    "comment_result": {
+      "facebook": "1434393235496980_963195256650502",
+      "instagram": "17906283498604100"
+    }
   },
   {
     "id": "reel-24-reel-v6-24-schengen-vizesinde-hangi-ulkeye-basvurulmali",
@@ -475,7 +480,12 @@
     },
     "published_at": "2026-10-19T19:09:17.158Z",
     "cover_url": "https://www.gezicorn.com/img/social/reels-web/covers/schengen-vizesinde-hangi-ulkeye-basvurulmali-cover.jpg",
-    "article_slug": "schengen-vizesinde-hangi-ulkeye-basvurulmali"
+    "article_slug": "schengen-vizesinde-hangi-ulkeye-basvurulmali",
+    "commented_at": "2026-11-25T01:29:25.199Z",
+    "comment_result": {
+      "facebook": "1139183468839448_1189844860283091",
+      "instagram": "18151528255566075"
+    }
   },
   {
     "id": "reel-25-reel-v6-25-almanya-vizesi-nasil-alinir",
