@@ -3,6 +3,7 @@
 // Kullanım:
 //   node yt-optimize.mjs --ids ID1,ID2 --dry|--apply
 //   node yt-optimize.mjs --batch 170 --apply        (v2'ye geçmemiş ilk N video, izlenmeye göre)
+//   --keep-title  başlığa hiç dokunma (Gemini önerisi jenerikse; 25 Kasım 2026'dan beri varsayılan tercih)
 // Kurallar: kullanıcının orijinal metni silinmez (sadece başına "▶ hook" satırı, sonuna site bloğu eklenir; boşsa Gemini özeti yazılır).
 // Başlık sadece zayıfsa ve izlenme < 5000 ise değişir (kanıtlanmış başlıklara dokunulmaz). Uydurma bilgi yok. Em dash yok.
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
@@ -124,7 +125,7 @@ for (let ci = 0; ci < targets.length && !stop; ci += CH) {
     const views = +v.statistics.viewCount;
     let title = v.snippet.title;
     const nt = clean(g.title);
-    if (nt && nt !== title && views < 5000 && nt.length >= 20 && nt.length <= 75) title = nt;
+    if (!has('--keep-title') && nt && nt !== title && views < 5000&& nt.length >= 20 && nt.length <= 75) title = nt;
     const hook = clean(g.hook).slice(0, 130);
     const body = needDesc ? [stripped, clean(g.description)].filter(Boolean).join('\n\n') : stripped;
     const tags = []; let tl = 0;
