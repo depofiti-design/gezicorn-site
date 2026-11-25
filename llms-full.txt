@@ -5990,14 +5990,26 @@ Güncel vizesiz ülke listesi ve süreler için [T.C. Dışişleri Bakanlığı]
 
 ---
 
-# Yurt Dışında Pasaport Kaybettim: Geçici Pasaport Nasıl Alınır?
+# Pasaport Kaybolursa Ne Yapmalı? Türkiye'de ve Yurt Dışında Adım Adım
 
 URL: https://www.gezicorn.com/yazi/pasaport-kaybolursa-calinirsa-yurt-disinda-ne-yapmali/
 Kategori: Seyahat rehberleri
 
-> **Kısaca:** Yurt dışında pasaportunu kaybettiysen ya da çalındıysa önce yerel polise bildir, sonra bulunduğun ülkedeki Türk büyükelçiliği ya da konsolosluğuna başvur. Acil dönüş için **geçici pasaport** verilebilir. Geçici pasaport ilke olarak 1 ay geçerlidir, istisnai durumlarda en fazla 1 yıla kadar düzenlenebilir.
+> **Kısaca:** Türkiye'deysen kaybı il ya da ilçe nüfus müdürlüğüne bildirip yeni pasaport başvurusu yaparsın. Yurt dışında pasaportunu kaybettiysen ya da çalındıysa önce yerel polise bildir, sonra bulunduğun ülkedeki Türk büyükelçiliği ya da konsolosluğuna başvur. Acil dönüş için **geçici pasaport** verilebilir. Geçici pasaport ilke olarak 1 ay geçerlidir, istisnai durumlarda en fazla 1 yıla kadar düzenlenebilir.
 
 "Pasaportumu kaybettim, şimdi ne yapacağım?" sorusu yurt dışındayken en çok panik yaratan durumlardan biri. İyi haber şu: süreç belli ve çözülebilir. Aşağıda adım adım ne yapacağını, geçici pasaportun ne olduğunu ve hangi belgeleri hazırlaman gerektiğini anlattık. Kısa videomuz da yazının içinde, izleyerek de takip edebilirsin.
+
+## Türkiye'de pasaportum kayboldu, ne yapmalıyım?
+
+Türkiye içindeysen konsolosluk ya da geçici pasaport süreci seni ilgilendirmiyor. Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü'nün (NVİ) resmi açıklamasına göre yurt içinde kaybolan pasaport **il veya ilçe nüfus müdürlüğüne** bildiriliyor. Adım adım:
+
+1. **Kayıp bildirimini yap.** En yakın il ya da ilçe nüfus müdürlüğüne kayıp ya da çalıntı beyanında bulun. Pasaportun süresi dolmuş olsa da bildirimi yapmak en güvenlisi, çünkü sistemde hâlâ senin adına kayıtlı bir belge.
+2. **Yeni pasaport için randevu al.** Randevuyu e-Devlet'teki [Pasaport Başvuru Randevusu](https://www.turkiye.gov.tr/nvi-pasaport-basvuru-randevusu) hizmetinden alabilirsin.
+3. **Harç ve defter bedelini öde.** Kaybolan pasaportun defteri geri gelmediği için defter bedeli yeniden ödenir. 2026 tarifesinde 10 yıllık bordo pasaport toplam **14.761,40 TL** (13.410,40 TL harç + 1.351 TL defter). 25 yaşını doldurmamış öğrenciler harçsız pasaport alabildiği için sadece defter bedelini öder.
+4. **Başvuruya git.** Yanında T.C. kimlik kartın ve son altı ayda çekilmiş bir biyometrik fotoğraf olsun. Ödeme sistemde göründüğü için ayrıca dekont istenmiyor.
+5. **Eski pasaport bulunursa** onunla seyahate kalkma. NVİ'ye göre kayıp bildirilen pasaport bulunduğunda nüfus müdürlüğüne başvurup kaydını güncelletmen gerekiyor.
+
+Kaynak: [NVİ Pasaport Hizmetleri SSS](https://www.nvi.gov.tr/sss-pasaport-hizmetleri). Ücretler yılbaşında değişir, başvurmadan önce güncel tarifeye bak.
 
 ## Yurt dışında pasaport kaybedersem ne yapmalıyım?
 
@@ -6935,7 +6947,7 @@ Evet. Resmi rengi bordo, halk arasında kırmızı denir. İkisi de umuma mahsus
 Belirli kamu görevlilerine ve mevzuatta sayılan yakınlarına verilir. Ayrıntılı şartlar mevzuata bağlı olduğu için güncel bilgiyi emniyet pasaport birimlerinden ya da resmi kaynaklardan teyit et.
 
 ### Öğrenci pasaportu diye ayrı bir renk var mı?
-Hayır. Türkiye'de pasaport rengi öğrenci olup olmamana değil, kamu görevi statüne göre belirlenir. Bir öğrenci, ailesinde kamu görevlisi yoksa standart bordo (kırmızı) pasaport alır, yurt dışında okuyan ya da Erasmus'a giden öğrencilerin çoğu da bordo pasaport kullanır. "Öğrenci pasaportu" diye ayrı bir kategori ya da renk yok.
+Hayır, öğrenci pasaportu ayrı bir tür değil, öğrenciler de **bordo (umuma mahsus)** pasaport alır. Fark harçta: NVİ'ye göre yurt içinde okuyan öğrenciler 25 yaşını doldurana kadar, yurt dışında okuyanlar yaş sınırı olmadan **harçsız** bordo pasaport alabilir, sadece defter bedeli ödenir. Başvuruda öğrencilik sistemde doğrulanamazsa öğrenci belgesi istenir. Rengi yeşil olan hususi pasaport ise öğrenciliğe değil, kamu görevi statüsüne bağlı.
 
 ### Gri ve siyah pasaport kimlere verilir?
 Gri pasaport, resmi görevle yurt dışına çıkan kamu görevlilerine, siyah pasaport ise diplomatlar ve üst düzey devlet yetkililerine verilir.

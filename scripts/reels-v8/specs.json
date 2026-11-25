@@ -1,0 +1,85 @@
+{
+  "_not": "v8 reels (25 Kasım 2026). Her sahnenin 'say' metni seslendirilir, sahne süresi ElevenLabs zaman damgasından gelir. Bilgiler ilgili site yazısından alınmıştır (article_slug).",
+  "reels": [
+    {
+      "n": 83,
+      "slug": "suudi-arabistan-vize-muafiyeti-anlasmasi-yururlukte",
+      "hook": "SUUDİ ARABİSTAN VİZESİ KALKTI MI?",
+      "title": "Suudi Arabistan vizesi kalktı mı?",
+      "scenes": [
+        {"say": "Suudi Arabistan vizesi kalktı mı?", "v": {"type": "myth", "claim": "Suudi Arabistan vizesi kalktı", "truth": "Sadece yeşil ve diplomatik pasaport", "bgimg": "s83_1"}},
+        {"say": "Haberi görünce hemen bavulunu hazırlama.", "v": {"type": "photo", "img": "s83_1"}},
+        {"say": "6 Kasım'dan beri yürürlükte olan anlaşma, sadece diplomatik ve hususi, yani yeşil pasaportu kapsıyor.", "v": {"type": "photo", "img": "s83_2", "chip": "6 KASIM 2026"}},
+        {"say": "Bordo pasaportun varsa hiçbir şey değişmedi.", "v": {"type": "compare", "left": ["YEŞİL", "Vizesiz"], "right": ["BORDO", "E-vize şart"], "lc": "#15803D", "rc": "#9F1239"}},
+        {"say": "Gitmeden önce yine internetten e-vize başvurusu yapman gerekiyor.", "v": {"type": "photo", "img": "s83_4", "chip": "E-VİZE ŞART"}},
+        {"say": "Yani bu muafiyet kamu görevlileri için bir kolaylık, turistler için değil.", "v": {"type": "photo", "img": "s83_3"}},
+        {"say": "Pasaportun hangi renk? Yorumda yaz.", "v": {"type": "cta", "text": "Pasaportun hangi renk?", "sub": "Yorumda yaz", "obj": "passport"}}
+      ],
+      "caption": "Suudi Arabistan vizesi kalktı mı? Herkes için değil.\n\n• 6 Kasım 2026'dan beri yürürlükte olan muafiyet sadece diplomatik ve hususi (yeşil) pasaportu kapsıyor.\n• Bordo pasaportla gidenler için değişen bir şey yok, e-vize hâlâ şart.\n• Muafiyet kamu görevlileri için pratik bir kolaylık, turistler için değil.\n\nPasaportun hangi renk, yorumda yaz.\n\narkadaşına gönder\n\n#gezicorn #suudiarabistan #vize #pasaport"
+    },
+    {
+      "n": 84,
+      "slug": "maldivler-vizesi-turkler-icin-varista-vize-kac-gun",
+      "hook": "MALDİVLER İÇİN VİZE GEREKİR Mİ?",
+      "title": "Maldivler için vize gerekir mi?",
+      "scenes": [
+        {"say": "Maldivler için vize başvurusu yapmana gerek yok.", "v": {"type": "photo", "img": "s84_1"}},
+        {"say": "Türk vatandaşları havalimanında varışta vize alıyor.", "v": {"type": "photo", "img": "s84_1b", "chip": "VARIŞTA VİZE"}},
+        {"say": "Süre 30 gün ve ücretsiz.", "v": {"type": "number", "big": "30", "unit": "GÜN", "label": "Varışta vize, ücretsiz", "obj": "plane"}},
+        {"say": "Bordo, yeşil, gri fark etmiyor, herkes aynı şartla giriyor.", "v": {"type": "photo", "img": "s84_2"}},
+        {"say": "Ama kapıda şunlar sorulabilir: dönüş biletin, otel rezervasyonun ve yeterli paran.", "v": {"type": "list", "title": "Kapıda sorulabilir", "items": [["Dönüş bileti", "ticket"], ["Otel rezervasyonu", "suitcase"], ["Yeterli para", "phone"]]}},
+        {"say": "30 günden fazla kalacaksan, ücret karşılığında 60 güne kadar uzatma mümkün olabiliyor.", "v": {"type": "photo", "img": "s84_4", "chip": "60 GÜNE KADAR UZATMA"}},
+        {"say": "Maldivler listende var mı? Yorumda yaz.", "v": {"type": "cta", "text": "Maldivler listende var mı?", "sub": "Yorumda yaz", "obj": "globe"}}
+      ],
+      "caption": "Maldivler için vize gerekir mi? Başvuru yok, kapıda alıyorsun.\n\n• Türk vatandaşları havalimanında varışta vize alıyor, süre 30 gün ve ücretsiz.\n• Bordo, yeşil, gri fark etmiyor, herkes aynı şartla giriyor.\n• Dönüş bileti, otel rezervasyonu ve yeterli para sorulabilir.\n\nMaldivler listende var mı, yorumda yaz.\n\narkadaşına gönder\n\n#gezicorn #maldivler #vizesiz #seyahat"
+    },
+    {
+      "n": 85,
+      "slug": "work-and-holiday-vizesi-turkler-icin-hangi-ulkelerde-var",
+      "hook": "WORK AND HOLIDAY HANGİ ÜLKELERDE VAR?",
+      "title": "Work and Holiday Türkler için hangi ülkelerde var?",
+      "scenes": [
+        {"say": "Kanada'da work and holiday yaparım diyorsan, kötü bir haberim var.", "v": {"type": "myth", "claim": "Kanada'da work and holiday yaparım", "truth": "Türkler için Kanada'da yok"}},
+        {"say": "Türk vatandaşları için bu program sadece iki ülkede var.", "v": {"type": "number", "big": "2", "unit": "ÜLKE", "label": "Türkiye'nin anlaşması olan", "obj": "globe"}},
+        {"say": "Avustralya ve Yeni Zelanda.", "v": {"type": "compare", "left": ["AVUSTRALYA", "Var"], "right": ["YENİ ZELANDA", "Var"], "lc": "#0F766E", "rc": "#0F766E"}},
+        {"say": "Kanada, Almanya, Japonya, Güney Kore ya da İngiltere ile Türkiye'nin böyle bir anlaşması yok.", "v": {"type": "list", "title": "Anlaşma yok", "cross": true, "items": [["Kanada", "pin"], ["Almanya", "pin"], ["Japonya", "pin"], ["Güney Kore", "pin"], ["İngiltere", "pin"]]}},
+        {"say": "Avustralya programı her yıl kotayla açılıyor, Dışişleri'nden destek mektubu istenebiliyor.", "v": {"type": "list", "title": "Avustralya", "items": [["Her yıl kotayla açılır", "ticket"], ["Destek mektubu istenebilir", "passport"]]}},
+        {"say": "Şartlar her yıl değişebiliyor, başvurmadan önce güncel duyuruyu kontrol et.", "v": {"type": "number", "big": "!", "unit": "", "label": "Başvurmadan önce güncel duyuruya bak", "obj": "compass"}},
+        {"say": "Hangisini denemek isterdin? Yorumda yaz.", "v": {"type": "cta", "text": "Avustralya mı, Yeni Zelanda mı?", "sub": "Yorumda yaz", "obj": "backpack"}}
+      ],
+      "caption": "Work and Holiday Türkler için hangi ülkelerde var? Sadece 2.\n\n• Türkiye'nin anlaşması sadece Avustralya ve Yeni Zelanda ile var.\n• Kanada, Almanya, Japonya, Güney Kore ve İngiltere ile böyle bir anlaşma yok.\n• Avustralya programı her yıl kotayla açılıyor, şartlar değişebiliyor.\n\nHangisini denemek isterdin, yorumda yaz.\n\narkadaşına gönder\n\n#gezicorn #workandholiday #avustralya #yenizelanda"
+    },
+    {
+      "n": 86,
+      "slug": "nepal-vizesi-turkler-icin-varista-mi-alinir",
+      "hook": "NEPAL VİZESİ NASIL ALINIR?",
+      "title": "Nepal vizesi nasıl alınır?",
+      "scenes": [
+        {"say": "Nepal'e gitmek için konsolosluk aramana gerek yok.", "v": {"type": "number", "big": "0", "unit": "RANDEVU", "label": "Konsolosluğa gitmen gerekmiyor", "obj": "compass"}},
+        {"say": "Zaten Türkiye'de Nepal konsolosluğu yok.", "v": {"type": "myth", "claim": "Önce konsolosluktan vize al", "truth": "Türkiye'de Nepal konsolosluğu yok"}},
+        {"say": "Bordo pasaportla Katmandu havalimanına inince, vizeni orada alıyorsun.", "v": {"type": "number", "big": "VARIŞTA", "unit": "VİZE", "label": "Katmandu Tribhuvan Havalimanı", "obj": "plane"}},
+        {"say": "Formu dolduruyorsun, bir fotoğraf veriyorsun, ücreti nakit dolarla ödüyorsun.", "v": {"type": "list", "title": "Bankoda", "items": [["Formu doldur", "ticket"], ["1 fotoğraf ver", "camera"], ["Nakit dolarla öde", "phone"]]}},
+        {"say": "Kaç gün kalacaksan ona uygun vize kategorisini seç. Pasaportun en az altı ay geçerli olsun.", "v": {"type": "number", "big": "6", "unit": "AY", "label": "Pasaport geçerliliği en az", "obj": "passport"}},
+        {"say": "Yoğun saatlerde bankoda kuyruk olabiliyor, nakit doları önceden hazırla.", "v": {"type": "list", "title": "İpucu", "items": [["Kuyruğa hazırlıklı ol", "pin"], ["Doları önceden hazırla", "backpack"]]}},
+        {"say": "Kaydet, Nepal rotanda lazım olacak.", "v": {"type": "cta", "text": "Kaydet", "sub": "Nepal rotanda lazım olacak", "obj": "backpack"}}
+      ],
+      "caption": "Nepal vizesi nasıl alınır? Katmandu'ya inince.\n\n• Bordo pasaportla Tribhuvan Havalimanı'nda varışta vize alınıyor.\n• Form, 1 fotoğraf ve nakit dolar yeterli, kalış süresine uygun kategoriyi seç.\n• Pasaportun en az 6 ay geçerli olmalı, ücretleri gitmeden resmi kaynaktan teyit et.\n\nKaydet, Nepal rotanda lazım olacak.\n\narkadaşına gönder\n\n#gezicorn #nepal #vize #himalaya"
+    },
+    {
+      "n": 87,
+      "slug": "laos-vizesi-turkler-icin-kapida-mi-e-vize-mi",
+      "hook": "LAOS'A VİZESİZ GİRİLİR Mİ?",
+      "title": "Laos'a vizesiz girilir mi?",
+      "scenes": [
+        {"say": "Laos'a bordo pasaportla vizesiz giremezsin.", "v": {"type": "myth", "claim": "Laos vizesiz", "truth": "Bordo pasaportla vize gerekli"}},
+        {"say": "Ama iki kolay yol var: sınır kapısında vize, ya da internetten e-vize.", "v": {"type": "compare", "left": ["KAPIDA", "Sınırda al"], "right": ["E-VİZE", "Önceden al"], "lc": "#0F766E", "rc": "#F97316"}},
+        {"say": "İkisi de 30 güne kadar tek giriş veriyor.", "v": {"type": "number", "big": "30", "unit": "GÜN", "label": "Tek giriş, iki yolda da", "obj": "stampobj"}},
+        {"say": "Asıl atlanan şey şu: 1 Ocak 2026'dan beri elektronik giriş formu zorunlu.", "v": {"type": "number", "big": "YENİ", "unit": "KURAL", "label": "Elektronik giriş formu zorunlu", "obj": "phone"}},
+        {"say": "Bu formu seyahatten en az üç gün önce doldurman gerekiyor.", "v": {"type": "number", "big": "3", "unit": "GÜN", "label": "Seyahatten en az önce doldur", "obj": "ticket"}},
+        {"say": "Unutursan sınırda sorun yaşayabilirsin.", "v": {"type": "list", "title": "Unutma", "items": [["Giriş formu", "phone"], ["6 ay geçerli pasaport", "passport"], ["Dönüş bileti", "ticket"]]}},
+        {"say": "Kaydet, Güneydoğu Asya rotanda lazım olacak.", "v": {"type": "cta", "text": "Kaydet", "sub": "Güneydoğu Asya rotanda lazım olacak", "obj": "tuktuk"}}
+      ],
+      "caption": "Laos'a vizesiz girilir mi? Bordo pasaportla hayır.\n\n• Sınır kapısında vize ya da internetten e-vize, ikisi de 30 güne kadar tek giriş.\n• 1 Ocak 2026'dan beri elektronik giriş formu zorunlu, seyahatten en az 3 gün önce doldur.\n• Pasaport en az 6 ay geçerli olmalı, dönüş bileti istenebilir.\n\nKaydet, Güneydoğu Asya rotanda lazım olacak.\n\narkadaşına gönder\n\n#gezicorn #laos #vize #guneydoguasya"
+    }
+  ]
+}
