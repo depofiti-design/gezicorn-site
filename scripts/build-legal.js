@@ -276,7 +276,7 @@ PAGES.push({
 
 <h2>Kanallar</h2>
 <div class="btns" id="contactBtns">
-<a href="https://www.instagram.com/gezicorn/" target="_blank" rel="noopener">Instagram @gezicorn</a>
+<a href="https://www.instagram.com/gezicorn/" target="_blank" rel="noopener">Instagram @gezicorn</a> · <a href="https://www.pinterest.com/alevdogan0528/" target="_blank" rel="noopener">Pinterest</a>
 <a href="https://www.youtube.com/@gezikorn" target="_blank" rel="noopener">YouTube @gezikorn</a>
 <a href="https://www.facebook.com/profile.php?id=144062395450039" target="_blank" rel="noopener">Facebook</a>
 </div>
