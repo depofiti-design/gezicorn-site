@@ -1,0 +1,57 @@
+name: Pinterest pinleri
+
+on:
+  schedule:
+    # Günde 3 pin, her çalıştırmada 1 (TR 08:30, 14:30, 19:30). Önce son 3 günün yazıları, sonra arşiv.
+    - cron: '30 5 * * *'
+    - cron: '30 11 * * *'
+    - cron: '30 16 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Kaç pin (varsayılan 1)'
+        required: false
+        default: '1'
+      dry_run:
+        description: '1 yazarsan sadece görsel üretir, pinlemez'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pinterest
+  cancel-in-progress: false
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        working-directory: scripts
+        run: |
+          npm install
+          pip install pillow
+      - name: Pinle
+        working-directory: scripts
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          PIN_COUNT: ${{ github.event.inputs.count || '1' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: node pinterest/pin-daily.mjs
+      - name: Durumu kaydet
+        run: |
+          git config user.name "gezicorn-bot"
+          git config user.email "bot@gezicorn.com"
+          git add scripts/pinterest/state.json
+          if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
+          git commit -m "Pinterest: pin durumu güncellendi"
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 5; done
