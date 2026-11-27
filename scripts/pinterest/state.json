@@ -8,5 +8,45 @@
   "pin_id": "284923113921941470",
   "board": "rehber",
   "at": "2026-11-27T20:12:41.808Z"
+ },
+ "bebek-pasaportu-nasil-cikarilir-gerekli-belgeler": {
+  "pin_id": "284923113921949166",
+  "board": "pasaport",
+  "at": "2026-11-27T23:28:16.321Z"
+ },
+ "rusyada-ise-yarayan-uygulamalar-taksi-yemek-harita": {
+  "pin_id": "284923113921949167",
+  "board": "rehber",
+  "at": "2026-11-27T23:28:17.682Z"
+ },
+ "maldivler-vizesi-turkler-icin-varista-vize-kac-gun": {
+  "pin_id": "284923113921949168",
+  "board": "vize",
+  "at": "2026-11-27T23:28:19.015Z"
+ },
+ "schengen-vizesinde-turkiye-icin-calisma-grubu-kuruldu": {
+  "pin_id": "284923113921949169",
+  "board": "haber",
+  "at": "2026-11-27T23:28:20.342Z"
+ },
+ "hong-kongda-ise-yarayan-uygulamalar-taksi-yemek-odeme": {
+  "pin_id": "284923113921949171",
+  "board": "rehber",
+  "at": "2026-11-27T23:28:21.606Z"
+ },
+ "laos-vizesi-turkler-icin-kapida-mi-e-vize-mi": {
+  "pin_id": "284923113921949172",
+  "board": "vize",
+  "at": "2026-11-27T23:28:22.656Z"
+ },
+ "fransa-schengen-vizesinde-bekleme-listesi-basladi": {
+  "pin_id": "284923113921949174",
+  "board": "haber",
+  "at": "2026-11-27T23:28:23.739Z"
+ },
+ "nepal-vizesi-turkler-icin-varista-mi-alinir": {
+  "pin_id": "284923113921949176",
+  "board": "vize",
+  "at": "2026-11-27T23:28:24.732Z"
  }
 }
