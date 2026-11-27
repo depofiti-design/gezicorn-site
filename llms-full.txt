@@ -4,6 +4,60 @@
 
 ---
 
+# Yurt Dışında Türk Hattını Kullanmak: Roaming Nasıl Çalışır?
+
+URL: https://www.gezicorn.com/yazi/yurt-disinda-turk-hattini-kullanmak-roaming-nasil-calisir/
+Kategori: Seyahat rehberleri
+
+> **Kısaca:** Yurt dışına çıkarken Türk hattını kapatmak zorunda değilsin. Turkcell, Vodafone ve Türk Telekom roaming hizmetiyle hattın yurt dışında da çalışır, ama önceden paket almazsan dakika ve veri ücretleri hızla yükselip fatura şokuna dönüşebilir.
+
+Yurt dışına ilk kez çıkanlar genelde iki şeyden birini yapıyor. Hattı tamamen kapatıp sadece WiFi'a güveniyor ya da hiçbir hazırlık yapmadan telefonu açık bırakıp dönüşte şişmiş bir faturayla karşılaşıyor. İkisi de gereksiz. Roaming paketinin ne olduğunu ve nasıl alındığını bilmek, bu iki uçtan da kaçınmanı sağlıyor.
+
+## Roaming nedir, nasıl çalışır?
+
+Roaming, telefon operatörünün yurt dışındaki bir partner operatörle anlaşmalı olduğu ülkelerde hattını misafir olarak o ağa bağlaması. Türkiye'den çıktığın anda telefonun otomatik olarak o ülkedeki bir yabancı operatörün şebekesine bağlanır, numaran değişmez, aynı hatla arama alıp yapabilirsin. Mesele, bu bağlantının ücretlendirilme şekli. Paketsiz kullanımda her dakika, her SMS ve her megabayt ayrı ayrı ve genelde yurt içi tarifelerden çok daha yüksek ücretlendiriliyor.
+
+## Paket almadan kullanmak neden riskli?
+
+Turkcell, Vodafone ve Türk Telekom'un hepsinde paketsiz roaming kullanımı mümkün ama tavsiye edilmiyor. Özellikle mobil veri açık kalırsa arka planda çalışan uygulamalar (harita, sosyal medya, otomatik yedekleme) fark etmeden veri tüketir ve dönüşte fatura normalin çok üstünde çıkabilir. Bu riski azaltmanın en basit yolu, uçağa binmeden önce mobil veriyi kapatmak ve paketini aldıktan sonra tekrar açmak.
+
+## Roaming paketi nasıl satın alınır?
+
+Üç operatörün de kendi uygulaması veya web sitesi üzerinden, yolculuk öncesi veya sınırı geçtikten sonra paket satın alınabiliyor. Genel akış şöyle:
+
+1. Operatörün uygulamasını aç, yurt dışı/roaming paketleri bölümünü bul.
+2. Gideceğin ülkeyi veya bölgeyi seç, veri/dakika/SMS içeriğine bak.
+3. Paketi satın al, SMS ile onay gelir.
+4. Sınırı geçince telefonun otomatik olarak yabancı operatöre bağlanır, ekstra işlem gerekmez.
+
+Bazı tarifelerde ek paket almadan da yurt içindeki tarifenle aynı şekilde kullanım sunan bir seçenek var, bu hangi ülkelerde geçerli olduğu operatöre göre değişiyor, uygulamadan kontrol etmek gerekiyor.
+
+## eSIM mi roaming mi?
+
+İkisi de aynı işi görüyor ama farklı mantıkla çalışıyor. Roaming paketinde Türk numaranı ve hattını kullanmaya devam edersin, sadece ekstra bir veri/dakika paketi eklersin. eSIM'de ise gittiğin ülkeye özel yerel bir hat telefonuna dijital olarak yüklenir, Türk hattın arka planda sadece arama/SMS için açık durur. Uzun süreli seyahatlerde ve sadece internet önemliyse eSIM genelde daha ekonomik çıkıyor, kısa seyahatlerde ve hattının aktif kalmasının önemli olduğu durumlarda roaming daha pratik olabiliyor. Konuyu daha detaylı karşılaştırmak için [yurt dışında eSIM kullanımı nasıl çalışır](/yazi/yurt-disinda-esim-kullanimi-nasil-calisir/) yazısına bakabilirsin.
+
+## Hangi ülkelerde roaming çalışmaz?
+
+Türk operatörlerinin dünyanın büyük kısmında partner anlaşması var ama her ülke ve her bölge aynı kapsamda değil. Bazı ülkelerde hiç anlaşma yoksa telefonun o ülkede hiç şebeke bulamaz, bazı ülkelerde ise sadece belirli bölgesel paketler geçerli olur ve o paketin kapsamadığı bir ülkeye geçtiğinde ücretler aniden yükselebilir. Gitmeden önce operatörünün güncel kapsama listesine bakmak, özellikle birden fazla ülke gezecek rotalarda (bkz. [yurt dışına ilk kez çıkacaklar için hazırlık rehberi](/yazi/yurt-disina-ilk-kez-cikacaklar-icin-hazirlik-rehberi/)) önemli bir adım.
+
+## Sık sorulan sorular
+
+### Yurt dışına giderken telefonu kapatmak gerekir mi?
+
+Hayır, kapatman gerekmiyor. Roaming otomatik çalışır, sadece mobil veriyi kapatıp uygun bir paket aldıktan sonra tekrar açman yeterli.
+
+### Roaming paketi almazsam ne olur?
+
+Telefonun yine çalışır ama her dakika, SMS ve megabayt ayrı ücretlendirilir, bu da dönüşte beklenmedik yüksek bir fatura riski demek.
+
+### eSIM mi daha uygun, yoksa Türk hattının roaming paketi mi?
+
+Uzun seyahatte ve sadece internet önemliyse eSIM genelde daha uygun çıkıyor, hattının aktif kalması ve kısa süreli kullanım önemliyse roaming daha pratik olabiliyor.
+
+Güncel paket içerikleri ve kapsanan ülkeler operatörden operatöre ve zamanla değişiyor, yola çıkmadan önce kendi operatörünün uygulamasından güncel bilgiyi doğrulaman gerekiyor. Vize ve seyahat şartlarıyla ilgili resmi bilgi için [T.C. Dışişleri Bakanlığı](https://www.mfa.gov.tr) sitesine de bakabilirsin.
+
+---
+
 # Kuveyt Vizesi Türkler İçin Nasıl Alınır?
 
 URL: https://www.gezicorn.com/yazi/kuveyt-vizesi-turkler-icin-nasil-alinir/
