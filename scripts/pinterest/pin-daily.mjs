@@ -47,7 +47,14 @@ const posts = snap.docs.map((d) => d.data())
   .filter((p) => !process.env.ONLY_SLUG || p.slug === process.env.ONLY_SLUG)
   .sort((a, b) => b.ts - a.ts);
 const fresh = posts.filter((p) => now - p.ts < 3 * 864e5);
-const queue = [...fresh, ...posts.filter((p) => !fresh.includes(p))].slice(0, N);
+// Günlük sınır (TR takvim günü): elle tetiklemede DAILY_CAP=99 gelir
+const trDay = (d) => new Date(new Date(d).getTime() + 3 * 36e5).toISOString().slice(0, 10);
+const today = trDay(Date.now());
+const doneToday = Object.values(state).filter((s) => s.at && trDay(s.at) === today).length;
+const cap = +(process.env.DAILY_CAP || 4);
+const room = Math.max(0, Math.min(N, cap - doneToday));
+if (!room) console.log(`bugün ${doneToday} pin atıldı, sınır ${cap}, çıkılıyor`);
+const queue = [...fresh, ...posts.filter((p) => !fresh.includes(p))].slice(0, room);
 console.log(`pinlenmemiş ${posts.length} yazı, bu çalıştırmada ${queue.length}`);
 
 mkdirSync(path.join(HERE, 'out'), { recursive: true });

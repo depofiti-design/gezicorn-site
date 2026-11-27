@@ -293,7 +293,7 @@ function renderPost(p, all) {
       datePublished: p.created.toISOString(), dateModified: p.updated.toISOString(),
       wordCount: words, articleSection: cat.label,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: { '@type': 'Organization', name: 'Gezicorn', url: `${BASE}/`, sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/', 'https://www.facebook.com/profile.php?id=144062395450039', 'https://www.pinterest.com/alevdogan0528/'] },
+      author: { '@type': 'Organization', name: 'Gezicorn', url: `${BASE}/`, sameAs: ['https://www.youtube.com/@gezikorn', 'https://www.instagram.com/gezicorn/', 'https://www.facebook.com/profile.php?id=144062395450039', 'https://www.pinterest.com/gezicorn/'] },
       publisher: { '@type': 'Organization', name: SITE, url: `${BASE}/`, logo: { '@type': 'ImageObject', url: `${BASE}/logo-256.png` } },
     },
     {
@@ -355,7 +355,7 @@ ${ytHtml}
 ${html}
 </div>
 ${affHtml}
-<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya 9 ülkeyi gezerek yazan, bugün Kamboçya'dan yayın yapan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara (konsolosluk, Dışişleri, NVİ, ülkelerin e-vize siteleri) dayanır, kural değişince güncellenir. Son kontrol: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time>. <a href="/hakkimizda/">Hakkımızda</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a> · <a href="https://www.pinterest.com/alevdogan0528/" rel="noopener">Pinterest</a></p></aside>
+<aside class="author"><img src="/logo-128.png" alt="Gezicorn" width="48" height="48"><p><b>Gezicorn</b>Kırgızistan'dan Kamboçya'ya 9 ülkeyi gezerek yazan, bugün Kamboçya'dan yayın yapan gezi ve vize rehberi. Yazılar kendi deneyimimize ve resmi kaynaklara (konsolosluk, Dışişleri, NVİ, ülkelerin e-vize siteleri) dayanır, kural değişince güncellenir. Son kontrol: <time datetime="${isoDate(p.updated)}">${trDate(p.updated)}</time>. <a href="/hakkimizda/">Hakkımızda</a> · <a href="https://www.youtube.com/@gezikorn" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/gezicorn/" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=144062395450039" rel="noopener">Facebook</a> · <a href="https://www.pinterest.com/gezicorn/" rel="noopener">Pinterest</a></p></aside>
 <aside class="next"><img src="/assets/3d/plane.webp" alt="" width="92" height="92" loading="lazy"><div><b>Sıradaki durak neresi?</b><p>Canlı uçak biletini ara ya da başka bir ülkenin rehberine göz at.</p></div><div class="btns"><a class="btn yl" href="/#bilet">Uçak bileti ara</a><a class="btn alt" href="/yazi/#vize">Vize rehberleri</a></div></aside>
 <p class="disclaimer">Bu yazı genel bilgi amaçlıdır. Vize, ücret ve giriş kuralları ülkeye ve döneme göre değişir. Başvurudan önce ilgili ülkenin konsolosluğunun veya resmi e-vize sitesinin güncel duyurularını kontrol et.</p>
 </article>

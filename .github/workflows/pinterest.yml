@@ -2,10 +2,9 @@ name: Pinterest pinleri
 
 on:
   schedule:
-    # Günde 3 pin, her çalıştırmada 1 (TR 08:30, 14:30, 19:30). Önce son 3 günün yazıları, sonra arşiv.
-    - cron: '30 5 * * *'
-    - cron: '30 11 * * *'
-    - cron: '30 16 * * *'
+    # 3 saatte bir, her çalıştırmada 1 pin, günde en fazla DAILY_CAP (4). GitHub bazı zamanlanmış
+    # çalıştırmaları atlayabildiği için (27 Kasım: 3'ten 1'i çalıştı) slot fazla, sınır script'te.
+    - cron: '20 2,5,8,11,14,17,20,23 * * *'
   workflow_dispatch:
     inputs:
       count:
@@ -45,6 +44,7 @@ jobs:
         env:
           COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
           PIN_COUNT: ${{ github.event.inputs.count || '1' }}
+          DAILY_CAP: ${{ github.event.inputs.count && '99' || '4' }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: node pinterest/pin-daily.mjs
       - name: Durumu kaydet
