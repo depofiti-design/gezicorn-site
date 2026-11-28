@@ -65,23 +65,27 @@ def tts(text, cache, engine, voice):
 
 
 def shorten(lang, items):
-    """items: [{i, t, max_chars, tr}] -> {i: kısa metin}"""
-    if not items:
-        return {}
-    with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf8') as f:
-        json.dump(items, f, ensure_ascii=False)
-        fp = f.name
+    """items: [{i, t, max_chars, tr}] -> {i: kısa metin}. 15'erli parçalar halinde (büyük istek boş dönüyordu)."""
+    res = {}
     prompt = (f"These are {LANG_NAMES.get(lang, lang)} dubbing lines for a Turkish travel vlog. Each line is too long to be spoken in its time slot. "
               "Rewrite each line 't' in the same language so it is at most 'max_chars' characters, as natural spoken language. "
               "Keep the core meaning and EVERY number, price and $ amount. Drop filler, repetition and minor details first. "
               "'tr' is the original Turkish for context. Output ONLY JSON: [{\"i\":0,\"t\":\"...\"}] one item per input, same order.")
-    out = subprocess.run(['node', GEMINI, prompt, '--file', fp, '--json'], capture_output=True, text=True, encoding='utf8', timeout=900).stdout
-    os.unlink(fp)
-    try:
-        return {x['i']: x['t'] for x in json.loads(re.search(r'\[.*\]', out, re.S).group(0))}
-    except Exception:
-        print('kısaltma yanıtı okunamadı:', out[:200])
-        return {}
+    for k in range(0, len(items), 15):
+        part = items[k:k + 15]
+        with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False, encoding='utf8') as f:
+            json.dump(part, f, ensure_ascii=False)
+            fp = f.name
+        for attempt in range(3):
+            r = subprocess.run(['node', GEMINI, prompt, '--file', fp, '--json'], capture_output=True, text=True, encoding='utf8', timeout=600)
+            try:
+                for x in json.loads(re.search(r'\[.*\]', r.stdout, re.S).group(0)):
+                    res[x['i']] = x['t']
+                break
+            except Exception:
+                print(f'kısaltma parça {k // 15 + 1} deneme {attempt + 1} başarısız:', (r.stdout or r.stderr)[:160].replace('\n', ' '))
+        os.unlink(fp)
+    return res
 
 
 def srt_time(s):
