@@ -1,7 +1,7 @@
 """YouTube çok dilli ses kanalı için dublaj üretir (Studio'dan elle yüklenir, API ses kanalı kabul etmiyor).
 Kullanım: python yt-dub.py <video.mp4> <segs.json> <tr_LANG.json> <lang> <çıktı.m4a> [--engine eleven|edge] [--voice ID]
 - segs.json: [{i,start,end}], tr_LANG.json: [{i,t}] (Gemini çıktısı, JSON metin içinde olabilir)
-- Her segment ayrı seslendirilir, segment süresine sığmazsa en fazla 1.35x hızlandırılır, yine taşarsa bir sonraki boşluğa kayar.
+- Her segment ayrı seslendirilir, segment süresine sığmazsa en fazla 1.5x hızlandırılır, yine taşarsa bir sonraki boşluğa kayar.
 - Orijinal ses %12 seviyede altta kalır (ortam sesi). Ses parçaları önbelleğe alınır (tekrar çalıştırmada kredi harcanmaz).
 ElevenLabs anahtarı: ELEVENLABS_API_KEY ya da scripts/elevenlabs-key.local.txt
 """
@@ -19,7 +19,9 @@ def ffmpeg():
 
 
 def decode(path, tempo=1.0):
-    af = ['-af', f'atempo={tempo:.3f}'] if abs(tempo - 1) > 0.01 else []
+    # baş/son sessizliği kırp (biriken kaymayı önler), gerekirse hızlandır
+    trim = 'silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse'
+    af = ['-af', trim + (f',atempo={tempo:.3f}' if abs(tempo - 1) > 0.01 else '')]
     raw = subprocess.run([ffmpeg(), '-v', 'error', '-i', path, *af, '-f', 's16le', '-ac', '1', '-ar', str(SR), '-'], capture_output=True).stdout
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
 
@@ -33,7 +35,14 @@ def eleven(text, out, voice):
 
 async def edge(text, out, voice):
     import edge_tts
-    await edge_tts.Communicate(text, voice).save(out)
+    for k in range(4):
+        try:
+            await edge_tts.Communicate(text, voice, rate='+12%').save(out)
+            return
+        except Exception as e:
+            if k == 3:
+                raise
+            await asyncio.sleep(3 * (k + 1))
 
 
 def main():
@@ -44,24 +53,25 @@ def main():
     tr = {x['i']: x['t'] for x in json.loads(re.search(r'\[.*\]', open(trp, encoding='utf8').read(), re.S).group(0))}
     cache = os.path.join(os.path.dirname(os.path.abspath(outp)), f'dub_{lang}_parts'); os.makedirs(cache, exist_ok=True)
     orig = decode(video)
-    track = np.zeros(len(orig) + SR * 5, np.float32)
+    track = np.zeros(len(orig) + SR * 120, np.float32)
     cursor, overruns = 0.0, 0
-    for s in segs:
+    for idx, s in enumerate(segs):
         text = (tr.get(s['i']) or '').strip()
-        if not text:
+        if not text or not re.search(r'\w', text):
             continue
         part = os.path.join(cache, f"{s['i']:04d}.mp3")
-        if not os.path.exists(part):
+        if not os.path.exists(part) or os.path.getsize(part) < 500:
             if engine == 'eleven':
                 eleven(text, part, voice)
             else:
                 asyncio.run(edge(text, part, voice))
         a = decode(part)
-        slot = s['end'] - s['start']
-        dur = len(a) / SR
-        if dur > slot * 1.02:
-            a = decode(part, min(1.35, dur / slot))
         start = max(s['start'], cursor + 0.05)
+        nxt = segs[idx + 1]['start'] if idx + 1 < len(segs) else s['end'] + 1.0
+        avail = max(0.8, nxt - start - 0.05)
+        dur = len(a) / SR
+        if dur > avail:
+            a = decode(part, min(1.6, dur / avail))
         if start - s['start'] > 0.5:
             overruns += 1
         i0 = int(start * SR)
