@@ -7,7 +7,7 @@ import { randomBytes } from 'node:crypto';
 
 const c = JSON.parse(readFileSync('youtube-client.local.json', 'utf8')).installed;
 const state = randomBytes(8).toString('hex');
-const SCOPE = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl';
+const SCOPE = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/yt-analytics.readonly';
 const server = http.createServer(async (req, res) => {
   const u = new URL(req.url, 'http://localhost');
   if (u.pathname !== '/') { res.end('ok'); return; }
